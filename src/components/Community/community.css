@@ -1,0 +1,315 @@
+.outer-community {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.community {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  margin-top: 200px;
+}
+
+.community h5 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  color: #4d495d;
+}
+
+.community h1 {
+  margin: 0;
+  font-size: 48px;
+  line-height: 130%;
+  text-align: center;
+}
+
+.community p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+  color: #b4b4c7;
+  max-width: 695px;
+  text-align: center;
+}
+
+.bottom-community {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  margin-top: 65px;
+}
+
+.left {
+  display: flex;
+}
+
+.left button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 32px;
+  width: 387px;
+  height: 409.02px;
+  background: linear-gradient(123.71deg, #fff, rgba(189, 179, 255, 0) 50.21%),
+    linear-gradient(122.69deg, #8769ff 8.82%, #67ffd5 109.84%);
+  box-shadow: inset 0 4px 30px 10px rgb(84 52 208 / 50%);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  border-radius: 25px;
+  border: none;
+}
+
+.left img {
+  width: 344px;
+  height: 293px;
+  margin-left: -21px;
+  margin-top: -81px;
+}
+
+.left svg {
+  margin-left: 12px;
+}
+
+.left h2 {
+  font-size: 32px;
+  line-height: 33px;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #191531;
+}
+
+.left h3 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #191531;
+  font-size: 16px;
+  line-height: 25px;
+  margin: 0;
+  text-align: left;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 32px;
+}
+
+.right1 {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  background: #3e385b;
+  border-radius: 25px;
+  background-blend-mode: overlay;
+  position: relative;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.right1:hover {
+  background: linear-gradient(115.26deg, #4010ff 4.79%, #67ffd5 99.36%),
+    linear-gradient(119.78deg, #fff 5.43%, hsla(0, 0%, 100%, 0) 75.01%);
+}
+
+.right1-1 {
+  width: 513px;
+  height: 195px;
+  background: linear-gradient(181.12deg,
+      rgba(119, 113, 135, 0.15) 0.96%,
+      rgba(119, 113, 135, 0) 139.33%);
+  border-radius: 25px;
+}
+
+.right1-1 button {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: url("https://unslashed.finance/graphic/lineGraphics.svg") no-repeat 100% 0;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  border-radius: 25px;
+  border: none;
+  background-color: #0f0d1e;
+  cursor: pointer;
+}
+
+.right1-1 h2 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 45px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: #fff;
+}
+
+.right1-1 h2 svg {
+  margin-left: 12px;
+}
+
+.right1-1 h4 {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #d8d8ea;
+}
+
+.right2 {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  background: #3e385b;
+  border-radius: 25px;
+  background-blend-mode: overlay;
+}
+
+.right2:hover {
+  background: linear-gradient(115.26deg, #4010ff 4.79%, #67ffd5 99.36%),
+    linear-gradient(119.78deg, #fff 5.43%, hsla(0, 0%, 100%, 0) 75.01%);
+}
+
+.right2-2 {
+  z-index: 3;
+  width: 513px;
+  height: 195px;
+  background: linear-gradient(181.12deg,
+      rgba(119, 113, 135, 0.15) 0.96%,
+      rgba(119, 113, 135, 0) 139.33%);
+  border-radius: 25px;
+}
+
+.right2-2 button {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: url("https://unslashed.finance/graphic/lineGraphics2.svg") no-repeat 100% 0;
+  border: none;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  border-radius: 25px;
+  background-color: #0f0d1e;
+  cursor: pointer;
+}
+
+.right2-2 h2 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 45px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: #fff;
+}
+
+.right2-2 h2 svg {
+  margin-left: 12px;
+}
+
+.right2-2 h4 {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #d8d8ea;
+}
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+  .community {
+    text-align: left;
+  }
+
+  .top-community h5 {
+    text-align: left;
+  }
+
+  .top-community p {
+    text-align: left;
+    max-width: 562px;
+  }
+
+  .top-community h1 {
+    font-size: 32px;
+    line-height: 40px;
+    text-align: left;
+    margin-top: 12px;
+  }
+
+  .bottom-community {
+    flex-direction: column;
+
+  }
+
+  .left {
+    width: 100%;
+    margin-bottom: 16px;
+
+    padding-left: 0;
+    padding-right: 0;
+
+  }
+
+  .left button {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .right1-1 {
+    width: 100%;
+    height: 169px;
+  }
+
+  .right2-2 {
+    width: 100%;
+    height: 169px;
+  }
+}

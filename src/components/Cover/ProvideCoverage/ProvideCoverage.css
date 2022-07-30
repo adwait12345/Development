@@ -1,0 +1,13 @@
+.Contracts span button{
+    width: 150px;
+    font-family: "Poppins", sans-serif;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Contracts span button img{
+    width: 20px;
+}

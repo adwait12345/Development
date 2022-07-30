@@ -1,0 +1,99 @@
+.topbox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  transition: 0.2s ease-in;
+  margin-top: 100px;
+}
+
+.topbox h5 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  text-align: center;
+  letter-spacing: 1.5px;
+  color: #4d495d;
+}
+
+.topbox h1 {
+  background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  margin: 10px;
+  font-size: 55px;
+  line-height: 130%;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+
+.topbox h3 {
+  color: #b4b4c7;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 30px 0 60px 0;
+}
+
+.topbox .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 2px;
+  border-radius: 10px;
+  background-blend-mode: overlay;
+  background: linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+
+}
+
+.button button {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 13px 32px;
+  flex-direction: row;
+  width: 100%;
+  background: #0f0d1e;
+  border-radius: 10px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: none;
+}
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+
+  .topbox h1 {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 110%;
+  }
+
+  .topbox h3 {
+    font-weight: 400;
+    letter-spacing: .2px;
+    font-size: 11.5px;
+    line-height: 24px;
+    max-width: 300px;
+  }
+
+}

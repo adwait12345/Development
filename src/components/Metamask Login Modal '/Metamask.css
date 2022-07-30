@@ -1,0 +1,50 @@
+.outer-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.Login{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    height: auto;
+    border: 1px solid;
+    border-radius: 15px;
+}
+.Login img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+.Login h3{
+    font-weight: 500;
+}
+.metamask{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid;
+    margin: 25px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.wallet-connect{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid;
+    margin: 25px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+.metamask:hover{
+color: white;
+background-color: black;
+}.wallet-connect:hover{
+color: white;
+background-color: black;
+}

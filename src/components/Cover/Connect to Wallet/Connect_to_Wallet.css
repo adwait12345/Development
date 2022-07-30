@@ -1,0 +1,52 @@
+.Connect_to_Wallet{
+    padding: 20px 0px 35px 20px;
+    margin: 25px;
+    width: 90%;
+    height: 75px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.Connect_to_Wallet p{
+    display: flex;
+    align-items: center;
+}
+.Connect_to_Wallet button{
+   padding: 10px;
+    height: 40px;
+    width: 160px;
+    border-radius: 10px;
+    border: 2px solid #000;
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Connect_to_Wallet button:hover{
+    background-color: black;
+    color: #fff;
+}
+.dot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    background-color: rgb(183, 179, 179);
+    border-radius: 100%;
+    margin-right: 15px;
+   
+}
+.innerdot{
+    height: 8px;
+    width: 8px;
+    background-color:rgb(101, 100, 100);
+    border-radius: 100%;
+ 
+}
