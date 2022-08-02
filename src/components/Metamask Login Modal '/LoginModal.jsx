@@ -6,7 +6,7 @@ export default function LoginModal() {
   return (
     <>
     <div className="outer-login">
-    {isWeb3Enabled && <p>Error</p>}
+    {isWeb3Enabled && <p>connected</p>}
           <div className="Login">
         <div className="metamask" onClick={enableWeb3}>
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png" alt="" />
