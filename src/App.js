@@ -17,8 +17,9 @@ function App() {
   return (
     <>
     <MoralisProvider
-    appId="8UhqmuFpbiSovZcwiHDSKKQ2gt1PsSlD22GCBFN5"
-    serverUrl='https://kqn8aq56evez.usemoralis.com:2053/server'
+    // appId="8UhqmuFpbiSovZcwiHDSKKQ2gt1PsSlD22GCBFN5"
+    // serverUrl='https://kqn8aq56evez.usemoralis.com:2053/server'
+    initializeOnMount={false}
     >
      <Router>
       <Routes>
