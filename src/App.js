@@ -10,12 +10,16 @@ import Buypolicy from "./components/Cover/Buy Policy/BuyPolicy";
 import ProvideCoverage from "./components/Cover/ProvideCoverage/ProvideCoverage";
 import BuyBMI from "./components/Cover/BuyBMI/BuyBMI";
 import LoginModal from "./components/Metamask Login Modal '/LoginModal";
-
+import {MoralisProvider} from "react-moralis"
 
 
 function App() {
   return (
     <>
+    <MoralisProvider
+    appId="8UhqmuFpbiSovZcwiHDSKKQ2gt1PsSlD22GCBFN5"
+    serverUrl='https://kqn8aq56evez.usemoralis.com:2053/server'
+    >
      <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -27,8 +31,7 @@ function App() {
        
       </Routes>
     </Router>
-   
-
+</MoralisProvider>
     </>
   );
 }

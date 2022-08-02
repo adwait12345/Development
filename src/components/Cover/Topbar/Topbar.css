@@ -1,0 +1,27 @@
+.top_content{
+    display: flex;
+   align-items: center;
+   height: 90px;
+   justify-content: space-between;
+   width: 100%;
+}
+.top_content h1{
+    margin-left: 25px;
+
+}
+.connect_wallet button{
+    margin: 0px 25px 0 25px;
+    height: 40px;
+    width: 160px;
+    border-radius: 10px;
+    border: 2px solid #000;
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    font-weight: 500;
+    cursor: pointer;
+}
+#connect{
+    background-color: #000;
+    color: #fff;
+    border: none;
+}

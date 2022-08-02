@@ -1,6 +1,24 @@
 import React from 'react'
 import './Connect_to_Wallet.css'
+// import {useWeb3React} from "@web3-react/core"
+import { NavLink } from 'react-router-dom'
+// import { injected } from './Connecter'
 export default function Connect_to_Wallet() {
+// const {active, account, library, connector,activate,deactivate} = useWeb3React()
+// async function Connect(){
+//    try {
+//     await activate(injected)
+//    } catch (error) {
+//     console.log(error)
+//    }
+// }
+// if (active = true){
+//     console.log("Connected" , account)
+// }
+// else{
+//     console.log("Not Connected")
+
+// }
   return (
     <><div className="Connect_to_Wallet">
         <p>
@@ -10,9 +28,15 @@ export default function Connect_to_Wallet() {
                 </div>
             </div>
             To continue, please connect your wallet.</p>
-        <button>
+            <NavLink
+          to={{
+            pathname: `/cover/MetaMask`,
+          }}
+        >
+        <button >
             Connect Wallet
         </button>
+        </NavLink>
         </div></>
   )
 }

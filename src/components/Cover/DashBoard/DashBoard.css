@@ -3,69 +3,7 @@
     font-family: "Poppins", sans-serif;
 
 }
-.aside_content{
-max-width: 280px;
-width: 100%;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    position: fixed;
-    border-right: 0.5px solid rgb(225, 223, 223);
-}
-.aside_content h1{
-    text-align: center;
-    font-weight: 400;
-}
-.aside_content li{
-    
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: left;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    margin: 10px;
-    justify-content: flex-start;
-}
-.active li{
-    background-color: rgb(0, 0, 0);
-    color: white;
-}
-.active button{
-    color: rgb(0, 119, 255);    
 
-}
-.active img{
-  filter: invert();
-}
-.aside_content a{
-    text-decoration: none;
-    color: #000 !important;
-    
-}
-.aside_content img {
-   
-    margin-right: 10px;
-}
-.aside_content  button{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #000;
-    background-color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 10px;
-   width: 93%;
-}
-.aside_content button:hover{
-    background-color: #000;
-    color: white;
-}
 .ri_content{
     width: 100%;
     display: flex;
@@ -73,33 +11,7 @@ width: 100%;
     align-items: flex-start;
     margin-left: 280px;
 }
-.top_content{
-    display: flex;
-   align-items: center;
-   height: 90px;
-   justify-content: space-between;
-   width: 100%;
-}
-.top_content h1{
-    margin-left: 25px;
 
-}
-.connect_wallet button{
-    margin: 0px 25px 0 25px;
-    height: 40px;
-    width: 160px;
-    border-radius: 10px;
-    border: 2px solid #000;
-    font-family: "Poppins", sans-serif;
-    background-color: transparent;
-    font-weight: 500;
-    cursor: pointer;
-}
-#connect{
-    background-color: #000;
-    color: #fff;
-    border: none;
-}
 .Bottom-Content{
     width: 100%;
     height: 100%;
