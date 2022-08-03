@@ -12,6 +12,8 @@
     height: auto;
     border: 1px solid;
     border-radius: 15px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .Login img{
     width: 50px;
@@ -27,7 +29,7 @@
     align-items: center;
     padding: 20px;
     border: 1px solid;
-    margin: 25px;
+    margin: 0px 25px 25px 25px;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -47,4 +49,19 @@ background-color: black;
 }.wallet-connect:hover{
 color: white;
 background-color: black;
+}
+.Close{display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin: 20px 0 20px 0;   
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+.Close img{
+      width: 15px;
+    height: 15px; 
 }
