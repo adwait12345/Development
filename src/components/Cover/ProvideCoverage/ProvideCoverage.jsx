@@ -7,15 +7,19 @@ import Sort from '../Sort.svg'
 import './ProvideCoverage.css'
 import Sidebar from '../SideBar/Sidebar'
 import Topbar from '../Topbar/Topbar'
+import Modal from "react-modal"
+import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 export default function ProvideCoverage() {
+  const [open , setOpen] = useState(false)
+
 // Search logic
 const [searchTerm, setSearchTerm]= useState("")
   return (
     <>
      <div className="Navbar_Cover">
-        <Sidebar/>
+        <Sidebar setOpen={setOpen}/>
     <div className="ri_content">
-      <Topbar name="Provide Coverage"/>
+      <Topbar name="Provide Coverage" setOpen={setOpen}/>
 
             <div className="Bottom-Content">
         
@@ -23,7 +27,7 @@ const [searchTerm, setSearchTerm]= useState("")
 
             
         <div className="BuyPolicy">
-            <div className="Contracts">
+            <div className="Contractss">
             <h5>Contracts({Contracts.length})</h5>
             <span> <button> <img src={Add} alt="" /> Add Contract</button></span>
             </div>
@@ -95,6 +99,9 @@ const [searchTerm, setSearchTerm]= useState("")
 
 
 </div>
+<Modal   isOpen={open}  className="Modal" >
+          <LoginModal open={open} setOpen={setOpen}/>
+        </Modal>
     </>
   )
 }

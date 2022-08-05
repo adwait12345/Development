@@ -8,7 +8,10 @@ import { Contracts } from '../../../Data/Contracts'
 import { useState } from 'react'
 import Sidebar from '../SideBar/Sidebar'
 import Topbar from '../Topbar/Topbar'
+import Modal from "react-modal"
+import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 export default function Buypolicy() {
+    const [open , setOpen] = useState(false)
 
 // Search logic
 const [searchTerm, setSearchTerm]= useState("")
@@ -18,9 +21,9 @@ const [searchTerm, setSearchTerm]= useState("")
   return (
     <>
     <div className="Navbar_Cover">
-       <Sidebar/>
+       <Sidebar setOpen={setOpen}/>
     <div className="ri_content">
-<Topbar name="Policy"/>
+<Topbar name="Policy" setOpen={setOpen}/>
 
             <div className="Bottom-Content">
         <div className="BuyPolicy">
@@ -35,9 +38,13 @@ const [searchTerm, setSearchTerm]= useState("")
                  <input className='input' type="text" placeholder='Search' onChange={(event)=>{setSearchTerm(event.target.value)}} />
 
                 </div>
+                <div className="Sort-section">
+                           <span>Contracts({Contracts.length})</span>
                 <button >
                     <img src={Sort} alt="" />
-                </button>
+                </button>       
+                </div>
+  
                </div>
                    <div className="Contract-All">
                     
@@ -92,6 +99,9 @@ const [searchTerm, setSearchTerm]= useState("")
     </div>
 
 
-</div></>
+</div>
+<Modal   isOpen={open}  className="Modal" >
+          <LoginModal open={open} setOpen={setOpen}/>
+        </Modal></>
   )
 }

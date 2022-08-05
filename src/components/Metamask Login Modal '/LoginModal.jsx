@@ -3,11 +3,15 @@ import './Metamask.css'
 import { useMoralis } from 'react-moralis'
 import {Navigate} from 'react-router-dom'
 
-export default function LoginModal({setOpen}) {
+export default function LoginModal({setOpen,open}) {
   const Close = ()=>{
    setOpen(false)
   }
   var {enableWeb3,isWeb3Enabled,} = useMoralis();
+
+
+   {isWeb3Enabled && setOpen(false)}
+
 
   
 

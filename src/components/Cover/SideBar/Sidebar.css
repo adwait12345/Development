@@ -5,7 +5,9 @@
         flex-direction: column;
         height: 100vh;
         position: fixed;
+        background-color: white;
         border-right: 0.5px solid rgb(225, 223, 223);
+        transition: 0.2s ease-in-out;
     }
     .aside_content h1{
         text-align: center;
@@ -61,3 +63,24 @@
         background-color: #000;
         color: white;
     }
+    #connectt{
+        display: none;
+    }
+    /* Mobile  */
+@media only screen and (max-width:799px) {
+    .aside_content{
+        left: -300px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    }
+    #connectt{
+         display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+    }
+    /* #connectt span{
+ 
+    } */
+}

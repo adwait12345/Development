@@ -1,8 +1,8 @@
 .Connect_to_Wallet{
-    padding: 20px 0px 35px 20px;
+    padding: 20px 0px 25px 20px;
     margin: 25px;
     width: 90%;
-    height: 75px;
+ 
     border: 1px solid #000;
     border-radius: 10px;
     display: flex;
@@ -50,3 +50,12 @@
     border-radius: 100%;
  
 }
+    /* Mobile  */
+    @media only screen and (max-width:799px) {
+        .Connect_to_Wallet{
+            margin: 20px 0 0 0;
+            justify-self: start;
+            align-self: center;
+        }
+        
+    }

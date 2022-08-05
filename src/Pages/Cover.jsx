@@ -9,16 +9,15 @@ import BuyBMI from '../components/Cover/BuyBMI/BuyBMI';
 
 
 
-
 export default function Cover() {
-
+  
   return (
     <>
-  <DashBoard/>
-<Buypolicy/>
-<ProvideCoverage/>
-<BuyBMI/>
+  <DashBoard />
+<Buypolicy />
+<ProvideCoverage />
+<BuyBMI />
 
-    </>
+    </> 
   )
 }

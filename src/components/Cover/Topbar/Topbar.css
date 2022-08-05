@@ -1,3 +1,10 @@
+.outer-topbar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
 .top_content{
     display: flex;
    align-items: center;
@@ -20,6 +27,14 @@
     font-weight: 500;
     cursor: pointer;
 }
+#connect span{
+    
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 13ch;
+}
 #connect{
     background-color: #000;
     color: #fff;
@@ -30,3 +45,86 @@
     
     
 }
+.mobile-topbar{
+    display: none;
+}
+.outer-mobile-topbar{
+    display: none;
+}
+
+    /* Mobile  */
+    @media only screen and (max-width:799px) {
+.top_content{
+    display: none; 
+}
+.outer-mobile-topbar{
+        display: flex;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+    flex-direction: column;
+}
+.outer-mobile-topbar hr{
+    background-color: rgba(122, 120, 120, 0.196);
+    margin: 0;
+    width: 110%;
+    height: 0.5px;
+    border: none;
+}
+.mobile-topbar{
+display: flex;
+justify-content: space-between;
+width: 100%;
+align-items: center;
+}
+.mobile-topbar h1{
+    font-weight: 400;
+}
+
+  .hamburger2  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .hamburger2 span {
+
+    margin: 4px;
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #4d495d;
+    border-radius: 1px;
+    transition: all .2s cubic-bezier(.1, .82, .76, .965);
+  }
+  .Headings-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    
+  }
+  .Headings-mobile button{
+   
+    height: 40px;
+    width: 160px;
+    border-radius: 10px;
+    border: 2px solid #000;
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .bet-contract p {
+  
+    width: 100% !important;
+
+}
+    }

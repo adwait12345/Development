@@ -4,11 +4,20 @@ import { NavLink } from 'react-router-dom'
 import dashboard from '../dashboard.svg'
 import BuyPolicy from '../BuyPolicy.svg'
 import Coverage from '../Coverage.svg'
-export default function Sidebar() {
+import { useMoralis } from 'react-moralis'
+
+export default function Sidebar({setOpen}) {
+  const {enableWeb3,isWeb3Enabled, account} = useMoralis();
+  const Handlerr=()=>{
+    setOpen(true)
+  }
   return (
     <>
-            <div className="aside_content">
+            <div className="aside_content" id='aside300'>
             <h1>SafeZen</h1>
+
+            <button  onClick={Handlerr}  id='connectt'>{isWeb3Enabled?<span >{account}</span>:"Connect Wallet"}</button>
+
             <NavLink
           to={{
             pathname: `/cover/DashBoard`,

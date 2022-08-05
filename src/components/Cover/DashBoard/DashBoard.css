@@ -21,3 +21,13 @@
         color: #000;
 
 }
+    /* Mobile  */
+    @media only screen and (max-width:799px) {
+        .ri_content{
+            margin-left: 0;
+        }
+        .Bottom-Content{
+            display: flex;
+            flex-direction: column;
+        }
+    }
