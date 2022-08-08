@@ -43,6 +43,13 @@ export default function Sidebar({setOpen}) {
             <li>
                 <img src={Coverage} alt="" />
                 Provide Coverage</li></NavLink>
+               
+               
+               
+               
+               
+               
+               
                 <NavLink
           to={{
             pathname: `/cover/BuyBMI`,

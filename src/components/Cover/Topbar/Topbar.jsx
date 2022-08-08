@@ -10,10 +10,16 @@ import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 
 export default function Topbar(props) {
   // const [open , setOpen] = useState(false)
-  const {enableWeb3,isWeb3Enabled, account} = useMoralis();
+  const {enableWeb3,isWeb3Enabled, account,logout} = useMoralis();
   const Handler=()=>{
     props.setOpen(true)
   }
+
+  // {isWeb3Enabled?
+  // document.getElementById
+  
+  // }
+
 
   let togglestatus = true;
   const clicked = () => {
@@ -55,7 +61,7 @@ export default function Topbar(props) {
                <div className="top_content">
             <h1>{props.name}</h1>
             <div className="connect_wallet">
-                <button>More on Gitbook</button>
+                <button id='logout' onClick={logout}>Logout</button>
 
                 <button  onClick={Handler}  id='connect'>{isWeb3Enabled?<span >{account}</span>:"Connect Wallet"}</button>
                 

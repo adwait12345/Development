@@ -11,15 +11,17 @@ import ProvideCoverage from "./components/Cover/ProvideCoverage/ProvideCoverage"
 import BuyBMI from "./components/Cover/BuyBMI/BuyBMI";
 import LoginModal from "./components/Metamask Login Modal '/LoginModal";
 import {MoralisProvider} from "react-moralis"
+import MyPolicies from "./components/Cover/DashBoard/Dashboard_After/MyPolicies/MyPolicies";
 
 
 function App() {
   return (
     <>
     <MoralisProvider
-    // appId="8UhqmuFpbiSovZcwiHDSKKQ2gt1PsSlD22GCBFN5"
-    // serverUrl='https://kqn8aq56evez.usemoralis.com:2053/server'
-    initializeOnMount={false}
+    appId="8UhqmuFpbiSovZcwiHDSKKQ2gt1PsSlD22GCBFN5"
+    serverUrl='https://kqn8aq56evez.usemoralis.com:2053/server'
+    
+    // initializeOnMount={false}
     >
      <Router>
       <Routes>
@@ -29,6 +31,8 @@ function App() {
         <Route path="/cover/ProvideCoverage" element={<ProvideCoverage/>} />
         <Route path="/cover/BuyBMI" element={<BuyBMI/>} />
         <Route path="/cover/MetaMask" element={<LoginModal/>} />
+        <Route path="/cover/Dashboard/Policy" element={<MyPolicies/>} />
+
        
       </Routes>
     </Router>

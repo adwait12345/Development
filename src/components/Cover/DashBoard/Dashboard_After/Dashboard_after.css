@@ -1,0 +1,28 @@
+.Dashboard_after{
+    margin-left: 25px;
+    margin-top: 20px;
+    font-family: "Poppins", sans-serif;
+
+}
+.top_Dashboard_after{
+    display: flex;
+}
+.top_Dashboard_after .tab{
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.react-tabs__tab--selected {
+border-bottom: 4px solid #000 !important;
+transition: 0.1s ease-in-out;
+
+}
+
+.active #Policies{
+     border-bottom: 5px solid;
+}
+.active #Liqidity{
+    border-bottom: 5px solid;
+
+}
