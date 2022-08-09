@@ -12,6 +12,7 @@ import BuyBMI from "./components/Cover/BuyBMI/BuyBMI";
 import LoginModal from "./components/Metamask Login Modal '/LoginModal";
 import {MoralisProvider} from "react-moralis"
 import MyPolicies from "./components/Cover/DashBoard/Dashboard_After/MyPolicies/MyPolicies";
+import Stake from "./components/Cover/Stake/Stake";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/cover/BuyBMI" element={<BuyBMI/>} />
         <Route path="/cover/MetaMask" element={<LoginModal/>} />
         <Route path="/cover/Dashboard/Policy" element={<MyPolicies/>} />
+        <Route path="/cover/Stake" element={<Stake/>} />
 
        
       </Routes>

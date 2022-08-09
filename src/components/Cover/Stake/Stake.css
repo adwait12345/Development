@@ -1,0 +1,151 @@
+.outer-stake{
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.Stake{
+    display: flex;
+    width: 90%;
+    border: 0.5px solid rgb(225, 223, 223);;
+    border-radius: 10px;
+    flex-direction: column;
+}
+.stake-bot{
+    display: flex;
+    justify-content: space-evenly;
+}
+.stake-box{
+    width: 45%;
+    border: 0.5px solid rgb(225, 223, 223);;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+.stake-top{
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid rgb(225, 223, 223);;
+    width: 100%;
+}
+.stake_title h3{
+    padding: 45px;
+    margin: 0;
+}
+.stake-top img{
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+    
+}
+.stake-top h3{
+    margin: 0;
+}
+.stake-top p{
+    margin: 0;
+    font-size: 13px;
+}
+.stake-top-title{
+   width: 70%;
+}
+.eth img{
+    width: 20px !important;
+    justify-self: flex-end;
+    align-self:flex-end;
+}
+.stake-available{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    border-bottom: 0.5px solid rgb(225, 223, 223);;
+
+}
+.stakes-right button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+
+}
+.stake-bott{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 350px;
+}
+.stake-bott p{
+    margin: 15px 0 0 0;
+    font-weight: 500;
+}
+.stake-bott span{
+    font-size: 13px;
+   
+}
+.stake-staked{
+   
+    width: 90%;
+    border-bottom: 0.5px solid rgb(225, 223, 223);;
+
+}
+.stake-stalked-left{
+    width: 100%;
+    text-align: left;
+}
+.APY{
+    width: 90%;
+    text-align: left;
+
+}
+
+.stake-gradient{
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 150px;
+    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
+}
+.stake-img{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+.stake-img img{
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    position: relative;
+    top: -15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stake-pool{
+    text-align: center;
+}
+.stake-pool h4{
+    font-size: 18px;
+    margin: 0;
+}
+.stake-pool p {
+    font-size: 13px;
+    margin: 30px;
+}
+.stake-pool button{
+    font-family: "Poppins", sans-serif;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}

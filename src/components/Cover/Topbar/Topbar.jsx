@@ -11,14 +11,16 @@ import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 export default function Topbar(props) {
   // const [open , setOpen] = useState(false)
   const {enableWeb3,isWeb3Enabled, account,logout} = useMoralis();
+
+  
   const Handler=()=>{
     props.setOpen(true)
   }
 
-  // {isWeb3Enabled?
-  // document.getElementById
+
   
-  // }
+  
+  
 
 
   let togglestatus = true;

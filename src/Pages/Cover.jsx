@@ -5,6 +5,7 @@ import Buypolicy from '../components/Cover/Buy Policy/BuyPolicy';
 import ProvideCoverage from '../components/Cover/ProvideCoverage/ProvideCoverage';
 import BuyBMI from '../components/Cover/BuyBMI/BuyBMI';
 import MyPolicies from '../components/Cover/DashBoard/Dashboard_After/MyPolicies/MyPolicies';
+import Stake from '../components/Cover/Stake/Stake';
 
 
 
@@ -17,6 +18,7 @@ export default function Cover() {
   <DashBoard />
 <Buypolicy />
 <ProvideCoverage />
+<Stake/>
 <BuyBMI />
 <MyPolicies/>
     </> 
