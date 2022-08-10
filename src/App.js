@@ -14,6 +14,7 @@ import {MoralisProvider} from "react-moralis"
 import MyPolicies from "./components/Cover/DashBoard/Dashboard_After/MyPolicies/MyPolicies";
 import Stake from "./components/Cover/Stake/Stake";
 import DAO from "./components/Cover/DAO/DAO";
+import Sell_Stake from "./components/Cover/Sell Stake/Sell-Stake";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/cover/Dashboard/Policy" element={<MyPolicies/>} />
         <Route path="/cover/Stake" element={<Stake/>} />
         <Route path="/cover/Stake" element={<Stake/>} />
+        <Route path="/cover/Sell-stake" element={<Sell_Stake/>} />
         <Route path="/cover/DAO" element={<DAO/>} />
 
        

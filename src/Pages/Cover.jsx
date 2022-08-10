@@ -7,6 +7,7 @@ import BuyBMI from '../components/Cover/BuyBMI/BuyBMI';
 import MyPolicies from '../components/Cover/DashBoard/Dashboard_After/MyPolicies/MyPolicies';
 import Stake from '../components/Cover/Stake/Stake';
 import DAO from '../components/Cover/DAO/DAO';
+import Sell_Stake from '../components/Cover/Sell Stake/Sell-Stake';
 
 
 
@@ -20,6 +21,7 @@ export default function Cover() {
 <Buypolicy />
 <ProvideCoverage />
 <Stake/>
+<Sell_Stake/>
 <DAO/>
 
 <MyPolicies/>

@@ -5,6 +5,7 @@ import dashboard from "../dashboard.svg";
 import BuyPolicy from "../BuyPolicy.svg";
 import Coverage from "../Coverage.svg";
 import Lock from "../Lock.svg"
+import Sell from '../Sell.svg'
 import Assessment from '../Assessment.svg'
 import DAO from '../DAO.svg'
 import { useMoralis } from "react-moralis";
@@ -67,7 +68,17 @@ export default function Sidebar({ setOpen }) {
           </li>
         </NavLink>   } 
 
-
+{isWeb3Enabled && 
+            <NavLink
+          to={{
+            pathname: `/cover/Sell-stake`,
+          }}
+        >
+          <li>
+            <img src={Sell} alt="" />
+           Sell Stake
+          </li>
+        </NavLink> }
 
 {isWeb3Enabled && 
             <NavLink
@@ -80,6 +91,8 @@ export default function Sidebar({ setOpen }) {
            DAO
           </li>
         </NavLink> }
+
+
 
         {/* <NavLink
           to={{
