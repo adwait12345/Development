@@ -8,6 +8,7 @@ import Topbox from '../components/Topbox/Topbox'
 import Underwrite from '../components/Underwrite/Underwrite'
 
 export default function HomePage() {
+
   return (
     <>
     <Navbar/>

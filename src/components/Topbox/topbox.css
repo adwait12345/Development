@@ -19,23 +19,51 @@
   text-align: center;
   letter-spacing: 1.5px;
   color: #4d495d;
+  
 }
-
+/* .blob{
+  width: 450px;
+  height: 450px;
+  position: absolute;
+  background: linear-gradient(70deg,#F11D22, #FFA12C);
+  z-index: -1;
+  border-radius: 100%;
+  filter: blur(50px);
+  top: 31px;
+    right: 900px;
+    opacity: 0.8;
+}.blob2{
+  width: 315px;
+  height: 315px;
+  position: absolute;
+  background: linear-gradient(247deg,#F11D22, #FFA12C);
+  z-index: -1;
+  border-radius: 100%;
+  filter: blur(50px);
+  top: 310px;
+  right: 163px;
+  opacity: 0.8;
+} */
 .topbox h1 {
-  background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
+  background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%); 
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-box-decoration-break: clone;
+  -webkit-box-decoration-break: clone; 
   margin: 10px;
-  font-size: 55px;
+  font-size: 45px;
   line-height: 130%;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -1.5px;
+  text-transform: uppercase;
+  max-width: 900px;
 }
+/* .topbox h1 span{
+ margin-left: 250px;
+} */
 
 .topbox h3 {
-  color: #b4b4c7;
+  color: #4b4b49;
   font-size: 15px;
   font-weight: 500;
   margin: 30px 0 60px 0;
@@ -81,11 +109,12 @@
 @media only screen and (max-width:799px) {
 
   .topbox h1 {
-    font-size: 28px;
+    font-size: 25px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0;
     line-height: 110%;
+    max-width: 400px;
   }
 
   .topbox h3 {

@@ -21,6 +21,10 @@
     border: 0.5px solid rgb(225, 223, 223);;
     border-radius: 10px;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .stake-top{
     display: flex;
@@ -28,9 +32,25 @@
     border-bottom: 0.5px solid rgb(225, 223, 223);;
     width: 100%;
 }
+.stake_title{
+    display: flex;  
+     padding: 45px;
+     align-items: center;
+}
 .stake_title h3{
-    padding: 45px;
+ 
     margin: 0;
+}
+.stake_title span{
+    margin-left: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.stake_title p{
+    text-decoration: underline;
+    margin-left: 10px;
 }
 .stake-top img{
     width: 20px;
@@ -53,99 +73,133 @@
     justify-self: flex-end;
     align-self:flex-end;
 }
-.stake-available{
+.stake-input{
     display: flex;
+    flex-direction: column;
+    width: 100%;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    border-bottom: 0.5px solid rgb(225, 223, 223);;
-
 }
-.stakes-right button{
-    width: 100px;
-    height: 40px;
+.stake-input-lim{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.stake_input{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
     border-radius: 10px;
+    background-color: #f1efef;
+}
+.stake_input input{
     border: none;
-    background-color: #000;
-    color: #fff;
+    background-color: transparent;
     font-family: "Poppins", sans-serif;
-
+   width: 100%;
 }
 .stake-bott{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 350px;
+    height: 240px;
 }
-.stake-bott p{
-    margin: 15px 0 0 0;
+
+
+
+
+.approve-szt{
+    width: 80%;
+    border: 2px solid #f1efef;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 0px 0;
+    border-radius: 10px;
     font-weight: 500;
-}
-.stake-bott span{
-    font-size: 13px;
-   
-}
-.stake-staked{
-   
-    width: 90%;
-    border-bottom: 0.5px solid rgb(225, 223, 223);;
+    cursor: pointer;
 
 }
-.stake-stalked-left{
-    width: 100%;
-    text-align: left;
-}
-.APY{
-    width: 90%;
-    text-align: left;
-
-}
-
-.stake-gradient{
-    width: 100%;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    height: 150px;
-    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
-}
-.stake-img{
+.transfer-szt{
+    width: 80%;
+    border: 2px solid #f1efef;
+    padding: 20px;
     display: flex;
-    width: 100%;
-    align-items: center;
     justify-content: center;
-    
-    
-}
-.stake-img img{
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    position: relative;
-    top: -15px;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    margin: 0px 0 50px 0;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+
 }
-.stake-pool{
-    text-align: center;
+.approve-szt:hover{
+    background-color: #000;
+    color:#fff;
+}.transfer-szt:hover{
+    background-color: #000;
+    color:#fff;
 }
-.stake-pool h4{
-    font-size: 18px;
-    margin: 0;
+.timeline{
+width: 80%;
 }
-.stake-pool p {
-    font-size: 13px;
-    margin: 30px;
+.timeline-line{
+    width: 3px;
+height: 80px;
+background-color: #f1efef;
+display: flex;
+justify-content: center;
+align-items: center;
 }
-.stake-pool button{
-    font-family: "Poppins", sans-serif;
+.blob{
+
+border-radius: 100%;
+
+position: absolute;
+
+}
+.blob img{
+    width: 18px;
+    height: 18px;
+}
+   /* Mobile  */
+   @media only screen and (max-width:799px) {
+    .stake-bot{
+        flex-direction: column;
+    }
+    .stake-box{
+        width: 90%;
+    }
+    .stake-bot{
+        justify-content: center;
+        align-items: center;
+    }
+    .stake_title{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stake_title span{
+        margin-left: 0;
+        
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 30ch;
+        display: flex;
+    }
+   }
+   .stake-bott button{
+    margin: 40px;
     width: 150px;
     height: 40px;
-    border: none;
-    background-color: #000;
-    color: #fff;
     border-radius: 10px;
-    cursor: pointer;
-}
+    border: none;
+    color: #fff;
+    background-color: #000;
+    justify-self: start;
+    align-self: flex-start;
+   }

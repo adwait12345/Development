@@ -5,6 +5,7 @@ import Sidebar from '../SideBar/Sidebar'
 import Topbar from '../Topbar/Topbar'
 import safezen from './safezen.png'
 import Modal from "react-modal"
+import check from '../check.svg'
 import { useMoralis } from 'react-moralis'
 import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 
@@ -12,25 +13,44 @@ import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 export default function Stake() {
     const [open, setOpen] = useState(false)
 
-    var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis } = useMoralis();
+    var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account} = useMoralis();
 
     return (
         <>
             <div className="Navbar_Cover">
                 <Sidebar setOpen={setOpen} />
                 <div className="ri_content">
-                    <Topbar setOpen={setOpen} name="Stake / Farm BMI" />
+                    <Topbar setOpen={setOpen} name="Stake /UnStake SZT" />
 
                     <div className="Bottom-Content">
+                        <div className="DashBoard_Boxes">
+                            <div className="box-dashboard">
+                                <h4>My SZT Balence</h4>
+                                <h3>0.00 USD</h3>
+                            </div>
+                            <div className="box-dashboard">
+                                <h4>Staked SZT</h4>
+                                <h3>0.00 USD</h3>
+                            </div>
+                            <div className="box-dashboard">
+                                <h4>Estimated APY</h4>
+                                <h3>0.0000 SZT</h3>
+                            </div>
+                        </div>
                         <div className="outer-stake">
+
+
+
                             <div className="Stake">
                                 <div className="stake_title">
-                                    <h3>Stake / Farming BMI</h3>
+                                    <h3>Stake SZT Token</h3>
+                                    <span>Contract Address: <p>{account}</p> </span>
+
                                 </div>
                                 <div className="stake-bot">
                                     <div className="stake-box">
                                         <div className="stake-top">
-                                            <img  src={safezen} alt="" />
+                                            <img src={safezen} alt="" />
                                             <div className="stake-top-title">
                                                 <h3>SafeZen (SZN)</h3>
                                                 <p>Native Platform Token</p>
@@ -40,40 +60,34 @@ export default function Stake() {
                                             </div>
                                         </div>
                                         <div className="stake-bott">
-                                            <div className="stake-available">
-                                                <div className="stakes-left">
-                                                    <p>Available:</p>
-                                                    <span>0 BMI</span>
+                                              <div className="stake-input">
+                                                <div className="stake-input-lim">
+                                                    <h4>Amount</h4>
+                                                    <h4>Max</h4>
                                                 </div>
-                                                <div className="stakes-right">
-                                                    <button>Stake</button>
+                                                <div className="stake_input">
+                                                    <input type="text" placeholder='Amount' />
+                                                    <span>SZT</span>
                                                 </div>
-                                            </div>
-                                            <div className="stake-staked">
-                                                <div className="stake-stalked-left">
-                                                    <p>Stalked:</p>
-                                                    <span>0 BMI (0 stkBMI)</span>
-                                                </div>
-                                                
-                                            </div>
-                                            <div className="APY">
-                                                <p>APY:</p>
-                                                <span>12.23%</span>
-                                            </div>
+                                              </div>
+                                              <button>Buy Stake</button>
                                         </div>
                                     </div>
                                     <div className="stake-box">
-                                        <div className="stake-gradient">
+                                             <div className="approve-szt">
+                                               <span>Approve SZT</span>
+                                             </div>
+                                             <div className="timeline">
+                                                <div className="timeline-line">
+                                            <div className="blob">
+                                                 <img src={check} alt="" />
+                                                </div>
+                                                </div>
 
-                                        </div>
-                                        <div className="stake-img">
-                                        <img src={safezen} alt="" />
-                                        </div>
-                                        <div className="stake-pool">
-                                            <h4>LP TOKEN Staking Pool</h4>
-                                            <p>Stake your BMI/ETH Sushiswap LP tokens here</p>
-                                            <button>Sushiswap</button>
-                                        </div>
+                                             </div>
+                                             <div className="transfer-szt">
+                                            <span>Transfer SZT</span>
+                                             </div>
                                     </div>
                                 </div>
                             </div>

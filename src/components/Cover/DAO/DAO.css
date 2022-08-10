@@ -1,0 +1,75 @@
+.outer-DAO{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+.DAO{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    border: 0.5px solid rgb(225, 223, 223);;
+    border-radius: 10px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   flex-direction: column;
+}
+.vote_on_claim{
+    width: 90%;
+    border: 0.5px solid rgb(225, 223, 223);;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
+}
+.vote_on_claim h3{
+    margin-left: 20px;
+}
+.vote_on_claim button{
+    width: 200px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin-right: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background-color: transparent;
+    cursor: pointer;
+}
+.vote_on_claim button:hover{
+    background-color: #000;
+    color: #fff;
+}
+.vote_on_claim h3{
+    font-weight: 600;
+}
+.Participate_in_governance{
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+}
+.Participate_in_governance h3{
+    font-weight: 500;
+}
+.Participate_in_governance h3{
+    margin: 40px 0 0px 50px;
+}
+.Pending_claims{
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    
+}
+    /* Mobile  */
+    @media only screen and (max-width:799px) {
+        .Pending_claims{
+            overflow-x: scroll;
+        }
+        .Participate_in_governance{
+            overflow-x: scroll;
+        }
+    }

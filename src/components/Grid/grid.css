@@ -171,6 +171,16 @@
 }
 
 /* Mobile  */
+@media only screen and (max-width:1290px) {
+
+.grid2{
+  margin-left: -500px;
+margin-top: 270px;
+}
+
+}
+
+/* Mobile  */
 @media only screen and (max-width:799px) {
   .innergrid {
     width: 90%;
@@ -226,4 +236,10 @@
   .special-box h2 {
     width: 213px;
   }
+  .grid2{
+    margin-left: 0px;
+  margin-top: 0px;
+  }
 }
+
+

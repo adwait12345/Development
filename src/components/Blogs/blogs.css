@@ -82,3 +82,10 @@ height: 745px;
         color: #b4b4c7
     }
 }
+/* Mobile  */
+@media only screen and (max-width:1440px) {
+    .bottom-blogs{
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+}

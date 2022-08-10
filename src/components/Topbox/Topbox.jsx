@@ -7,8 +7,10 @@ export default function Topbox() {
     <>
       <div className="topbox">
         <h5>WELCOME TO SAFEZEN</h5>
+        {/* <div className="blob"></div>
+        <div className="blob2"></div> */}
         <h1>
-          World's first innovative peer-to-peer insurance <br />
+          World's first innovative peer-to-peer insurance
           coverages to protect you from uncertain future risk
         </h1>
         <h3>

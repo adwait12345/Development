@@ -103,3 +103,26 @@
     
    
 }
+   /* Mobile  */
+   @media only screen and (max-width:799px) {
+    .policy-title{
+        flex-direction: column;
+    }
+    .policy-title h2{
+        margin-left: 0;
+    }
+    .Policy-btns{
+        margin-right: 0;
+    }
+    .Policy-btns button{
+        margin-right: 0;
+        font-size: 10px;
+    }
+    .Policies-chart{
+        width: 700px;
+    }
+    .react-tabs__tab-panel--selected {
+        display: block;
+        overflow: scroll;
+    }
+   }

@@ -10,3 +10,17 @@
     border-radius: 10px;
     background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
 }
+
+
+
+    /* Mobile  */
+    @media only screen and (max-width:799px) {
+        .DashBoard_Boxes{
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .box-dashboard{
+            margin: 20px 0 0 0;
+            width: 280px;
+        }
+    }
