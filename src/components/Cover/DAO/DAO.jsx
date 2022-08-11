@@ -31,7 +31,14 @@ export default function DAO() {
                 <li>Vote</li>
                </div>
                <div className="Policies-chart-bet">
-                <p>No record found</p>
+                <p> - </p>
+                <p> - </p>
+                <p> - </p>
+                <p> - </p>
+                <p> - </p>
+                <p> - </p>
+                <p> - </p>
+                <p><button>Stake GSZT</button></p>
                </div>
                <div className="Policies-chart-bot">
                 <button>
@@ -52,8 +59,8 @@ export default function DAO() {
                         </div>
 
                         <div className="vote_on_claim">
-                            <h3>Stake Governance SafeZen Token (GSZT) to Vote</h3>
-                            <button>Stake GSZT</button>
+                            <h3>Vote for GSZT</h3>
+                            <button>Vote</button>
                         </div>
                         <div className="Participate_in_governance">
                             <h3>Participate in Governance</h3>

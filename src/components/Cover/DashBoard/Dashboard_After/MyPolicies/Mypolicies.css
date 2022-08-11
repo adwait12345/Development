@@ -64,12 +64,24 @@
 .Policies-chart-bet{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 13px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 0.5px solid rgb(225, 223, 223);
 
+}
+.Policies-chart-bet p{
+    width: 80px;
+}
+.Policies-chart-bet p button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+   cursor: pointer;
+    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
+    font-family: "Poppins", sans-serif;
+    border: 1px solid;
 }
 .Policies-chart-bot{
     display: flex;

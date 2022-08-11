@@ -6,7 +6,7 @@
     width: 200px;
     padding: 0px 40px 0px 40px;
     margin: 20px 0px 20px 40px;
-    border: 1px solid;
+    /* border: 1px solid; */
     border-radius: 10px;
     background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
 }

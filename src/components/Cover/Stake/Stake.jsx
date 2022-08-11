@@ -52,7 +52,7 @@ export default function Stake() {
                                         <div className="stake-top">
                                             <img src={safezen} alt="" />
                                             <div className="stake-top-title">
-                                                <h3>SafeZen (SZN)</h3>
+                                                <h3>SafeZen (SZT)</h3>
                                                 <p>Native Platform Token</p>
                                             </div>
                                             <div className="eth">
@@ -70,7 +70,7 @@ export default function Stake() {
                                                     <span>SZT</span>
                                                 </div>
                                               </div>
-                                              <button>Buy Stake</button>
+                                              <button>Stake</button>
                                         </div>
                                     </div>
                                     <div className="stake-box">
@@ -89,8 +89,33 @@ export default function Stake() {
                                             <span>Transfer SZT</span>
                                              </div>
                                     </div>
+
+
+
+                                    
                                 </div>
+                                <div className="stake-bot">
+                             <div className="stake-box">
+                            <div className="sell">
+                                <h3>UnStake Token</h3>
+                <div className="selectStake">
+                  <input type="text" placeholder='Enter Unstake' />
+                   <span>SZT</span>
+                </div>
+                <div className="sell-button">
+                  <button>Unstake</button>
+                </div>
+            </div>
+               </div>
+               <div className="stake-box">
+                
+               </div>
+                                </div>
+
+
+
                             </div>
+
                         </div>
 
 

@@ -17,6 +17,7 @@
    flex-direction: column;
 }
 .vote_on_claim{
+    filter: blur(3px);
     width: 90%;
     border: 0.5px solid rgb(225, 223, 223);;
     border-radius: 10px;
@@ -47,6 +48,7 @@
     font-weight: 600;
 }
 .Participate_in_governance{
+    filter: blur(3px);
     width: 94%;
     display: flex;
     flex-direction: column;

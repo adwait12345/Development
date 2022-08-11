@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink ,Link} from "react-router-dom";
 import dashboard from "../dashboard.svg";
 import BuyPolicy from "../BuyPolicy.svg";
 import Coverage from "../Coverage.svg";
@@ -18,11 +18,23 @@ export default function Sidebar({ setOpen }) {
   return (
     <>
       <div className="aside_content" id="aside300">
-        <h1>SafeZen</h1>
+
+
+      <Link
+          to={{
+            pathname: `/`,
+          }}
+        >
+ <h1>SafeZen</h1>
+        </Link>
+       
 
         <button onClick={Handlerr} id="connectt">
           {isWeb3Enabled ? <span>{account}</span> : "Connect Wallet"}
         </button>
+
+
+
 
         <NavLink
           to={{
@@ -64,7 +76,7 @@ export default function Sidebar({ setOpen }) {
         >
           <li>
             <img src={Lock} alt="" />
-            Stake / Buy SZT
+            Stake / UnStake SZT
           </li>
         </NavLink>   } 
 
@@ -76,7 +88,7 @@ export default function Sidebar({ setOpen }) {
         >
           <li>
             <img src={Sell} alt="" />
-           Sell Stake
+             Buy & Sell 
           </li>
         </NavLink> }
 
