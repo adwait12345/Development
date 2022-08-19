@@ -8,7 +8,9 @@
         background-color: white;
         border-right: 0.5px solid rgb(225, 223, 223);
         transition: 0.2s ease-in-out;
+        overflow-y: scroll;
     }
+    
     .aside_content h1{
         text-align: center;
         font-weight: 400;
@@ -24,6 +26,7 @@
         border-radius: 10px;
         margin: 10px;
         justify-content: flex-start;
+        font-size: 16px;
     }
     .active li{
         background-color: rgb(0, 0, 0);
@@ -65,6 +68,28 @@
     }
     #connectt{
         display: none;
+    }
+    .buy-div{
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+        margin: 0px 20px 20px 20px;
+    }
+    .buy-div p{
+        font-size: 14px;
+    }
+    li span{
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        margin-left: 70px;
+    }
+    li span img{
+     width: 60px;
+     height: 60px;
+     object-fit: cover;
     }
     /* Mobile  */
 @media only screen and (max-width:799px) {

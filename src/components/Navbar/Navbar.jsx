@@ -164,7 +164,6 @@ export default function Navbar() {
               </svg>
             </li>
             <li>Blogs</li>
-            <div class="ufs"><button>Get UFS Token</button></div>
             <div className="launch">
               <button>Launch app</button>
             </div>

@@ -8,18 +8,21 @@ import MyPolicies from '../components/Cover/DashBoard/Dashboard_After/MyPolicies
 import Stake from '../components/Cover/Stake/Stake';
 import DAO from '../components/Cover/DAO/DAO';
 import Sell_Stake from '../components/Cover/Sell Stake/Sell-Stake';
+import { useMoralis } from 'react-moralis'
 
 
 
 
 
 export default function Cover() {
-  
+  var {enableWeb3,isWeb3Enabled,authenticate,isAuthenticated,user,Moralis} = useMoralis();
+
   return (
     <>
   <DashBoard />
 <Buypolicy />
 <ProvideCoverage />
+
 <Stake/>
 <Sell_Stake/>
 <DAO/>

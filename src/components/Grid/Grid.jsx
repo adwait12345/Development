@@ -27,13 +27,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/AtomsBoxLogo.svg"
                       alt=""
                     />
-                    <span>
-                      <img
-                        width={34}
-                        src="https://unslashed.finance/icons/Shield.png"
-                        alt=""
-                      />
-                    </span>
+ 
                   </button>
                   <h4>Truly Decentralized Governance</h4>
                 </div>
@@ -42,7 +36,7 @@ export default function Grid() {
                 <div className="special-box">
                   <button>
                     <h2>
-                      Learn about the <strong>SafeZen Bucket</strong> and how it
+                      Learn about the <strong>SafeZen Token</strong> and how it
                       works
                     </h2>
                     <img
@@ -61,13 +55,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/FileBoxLogo.svg"
                       alt=""
                     />
-                    <span>
-                      <img
-                        width={34}
-                        src="https://unslashed.finance/icons/Shield.png"
-                        alt=""
-                      />
-                    </span>
+ 
                   </button>
                   <h4>Zero Insolvency Risk</h4>
                 </div>
@@ -79,13 +67,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/WalletBoxLogo.svg"
                       alt=""
                     />
-                    <span>
-                      <img
-                        width={34}
-                        src="https://unslashed.finance/icons/Shield.png"
-                        alt=""
-                      />
-                    </span>
+ 
                   </button>
                   <h4>Fair & Faster Claim Process</h4>
                 </div>
@@ -97,13 +79,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/CoinsBoxLogo.svg"
                       alt=""
                     />
-                    <span>
-                      <img
-                        width={34}
-                        src="https://unslashed.finance/icons/Shield.png"
-                        alt=""
-                      />
-                    </span>
+ 
                   </button>
                   <h4>Innovative Product Offerings</h4>
                 </div>
@@ -117,13 +93,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/EtherBoxLogo.svg"
                       alt=""
                     />
-                    <span>
-                      <img
-                        width={34}
-                        src="https://unslashed.finance/icons/Shield.png"
-                        alt=""
-                      />
-                    </span>
+ 
                   </button>
                   <h4>Exchange Hacks</h4>
                 </div>
@@ -135,13 +105,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/EyeBoxLogo.svg"
                       alt=""
                     />
-                    <span>
-                      <img
-                        width={34}
-                        src="https://unslashed.finance/icons/Shield.png"
-                        alt=""
-                      />
-                    </span>
+ 
                   </button>
                   <h4>Transparent & Open-Source Data</h4>
                 </div>
@@ -153,13 +117,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/LockBoxLogo.svg"
                       alt=""
                     />
-                    <span>
-                      <img
-                        width={34}
-                        src="https://unslashed.finance/icons/Shield.png"
-                        alt=""
-                      />
-                    </span>
+ 
                   </button>
                   <h4>Underwriter's risk-diversification</h4>
                 </div>

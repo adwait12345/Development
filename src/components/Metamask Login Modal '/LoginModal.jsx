@@ -4,17 +4,24 @@ import { useMoralis } from 'react-moralis'
 import {Navigate} from 'react-router-dom'
 
 export default function LoginModal({setOpen}) {
+
+  
+
+
   const Close = ()=>{
    setOpen(false)
   }
-  var {enableWeb3,isWeb3Enabled,authenticate,isAuthenticated,user,Moralis} = useMoralis();
+  var {enableWeb3,isWeb3Enabled,authenticate,isAuthenticated,user,Moralis,} = useMoralis();
 
     {isWeb3Enabled && setOpen(false)}
-   
- async function authenticatee(){
+
+ let authenticatee= async()=>{
+
 try {
+
   user = await Moralis.Web3.authenticate({provider:"walletconnect"});
   web3 = await Moralis.Web3.enable({provider:"walletconnect"});
+  
 } catch (error) {
   console.log('auth failed ', error)
 }

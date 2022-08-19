@@ -6,11 +6,31 @@ import BuyPolicy from "../BuyPolicy.svg";
 import Coverage from "../Coverage.svg";
 import Lock from "../Lock.svg"
 import Sell from '../Sell.svg'
+import Drops from '../drop.svg'
 import Assessment from '../Assessment.svg'
 import DAO from '../DAO.svg'
 import { useMoralis } from "react-moralis";
+import { useState } from "react";
 
 export default function Sidebar({ setOpen }) {
+
+const [dropopen , setdeopopen]= useState(false)
+  
+let Drop=()=>{
+  if(dropopen==false){
+document.getElementById("drop").style.display="flex"
+setdeopopen(true)
+  }
+  else if(dropopen==true){
+    document.getElementById("drop").style.display="none"
+    setdeopopen(false) 
+  }
+
+}
+
+
+
+
   const { enableWeb3, isWeb3Enabled, account } = useMoralis();
   const Handlerr = () => {
     setOpen(true);
@@ -54,8 +74,18 @@ export default function Sidebar({ setOpen }) {
           <li>
             <img src={BuyPolicy} alt="" />
             Buy Policy
+            <span onClick={Drop}>
+              <img width={100} src={Drops} alt="" />
+            </span>
           </li>
+          
+
         </NavLink>
+        <div className="buy-div"id="drop">
+          <p>Pay-as-you-go Insurance</p>
+          <p>Zero-premium insurance</p>
+          <p>Advantage pay-as-you-go</p>
+        </div>
 
         <NavLink
           to={{

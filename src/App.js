@@ -17,9 +17,29 @@ import DAO from "./components/Cover/DAO/DAO";
 import Sell_Stake from "./components/Cover/Sell Stake/Sell-Stake";
 
 
+
+
+import { Network, Alchemy } from 'alchemy-sdk';
+import NotFound from "./components/404/404";
+
 function App() {
+
+// Optional Config object, but defaults to demo api-key and eth-mainnet.
+const settings = {
+  apiKey: 'qFF72R9T59pOGZHY7I3xrJOUX6Fnf4mT', // Replace with your Alchemy API Key.
+  network: Network.ETH_RINKEBY, // Replace with your network.
+};
+const alchemy = new Alchemy(settings);
+
+// Access standard Ethers.js JSON-RPC node request
+const usdcContract = "0x3932DFF3c6dEB73e683B1dc62FC01a6f0aB87bBd";
+alchemy.core.getTokenBalances(usdcContract).then(console.log);
+
+
+
+// const {account} = useMoralis();
   return (
-    <>
+    <>   
     <MoralisProvider
     appId="8UhqmuFpbiSovZcwiHDSKKQ2gt1PsSlD22GCBFN5"
     serverUrl='https://kqn8aq56evez.usemoralis.com:2053/server'
@@ -39,11 +59,14 @@ function App() {
         <Route path="/cover/Stake" element={<Stake/>} />
         <Route path="/cover/Sell-stake" element={<Sell_Stake/>} />
         <Route path="/cover/DAO" element={<DAO/>} />
-
+        <Route path="/Notfound" element={<NotFound/>} />
+        
        
       </Routes>
     </Router>
+
 </MoralisProvider>
+
     </>
   );
 }

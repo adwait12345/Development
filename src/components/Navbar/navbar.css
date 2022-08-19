@@ -74,6 +74,7 @@ font-weight: 400;
   text-align: left;
   margin-left: 20px;
   margin-top: 40px;
+  color: #fff;
 }
 
 .side-menu li {
@@ -82,13 +83,13 @@ font-weight: 400;
 }
 
 .launch button {
-  background-color: #4f3cc8;
+  background-color: #fff;
   border: none;
   border-radius: 10px;
   width: 100%;
   height: 100%;
   padding: 14px 33px;
-  color: white;
+  color: #000;
   /* border-radius: 15px; */
   font-family: "Poppins", sans-serif;
   font-weight: 500;

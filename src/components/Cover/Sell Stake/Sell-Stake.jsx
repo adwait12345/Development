@@ -6,14 +6,137 @@ import Modal from "react-modal"
 import safezen from '../Stake/safezen.png'
 import check from '../check.svg'
 import Ethrum from '../Ethrum.svg'
-
+import {StakingAbi,stakingAddress} from '../../../Constants/index'
 import './sell-stake.css'
-import { useMoralis } from 'react-moralis'
-export default function Sell_Stake() {
-    const [open, setOpen] = useState(false)
+import { useMoralis,useWeb3Contract } from 'react-moralis'
+import { useEffect } from 'react'
+import { ethers } from "ethers";
+// import Web3 from "web3"
+import { Network, Alchemy } from 'alchemy-sdk';
 
-    var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account} = useMoralis();
-  return (
+export default function Sell_Stake() {
+
+  
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+  const signer = provider.getSigner();
+    const [open, setOpen] = useState(false)
+    const [amount,setAmount] = useState("")
+    const [balance, setBalance] = useState("")
+    var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account,web3} = useMoralis();
+ 
+var contract = null;
+
+    // let acc = account.toString()
+    // console.log(account)
+//     const runner = async()=>{
+//               // await window.ethereum.send('eth_requestAccounts');
+//         // window.web3 = new Web3(wind.ethereum);
+
+//         // var accounts =await web3.eth.getAccounts();
+//         // account =accounts[0]
+//         // document.getElementById('lol').textContent=account;
+//         // contract = new web3.eth.Contract(StakingAbi, stakingAddress);
+//         contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
+//     var  contractSigned = new ethers.Contract(stakingAddress,StakingAbi, signer);
+//         // updateCurrentCount();
+//     const value = await contract.decimals();
+//     const value1 = await contract.name();
+//     const value2 = await contract.symbol();
+//     const value3 = await contract.balanceOf(account);
+//     const value7 = BigInt(value3).toString()
+//     const value4 = await contract.totalSupply()
+//     const value6 = BigInt(value4).toString()
+    
+//   let value5 =  await contractSigned.transfer("0xDbDB0f30d51Eda693a88AEca322071974602FE34",`${amount*1000000000000000000}`)
+//    Boolean(value5)
+
+// console.log(value)  
+// console.log(value1)  
+// console.log(value2)  
+// console.log(value7)  
+// console.log(value6)  
+// console.log(value5)
+//     }
+
+ 
+
+
+const updateCurrentCount = async () =>{
+//    if(contract){
+//     var totalSupply = contract.methods.totalSupply().call()
+//     console.log(totalSupply)
+
+//    }
+
+}
+const increaseCurrentCount = async ()=>{
+
+}
+
+const Balance = async()=>{
+    contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
+
+    const Extract = await contract.balanceOf(account)
+    var User_Balance = BigInt(Extract).toString()
+    setBalance(User_Balance/1e18)
+}
+
+const Transfer = async()=>{
+    contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
+    var  contractSigned = new ethers.Contract(stakingAddress,StakingAbi, signer);
+    var trans =await contractSigned.transfer("0xDbDB0f30d51Eda693a88AEca322071974602FE34",`${amount*1000000000000000000}`)
+    console.log(trans)
+}
+
+
+useEffect(()=>{
+       {isWeb3Enabled &&  Balance()}
+    
+      
+     
+},[isWeb3Enabled])
+
+
+
+
+
+
+
+
+
+
+//    const [rtBalance, setRtBalance]= useState("0")
+
+// const {runContractFunction:getRtBalance}= useWeb3Contract({
+//     abi:StakingAbi,
+//     contractAddress:stakingAddress,
+//     functionName:"balanceOf",
+//     params:{
+//         account:account,
+//     }
+// })
+
+// useEffect(()=>{
+//     if(isWeb3Enabled && account){
+//             updateUiValues()
+
+//     }
+// },[account, isWeb3Enabled])
+
+// async function updateUiValues(){
+//     const rtBalanceFromContract = (
+//          await getRtBalance({onError:(error)=>console.log(error)}).toString()
+//     )
+//     const formattedRtBalanceFromContract = ethers.utils.formatUnits(
+//         rtBalanceFromContract,
+//         "ether"
+//     )
+//     setRtBalance(formattedRtBalanceFromContract)
+//     setRtBalance(rtBalanceFromContract)
+// }
+  
+     return (
     <>
     
     <div className="Navbar_Cover">
@@ -24,8 +147,8 @@ export default function Sell_Stake() {
                     <div className="Bottom-Content">
                     <div className="DashBoard_Boxes">
                             <div className="box-dashboard">
-                                <h4>My Balence:</h4>
-                                <h3>0.00 USD</h3>
+                                <h4 id='lol'>My Balance:</h4>
+                                <h3>{balance} USD</h3>
                             </div>
                             <div className="box-dashboard">
                                 <h4>Current SZT Price:</h4>
@@ -42,7 +165,7 @@ export default function Sell_Stake() {
 
                             <div className="Stake">
                                 <div className="stake_title">
-                                    <h3>Stake SZT Token</h3>
+                                    <h3>Buy SZT Token</h3>
                                     <span>Contract Address: <p>{account}</p> </span>
 
                                 </div>
@@ -66,11 +189,11 @@ export default function Sell_Stake() {
                                                     <h4>Max</h4>
                                                 </div>
                                                 <div className="stake_input">
-                                                    <input type="text" placeholder='Amount' />
+                                                    <input type="text" placeholder='Amount' onChange={(event)=>{setAmount(event.target.value)}} />
                                                     <span>SZT</span>
                                                 </div>
                                               </div>
-                                              <button>Buy</button>
+                                              <button onClick={Transfer}>Transfer</button>
                                         </div>
                             </div>
                             <div className="stake-box">
@@ -91,7 +214,7 @@ export default function Sell_Stake() {
                    <span>SZT</span>
                 </div>
                 <div className="sell-button">
-                  <button>Sell</button>
+                  <button >Sell</button>
                 </div>
             </div>
                                     </div>
