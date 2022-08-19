@@ -74,28 +74,35 @@ const increaseCurrentCount = async ()=>{
 
 }
 
-const Balance = async()=>{
+( async()=>{
     contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
 
     const Extract = await contract.balanceOf(account)
     var User_Balance = BigInt(Extract).toString()
     setBalance(User_Balance/1e18)
-}
+    console.log(balance)
+})()
+
+
 
 const Transfer = async()=>{
-    contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
+    try {
+     contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
     var  contractSigned = new ethers.Contract(stakingAddress,StakingAbi, signer);
     var trans =await contractSigned.transfer("0xDbDB0f30d51Eda693a88AEca322071974602FE34",`${amount*1000000000000000000}`)
+
+ 
     console.log(trans)
+    // var receipt = new ethers.wait(trans);
+
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 
-useEffect(()=>{
-       {isWeb3Enabled &&  Balance()}
-    
-      
-     
-},[isWeb3Enabled])
+
 
 
 
@@ -142,7 +149,7 @@ useEffect(()=>{
     <div className="Navbar_Cover">
                 <Sidebar setOpen={setOpen} />
                 <div className="ri_content">
-                    <Topbar setOpen={setOpen} name="Sell Stake (SZT)" />
+                    <Topbar setOpen={setOpen} name="Buy & Sell" />
 
                     <div className="Bottom-Content">
                     <div className="DashBoard_Boxes">
@@ -197,9 +204,8 @@ useEffect(()=>{
                                         </div>
                             </div>
                             <div className="stake-box">
-                              <div className="tokendetails">
-                                 <p>Token Details</p>
-                                 <p>3e6fy66thg7..........jiy7xjoikngo76fuxx</p>
+                              <div className="transaction-Details">
+                                 
                               </div>
                              
                             </div>

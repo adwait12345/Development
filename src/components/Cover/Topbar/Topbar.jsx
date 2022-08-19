@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import './Topbar.css'
 // import { NavLink } from 'react-router-dom'
 import Modal from "react-modal"
@@ -11,17 +11,35 @@ import polygon from '../polygon.svg'
 
 export default function Topbar(props) {
   // const [open , setOpen] = useState(false)
-  const {enableWeb3,isWeb3Enabled, account,logout,login} = useMoralis();
+  const {enableWeb3,isWeb3Enabled, account,logout,login,authenticate} = useMoralis();
 
   
   const Handler=()=>{
     props.setOpen(true)
   }
 
+useEffect(()=>{
+const connectWalletOnPageLoad = async () => {
+  if (localStorage?.getItem('isWalletConnected')=== "true"){
+   try {
+        // await authenticate();
+        await enableWeb3()
+      localStorage.setItem('isWalletConnected',true)
+   } catch (error) {
+       console(error)
+   }
+   
+  }
+}
+connectWalletOnPageLoad()
+},[])
+  
+  
+  const Logging_Out=()=>{
+    logout()
+    localStorage.setItem('isWalletConnected',false)
 
-  
-  
-  
+  }
 
 
   let togglestatus = true;
@@ -65,21 +83,43 @@ export default function Topbar(props) {
             <h1>{props.name}</h1>
             <div className="connect_wallet">
 
-                <div class="dropdown">
-  <button class="dropbtn" onClick={Handler}  id='connect'>{isWeb3Enabled?<span >{account}</span>:"Connect Wallet"}</button>
-  <div class="dropdown-content">
+            <div class="dropdown">
+  <button class="dropbtn" onClick={Handler} >Select Chain</button>
+  {isWeb3Enabled &&
+    <div class="dropdown-content">
     <a >
-      <input type="radio"  />
       <img width={20} src={Ethrum} alt="" />
-      <input type="radio" />
-      <img width={20} src={polygon} alt="" />
+       Ethereum
 
     </a>
-    <a id='logout' onClick={logout}>Logout
-    <img width={20} src={Logout} alt="" />
+    <a >
+      <img width={20} src={polygon} alt="" />
+      Polygon
     </a>
 
   </div>
+  }
+  
+
+</div>
+
+
+
+
+                <div class="dropdown">
+  <button class="dropbtn" onClick={Handler}  >{isWeb3Enabled?<div className='Green'><div className='outerGreen'><div className='innerGreen'></div></div>Connected</div>:"Connect Wallet"}</button>
+ {isWeb3Enabled && 
+ 
+  <div class="dropdown-content">
+    <a  id='connect'>
+ 
+    {isWeb3Enabled?<span >{account}</span>:"Connect Wallet"}
+    </a>
+    <a id='logout' onClick={Logging_Out}>Disconnect
+    <img width={20} src={Logout} alt="" />
+    </a>
+
+  </div>}
 </div>
             </div>
 

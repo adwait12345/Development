@@ -11,8 +11,7 @@ export default function LoginModal({setOpen}) {
   const Close = ()=>{
    setOpen(false)
   }
-  var {enableWeb3,isWeb3Enabled,authenticate,isAuthenticated,user,Moralis,} = useMoralis();
-
+  var {enableWeb3,isWeb3Enabled,authenticate,isAuthenticated,user,Moralis,login} = useMoralis();
     {isWeb3Enabled && setOpen(false)}
 
  let authenticatee= async()=>{
@@ -34,18 +33,17 @@ LoginModal()
       enableWeb3({provider:"walletconnect",chainId:56});
      
       console.log("web3 activated")
+
+      
   }
 
 
  },[isWeb3Enabled,isAuthenticated,enableWeb3])
 
- async function enableWeb3(){
-  try {
-    web3 = await Moralis.Web3.enable({provider:"walletconnect"});
-  } catch (error) {
-    console.log("test call failed",error)
-  }
-  LoginModal()
+ function enableWeb33(){
+enableWeb3()
+localStorage.setItem('isWalletConnected',true)
+
  }
   
 // document.addEventListener("visibilitychange",()=>{
@@ -61,7 +59,7 @@ LoginModal()
           <div className="Login">
              <button onClick={Close} className='Close' >
              <img src="https://img.icons8.com/material-sharp/24/000000/delete-sign.png"/>             </button>
-        <div className="metamask" onClick={()=>enableWeb3()}>
+        <div className="metamask" onClick={()=>enableWeb33()}>
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png" alt="" />
           <h3>Connect to your MetaMask Wallet</h3>
         </div>

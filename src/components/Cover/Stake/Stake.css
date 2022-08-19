@@ -252,6 +252,4 @@ position: absolute;
     cursor: pointer;
     margin: 25px 0 0 0;
 }
-.tokendetails{
-    filter: blur(3px);
-}
+
