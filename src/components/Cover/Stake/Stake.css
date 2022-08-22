@@ -26,6 +26,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 310px;
+    overflow: hidden;
 }
 .stake-top{
     display: flex;

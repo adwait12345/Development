@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 export default function Transaction() {
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account,web3} = useMoralis();
-    var [Responce,setResponce]=useState(null)
+    var [Responce,setResponce]=useState([])
 
     const options = {
         method: 'POST',
@@ -37,15 +37,22 @@ export default function Transaction() {
         })
       };
     
-   
+  //  useEffect(()=>{
+ 
+  //  },[Responce])
 
-    //   fetch('https://eth-goerli.alchemyapi.io/v2/wKhHYRMeTZ3xJ9ww4jv7lVmRSEFamVH2', options)
-    //     .then(response => response.json())
-    //     .then(response => console.log(response.result))
-    //     .then(responce=>   JSON.parse(responce))
-    //     .then(responce => {return{responce:responce}})
-    //     .catch(err => console.error(err));
+         fetch('https://eth-goerli.alchemyapi.io/v2/wKhHYRMeTZ3xJ9ww4jv7lVmRSEFamVH2', options)
+        .then(function(responce){
+          return responce.json()
+        }).then(function(obj){
+          setResponce(obj.result.transfers)
+          // console.log(obj.result.transfers.hash)
+        })
+  
+        .catch(err => console.error(err));
 
+        console.log(Responce)
+        
     // fetch("https://eth-goerli.alchemyapi.io/v2/wKhHYRMeTZ3xJ9ww4jv7lVmRSEFamVH2",options)
     // .then(r =>  r.json().then(data => ({status: r.status, body: data})))
     // .then(obj => console.log(obj));
@@ -53,11 +60,24 @@ export default function Transaction() {
        
   return (
     <>
-       <div className="transaction">
-        <div className="transaction-card">
+       
+ 
+        {Responce.map((Responce, key) => {
+                return (       
+              <div className="transaction"> 
+              
+                  <a target="_blank" href={`https://goerli.etherscan.io/tx/${Responce.hash}`}>
+                    <div className="transaction-card">
+     
+       <p>Block No: {Responce.blockNum}</p> 
+        <span>Transaction Hash: {Responce.hash}</span>
+          </div>
+          </a>
+</div>
+                );
+              })}
         
-        </div>
-       </div>
+       
     
     </>
   )

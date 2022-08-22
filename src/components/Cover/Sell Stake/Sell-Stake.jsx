@@ -252,6 +252,7 @@ const Transfer = async()=>{
                             </div>
                             <div className="stake-box">
                               <div className="transaction-Details">
+                                <h4>Transection History  </h4>
                                  <Transaction/>
                               </div>
                              
