@@ -129,7 +129,10 @@
 } */
 
 
-
+#logout{
+  color: red !important;
+  font-weight: 500;
+}
 
 
 

@@ -1,0 +1,13 @@
+.transaction{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.transaction-card{
+    width: 99%;
+    display: flex;
+    height: 50px;
+    background-color: #E6FFED;
+}

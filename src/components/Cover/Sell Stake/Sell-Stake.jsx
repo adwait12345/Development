@@ -11,8 +11,11 @@ import './sell-stake.css'
 import { useMoralis,useWeb3Contract } from 'react-moralis'
 import { useEffect } from 'react'
 import { ethers } from "ethers";
+
 // import Web3 from "web3"
 import { Network, Alchemy } from 'alchemy-sdk';
+import Loader from '../../Loader/Loader'
+import Transaction from '../../Transaction/Transaction'
 
 export default function Sell_Stake() {
 
@@ -23,6 +26,8 @@ export default function Sell_Stake() {
     const [open, setOpen] = useState(false)
     const [amount,setAmount] = useState("")
     const [balance, setBalance] = useState("")
+    const [confirmations, setConfirmations]= useState(false)
+    const [loading, setloading]=useState(false)
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account,web3} = useMoralis();
  
 var contract = null;
@@ -84,23 +89,65 @@ const increaseCurrentCount = async ()=>{
 })()
 
 
+// Optional Config object, but defaults to demo api-key and eth-mainnet.
+const settings = {
+    apiKey: 'qFF72R9T59pOGZHY7I3xrJOUX6Fnf4mT', // Replace with your Alchemy API Key.
+    network: Network.ETH_GOERLI, // Replace with your network.
+  };
+  const alchemy = new Alchemy(settings);
+  
+  // Access standard Ethers.js JSON-RPC node request
+//   alchemy.core.getAssetTransfers(
+
+    
+//   ).then(console.log);
+
+  
+ 
+const TransPrev= async()=>{
+    contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
+    // const networkProvider = new ethers.providers.EtherscanProvider(alchemy.network)
+    // const signer2 = networkProvider.getSigner();
+
+    const currentAddress = await signer.getAddress();
+    let currentHistory = await provider.getHistory(currentAddress);
+console.log(currentHistory)
+//    const Previous=  contract.filters.Transfer(account, "0xDbDB0f30d51Eda693a88AEca322071974602FE34")
+    // console.log(Previous)
+}
+
+useEffect(()=>{
+    {isWeb3Enabled && TransPrev()}
+})
+
 
 const Transfer = async()=>{
     try {
+        setloading(true)
      contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
     var  contractSigned = new ethers.Contract(stakingAddress,StakingAbi, signer);
     var trans =await contractSigned.transfer("0xDbDB0f30d51Eda693a88AEca322071974602FE34",`${amount*1000000000000000000}`)
 
  
     console.log(trans)
-    // var receipt = new ethers.wait(trans);
 
+
+    var receipt = await trans.wait();
+
+    console.log(receipt.confirmations)
+    if(receipt.confirmations>0){
+        setConfirmations(true)
+        setloading(false)
+    }
     } catch (error) {
+        setloading(false)
         console.log(error)
     }
 
 }
 
+
+  
 
 
 
@@ -200,12 +247,12 @@ const Transfer = async()=>{
                                                     <span>SZT</span>
                                                 </div>
                                               </div>
-                                              <button onClick={Transfer}>Transfer</button>
+                                              <button onClick={Transfer}>{loading?<Loader/>:"Transfer"}</button>
                                         </div>
                             </div>
                             <div className="stake-box">
                               <div className="transaction-Details">
-                                 
+                                 <Transaction/>
                               </div>
                              
                             </div>

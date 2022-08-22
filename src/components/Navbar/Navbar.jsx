@@ -1,5 +1,6 @@
 import React from "react";
 import "./navbar.css";
+import { Link } from "react-router-dom";
 export default function Navbar() {
   let togglestatus = true;
   const clicked = () => {
@@ -48,6 +49,7 @@ export default function Navbar() {
             <h1>SafeZen</h1>
           </div>
           <div className="mid-menu">
+            <a href="https://bit.ly/SafeZenWhitepaperV1">
             <li>
               Whitepaper
               <svg
@@ -72,7 +74,7 @@ export default function Navbar() {
                   stroke-linejoin="round"
                 />
               </svg>
-            </li>
+            </li></a>
             <li>
               Docs
               <svg
@@ -101,8 +103,9 @@ export default function Navbar() {
             <li>Blogs</li>
           </div>
           <div className="launch-app">
-            <button>Launch app</button>
-          </div>
+          <Link to='/cover/DashBoard'>
+              <button>Launch app</button>
+              </Link>          </div>
           <div className="hamburger" onClick={clicked}>
             <button>
               <span id="s1"></span>
@@ -165,7 +168,10 @@ export default function Navbar() {
             </li>
             <li>Blogs</li>
             <div className="launch">
+              <Link to='/cover/DashBoard'>
               <button>Launch app</button>
+              </Link>
+              
             </div>
           </div>
         </aside>

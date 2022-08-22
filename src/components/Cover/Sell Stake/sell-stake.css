@@ -10,3 +10,10 @@
     border: 0.5px solid rgb(225, 223, 223);;
     border-radius: 10px;
 }
+.transaction-Details{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

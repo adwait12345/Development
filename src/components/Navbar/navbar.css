@@ -39,7 +39,7 @@ font-weight: 400;
   align-items: center;
 }
 
-.mid-menu li {
+.mid-menu  li {
   display: flex;
   font-style: normal;
   font-weight: 500;
@@ -49,7 +49,9 @@ font-weight: 400;
   padding-right: 18px;
   align-items: center;
 }
-
+.mid-menu a{
+  text-decoration: none;
+}
 .launch-app button {
   background-color: #0F0D1E;
   border: none;
@@ -59,6 +61,7 @@ font-weight: 400;
   border-radius: 15px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .hamburger {
@@ -93,6 +96,7 @@ font-weight: 400;
   /* border-radius: 15px; */
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  cursor: pointer;
 }
 
 /* Mobile  */
