@@ -6,7 +6,7 @@ import Modal from "react-modal"
 import safezen from '../Stake/safezen.png'
 import check from '../check.svg'
 import Ethrum from '../Ethrum.svg'
-import {StakingAbi,stakingAddress} from '../../../Constants/index'
+import {StakingAbi,stakingAddress,Buy_Sell,BuySell,Dai,GSZTToken} from '../../../Constants/index'
 import './sell-stake.css'
 import { useMoralis,useWeb3Contract } from 'react-moralis'
 import { useEffect } from 'react'
@@ -26,6 +26,8 @@ export default function Sell_Stake() {
     const [open, setOpen] = useState(false)
     const [amount,setAmount] = useState("")
     const [balance, setBalance] = useState("")
+    const [sellamount, setSellamount] =useState("")
+    const [issuedTokens,setIssuedTokens]= useState("")
     const [confirmations, setConfirmations]= useState(false)
     const [loading, setloading]=useState(false)
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account,web3} = useMoralis();
@@ -85,7 +87,8 @@ const increaseCurrentCount = async ()=>{
     const Extract = await contract.balanceOf(account)
     var User_Balance = BigInt(Extract).toString()
     setBalance(User_Balance/1e18)
-    console.log(balance)
+    // console.log(balance)
+
 })()
 
 
@@ -104,31 +107,37 @@ const settings = {
 
   
  
-const TransPrev= async()=>{
-    contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
-    // const networkProvider = new ethers.providers.EtherscanProvider(alchemy.network)
-    // const signer2 = networkProvider.getSigner();
+// const TransPrev= async()=>{
+//     contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
+//     // const networkProvider = new ethers.providers.EtherscanProvider(alchemy.network)
+//     // const signer2 = networkProvider.getSigner();
 
-    const currentAddress = await signer.getAddress();
-    let currentHistory = await provider.getHistory(currentAddress);
-console.log(currentHistory)
-//    const Previous=  contract.filters.Transfer(account, "0xDbDB0f30d51Eda693a88AEca322071974602FE34")
-    // console.log(Previous)
+//     const currentAddress = await signer.getAddress();
+//     let currentHistory = await provider.getHistory(currentAddress);
+// console.log(currentHistory)
+// //    const Previous=  contract.filters.Transfer(account, "0xDbDB0f30d51Eda693a88AEca322071974602FE34")
+//     // console.log(Previous)
+// }
+
+// useEffect(()=>{
+//     {isWeb3Enabled && TransPrev()}
+// })
+
+
+const Approve =async()=>{
+    contract = new ethers.Contract(Dai,StakingAbi, provider);
+    var  contractSigned = new ethers.Contract(Dai,StakingAbi, signer);
+    var trans =await contractSigned.approve(BuySell,  amount)
 }
 
-useEffect(()=>{
-    {isWeb3Enabled && TransPrev()}
-})
-
-
-const Transfer = async()=>{
+const Buy = async()=>{
     try {
         setloading(true)
-     contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
-    var  contractSigned = new ethers.Contract(stakingAddress,StakingAbi, signer);
-    var trans =await contractSigned.transfer("0xDbDB0f30d51Eda693a88AEca322071974602FE34",`${amount*1000000000000000000}`)
+     contract = new ethers.Contract(BuySell,Buy_Sell, provider);
+    var  contractSigned = new ethers.Contract(BuySell,Buy_Sell, signer);
+    var trans =await contractSigned.buySZTToken(amount)
 
- 
+    // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
     console.log(trans)
 
 
@@ -143,14 +152,44 @@ const Transfer = async()=>{
         setloading(false)
         console.log(error)
     }
-
+   
 }
 
+const random=async()=>{
+    contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
+    var  contractSigned = new ethers.Contract(stakingAddress,StakingAbi, signer);
+    var trans =await contractSigned.approve(BuySell,  sellamount)
 
-  
+}
+    const GSZT = async()=>{
+       var gszt = await contractSigned.approve(GSZTToken, sellamount)  
+    }
+   GSZT()
+
+const SellToken = async()=>{
+ 
+    try {
+        
+     contract = new ethers.Contract(BuySell,Buy_Sell, provider);
+    var  contractSigned = new ethers.Contract(BuySell,Buy_Sell, signer);
+    var sell =await contractSigned.sellSZTToken(sellamount)
+
+    // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
+    console.log(sell)
 
 
+    var receipt = await trans.wait();
 
+    console.log(receipt.confirmations)
+    if(receipt.confirmations>0){
+        setConfirmations(true)
+        
+    }
+    } catch (error) {
+        console.log(error)
+    }
+   
+}
 
 
 
@@ -202,7 +241,7 @@ const Transfer = async()=>{
                     <div className="DashBoard_Boxes">
                             <div className="box-dashboard">
                                 <h4 id='lol'>My Balance:</h4>
-                                <h3>{balance} USD</h3>
+                                <h3>{balance} SZT</h3>
                             </div>
                             <div className="box-dashboard">
                                 <h4>Current SZT Price:</h4>
@@ -210,7 +249,7 @@ const Transfer = async()=>{
                             </div>
                             <div className="box-dashboard">
                                 <h4>Issued SZT till Date:</h4>
-                                <h3>0.0000 SZT</h3>
+                                <h3>{issuedTokens} SZT</h3>
                             </div>
                         </div>
                         <div className="outer-stake">
@@ -247,7 +286,11 @@ const Transfer = async()=>{
                                                     <span>SZT</span>
                                                 </div>
                                               </div>
-                                              <button onClick={Transfer}>{loading?<Loader/>:"Transfer"}</button>
+                                              <div className="buy-button">
+                                                 <button onClick={Approve}>Approve</button>
+                                              <button  onClick={Buy}>{loading?<Loader/>:"Buy"}</button>
+                                              </div>
+
                                         </div>
                             </div>
                             <div className="stake-box">
@@ -264,17 +307,18 @@ const Transfer = async()=>{
                             <div className="sell">
                                 <h3>Sell Token</h3>
                 <div className="selectStake">
-                  <input type="text" placeholder='Enter Token no' />
+                  <input type="text" placeholder='Enter Token no'onChange={(event)=>{setSellamount(event.target.value)}} />
                    <span>SZT</span>
                 </div>
                 <div className="sell-button">
-                  <button >Sell</button>
+                  <button onClick={random}>Approve</button>
+                  <button id="sellbtn" onClick={SellToken}>Sell</button>
                 </div>
             </div>
                                     </div>
                                     <div className="stake-box">
                                              <div className="approve-szt">
-                                               <span>Approve SZT</span>
+                                               <span onClick={GSZT}>Approve SZT</span>
                                              </div>
                                              <div className="timeline">
                                                 <div className="timeline-line">

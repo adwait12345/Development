@@ -29,3 +29,15 @@
     background-color: #fff;
     margin: 0;
 }
+.buy-button{
+    width: 100%;
+    display: flex;
+}
+.sell-button{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+#sellbtn{
+    margin-left: 70px;
+}

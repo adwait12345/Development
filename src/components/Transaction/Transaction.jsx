@@ -31,7 +31,7 @@ export default function Transaction() {
               excludeZeroValue: true,
               maxCount: '0x3e8',
               fromAddress: account,
-              toAddress: '0xdbdb0f30d51eda693a88aeca322071974602fe34'
+              toAddress: '0xD174c7EF106269c717B9aB3e9bbd1e6215F19de9'
             }
           ]
         })
@@ -51,7 +51,7 @@ export default function Transaction() {
   
         .catch(err => console.error(err));
 
-        console.log(Responce)
+        // console.log(Responce)
         
     // fetch("https://eth-goerli.alchemyapi.io/v2/wKhHYRMeTZ3xJ9ww4jv7lVmRSEFamVH2",options)
     // .then(r =>  r.json().then(data => ({status: r.status, body: data})))
