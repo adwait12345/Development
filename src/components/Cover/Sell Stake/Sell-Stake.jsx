@@ -156,38 +156,42 @@ const Buy = async()=>{
 }
 
 const random=async()=>{
-    contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
+    // contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
     var  contractSigned = new ethers.Contract(stakingAddress,StakingAbi, signer);
-    var trans =await contractSigned.approve(BuySell,  sellamount)
-
-}
+   
+    var trans =await contractSigned.approve(BuySell, `${sellamount*1000000000000000000}`)
     const GSZT = async()=>{
-       var gszt = await contractSigned.approve(GSZTToken, sellamount)  
+        // contract = new ethers.Contract(GSZTToken,StakingAbi, provider);
+        var  contractSigned = new ethers.Contract(GSZTToken,StakingAbi, signer);
+       var gszt = await contractSigned.approve(BuySell, `${sellamount*1000000000000000000}`)  
     }
-   GSZT()
+    GSZT()
+}
+
+  
 
 const SellToken = async()=>{
- 
-    try {
-        
-     contract = new ethers.Contract(BuySell,Buy_Sell, provider);
+      contract = new ethers.Contract(BuySell,Buy_Sell, provider);
     var  contractSigned = new ethers.Contract(BuySell,Buy_Sell, signer);
-    var sell =await contractSigned.sellSZTToken(sellamount)
+    var sell = await contractSigned.sellSZTToken(sellamount)
 
     // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
     console.log(sell)
 
 
-    var receipt = await trans.wait();
+    var receipt = await sell.wait();
 
     console.log(receipt.confirmations)
     if(receipt.confirmations>0){
         setConfirmations(true)
         
     }
-    } catch (error) {
-        console.log(error)
-    }
+    // try {
+        
+
+    // } catch (error) {
+    //     console.log(error)
+    // }
    
 }
 
@@ -318,7 +322,7 @@ const SellToken = async()=>{
                                     </div>
                                     <div className="stake-box">
                                              <div className="approve-szt">
-                                               <span onClick={GSZT}>Approve SZT</span>
+                                               <span >Approve SZT</span>
                                              </div>
                                              <div className="timeline">
                                                 <div className="timeline-line">
