@@ -25,7 +25,7 @@ export default function Stake() {
                     <div className="Bottom-Content">
                         <div className="DashBoard_Boxes">
                             <div className="box-dashboard">
-                                <h4>My SZT Balence</h4>
+                                <h4>My SZT Balance</h4>
                                 <h3>0.00 USD</h3>
                             </div>
                             <div className="box-dashboard">
@@ -44,7 +44,7 @@ export default function Stake() {
                             <div className="Stake">
                                 <div className="stake_title">
                                     <h3>Stake SZT Token</h3>
-                                    <span>Contract Address: <p>{account}</p> </span>
+                                    <span>Contract Address: <h5>{account}</h5> </span>
 
                                 </div>
                                 <div className="stake-bot">

@@ -9,7 +9,7 @@ export default function Grid() {
           <div className="grid1">
             <span>MAJOR FEATURES</span>
             <h1>
-              Protevtion against <br />
+              Protection against <br />
               many types of risk
             </h1>
             <p>

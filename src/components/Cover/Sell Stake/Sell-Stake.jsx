@@ -316,7 +316,7 @@ const RequestSell=()=>{
                             </div>
                             <div className="stake-box">
                               <div className="transaction-Details">
-                                <h4>Transection History  </h4>
+                                <h4>Transaction History  </h4>
                                  <Transaction/>
                               </div>
                              
