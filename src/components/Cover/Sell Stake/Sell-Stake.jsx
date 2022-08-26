@@ -67,7 +67,7 @@ var contract = null;
 //     }
 
  
-DaiGET = new ethers.Contract(Dai,StakingAbi, provider);
+const DaiGET = new ethers.Contract(Dai,StakingAbi, provider);
 var  DaiPOST = new ethers.Contract(Dai,StakingAbi, signer);
 
 const updateCurrentCount = async () =>{
