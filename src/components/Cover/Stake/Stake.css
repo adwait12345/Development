@@ -10,7 +10,7 @@
 }
 .Stake{
     display: flex;
-    width: 93%;
+    width: 95%;
     border: 0.5px solid rgb(225, 223, 223);;
     border-radius: 10px;
     flex-direction: column;
@@ -34,6 +34,7 @@
     overflow: hidden;
     border: 2px solid;
     box-shadow: 10px 10px 0 -1px white, 10px 10px black;
+    background-color: #fff;
 }
 .stake-top{
     display: flex;
@@ -48,19 +49,21 @@
      justify-content: space-between;
 }
 .stake_title h3{
-  font-size: 40px;
+  font-size: 35px;
     margin: 0;
 }
 .stake_title span{
     margin-left: 40px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     display: flex;
     align-items: center;
 }
-.stake_title p{
+.stake_title span h5{
     text-decoration: underline;
     margin-left: 10px;
+    font-weight: 200 !important;
+    color: #444444;
 }
 .stake-top img{
     width: 20px;
@@ -102,7 +105,7 @@
     justify-content: space-between;
     padding: 10px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #f1f1f1;
     height: 40px;
 }
 .stake-input span{
@@ -253,13 +256,13 @@ position: absolute;
 }
 .sell h3{
     margin-left: 45px;
-    font-size: 40px;
+    font-size: 20px;
 }
 .selectStake{
     width: 80%;
     height: 40px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #f1f1f1;
     align-items: center;
     justify-content: space-between;
     display: flex;

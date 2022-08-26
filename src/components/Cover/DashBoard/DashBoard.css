@@ -5,7 +5,7 @@
 }
 
 .ri_content{
-    width: 100%;
+    width: 78%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -25,6 +25,7 @@
     @media only screen and (max-width:799px) {
         .ri_content{
             margin-left: 0;
+            width: 100%;
         }
         .Bottom-Content{
             display: flex;

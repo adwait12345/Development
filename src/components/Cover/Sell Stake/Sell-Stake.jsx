@@ -184,7 +184,7 @@ const SellToken = async()=>{
     console.log(receipt.confirmations)
     if(receipt.confirmations>0){
         setConfirmations(true)
-        
+        Request()
     }
     // try {
         
@@ -232,7 +232,21 @@ const SellToken = async()=>{
 //     setRtBalance(formattedRtBalanceFromContract)
 //     setRtBalance(rtBalanceFromContract)
 // }
-  
+
+const [request,setRequest]=useState("Request Sell")
+
+const Request=()=>{
+setTimeout(()=>{
+setRequest("Sell")
+},120000)
+
+}
+
+const RequestSell=()=>{
+    SellToken()
+    
+}
+
      return (
     <>
     
@@ -263,7 +277,7 @@ const SellToken = async()=>{
                             <div className="Stake">
                                 <div className="stake_title">
                                     <h3>Buy SZT Token</h3>
-                                    <span>Contract Address: <p>{account}</p> </span>
+                                    <span>Contract Address: <h5>{account}</h5> </span>
 
                                 </div>
 
@@ -308,18 +322,21 @@ const SellToken = async()=>{
                              
                             </div>
                                  </div>
+                                 <div className="sell-tit">
+                                   <h3>Sell SZT Token</h3> 
+                                 </div>
                                 
                                 <div className="stake-bot">
                                     <div className="stake-box">
                             <div className="sell">
-                                <h3>Sell Token</h3>
+                            <h3>Sell SZT Token</h3>
                 <div className="selectStake">
-                  <input type="text" placeholder='Enter Token no'onChange={(event)=>{setSellamount(event.target.value)}} />
+                  <input type="text" placeholder='Enter no of tokens'onChange={(event)=>{setSellamount(event.target.value)}} />
                    <span>SZT</span>
                 </div>
                 <div className="sell-button">
                   <button onClick={random}>Approve</button>
-                  <button id="sellbtn" onClick={SellToken}>Sell</button>
+                  <button id="sellbtn" onClick={RequestSell}>{request}</button>
                 </div>
                 <div className="time-sell">
                                <div className="time">

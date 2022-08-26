@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: 10px 10px 0 -1px white, 10px 10px black;
-    
+    background-color: white;
 }
 .Policies-chart-top{
     display: flex;

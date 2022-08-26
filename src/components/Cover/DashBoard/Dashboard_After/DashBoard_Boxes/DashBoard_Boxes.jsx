@@ -13,7 +13,7 @@ export default function DashBoard_Boxes() {
         </div>
         <div className="box-dashboard">
         <h4>Number of Votes</h4>
-            <h3>0.0000 SZT</h3>
+            <h3>0 SZT</h3>
         </div>
         </div></>
   )

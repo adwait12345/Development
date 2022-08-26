@@ -76,3 +76,11 @@
     align-items: center;
     height: 60px;
 }
+.sell-tit{
+    width: 100%;
+}
+.sell-tit h3{
+    font-size: 35px;
+    padding: 45px;
+    margin: 0;
+}

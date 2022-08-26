@@ -109,6 +109,7 @@ input:focus {
     border: 2px solid ;
     border-radius: 10px;
     margin: 25px;
+    background-color: #fff;
     box-shadow: 10px 10px 0 -1px white, 10px 10px black;
     }
     .top-contract{

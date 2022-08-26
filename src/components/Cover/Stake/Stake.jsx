@@ -34,7 +34,7 @@ export default function Stake() {
                             </div>
                             <div className="box-dashboard">
                                 <h4>Estimated APY</h4>
-                                <h3>0.0000 SZT</h3>
+                                <h3>0 SZT</h3>
                             </div>
                         </div>
                         <div className="outer-stake">
