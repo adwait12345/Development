@@ -10,14 +10,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.5px solid rgb(225, 223, 223);
     border-radius: 10px;
 }
 .internal-policy{
     width: 100%;
     margin: 20px;
-    border: 0.5px solid rgb(225, 223, 223);
+    border: 2px solid;
+    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
     border-radius: 10px;
+    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
+}
+.react-tabs__tab--selected {
+    background: transparent !important;
+    border-color: #aaa;
+    color: black;
+    border-radius: 5px 5px 0 0;
 }
 .policy-title{
     display: flex;
@@ -26,12 +33,13 @@
 }
 .policy-title h2{
     margin-left: 20px;
+    font-size: 40px;
 }
 .Policy-btns{
     margin-right: 10px;
 }
 .Policy-btns button{
-    font-family: "Poppins", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     background-color: transparent;
     border: none;
@@ -41,13 +49,14 @@
 }
 .Policies-chart{
     margin: 20px;
-    border: 0.5px solid rgb(225, 223, 223);
+    border: 2px solid;
     border-radius: 10px;
 
 }
 .Policies-chart{
     display: flex;
     flex-direction: column;
+    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
     
 }
 .Policies-chart-top{
@@ -55,7 +64,8 @@
     justify-content: space-around;
    padding-top: 10px;
    padding-bottom: 10px;
-   border-bottom: 0.5px solid rgb(225, 223, 223);
+   border-bottom:2px solid;
+   font-style: italic;
 }
 .Policies-chart-top li{
     list-style: none;
@@ -68,7 +78,7 @@
     font-size: 13px;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 0.5px solid rgb(225, 223, 223);
+    border-bottom:2px solid;
 
 }
 .Policies-chart-bet p{
@@ -80,7 +90,7 @@
     border-radius: 10px;
    cursor: pointer;
     background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
-    font-family: "Poppins", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     border: 1px solid;
 }
 .Policies-chart-bot{

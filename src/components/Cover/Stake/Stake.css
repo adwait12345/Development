@@ -5,13 +5,17 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+
 }
 .Stake{
     display: flex;
-    width: 90%;
+    width: 93%;
     border: 0.5px solid rgb(225, 223, 223);;
     border-radius: 10px;
     flex-direction: column;
+    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
+    border: 2px solid;
 }
 .stake-bot{
     display: flex;
@@ -26,22 +30,25 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 310px;
+    height: 340px;
     overflow: hidden;
+    border: 2px solid;
+    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
 }
 .stake-top{
     display: flex;
     align-items: center;
-    border-bottom: 0.5px solid rgb(225, 223, 223);;
+    border-bottom: 2px solid;
     width: 100%;
 }
 .stake_title{
     display: flex;  
      padding: 45px;
      align-items: center;
+     justify-content: space-between;
 }
 .stake_title h3{
- 
+  font-size: 40px;
     margin: 0;
 }
 .stake_title span{
@@ -67,6 +74,7 @@
 .stake-top p{
     margin: 0;
     font-size: 13px;
+    font-style: italic;
 }
 .stake-top-title{
    width: 70%;
@@ -94,12 +102,19 @@
     justify-content: space-between;
     padding: 10px;
     border-radius: 10px;
-    background-color: #f1efef;
+    background-color: #fff;
+    height: 40px;
+}
+.stake-input span{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .stake_input input{
     border: none;
     background-color: transparent;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Montserrat', sans-serif;
    width: 100%;
 }
 .stake-bott{
@@ -108,6 +123,7 @@
     flex-direction: column;
     align-items: center;
     height: 240px;
+    justify-content: space-around;
 }
 
 
@@ -202,60 +218,73 @@ position: absolute;
     }
    }
    .stake-bott button{
-    margin: 40px;
+    font-family: 'Montserrat', sans-serif;
+
+    
     width: 150px;
     height: 40px;
     border-radius: 10px;
     border: none;
-    color: #fff;
-    background-color: #000;
-    justify-self: start;
-    align-self: flex-start;
+    color: #000;
+    background-color: #fff;
+
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: medium;
    }
    .sell{
     display: flex;
-   width: 45%;
+   width: 100%;
     justify-content: space-evenly;
     align-items: flex-start;
     /* padding: 20px; */
-    margin: 45px;
+    /* margin: 45px; */
     /* border: 0.5px solid rgb(225, 223, 223); */
     border-radius: 10px;
-    width: 600px;
     justify-self: start;
     align-self: start;
     flex-direction: column;
     text-align: left;
 }
+.sell h3{
+    margin-left: 45px;
+    font-size: 40px;
+}
 .selectStake{
-    width: 250px;
+    width: 80%;
     height: 40px;
     border-radius: 10px;
-    background-color: #F1EFEF;
+    background-color: #fff;
     align-items: center;
     justify-content: space-between;
     display: flex;
     padding: 10px;
+    justify-self: center;
+    align-self: center;
 }
 .selectStake input{
     border: none;
     background-color: transparent;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     width: 100%;
 }
 .sell-button button{
     width: 150px;
     height: 40px;
     border-radius: 10px;
-    color: #fff;
-    background-color: #000;
-    font-family: "Poppins", sans-serif;
+    color: #000;
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     cursor: pointer;
     margin: 25px 0 0 0;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: medium;
 }
 

@@ -1,17 +1,26 @@
 .DashBoard_Boxes{
     width: 100%;
     display: flex;
+    font-family: 'Montserrat', sans-serif;
 }
 .box-dashboard{
-    width: 200px;
+    height: 150px;
+    width: 275px;
     padding: 0px 40px 0px 40px;
     margin: 20px 0px 20px 40px;
-    /* border: 1px solid; */
+    border: 2px solid;
+    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
     border-radius: 10px;
     background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
 }
-
-
+.box-dashboard h4{
+    font-size: 20px;
+    margin: 20px 0 15px 0;
+}
+.box-dashboard h3{
+    font-size: 45px;
+    margin: 0;
+}
 
     /* Mobile  */
     @media only screen and (max-width:799px) {

@@ -32,12 +32,47 @@
 .buy-button{
     width: 100%;
     display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .sell-button{
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
 }
-#sellbtn{
-    margin-left: 70px;
+
+.time{
+    width: 40%;
+    height: 4px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   color: #fff;
+   font-size: 12px;
+}
+.time1{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}.time2{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.time-sell{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
 }

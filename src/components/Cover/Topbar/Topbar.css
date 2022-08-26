@@ -11,9 +11,10 @@
    height: 90px;
    justify-content: space-between;
    width: 100%;
+   font-family: 'Montserrat', sans-serif;
 }
 .top_content h1{
-    margin-left: 25px;
+    margin-left: 45px;
 
 }
 .connect_wallet button{
@@ -22,11 +23,11 @@
     width: 160px;
     border-radius: 10px;
     border: 2px solid #000;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
     cursor: pointer;
-    background-color: #000;
-    color: #fff;
+    background-color: transparent;
+    color: #000;
 }
 #logout{
    
@@ -205,8 +206,8 @@ align-items: center;
     width: 160px;
     border-radius: 10px;
     border: 2px solid #000;
-    font-family: "Poppins", sans-serif;
-    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+      background-color: transparent;
     font-weight: 500;
     cursor: pointer;
   }

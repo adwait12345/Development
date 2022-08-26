@@ -135,7 +135,7 @@ const Buy = async()=>{
         setloading(true)
      contract = new ethers.Contract(BuySell,Buy_Sell, provider);
     var  contractSigned = new ethers.Contract(BuySell,Buy_Sell, signer);
-    var trans =await contractSigned.buySZTToken(amount)
+    var trans =await contractSigned.buySZTToken(`${amount*100000}`)
 
     // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
     console.log(trans)
@@ -294,7 +294,10 @@ const SellToken = async()=>{
                                                  <button onClick={Approve}>Approve</button>
                                               <button  onClick={Buy}>{loading?<Loader/>:"Buy"}</button>
                                               </div>
-
+                                           <div className="time">
+                                            <div className="time1">1</div>
+                                            <div className="time2">2</div>
+                                            </div>                                       
                                         </div>
                             </div>
                             <div className="stake-box">
@@ -318,6 +321,14 @@ const SellToken = async()=>{
                   <button onClick={random}>Approve</button>
                   <button id="sellbtn" onClick={SellToken}>Sell</button>
                 </div>
+                <div className="time-sell">
+                               <div className="time">
+                                            <div className="time1">1</div>
+                                            <div className="time2">2</div>
+                                            </div>     
+                </div>
+  
+                
             </div>
                                     </div>
                                     <div className="stake-box">

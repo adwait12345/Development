@@ -1,6 +1,6 @@
 .Contractss span button{
     width: 150px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     height: 50px;
     border-radius: 15px;
     border: none;
@@ -22,7 +22,7 @@
 }
 .Contractss h5{
     margin-left: 60px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 500;
 }
 .Contractss span{

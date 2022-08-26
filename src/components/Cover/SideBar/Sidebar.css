@@ -16,29 +16,33 @@
         font-weight: 400;
     }
     .aside_content li{
-        
+        font-family: 'Montserrat', sans-serif;
+
         display: flex;
         align-items: center;
         list-style: none;
         text-align: left;
-        padding: 20px;
+        padding: 15px;
         background-color: white;
         border-radius: 10px;
         margin: 10px;
         justify-content: flex-start;
         font-size: 16px;
+      
     }
     .active li{
-        background-color: rgb(0, 0, 0);
-        color: white;
+        background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);        color: black;
+        border: 2px solid;
+    }  
+    .active li:hover{
+/* background-color: #000; */
+
     }
     .active button{
         color: rgb(0, 119, 255);    
     
     }
-    .active img{
-      filter: invert();
-    }
+
     .aside_content a{
         text-decoration: none;
         color: #000 !important;

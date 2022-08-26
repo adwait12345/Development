@@ -4,6 +4,8 @@
     flex-direction: column;
     height: 100%;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+
 }
 .Contracts{
     width: 100%;
@@ -16,7 +18,7 @@
 }
 .Contracts h5{
     margin-left: 60px;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 500;
 }
 .Contracts span{
@@ -36,7 +38,8 @@
     border-radius: 30px;
     width: 93.5%;
     height: 100%;
-    border: 1px solid rgb(225, 222, 222);
+    border: 2px solid ;
+    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
 }
 .SearchContracts{
     width: 95%;
@@ -44,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgb(225, 222, 222);
+    border-bottom: 2px solid ;
     
 }
 .SearchContracts button img{
@@ -59,6 +62,7 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        background-color: #fff;
 
 }
 .contract-search{
@@ -68,7 +72,7 @@
     justify-content: flex-start;
     align-items: center;
     border-radius: 15px;
-    background-color: #F7F7F8;
+    background-color: #fff;
 
 }
 .contract-search input{
@@ -77,6 +81,8 @@
     font-size: 14px;
    margin-left: 10px;
    width: 130px;
+   font-family: 'Montserrat', sans-serif;
+
 }
 textarea:focus,
 input:focus {
@@ -100,9 +106,10 @@ input:focus {
    width: 40%;
     padding: 24px;
     box-sizing: border-box;
-    border: 1px solid rgb(225, 222, 222);;
+    border: 2px solid ;
     border-radius: 10px;
     margin: 25px;
+    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
     }
     .top-contract{
         display: flex;
@@ -130,6 +137,12 @@ input:focus {
        background-color: transparent;
        cursor: pointer;
     }
+    .bet-contract{
+        font-style: italic;
+    }
+    .title-contract h3{
+        font-size: 24px;
+    }
     .bet-contract p{
         display: flex;
         justify-content: space-between;
@@ -144,7 +157,7 @@ input:focus {
         border: 2px solid;
         background-color: transparent;
         font-size: 16px;
-        font-family: "Poppins", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 500;
         cursor: pointer;
     }
