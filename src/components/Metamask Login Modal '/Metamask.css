@@ -8,9 +8,9 @@
     width: 500px;
     display: flex;
     flex-direction: column;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     height: auto;
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 15px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    border: 1px solid;
+    border: 2px solid;
     margin: 0px 25px 25px 25px;
     border-radius: 15px;
     cursor: pointer;
@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    border: 1px solid;
+    border: 2px solid;
     margin: 25px;
     border-radius: 15px;
     cursor: pointer;

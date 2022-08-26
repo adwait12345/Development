@@ -16,7 +16,6 @@
     width: 100%;
     margin: 20px;
     border: 2px solid;
-    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
     border-radius: 10px;
     background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
 }

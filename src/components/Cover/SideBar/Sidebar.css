@@ -8,7 +8,7 @@
         background-color: white;
         border-right: 0.5px solid rgb(225, 223, 223);
         transition: 0.2s ease-in-out;
-        overflow-y: scroll;
+        z-index: 1;
     }
     
     .aside_content h1{

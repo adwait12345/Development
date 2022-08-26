@@ -3,12 +3,15 @@
     margin: 25px;
     width: 90%;
  
-    border: 1px solid #000;
+    border: 2px solid #000;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
+    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
 }
 .Connect_to_Wallet p{
     display: flex;
@@ -20,13 +23,15 @@
     width: 160px;
     border-radius: 10px;
     border: 2px solid #000;
-    font-family: "Poppins", sans-serif;
-    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
     font-weight: 500;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: medium;
+    font-style: italic;
 }
 .Connect_to_Wallet button:hover{
     background-color: black;
