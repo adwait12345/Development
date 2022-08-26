@@ -67,7 +67,8 @@ var contract = null;
 //     }
 
  
-
+DaiGET = new ethers.Contract(Dai,StakingAbi, provider);
+var  DaiPOST = new ethers.Contract(Dai,StakingAbi, signer);
 
 const updateCurrentCount = async () =>{
 //    if(contract){
@@ -125,9 +126,8 @@ const settings = {
 
 
 const Approve =async()=>{
-    contract = new ethers.Contract(Dai,StakingAbi, provider);
-    var  contractSigned = new ethers.Contract(Dai,StakingAbi, signer);
-    var trans =await contractSigned.approve(BuySell,  amount)
+
+    var trans =await DaiPOST.approve(BuySell,  amount)
 }
 
 const Buy = async()=>{
@@ -135,7 +135,7 @@ const Buy = async()=>{
         setloading(true)
      contract = new ethers.Contract(BuySell,Buy_Sell, provider);
     var  contractSigned = new ethers.Contract(BuySell,Buy_Sell, signer);
-    var trans =await contractSigned.buySZTToken(`${amount*100000}`)
+    var trans =await contractSigned.buySZTToken(`${amount}`)
 
     // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
     console.log(trans)
