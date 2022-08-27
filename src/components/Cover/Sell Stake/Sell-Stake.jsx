@@ -66,7 +66,7 @@ var contract = null;
 // console.log(value5)
 //     }
 
- 
+  
 const DaiGET = new ethers.Contract(Dai,StakingAbi, provider);
 var  DaiPOST = new ethers.Contract(Dai,StakingAbi, signer);
 

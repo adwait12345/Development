@@ -1,12 +1,14 @@
 .Zero_premium{
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     margin-top: 50px;
-
+   border: 2px solid;
+   border-radius: 10px;
+   background: linear-gradient(104.51deg, #def0fa 18.98%, #e3daff 89.55%);
 }
 .contract-bar{
     width: 95%;
@@ -39,7 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 20px;
+    padding: 40px;
 }
 .content-buttons button{
     width: 150px;
@@ -59,12 +61,12 @@
     justify-content: center;
     align-items: center;
     padding: 40px;
-    border: 2px solid;
+    /* border: 2px solid; */
     border-radius: 10px;
-    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
+    flex-direction: column;
 }
 .zeropremiun-box{
-    width: 500px;
+    width: 50%;
     border: 2px solid;
     border-radius: 10px;
     background-color: #fff;
@@ -76,6 +78,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 .supply1{
     width: 90%;
@@ -129,4 +132,33 @@
 }
 .css-0 {
     color: white;
+}
+.outerzero{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Mint{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.Mint button{
+    width: 300px;
+    height: 50px;
+    border: 2px solid;
+    font-family: 'Montserrat', sans-serif;
+   font-size: medium;
+   font-style: italic;
+   border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.Mint button:hover{
+background-color: #2EA550;
+color: #fff;
+border:2px #2EA550
 }
