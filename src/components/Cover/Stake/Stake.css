@@ -134,7 +134,7 @@
 
 .approve-szt{
     width: 80%;
-    border: 2px solid #f1efef;
+    border: 2px solid ;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -143,11 +143,11 @@
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
-
+    font-style: italic;
 }
 .transfer-szt{
     width: 80%;
-    border: 2px solid #f1efef;
+    border: 2px solid ;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -156,7 +156,7 @@
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
-
+    font-style: italic;
 }
 .approve-szt:hover{
     background-color: #000;
@@ -171,7 +171,7 @@ width: 80%;
 .timeline-line{
     width: 3px;
 height: 40px;
-background-color: #f1efef;
+background-color: #f0ebeb;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -182,10 +182,12 @@ border-radius: 100%;
 
 position: absolute;
 
+
 }
 .blob img{
     width: 18px;
     height: 18px;
+
 }
 /* .approve-transfer{
     width: 100%;

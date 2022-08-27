@@ -1,0 +1,132 @@
+.Zero_premium{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 50px;
+
+}
+.contract-bar{
+    width: 95%;
+    height: 30px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search-cont{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.search-cont input{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+      background-color: #f1f1f1;
+      
+}
+.content-buttons{
+    width: 95%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+.content-buttons button{
+    width: 150px;
+    padding: 9px;
+    margin: 5px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    font-size: medium;
+    font-style: italic;
+    cursor: pointer;
+    
+}
+.actual-zeropremium{
+    width: 87%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border: 2px solid;
+    border-radius: 10px;
+    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
+}
+.zeropremiun-box{
+    width: 500px;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
+}
+.supply{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.supply1{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+    border: 2px solid;
+    padding: 2px;
+    border-radius: 10px;
+   
+
+}
+.supply1 input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
+ background-color: #f1f1f1;
+}
+.supply2{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+    border: 2px solid;
+    padding: 2px;
+    border-radius: 10px;
+}
+.supply2 input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+
+}
+.dir-button{
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+.css-0 {
+    color: white;
+}

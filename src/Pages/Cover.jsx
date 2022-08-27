@@ -9,6 +9,7 @@ import Stake from '../components/Cover/Stake/Stake';
 import DAO from '../components/Cover/DAO/DAO';
 import Sell_Stake from '../components/Cover/Sell Stake/Sell-Stake';
 import { useMoralis } from 'react-moralis'
+import Zero_Premium from '../components/Cover/Buy Policy/Zero-Premium/Zero-Premium';
 
 
 
@@ -21,6 +22,7 @@ export default function Cover() {
     <>
   <DashBoard />
 <Buypolicy />
+<Zero_Premium/>
 <ProvideCoverage />
 
 <Stake/>

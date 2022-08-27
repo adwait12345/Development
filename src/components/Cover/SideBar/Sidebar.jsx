@@ -81,9 +81,13 @@ setdeopopen(true)
           
 
         </NavLink>
-        <div className="buy-div"id="drop">
+        <div className="buy-div"id="drop" >
+         
           <p>Pay-as-you-go Insurance</p>
-          <p>Zero-premium insurance</p>
+           <Link to="/cover/BuyPolicy/ZeroPremium">
+             <p>Zero-premium insurance</p>
+           </Link>
+         
           <p>Advantage pay-as-you-go</p>
         </div>
 

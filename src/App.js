@@ -21,6 +21,7 @@ import Sell_Stake from "./components/Cover/Sell Stake/Sell-Stake";
 
 import { Network, Alchemy } from 'alchemy-sdk';
 import NotFound from "./components/404/404";
+import Zero_Premium from "./components/Cover/Buy Policy/Zero-Premium/Zero-Premium";
 
 function App() {
 
@@ -51,6 +52,8 @@ alchemy.core.getTokenBalances(usdcContract).then(console.log);
         <Route path="/" element={<HomePage />} />
         <Route path="/cover/Dashboard" element={<DashBoard/>} />
         <Route path="/cover/BuyPolicy" element={<Buypolicy/>} />
+        <Route path="/cover/BuyPolicy/ZeroPremium" element={<Zero_Premium/>} />
+        
         <Route path="/cover/ProvideCoverage" element={<ProvideCoverage/>} />
        
         <Route path="/cover/MetaMask" element={<LoginModal/>} />
