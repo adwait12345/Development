@@ -9,12 +9,12 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { PhoneIcon, AddIcon, WarningIcon, ArrowDownIcon } from '@chakra-ui/icons'
 import { useMoralis,useWeb3Contract } from 'react-moralis'
 import { ethers } from "ethers";
-import {BAT_Tokens,CompoundPool,CompoundAbi,StakingAbi} from '../../../../Constants/index'
+import {BAT_Tokens,CompoundPool,CompoundAbi,StakingAbi,CBat_token} from '../../../../Constants/index'
 export default function Zero_Premium() {
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account,web3} = useMoralis();
 
     const [open, setOpen] = useState(false)
-    const [SupplyAmount,setSupplyAmount]= useState(" ")
+    const [SupplyAmount,setSupplyAmount]= useState("")
 
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
@@ -30,10 +30,26 @@ const ApproveBat= async()=>{
    const MintBat= async()=>{
     const BATGET = new ethers.Contract(BAT_Tokens,CompoundAbi, provider);
     var  BATPOST = new ethers.Contract(BAT_Tokens,CompoundAbi, signer);
-    const gen = await BATPOST.mintERC20Tokens2(account,BAT_Tokens,SupplyAmount)
+    const gen = await BATPOST.mintERC20Tokens2(account,BAT_Tokens,SupplyAmount,
+        {
+            gasLimit: 500000,
+          }
+        
+        
+        )
    }
 
+   // Supply 
+    const Supply = async()=>{
+        
+    const BATGET = new ethers.Contract(BAT_Tokens,CompoundAbi, provider);
+    var  BATPOST = new ethers.Contract(BAT_Tokens,CompoundAbi, signer);
+    const gen = await BATPOST.supplyErc20ToCompound(BAT_Tokens,CBat_token,SupplyAmount,
 
+        
+        
+        )
+    }
 
 
 
@@ -101,7 +117,7 @@ const ApproveBat= async()=>{
                                                             </div>
 
                                                         </div>
-                                                        <div className="transfer-szt">
+                                                        <div onClick={Supply} className="transfer-szt">
                                                             <span>Supply Token</span>
                                                         </div>
                                                     </div>
