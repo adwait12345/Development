@@ -10,9 +10,10 @@ import Sidebar from '../SideBar/Sidebar'
 import Topbar from '../Topbar/Topbar'
 import Modal from "react-modal"
 import LoginModal from '../../Metamask Login Modal \'/LoginModal'
+import ethrum from '../Ethrum.svg'
+
 export default function Buypolicy() {
     const [open , setOpen] = useState(false)
-
 // Search logic
 const [searchTerm, setSearchTerm]= useState("")
 
@@ -69,7 +70,7 @@ const [searchTerm, setSearchTerm]= useState("")
             </div>
 
             <button>
-                <img src={Contracts._tech_img} alt="" />
+                <img src={ethrum} alt="" />
             </button>
         </div>
         <div className="bet-contract">

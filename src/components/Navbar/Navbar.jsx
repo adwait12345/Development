@@ -57,18 +57,18 @@ export default function Navbar() {
                 width="18"
                 height="18"
                 viewBox="0 0 18 18"
-                fill="#000"
+                fill="#fff"
               >
                 <path
                   d="M6.99411 6.11987H12.2398V11.3656"
-                  stroke="#000"
+                  stroke="#fff"
                   stroke-width="1.2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M6.11983 12.2399L12.2398 6.11987"
-                  stroke="#000"
+                  stroke="#fff"
                   stroke-width="1.2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -82,18 +82,18 @@ export default function Navbar() {
                 width="18"
                 height="18"
                 viewBox="0 0 18 18"
-                fill="#000"
+                fill="#fff"
               >
                 <path
                   d="M6.99411 6.11987H12.2398V11.3656"
-                  stroke="#000"
+                  stroke="#fff"
                   stroke-width="1.2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M6.11983 12.2399L12.2398 6.11987"
-                  stroke="#000"
+                  stroke="#fff"
                   stroke-width="1.2"
                   stroke-linecap="round"
                   stroke-linejoin="round"

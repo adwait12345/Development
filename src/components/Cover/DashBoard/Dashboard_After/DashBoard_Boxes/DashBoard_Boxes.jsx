@@ -1,5 +1,6 @@
 import React from 'react'
 import './DashBoard_Boxes.css'
+import Web3png from '../../webthree.png'
 export default function DashBoard_Boxes() {
   return (
     <><div className="DashBoard_Boxes">
@@ -15,6 +16,10 @@ export default function DashBoard_Boxes() {
         <h4>Number of Votes</h4>
             <h3>0 SZT</h3>
         </div>
-        </div></>
+        </div>
+        
+ 
+        
+        </>
   )
 }

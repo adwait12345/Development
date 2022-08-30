@@ -2,22 +2,28 @@
     width: 95%;
     display: flex;
     font-family: 'Montserrat', sans-serif;
+    z-index: 1;
 }
 .box-dashboard{
     height: 150px;
     width: 275px;
     padding: 0px 40px 0px 40px;
     margin: 20px 0px 20px 40px;
-    border: 2px solid;
-    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
+    color: #fff;
     border-radius: 10px;
-    background: linear-gradient(104.51deg, #def0fa 18.98%, #e3daff 89.55%);}
+    background: rgba(28,31,55,0.7);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    -webkit-backdrop-filter: blur(5.6px);
+}
 .box-dashboard h4{
-    font-size: 20px;
+    font-size: 15px;
     margin: 20px 0 15px 0;
+    color: #959393;
 }
 .box-dashboard h3{
-    font-size: 45px;
+    font-size: 40px;
     margin: 0;
 }
 

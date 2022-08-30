@@ -12,9 +12,11 @@
    justify-content: space-between;
    width: 100%;
    font-family: 'Montserrat', sans-serif;
+   color: #fff;
 }
 .top_content h1{
     margin-left: 45px;
+   
 
 }
 .connect_wallet button{
@@ -22,12 +24,12 @@
     height: 40px;
     width: 160px;
     border-radius: 10px;
-    border: 2px solid #000;
     font-family: 'Montserrat', sans-serif;
       font-weight: 500;
     cursor: pointer;
     background-color: transparent;
-    color: #000;
+    color: #fff;
+    background:linear-gradient(40deg,#7991fd71,rgba(233, 66, 230, 0.426));
 }
 #logout{
    

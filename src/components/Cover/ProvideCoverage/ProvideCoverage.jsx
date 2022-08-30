@@ -8,6 +8,7 @@ import './ProvideCoverage.css'
 import Sidebar from '../SideBar/Sidebar'
 import Topbar from '../Topbar/Topbar'
 import Modal from "react-modal"
+import ethrum from "../Ethrum.svg"
 import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 export default function ProvideCoverage() {
   const [open , setOpen] = useState(false)
@@ -65,7 +66,7 @@ const [searchTerm, setSearchTerm]= useState("")
             </div>
 
             <button>
-                <img src={Contracts._tech_img} alt="" />
+                <img src={ethrum} alt="" />
             </button>
         </div>
         <div className="bet-contract">

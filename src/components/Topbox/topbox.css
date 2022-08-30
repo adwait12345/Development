@@ -5,7 +5,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   transition: 0.2s ease-in;
   margin-top: 100px;
 }
@@ -18,7 +18,7 @@
   display: flex;
   text-align: center;
   letter-spacing: 1.5px;
-  color: #4d495d;
+  color: #757575;
   
 }
 /* .blob{
@@ -45,8 +45,8 @@
   opacity: 0.8;
 } */
 .topbox h1 {
-  background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%); 
-  -webkit-background-clip: text;
+  background: -webkit-linear-gradient(-70deg, #ff0299 0%, #0076ff 100%);
+    -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-box-decoration-break: clone; 
@@ -62,7 +62,7 @@
 } */
 
 .topbox h3 {
-  color: #4b4b49;
+  color: #757575;
   font-size: 15px;
   font-weight: 500;
   margin: 30px 0 60px 0;
@@ -81,6 +81,7 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
+  transition: 0.5s ease-in-out;
 
 }
 
@@ -97,11 +98,17 @@
   background: #0f0d1e;
   border-radius: 10px;
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   letter-spacing: 0.5px;
   cursor: pointer;
   border: none;
+}
+.button:hover{
+    transition: 0.5s ease-in-out;
+
+  background: linear-gradient(-200deg, #db469f 0%, #2188ff 100%);
+
 }
 
 /* Mobile  */

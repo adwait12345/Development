@@ -24,7 +24,7 @@ export default function Underwrite() {
                     </div>
                 </div>
                 <div className="underwrite-right">
-                    <img src={underwrite1} alt="" />
+                    <img src="https://cdn.discordapp.com/attachments/998538291106300007/1013792528379682816/Underwrite.png" alt="" />
                 </div>
             </div>
       </div>

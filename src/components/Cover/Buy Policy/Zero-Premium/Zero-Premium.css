@@ -6,9 +6,9 @@
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     margin-top: 50px;
-   border: 2px solid;
    border-radius: 10px;
-   background: linear-gradient(104.51deg, #def0fa 18.98%, #e3daff 89.55%);
+   background: linear-gradient(45deg, black, transparent);
+   color: #fff;
 }
 .contract-bar{
     width: 95%;
@@ -24,15 +24,15 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 .search-cont input{
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    padding: 10px;
+    padding: 12px;
     font-family: 'Montserrat', sans-serif;
-      background-color: #f1f1f1;
+      background-color: #2E334A;
       
 }
 .content-buttons{
@@ -49,11 +49,10 @@
     margin: 5px;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
-    background-color: #fff;
+    background-color: #10BB35;
     font-size: medium;
-    font-style: italic;
     cursor: pointer;
-    
+    color: #fff;
 }
 .actual-zeropremium{
     width: 87%;
@@ -67,10 +66,8 @@
 }
 .zeropremiun-box{
     width: 50%;
-    border: 2px solid;
     border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
+    background: linear-gradient(45deg, black, transparent);
 }
 .supply{
     width: 100%;
@@ -86,7 +83,6 @@
     justify-content: flex-start;
     align-items: center;
     height: 50px;
-    border: 2px solid;
     padding: 2px;
     border-radius: 10px;
    
@@ -98,7 +94,8 @@
     border: none;
     font-family: 'Montserrat', sans-serif;
     border-radius: 10px;
- background-color: #f1f1f1;
+ background-color: #2E334A;
+ color:#757575
 }
 .supply2{
     width: 90%;
@@ -106,7 +103,6 @@
     justify-content: flex-start;
     align-items: center;
     height: 50px;
-    border: 2px solid;
     padding: 2px;
     border-radius: 10px;
 }
@@ -115,9 +111,9 @@
     height: 100%;
     border: none;
     font-family: 'Montserrat', sans-serif;
+    background-color: #2E334A;
     border-radius: 10px;
-    background-color: #f1f1f1;
-
+    color: #757575;
 }
 .dir-button{
     margin: 5px;
@@ -128,7 +124,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
+    background-color: #10BB35;
 }
 .css-0 {
     color: white;
@@ -152,7 +148,6 @@
     border: 2px solid;
     font-family: 'Montserrat', sans-serif;
    font-size: medium;
-   font-style: italic;
    border-radius: 10px;
   background-color: #fff;
   cursor: pointer;

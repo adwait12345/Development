@@ -17,14 +17,16 @@
     margin-bottom: 20px;
 }
 .Contracts h5{
-    margin-left: 60px;
-    font-size: 30px;
+    margin-left: 80px;
+    font-size: 20px;
     font-weight: 500;
+    color: #757575;
 }
 .Contracts span{
     margin-right: 65px;
     display: flex;
-   
+    color: #757575;
+
 }
 .Contracts img{
     margin-right: 10px;
@@ -38,8 +40,8 @@
     border-radius: 30px;
     width: 93.5%;
     height: 100%;
-    border: 2px solid ;
-    background: linear-gradient(104.51deg, #def0fa 18.98%, #e3daff 89.55%);
+   
+    background: rgba(28,31,55,0.7);
 }
 .SearchContracts{
     width: 95%;
@@ -47,7 +49,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid ;
+    
     
 }
 .SearchContracts button img{
@@ -62,7 +64,7 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        background-color: #fff;
+        background-color: #252A43;
 
 }
 .contract-search{
@@ -72,7 +74,7 @@
     justify-content: flex-start;
     align-items: center;
     border-radius: 15px;
-    background-color: #fff;
+    background-color: #252A43;
 
 }
 .contract-search input{
@@ -82,7 +84,7 @@
    margin-left: 10px;
    width: 130px;
    font-family: 'Montserrat', sans-serif;
-
+   color: #757575;
 }
 textarea:focus,
 input:focus {
@@ -106,11 +108,9 @@ input:focus {
    width: 40%;
     padding: 24px;
     box-sizing: border-box;
-    border: 2px solid ;
     border-radius: 10px;
     margin: 25px;
-    background-color: #fff;
-    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
+    background: linear-gradient(45deg, black, transparent);    color: #fff;
     }
     .top-contract{
         display: flex;
@@ -133,14 +133,12 @@ input:focus {
     }
     .top-contract button{
        padding: 5px;
-       border: 0.5px solid rgb(225, 222, 222);;
+       border: 0.5px solid #757575;
        border-radius: 9px;
        background-color: transparent;
        cursor: pointer;
     }
-    .bet-contract{
-        font-style: italic;
-    }
+
     .title-contract h3{
         font-size: 24px;
     }
@@ -155,16 +153,18 @@ input:focus {
         width: 100%;
         height: 50px;
         border-radius: 10px;
-        border: 2px solid;
+        border: 2px solid #757575;
         background-color: transparent;
         font-size: 16px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
         cursor: pointer;
+        color: #757575;
     }
     .bot-contract button:hover{
-    background-color: #000;
-    color:#fff
+    background-color: transparent;
+    color:#fff;
+    border: 2px solid #fff;
     }
 
 .Sort-section span{

@@ -10,7 +10,13 @@
     flex-direction: column;
     align-items: flex-start;
     margin-left: 280px;
+    /* background: url(https://github.githubassets.com/images/modules/site/home/repo-editor-glow.svg) no-repeat;
+    background-size: 200%;
+    
+    backdrop-filter: blur(67px); */
+ 
 }
+
 
 .Bottom-Content{
     width: 100%;

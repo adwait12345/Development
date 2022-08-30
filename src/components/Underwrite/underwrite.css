@@ -8,8 +8,8 @@
      margin-top: 200px;
          color: #000;
     
-    font-family: "Poppins", sans-serif;
-}
+         font-family: 'Montserrat', sans-serif;
+        }
 .Underwrite{
     display: flex;
    align-items: center;
@@ -29,16 +29,17 @@
     margin: 0;
     text-align: left;
     font-size: 48px;
-    max-width: 520px;
+    max-width: 570px;
+    color: #fff;
 }
 .underwrite-left ol{
-    list-style:disc;
-}
+    list-style: none;
+    padding: 0;}
 .underwrite-left ol li{
     max-width: 470px;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: Poppins, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -65,7 +66,7 @@
     border: none;
     color: #fff;
     font-size: 20px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     background-color: #0F0D1E;
     border-radius: 10px;

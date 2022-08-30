@@ -16,7 +16,8 @@
    padding-bottom: 20px;
    flex-direction: column;
    font-family: 'Montserrat', sans-serif;
-   background: linear-gradient(104.51deg, #def0fa 18.98%, #e3daff 89.55%);}
+   background: linear-gradient(45deg, black, transparent);
+}
 .vote_on_claim{
     filter: blur(3px);
     width: 90%;
@@ -70,6 +71,7 @@
 }
 .Pending_claims h3{
     font-size: 40px;
+    color: #fff;
 }
     /* Mobile  */
     @media only screen and (max-width:799px) {

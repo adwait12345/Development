@@ -12,7 +12,7 @@
 }
 .transaction-Details{
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
 
     display: flex;
     justify-content: flex-start;
@@ -28,6 +28,8 @@
     padding: 10px;
     background-color: #fff;
     margin: 0;
+    background-color: #1A1D33;
+    color: #fff;
 }
 .buy-button{
     width: 100%;
@@ -45,7 +47,7 @@
 .time{
     width: 40%;
     height: 4px;
-    background-color: #000;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,18 +58,21 @@
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-color: #000;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #000;
 }.time2{
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-color: #000;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #000;
+
 }
 .time-sell{
     width: 100%;
@@ -83,4 +88,5 @@
     font-size: 35px;
     padding: 45px;
     margin: 0;
+    color: #fff;
 }

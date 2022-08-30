@@ -161,7 +161,9 @@ setdeopopen(true)
           </button>
         </NavLink> */}
 
+           <div className="gradient">
 
+           </div>
       </div>
     </>
   );

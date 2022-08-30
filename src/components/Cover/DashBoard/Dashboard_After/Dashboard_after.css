@@ -12,9 +12,10 @@
     padding: 10px;
     cursor: pointer;
     margin-left: 10px;
+    color: #fff;
 }
 .react-tabs__tab--selected {
-border-bottom: 4px solid #000 !important;
+border-bottom: 4px solid #fff !important;
 transition: 0.1s ease-in-out;
 
 }

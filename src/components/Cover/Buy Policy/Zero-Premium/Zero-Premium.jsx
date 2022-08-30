@@ -41,18 +41,28 @@ const ApproveBat= async()=>{
 
    // Supply 
     const Supply = async()=>{
+            // const BATBalance = new ethers.Contract(CBat_token,StakingAbi, provider);
+            // var User_Balance = BigInt(BATBalance.balanceOf(CompoundPool)/1e8).toString()
+            
+// console.log(User_Balance)
         
     const BATGET = new ethers.Contract(BAT_Tokens,CompoundAbi, provider);
-    var  BATPOST = new ethers.Contract(BAT_Tokens,CompoundAbi, signer);
-    const gen = await BATPOST.supplyErc20ToCompound(BAT_Tokens,CBat_token,SupplyAmount,
+    var  BATPOST = new ethers.Contract(CompoundPool,CompoundAbi, signer);
+    const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Tokens,CBat_token,SupplyAmount,
 
-        
+        // {
+        //     gasLimit: 500000,
+        //   }
         
         )
+
+
     }
 
 
+const bal=()=>{
 
+}
 
 
 
@@ -81,7 +91,7 @@ const ApproveBat= async()=>{
 
                                     </div>
                                     <div className="content-buttons">
-                                        <button>Compound</button>
+                                        <button onClick={bal}>Compound</button>
                                         <button>Aave</button>
                                         <button>Uniswap</button>
                                     </div>

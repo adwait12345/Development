@@ -6,7 +6,7 @@
     /* background-color: #D4C18F; */
     justify-content: center;
   align-items: center;
-  font-family: "Poppins", sans-serif; 
+  font-family: 'Montserrat', sans-serif;
 }
 
 .blogs{
@@ -25,15 +25,16 @@ height: 745px;
     margin: 0;
     text-align: left;
     font-size: 48px;
+    color: #fff;
 }
 .top-blogs p{
     max-width: 470px;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: Poppins, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.5px;
     color: #b4b4c7;
     margin: 0 0 60px 0;
@@ -43,6 +44,7 @@ height: 745px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+
 }
 .viewAll{
     display: flex;
@@ -59,6 +61,7 @@ height: 745px;
     cursor: pointer;
     margin-top: 40px;
 }
+
 /* Mobile  */
 @media only screen and (max-width:799px) {
     .bottom-blogs{
@@ -85,7 +88,11 @@ height: 745px;
 /* Mobile  */
 @media only screen and (max-width:1440px) {
     .bottom-blogs{
-        overflow-x: scroll;
-        overflow-y: hidden;
+        /* overflow-x: scroll;
+        overflow-y: hidden; */
+        overflow: hidden;
     }
+    .example::-webkit-scrollbar {
+        display: none;
+      }
 }

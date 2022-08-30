@@ -9,6 +9,7 @@
     border: 1px solid #3e385b;
     padding: 7px;
     border-radius: 10px;
+
 }
 .blog-card-top{
 
@@ -26,18 +27,25 @@
 .blog-card-bet h5{
     font-size: 14px;
    margin: 25px 0 0px 5px;
-   color: #b4b4c7;
+   color: #757575;
+   font-family: 'Montserrat', sans-serif;
+
 }
 
 .blog-card-bet h2{
     font-size: 20px;
     margin: 0 0 0 5px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+
 }
 .blog-card-bet p{
     margin-left: 5px;
-    color: #b4b4c7;
+    color: #757575;
     font-weight: 500;
     font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 
@@ -59,9 +67,12 @@
 }
 .user-info h3{
     font-size: 14px;
+    color: #fff;
+
 }
 .user-info span{
     font-size: 14px;
+    color: #757575;
 }
 .blog-card-bot img{
     width: 48px !important;

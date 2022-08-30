@@ -6,7 +6,7 @@
   text-align: center;
   color: white;
   margin-top: 210px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   transition: 0.2s ease-in;
 }
 
@@ -16,7 +16,7 @@
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  color: #4d495d;
+  color: #fff;
 }
 
 .inner-stats h1 {
@@ -31,7 +31,7 @@
   line-height: 27px;
   margin-top: 12px;
   letter-spacing: 0.2px;
-  color: #777187;
+  color: #757575;
 }
 
 .yield {

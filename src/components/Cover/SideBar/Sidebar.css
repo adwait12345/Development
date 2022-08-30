@@ -5,35 +5,45 @@
         flex-direction: column;
         height: 100vh;
         position: fixed;
-        background-color: white;
-        border-right: 0.5px solid rgb(225, 223, 223);
+        background-color: #141627;
+
         transition: 0.2s ease-in-out;
         z-index: 1;
+        overflow: hidden;
     }
-    
+    .gradient{
+        position: absolute;
+        height: 350px;
+        width: 200px;
+        background-image: linear-gradient(to bottom, #660efe84,   #df19cc77); 
+        filter: blur(40px);
+        border-radius: 90px;
+        top: 40px;
+        right: -160px;
+       }
     .aside_content h1{
         text-align: center;
         font-weight: 400;
+        color: #fff;
     }
     .aside_content li{
         font-family: 'Montserrat', sans-serif;
-
+        color: rgb(146, 145, 145);
         display: flex;
         align-items: center;
         list-style: none;
         text-align: left;
         padding: 15px;
-        background-color: white;
+        background-color: transparent;
         border-radius: 10px;
         margin: 10px;
         justify-content: flex-start;
-        font-size: 16px;
+        font-size: 15px;
       
     }
     .active li{
-        background: linear-gradient(104.51deg, #def0fa 18.98%, #e3daff 89.55%);     
-               color: black;
-        border: 2px solid;
+               color: #fff;
+        background-color: #3D3273;
     }  
     .active li:hover{
 /* background-color: #000; */
@@ -77,11 +87,22 @@
     .buy-div{
         display: none;
         flex-direction: column;
-        padding: 10px;
+        padding: 20px;
         margin: 0px 20px 20px 20px;
+        color: #757575;
     }
     .buy-div p{
         font-size: 14px;
+        font-family: 'Montserrat', sans-serif;
+        margin: 20px 0 20px 0;
+
+    }
+    .active .buy-div a{
+        color: #fff;
+    }
+    .buy-div a p{
+        color: #757575;
+
     }
     li span{
         height: 30px;

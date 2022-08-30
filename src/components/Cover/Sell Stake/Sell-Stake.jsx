@@ -135,7 +135,12 @@ const Buy = async()=>{
         setloading(true)
      contract = new ethers.Contract(BuySell,Buy_Sell, provider);
     var  contractSigned = new ethers.Contract(BuySell,Buy_Sell, signer);
-    var trans = await contractSigned.buySZTToken(amount)
+    var trans = await contractSigned.buySZTToken(amount,
+        
+        {
+            gasLimit: 5000000,
+          }
+        )
 
     // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
     // console.log(trans)

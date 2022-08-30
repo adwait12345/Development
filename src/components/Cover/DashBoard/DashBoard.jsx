@@ -32,6 +32,9 @@ export default function DashBoard(props) {
 
 
     </div>
+    <div className="background">
+      
+    </div>
     <Modal   isOpen={open}  className="Modal" >
           <LoginModal open={open} setOpen={setOpen}/>
         </Modal>
