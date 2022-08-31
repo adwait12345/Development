@@ -89,9 +89,11 @@
     height: 40px;
     border-radius: 10px;
    cursor: pointer;
-    background: linear-gradient(104.51deg, #def0fa 18.98%, #dae6ff 89.55%);
+    background: #10BB35;
     font-family: 'Montserrat', sans-serif;
-    border: 1px solid;
+    color: #fff;
+    border: none;
+    
 }
 .Policies-chart-bot{
     display: flex;

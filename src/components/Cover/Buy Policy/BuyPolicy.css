@@ -190,6 +190,7 @@ display: none;
             }
             .Sort-section span{
                 display:flex;
+                color: #fff;
                 }
                 .Sort-section{
                     display: flex;

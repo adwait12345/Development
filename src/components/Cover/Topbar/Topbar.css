@@ -148,6 +148,9 @@
 .top_content{
     display: none; 
 }
+.outer-topbar{
+  color: #fff;
+}
 .outer-mobile-topbar{
         display: flex;
     justify-content: space-between;

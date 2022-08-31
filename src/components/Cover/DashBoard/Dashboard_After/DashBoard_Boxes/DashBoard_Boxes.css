@@ -2,7 +2,6 @@
     width: 95%;
     display: flex;
     font-family: 'Montserrat', sans-serif;
-    z-index: 1;
 }
 .box-dashboard{
     height: 150px;

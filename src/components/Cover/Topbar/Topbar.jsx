@@ -137,7 +137,6 @@ connectWalletOnPageLoad()
             <hr />
             <div className="Headings-mobile">
               <h1>{props.name}</h1>
-              <button>More on Gitbook</button>
               
             </div>
           </div>   

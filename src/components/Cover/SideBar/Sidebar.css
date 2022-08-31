@@ -139,6 +139,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 40ch;
+    background-color: #2E334A;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+
     }
     /* #connectt span{
  
