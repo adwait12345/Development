@@ -51,7 +51,7 @@ body{
     transform: rotate(360deg);
   }
 }
-/* width */
+width
 ::-webkit-scrollbar {
   width: 1px;
 }

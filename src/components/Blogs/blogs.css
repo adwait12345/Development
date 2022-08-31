@@ -62,7 +62,25 @@ height: 745px;
     margin-top: 40px;
     border: 2px solid #fff;
 }
-
+/* width */
+::-webkit-scrollbar {
+    width: 0.5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 /* Mobile  */
 @media only screen and (max-width:799px) {
     .bottom-blogs{
@@ -89,11 +107,15 @@ height: 745px;
 /* Mobile  */
 @media only screen and (max-width:1440px) {
     .bottom-blogs{
-        /* overflow-x: scroll;
-        overflow-y: hidden; */
-        overflow: hidden;
+     overflow-y: hidden;
+
     }
-    .example::-webkit-scrollbar {
-        display: none;
+    /* width */
+
+  .bottom-blogs::-webkit-scrollbar {
+        height: 1px;              /* height of horizontal scrollbar ← You're missing this */
+        width: 4px;               /* width of vertical scrollbar */
+        border: 1px solid #d5d5d5;
       }
+
 }
