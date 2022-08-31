@@ -5,7 +5,7 @@
     align-items: center;
     height: 717px;
     /* background-color: #B2DFB6; */
-     margin-top: 200px;
+     margin-top: 100px;
          color: #000;
     
          font-family: 'Montserrat', sans-serif;
@@ -37,7 +37,7 @@
     padding: 0;}
 .underwrite-left ol li{
     max-width: 470px;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;

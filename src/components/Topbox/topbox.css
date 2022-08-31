@@ -84,7 +84,10 @@
   transition: 0.5s ease-in-out;
 
 }
+.button a{
+  text-decoration: none;
 
+}
 .button button {
 
   display: flex;

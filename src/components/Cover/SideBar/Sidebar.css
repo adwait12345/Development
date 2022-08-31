@@ -92,9 +92,18 @@
         color: #757575;
     }
     .buy-div p{
-        font-size: 14px;
         font-family: 'Montserrat', sans-serif;
-        margin: 20px 0 20px 0;
+        color: rgb(146, 145, 145);
+        display: flex;
+        align-items: center;
+        list-style: none;
+        text-align: left;
+        padding: 0px;
+        background-color: transparent;
+        border-radius: 10px;
+        margin: 10px 0 15px 0;
+        justify-content: flex-start;
+        font-size: 14px;
 
     }
     .active .buy-div a{

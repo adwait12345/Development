@@ -12,10 +12,10 @@ export default function MyLiqidity() {
           <div className="internal-policy">
       <Tabs focusTabOnClick={false}>     
           <div className="policy-title">
-                      <h2>My Liqidity</h2>
+                      <h2>My Liquidity</h2>
                   <div className="Policy-btns">
                    <TabList>
-                    <Tab><button>Liqidity</button></Tab>
+                    <Tab><button>Liquidity</button></Tab>
                     <Tab><button>WithDrawal Requests</button></Tab>
                     
                     </TabList>

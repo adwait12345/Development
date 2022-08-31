@@ -10,6 +10,7 @@ import DAO from '../components/Cover/DAO/DAO';
 import Sell_Stake from '../components/Cover/Sell Stake/Sell-Stake';
 import { useMoralis } from 'react-moralis'
 import Zero_Premium from '../components/Cover/Buy Policy/Zero-Premium/Zero-Premium';
+import Sidebar from '../components/Cover/SideBar/Sidebar';
 
 
 

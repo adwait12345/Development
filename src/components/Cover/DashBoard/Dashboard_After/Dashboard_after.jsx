@@ -34,7 +34,7 @@ export default function Dashboard_after()
           <Tabs focusTabOnClick={false}>
     <TabList  className="top_Dashboard_after">
       <Tab  className="tab">My Policies</Tab>
-      <Tab  className="tab">My Liqudity</Tab>
+      <Tab  className="tab">My Liquidity</Tab>
     </TabList>
 
     <TabPanel>

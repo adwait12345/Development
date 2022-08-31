@@ -12,7 +12,7 @@ import DAO from '../DAO.svg'
 import { useMoralis } from "react-moralis";
 import { useState } from "react";
 
-export default function Sidebar({ setOpen }) {
+export default function Sidebar() {
 
 const [dropopen , setdeopopen]= useState(false)
   

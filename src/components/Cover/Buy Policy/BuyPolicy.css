@@ -74,7 +74,7 @@
     justify-content: flex-start;
     align-items: center;
     border-radius: 15px;
-    background-color: #252A43;
+    background-color: #2E334A;
 
 }
 .contract-search input{
@@ -122,8 +122,8 @@ input:focus {
         align-items: center;
     }
     .top-contract img{
-        width: 15px ;
-        height: 15px;
+        width: 20px ;
+        height: 20px;
     }
     .title-contract img{
         width: 50px;
@@ -132,11 +132,11 @@ input:focus {
         margin-right: 15px;
     }
     .top-contract button{
-       padding: 5px;
-       border: 0.5px solid #757575;
+       padding: 3px;
        border-radius: 9px;
        background-color: transparent;
        cursor: pointer;
+       background-color: #fff;
     }
 
     .title-contract h3{

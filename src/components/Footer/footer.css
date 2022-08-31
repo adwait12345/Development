@@ -28,6 +28,8 @@ align-items: flex-start;
 }
 .div1 h2{
     font-weight: 400;
+    font-family: "Poppins", sans-serif;
+
 }
 .div1 p {
     font-size: 12px;
@@ -45,6 +47,7 @@ align-items: flex-start;
     list-style: none;
     font-size: 14px;
     line-height: 40px;
+    color: #757575;
 }
 .div3{
 flex:2;
@@ -57,21 +60,27 @@ flex:2;
    list-style: none;
 }
 .div3 p{
-    font-size: 12px;
+    font-size: 10px;
+    color: #757575;
 }
 .div3 input{
     width: 350px;
-    padding: 10px;
+    padding: 16px;
     margin: 10px 10px 10px 0px;
-    font-family: "Poppins", sans-serif; 
-
+    font-family: 'Montserrat', sans-serif;
+    background-color: #2e334a;
+    border: none;
+    border-radius: 10px;
+    color: #757575;
 }
 .div3 button{
-    padding: 10px;
-    font-family: "Poppins", sans-serif; 
-    background: transparent;
-    border: 1px solid #000;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    background: #10BB35;
     cursor: pointer;
+    color: #fff;
+    padding: 16px;
+    border-radius: 10px;
 }
 .subscribe-us{
     display: flex;
@@ -104,7 +113,7 @@ flex:2;
     justify-content: space-evenly;
     width: 150px;
 }
-.facebook, .instagram, .twitter , .linkdin{
+.discord, .twitter , .linkdin{
     cursor: pointer;
 }
 /* Mobile  */
