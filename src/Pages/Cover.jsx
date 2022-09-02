@@ -17,20 +17,20 @@ import Sidebar from '../components/Cover/SideBar/Sidebar';
 
 
 export default function Cover() {
-  var {enableWeb3,isWeb3Enabled,authenticate,isAuthenticated,user,Moralis} = useMoralis();
+  var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis } = useMoralis();
 
   return (
     <>
-  <DashBoard />
-<Buypolicy />
-<Zero_Premium/>
-<ProvideCoverage />
+      <DashBoard />
+      <Buypolicy />
+      <Zero_Premium />
+      <ProvideCoverage />
 
-<Stake/>
-<Sell_Stake/>
-<DAO/>
+      <Stake />
+      <Sell_Stake />
+      <DAO />
 
-<MyPolicies/>
-    </> 
+      <MyPolicies />
+    </>
   )
 }

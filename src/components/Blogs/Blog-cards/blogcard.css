@@ -1,4 +1,4 @@
-.blog-card{
+.blog-card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -11,10 +11,10 @@
     border-radius: 10px;
 
 }
-.blog-card-top{
 
-}
-.blog-card img{
+.blog-card-top {}
+
+.blog-card img {
     /* border-top-left-radius: 10px;
     border-top-right-radius: 10px; */
     border-radius: 10px;
@@ -24,22 +24,23 @@
     border: 0.5px solid #3e385b53;
 }
 
-.blog-card-bet h5{
+.blog-card-bet h5 {
     font-size: 14px;
-   margin: 25px 0 0px 5px;
-   color: #757575;
-   font-family: 'Montserrat', sans-serif;
+    margin: 25px 0 0px 5px;
+    color: #757575;
+    font-family: 'Montserrat', sans-serif;
 
 }
 
-.blog-card-bet h2{
+.blog-card-bet h2 {
     font-size: 20px;
     margin: 0 0 0 5px;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
 
 }
-.blog-card-bet p{
+
+.blog-card-bet p {
     margin-left: 5px;
     color: #757575;
     font-weight: 500;
@@ -51,46 +52,50 @@
 
 
 
-.blog-card-bot{
+.blog-card-bot {
     display: flex;
 }
 
-.blog-card-bot h3{
+.blog-card-bot h3 {
     margin: 0;
 }
-.user-info{
+
+.user-info {
     margin-left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
-.user-info h3{
+
+.user-info h3 {
     font-size: 14px;
     color: #fff;
 
 }
-.user-info span{
+
+.user-info span {
     font-size: 14px;
     color: #757575;
 }
-.blog-card-bot img{
+
+.blog-card-bot img {
     width: 48px !important;
     height: 48px;
     object-fit: cover;
     border-radius: 100%;
 }
+
 /* Mobile  */
 @media only screen and (max-width:799px) {
-    .blog-card{
+    .blog-card {
         width: 300px;
         height: 440px;
     }
-.blog-card img {
-    width: 300px;
-}
-.blog-card-bet img{
-  
-    
-}
+
+    .blog-card img {
+        width: 300px;
+    }
+
+    .blog-card-bet img {}
 }

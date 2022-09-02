@@ -27,7 +27,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/AtomsBoxLogo.svg"
                       alt=""
                     />
- 
+
                   </button>
                   <h4>Truly Decentralized Governance</h4>
                 </div>
@@ -55,7 +55,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/FileBoxLogo.svg"
                       alt=""
                     />
- 
+
                   </button>
                   <h4>Zero Insolvency Risk</h4>
                 </div>
@@ -67,7 +67,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/WalletBoxLogo.svg"
                       alt=""
                     />
- 
+
                   </button>
                   <h4>Fair & Faster Claim Process</h4>
                 </div>
@@ -79,7 +79,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/CoinsBoxLogo.svg"
                       alt=""
                     />
- 
+
                   </button>
                   <h4>Innovative Product Offerings</h4>
                 </div>
@@ -93,7 +93,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/EtherBoxLogo.svg"
                       alt=""
                     />
- 
+
                   </button>
                   <h4>Exchange Hacks</h4>
                 </div>
@@ -105,7 +105,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/EyeBoxLogo.svg"
                       alt=""
                     />
- 
+
                   </button>
                   <h4>Transparent & Open-Source Data</h4>
                 </div>
@@ -117,7 +117,7 @@ export default function Grid() {
                       src="https://unslashed.finance/icons/LockBoxLogo.svg"
                       alt=""
                     />
- 
+
                   </button>
                   <h4>Underwriter's risk-diversification</h4>
                 </div>

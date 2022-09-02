@@ -11,13 +11,13 @@ export default function HomePage() {
 
   return (
     <>
-    <Navbar/>
-    <Topbox/>
-    <Stats/>
-    <Grid/>
-    <Underwrite/>
-    <Blogs/>
-    <Footer/>
+      <Navbar />
+      <Topbox />
+      <Stats />
+      <Grid />
+      <Underwrite />
+      <Blogs />
+      <Footer />
     </>
   )
 }

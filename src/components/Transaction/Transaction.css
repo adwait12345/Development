@@ -1,18 +1,20 @@
-.transaction{
+.transaction {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
 }
-.transaction a{
+
+.transaction a {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
 }
-.transaction-card{
+
+.transaction-card {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -21,13 +23,16 @@
     padding: 5px;
     cursor: pointer;
 }
-.transaction-card:hover{
-background-color: #BCF6C9;
+
+.transaction-card:hover {
+    background-color: #BCF6C9;
 }
-.transaction-card span{
+
+.transaction-card span {
     font-size: 10px;
 }
-.transaction-card p{
+
+.transaction-card p {
     font-size: 13px;
     margin: 5px 0 5px 0;
 }

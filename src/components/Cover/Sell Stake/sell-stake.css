@@ -1,16 +1,19 @@
-.outer-sell-stake{
+.outer-sell-stake {
     width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
     margin-top: 40px;
 }
-.sell-stake{
+
+.sell-stake {
     width: 95%;
-    border: 0.5px solid rgb(225, 223, 223);;
+    border: 0.5px solid rgb(225, 223, 223);
+    ;
     border-radius: 10px;
 }
-.transaction-Details{
+
+.transaction-Details {
     width: 100%;
     height: 100%;
 
@@ -18,9 +21,10 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    overflow-y:scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
+
 .transaction-Details h4 {
     position: sticky;
     top: 0;
@@ -31,30 +35,33 @@
     background-color: #1A1D33;
     color: #fff;
 }
-.buy-button{
+
+.buy-button {
     width: 100%;
     display: flex;
     height: 100px;
     align-items: center;
     justify-content: space-evenly;
 }
-.sell-button{
+
+.sell-button {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.time{
+.time {
     width: 40%;
     height: 4px;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
-   color: #fff;
-   font-size: 12px;
+    color: #fff;
+    font-size: 12px;
 }
-.time1{
+
+.time1 {
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -63,7 +70,9 @@
     align-items: center;
     justify-content: center;
     color: #000;
-}.time2{
+}
+
+.time2 {
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -74,19 +83,42 @@
     color: #000;
 
 }
-.time-sell{
+
+.time-sell {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60px;
 }
-.sell-tit{
+
+.sell-tit {
     width: 100%;
 }
-.sell-tit h3{
+
+.sell-tit h3 {
     font-size: 35px;
     padding: 45px;
     margin: 0;
     color: #fff;
 }
+
+.transaction-Details::-webkit-scrollbar {
+    height: 0px;
+    /* height of horizontal scrollbar ← You're missing this */
+    width: 0px;
+    /* width of vertical scrollbar */
+    border: 1px solid #d5d5d5;
+    overflow-y: scroll;
+
+}
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+
+.sell-button button{
+    width: 140px;
+}
+
+  
+  }

@@ -1,4 +1,4 @@
-.Contractss span button{
+.Contractss span button {
     width: 150px;
     font-family: 'Montserrat', sans-serif;
     height: 50px;
@@ -10,10 +10,12 @@
     color: #757575;
     background-color: #252A43;
 }
-.Contractss span button img{
+
+.Contractss span button img {
     width: 20px;
 }
-.Contractss{
+
+.Contractss {
     width: 100%;
     display: flex;
     height: 40px;
@@ -22,30 +24,35 @@
     margin-top: 50px;
     margin-bottom: 20px;
 }
-.Contractss h5{
+
+.Contractss h5 {
     margin-left: 80px;
     font-size: 20px;
     font-weight: 500;
-    color:#757575;
+    color: #757575;
 }
-.Contractss span{
+
+.Contractss span {
     margin-right: 65px;
     display: flex;
-   
+
 }
-.Contractss img{
+
+.Contractss img {
     margin-right: 10px;
 }
-        /* Mobile  */
-        @media only screen and (max-width:799px) {
-            .Contractss h5{
-                display: none;
-            }
-            .Contractss span {
-               margin-right: 0;
-                align-self: flex-end;
-                flex-direction: row;
-                justify-content: flex-end;
-                width: 95%;
-            }
-        }
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+    .Contractss h5 {
+        display: none;
+    }
+
+    .Contractss span {
+        margin-right: 0;
+        align-self: flex-end;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 95%;
+    }
+}

@@ -1,8 +1,8 @@
-.Connect_to_Wallet{
+.Connect_to_Wallet {
     padding: 20px 0px 25px 20px;
     margin: 25px;
     width: 90%;
- 
+
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -13,12 +13,14 @@
     color: #fff;
 
 }
-.Connect_to_Wallet p{
+
+.Connect_to_Wallet p {
     display: flex;
     align-items: center;
 }
-.Connect_to_Wallet button{
-   padding: 10px;
+
+.Connect_to_Wallet button {
+    padding: 10px;
     height: 40px;
     width: 160px;
     border-radius: 10px;
@@ -32,10 +34,12 @@
     font-size: medium;
     color: #fff;
 }
-.Connect_to_Wallet button:hover{
-  border: 1px #fff;
+
+.Connect_to_Wallet button:hover {
+    border: 1px #fff;
 }
-.dot{
+
+.dot {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,21 +48,23 @@
     background-color: rgb(183, 179, 179);
     border-radius: 100%;
     margin-right: 15px;
-   
+
 }
-.innerdot{
+
+.innerdot {
     height: 8px;
     width: 8px;
-    background-color:rgb(101, 100, 100);
+    background-color: rgb(101, 100, 100);
     border-radius: 100%;
- 
+
 }
-    /* Mobile  */
-    @media only screen and (max-width:799px) {
-        .Connect_to_Wallet{
-            margin: 20px 0 0 0;
-            justify-self: start;
-            align-self: center;
-        }
-        
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+    .Connect_to_Wallet {
+        margin: 20px 0 0 0;
+        justify-self: start;
+        align-self: center;
     }
+
+}

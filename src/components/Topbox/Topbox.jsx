@@ -18,27 +18,27 @@ export default function Topbox() {
           we have got you all covered
         </h3>
         <div className="button">
-        <Link
-          to={{
-            pathname: `/cover/DashBoard`,
-          }}
-        >
-<button>
-            Get SafeZen Insured Now &nbsp;
-            <svg
-              width={20}
-              viewBox="0 0 24 24"
-              focusable="false"
-              class="chakra-icon css-onkibi"
-            >
-              <path
-                fill="currentColor"
-                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-              ></path>
-            </svg>
-          </button>
-        </Link>
-          
+          <Link
+            to={{
+              pathname: `/cover/DashBoard`,
+            }}
+          >
+            <button>
+              Get SafeZen Insured Now &nbsp;
+              <svg
+                width={20}
+                viewBox="0 0 24 24"
+                focusable="false"
+                class="chakra-icon css-onkibi"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                ></path>
+              </svg>
+            </button>
+          </Link>
+
         </div>
       </div>
     </>

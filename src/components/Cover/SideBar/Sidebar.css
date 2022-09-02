@@ -1,149 +1,168 @@
-.aside_content{
+.aside_content {
     max-width: 280px;
     width: 100%;
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        position: fixed;
-        background-color: #141627;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    background-color: #141627;
 
-        transition: 0.2s ease-in-out;
-        z-index: 1;
-        overflow: hidden;
-    }
-    .gradient{
-        position: absolute;
-        height: 350px;
-        width: 200px;
-        background-image: linear-gradient(to bottom, #660efe84,   #df19cc77); 
-        filter: blur(40px);
-        border-radius: 90px;
-        top: 40px;
-        right: -160px;
-       }
-    .aside_content h1{
-        text-align: center;
-        font-weight: 400;
-        color: #fff;
-    }
-    .aside_content li{
-        font-family: 'Montserrat', sans-serif;
-        color: rgb(146, 145, 145);
-        display: flex;
-        align-items: center;
-        list-style: none;
-        text-align: left;
-        padding: 15px;
-        background-color: transparent;
-        border-radius: 10px;
-        margin: 10px;
-        justify-content: flex-start;
-        font-size: 15px;
-      
-    }
-    .active li{
-               color: #fff;
-        background-color: #3D3273;
-    }  
-    .active li:hover{
-/* background-color: #000; */
+    transition: 0.2s ease-in-out;
+    z-index: 1;
+    overflow: hidden;
+}
 
-    }
-    .active button{
-        color: rgb(0, 119, 255);    
-    
-    }
+.gradient {
+    position: absolute;
+    height: 350px;
+    width: 200px;
+    background-image: linear-gradient(to bottom, #660efe84, #df19cc77);
+    filter: blur(40px);
+    border-radius: 90px;
+    top: 40px;
+    right: -160px;
+}
 
-    .aside_content a{
-        text-decoration: none;
-        color: #000 !important;
-        
-    }
-    .aside_content img {
-       
-        margin-right: 10px;
-    }
-    .aside_content  button{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid #000;
-        background-color: white;
-        font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        cursor: pointer;
-        margin: 10px;
-       width: 93%;
-    }
-    .aside_content button:hover{
-        background-color: #000;
-        color: white;
-    }
-    #connectt{
-        display: none;
-    }
-    .buy-div{
-        display: none;
-        flex-direction: column;
-        padding: 20px;
-        margin: 0px 20px 20px 20px;
-        color: #757575;
-    }
-    .buy-div p{
-        font-family: 'Montserrat', sans-serif;
-        color: rgb(146, 145, 145);
-        display: flex;
-        align-items: center;
-        list-style: none;
-        text-align: left;
-        padding: 0px;
-        background-color: transparent;
-        border-radius: 10px;
-        margin: 10px 0 15px 0;
-        justify-content: flex-start;
-        font-size: 14px;
+.aside_content h1 {
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+}
 
-    }
-    .active .buy-div a{
-        color: #fff;
-    }
-    .buy-div a p{
-        color: #757575;
+.aside_content li {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(146, 145, 145);
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: left;
+    padding: 15px;
+    background-color: transparent;
+    border-radius: 10px;
+    margin: 10px;
+    justify-content: flex-start;
+    font-size: 15px;
 
-    }
-    li span{
-        height: 30px;
-        width: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;   
-        margin-left: 70px;
-    }
-    li span img{
-     width: 60px;
-     height: 60px;
-     object-fit: cover;
-    }
-    /* Mobile  */
+}
+
+.active li {
+    color: #fff;
+    background-color: #3D3273;
+}
+
+.active li:hover {
+    /* background-color: #000; */
+
+}
+
+.active button {
+    color: rgb(0, 119, 255);
+
+}
+
+.aside_content a {
+    text-decoration: none;
+    color: #000 !important;
+
+}
+
+.aside_content img {
+
+    margin-right: 10px;
+}
+
+.aside_content button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px;
+    width: 93%;
+}
+
+.aside_content button:hover {
+    background-color: #000;
+    color: white;
+}
+
+#connectt {
+    display: none;
+}
+
+.buy-div {
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    margin: 0px 20px 20px 20px;
+    color: #757575;
+}
+
+.buy-div p {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(146, 145, 145);
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: left;
+    padding: 0px;
+    background-color: transparent;
+    border-radius: 10px;
+    margin: 10px 0 15px 0;
+    justify-content: flex-start;
+    font-size: 14px;
+
+}
+
+.active .buy-div a {
+    color: #fff;
+}
+
+.buy-div a p {
+    color: #757575;
+
+}
+
+li span {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70px;
+}
+
+li span img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Mobile  */
 @media only screen and (max-width:799px) {
-    .aside_content{
+    .aside_content {
         left: -300px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        height: 110vh;
+    }
+
+    #connectt {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 40ch;
+        background-color: #2E334A;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
 
     }
-    #connectt{
-         display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 40ch;
-    background-color: #2E334A;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
 
-    }
     /* #connectt span{
  
     } */

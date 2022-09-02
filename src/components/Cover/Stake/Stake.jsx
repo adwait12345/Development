@@ -13,7 +13,7 @@ import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 export default function Stake() {
     const [open, setOpen] = useState(false)
 
-    var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account} = useMoralis();
+    var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account } = useMoralis();
 
     return (
         <>
@@ -60,7 +60,7 @@ export default function Stake() {
                                             </div>
                                         </div>
                                         <div className="stake-bott">
-                                              <div className="stake-input">
+                                            <div className="stake-input">
                                                 <div className="stake-input-lim">
                                                     <h4>Amount</h4>
                                                     <h4>Max</h4>
@@ -69,47 +69,47 @@ export default function Stake() {
                                                     <input type="text" placeholder='Amount' />
                                                     <span>SZT</span>
                                                 </div>
-                                              </div>
-                                              <button>Stake</button>
+                                            </div>
+                                            <button>Stake</button>
                                         </div>
                                     </div>
                                     <div className="stake-box">
-                                             <div className="approve-szt">
-                                               <span>Approve SZT</span>
-                                             </div>
-                                             <div className="timeline">
-                                                <div className="timeline-line">
-                                            <div className="blob">
-                                                 <img src={check} alt="" />
+                                        <div className="approve-szt">
+                                            <span>Approve SZT</span>
+                                        </div>
+                                        <div className="timeline">
+                                            <div className="timeline-line">
+                                                <div className="blob">
+                                                    <img src={check} alt="" />
                                                 </div>
-                                                </div>
+                                            </div>
 
-                                             </div>
-                                             <div className="transfer-szt">
+                                        </div>
+                                        <div className="transfer-szt">
                                             <span>Transfer SZT</span>
-                                             </div>
+                                        </div>
                                     </div>
 
 
 
-                                    
+
                                 </div>
                                 <div className="stake-bot">
-                             <div className="stake-box">
-                            <div className="sell">
-                                <h3>UnStake Token</h3>
-                <div className="selectStake">
-                  <input type="text" placeholder='Enter Unstake' />
-                   <span>SZT</span>
-                </div>
-                <div className="sell-button">
-                  <button>Unstake</button>
-                </div>
-            </div>
-               </div>
-               <div className="stake-box">
-                
-               </div>
+                                    <div className="stake-box">
+                                        <div className="sell">
+                                            <h3>UnStake Token</h3>
+                                            <div className="selectStake">
+                                                <input type="text" placeholder='Enter Unstake' />
+                                                <span>SZT</span>
+                                            </div>
+                                            <div className="sell-button">
+                                                <button>Unstake</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="stake-box">
+
+                                    </div>
                                 </div>
 
 

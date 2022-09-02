@@ -7,10 +7,12 @@
   justify-content: center;
   color: #fff;
 }
-.logo h1{
-font-weight: 400;
+
+.logo h1 {
+  font-weight: 400;
 
 }
+
 .aside {
   top: 0;
   position: fixed;
@@ -40,7 +42,7 @@ font-weight: 400;
   align-items: center;
 }
 
-.mid-menu  li {
+.mid-menu li {
   display: flex;
   font-style: normal;
   font-weight: 500;
@@ -50,12 +52,15 @@ font-weight: 400;
   padding-right: 18px;
   align-items: center;
 }
-.mid-menu a{
+
+.mid-menu a {
   text-decoration: none;
   color: #fff;
 }
+
 .launch-app button {
-  background: linear-gradient(40deg,#7991fd71,rgba(233, 66, 230, 0.426));  border: none;
+  background: linear-gradient(40deg, #7991fd71, rgba(233, 66, 230, 0.426));
+  border: none;
   width: 120px;
   height: 45px;
   color: white;

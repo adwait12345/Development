@@ -19,8 +19,9 @@
   text-align: center;
   letter-spacing: 1.5px;
   color: #757575;
-  
+
 }
+
 /* .blob{
   width: 450px;
   height: 450px;
@@ -46,10 +47,10 @@
 } */
 .topbox h1 {
   background: -webkit-linear-gradient(-70deg, #ff0299 0%, #0076ff 100%);
-    -webkit-background-clip: text;
+  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-box-decoration-break: clone; 
+  -webkit-box-decoration-break: clone;
   margin: 10px;
   font-size: 45px;
   line-height: 130%;
@@ -57,6 +58,7 @@
   letter-spacing: -1.5px;
   max-width: 900px;
 }
+
 /* .topbox h1 span{
  margin-left: 250px;
 } */
@@ -84,10 +86,12 @@
   transition: 0.5s ease-in-out;
 
 }
-.button a{
+
+.button a {
   text-decoration: none;
 
 }
+
 .button button {
 
   display: flex;
@@ -107,8 +111,9 @@
   cursor: pointer;
   border: none;
 }
-.button:hover{
-    transition: 0.5s ease-in-out;
+
+.button:hover {
+  transition: 0.5s ease-in-out;
 
   background: linear-gradient(-200deg, #db469f 0%, #2188ff 100%);
 

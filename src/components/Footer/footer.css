@@ -1,4 +1,4 @@
-.outer-footer{
+.outer-footer {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,8 @@
     font-family: 'Montserrat', sans-serif;
     color: #fff;
 }
-.Footer{
+
+.Footer {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -15,55 +16,67 @@
     align-items: center;
     height: 545px;
 }
-.Footer-top{
+
+.Footer-top {
     width: 100%;
     display: flex;
     height: 350px;
     border-bottom: 1px solid rgb(156, 156, 156);
 }
-.div1{
-flex: 2;
-align-items: flex-start;
+
+.div1 {
+    flex: 2;
+    align-items: flex-start;
 
 }
-.div1 h2{
+
+.div1 h2 {
     font-weight: 400;
     font-family: "Poppins", sans-serif;
 
 }
+
 .div1 p {
     font-size: 12px;
 }
-.div2{
+
+.div2 {
     display: flex;
     flex: 4;
     justify-content: space-evenly;
     align-items: flex-start;
 }
-.div2 h3{
+
+.div2 h3 {
     font-weight: 400;
 }
-.div2 li{
+
+.div2 li {
     list-style: none;
     font-size: 14px;
     line-height: 40px;
     color: #757575;
 }
-.div3{
-flex:3;
+
+.div3 {
+    flex: 3;
 }
-.div3 h3{
+
+.div3 h3 {
     font-weight: 400;
 }
-.div3 li{
-   font-size: 14px;
-   list-style: none;
+
+.div3 li {
+    font-size: 14px;
+    list-style: none;
 }
-.div3 p{
+
+.div3 p {
     font-size: 10px;
     color: #757575;
 }
-.div3 input{
+
+.div3 input {
     width: 350px;
     padding: 16px;
     margin: 10px 10px 10px 0px;
@@ -73,7 +86,8 @@ flex:3;
     border-radius: 10px;
     color: #757575;
 }
-.div3 button{
+
+.div3 button {
     border: none;
     font-family: 'Montserrat', sans-serif;
     background: #10BB35;
@@ -82,61 +96,76 @@ flex:3;
     padding: 16px;
     border-radius: 10px;
 }
-.subscribe-us{
+
+.subscribe-us {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.Footer-bottom{
+
+.Footer-bottom {
     width: 100%;
     display: flex;
     justify-content: space-between;
 
 }
-.foot-bot-left{
+
+.foot-bot-left {
     display: flex;
 }
-.foot-bot-left p{
+
+.foot-bot-left p {
     font-size: 14px;
     font-weight: 400;
     margin: 24px 24px 24px 0;
 }
-.foot-bot-left li{
+
+.foot-bot-left li {
     font-size: 14px;
     font-weight: 400;
     list-style: none;
     margin: 24px;
 }
-.foot-bot-right{
+
+.foot-bot-right {
     display: flex;
     margin: 24px -24px 24px 24px;
     justify-content: space-evenly;
     width: 150px;
 }
-.discord, .twitter , .linkdin{
+
+.discord,
+.twitter,
+.linkdin {
     cursor: pointer;
 }
+
 /* Mobile  */
 @media only screen and (max-width:799px) {
-    .Footer-top{
+    .Footer-top {
         flex-direction: column;
         flex: 2;
     }
-    .Footer-bottom{
+
+    .Footer-bottom {
         flex: 1;
         /* flex-direction: column;   */
-     }
-     .foot-bot-left{
+    }
+
+    .foot-bot-left {
         flex-direction: column;
-     }
-     .foot-bot-left li{
+    }
+
+    .foot-bot-left li {
         margin: 5px 0 0 0;
         text-decoration: underline;
-     }
-    .Footer{
-       height: 1000px;
     }
-    .div2{
+
+    .Footer {
+        height: 1000px;
+    }
+
+    .div2 {
         justify-content: space-between;
     }
 }

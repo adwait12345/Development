@@ -1,59 +1,64 @@
-.outer-topbar{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
+.outer-topbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
 }
 
-.top_content{
-    display: flex;
-   align-items: center;
-   height: 90px;
-   justify-content: space-between;
-   width: 100%;
-   font-family: 'Montserrat', sans-serif;
-   color: #fff;
+.top_content {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  justify-content: space-between;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
 }
-.top_content h1{
-    margin-left: 45px;
-   
+
+.top_content h1 {
+  margin-left: 45px;
+
 
 }
-.connect_wallet button{
-    margin: 0px 25px 0 25px;
-    height: 40px;
-    width: 160px;
-    border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-    cursor: pointer;
-    background-color: transparent;
-    color: #fff;
-    background:linear-gradient(40deg,#7991fd71,rgba(233, 66, 230, 0.426));
+
+.connect_wallet button {
+  margin: 0px 25px 0 25px;
+  height: 40px;
+  width: 160px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  background: linear-gradient(40deg, #7991fd71, rgba(233, 66, 230, 0.426));
 }
-#logout{
-   
+
+#logout {}
+
+#connect span {
+
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 13ch;
 }
-#connect span{
-    
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 13ch;
+
+#connect {
+  /* background-color: #000; */
+  color: #000;
+  border: none;
 }
-#connect{
-    /* background-color: #000; */
-    color: #000;
-    border: none;
-}
-.Green{
+
+.Green {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.outerGreen{
-    width: 15px;
+
+.outerGreen {
+  width: 15px;
   height: 15px;
   background-color: rgba(8, 194, 8, 0.555);
   border-radius: 100%;
@@ -61,78 +66,83 @@
   justify-content: center;
   align-items: center;
 }
-.innerGreen{
+
+.innerGreen {
   border-radius: 100%;
   width: 6px;
   height: 6px;
-  background-color: rgb(8, 194, 8);;
+  background-color: rgb(8, 194, 8);
+  ;
 }
-.ReactModal__Body--open {
 
-    
-    
+.ReactModal__Body--open {}
+
+.mobile-topbar {
+  display: none;
 }
-.mobile-topbar{
-    display: none;
-}
-.outer-mobile-topbar{
-    display: none;
+
+.outer-mobile-topbar {
+  display: none;
 }
 
 /* Dropdown Button */
 .dropbtn {
-    color: #000;
-    /* padding: 16px; */
-    font-size: 16px;
-    border: none;
-  
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 158px;
-    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
-    z-index: 1;
- border-radius: 10px;
-    margin: 0px 0px 0 25px;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    border-radius: 10px;
-  }
-
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd; cursor: pointer;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;
+  color: #000;
+  /* padding: 16px; */
+  font-size: 16px;
+  border: none;
 
 }
-  
-  /* #connect:hover  {
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 158px;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  z-index: 1;
+  border-radius: 10px;
+  margin: 0px 0px 0 25px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+
+}
+
+/* #connect:hover  {
     border-bottom-left-radius: 0px !important;
     border-bottom-right-radius: 0px !important;
 
 } */
 
 
-#logout{
+#logout {
   color: red !important;
   font-weight: 500;
 }
@@ -143,39 +153,47 @@
 
 
 
-    /* Mobile  */
-    @media only screen and (max-width:799px) {
-.top_content{
-    display: none; 
-}
-.outer-topbar{
-  color: #fff;
-}
-.outer-mobile-topbar{
-        display: flex;
+/* Mobile  */
+@media only screen and (max-width:799px) {
+  .top_content {
+    display: none;
+  }
+
+  .outer-topbar {
+    color: #fff;
+  }
+
+  .outer-mobile-topbar {
+    display: flex;
     justify-content: space-between;
     width: 90%;
     align-items: center;
     flex-direction: column;
-}
-.outer-mobile-topbar hr{
+  }
+
+  .outer-mobile-topbar hr {
     background-color: rgba(122, 120, 120, 0.196);
     margin: 0;
     width: 110%;
     height: 0.5px;
     border: none;
-}
-.mobile-topbar{
-display: flex;
-justify-content: space-between;
-width: 100%;
-align-items: center;
-}
-.mobile-topbar h1{
-    font-weight: 400;
-}
+  }
 
-  .hamburger2  {
+  .mobile-topbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .mobile-topbar h1 {
+    font-weight: 400;
+  }
+  .mobile-topbar a{
+    text-decoration: none;
+    color: #fff;
+  }
+  .hamburger2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -193,32 +211,35 @@ align-items: center;
     display: block;
     width: 30px;
     height: 2px;
-    background-color: #4d495d;
+    background-color: #ffffff;
     border-radius: 1px;
     transition: all .2s cubic-bezier(.1, .82, .76, .965);
   }
-  .Headings-mobile{
+
+  .Headings-mobile {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
-    
+
   }
-  .Headings-mobile button{
-   
+
+  .Headings-mobile button {
+
     height: 40px;
     width: 160px;
     border-radius: 10px;
     border: 2px solid #000;
     font-family: 'Montserrat', sans-serif;
-      background-color: transparent;
+    background-color: transparent;
     font-weight: 500;
     cursor: pointer;
   }
+
   .bet-contract p {
-  
+
     width: 100% !important;
 
+  }
 }
-    }

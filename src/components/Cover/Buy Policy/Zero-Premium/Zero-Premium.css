@@ -1,4 +1,4 @@
-.Zero_premium{
+.Zero_premium {
     width: 95%;
     display: flex;
     flex-direction: column;
@@ -6,11 +6,12 @@
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     margin-top: 50px;
-   border-radius: 10px;
-   background: linear-gradient(45deg, black, transparent);
-   color: #fff;
+    border-radius: 10px;
+    background: linear-gradient(45deg, black, transparent);
+    color: #fff;
 }
-.contract-bar{
+
+.contract-bar {
     width: 95%;
     height: 30px;
     border-radius: 30px;
@@ -19,23 +20,25 @@
     justify-content: flex-start;
 }
 
-.search-cont{
+.search-cont {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.search-cont input{
+
+.search-cont input {
     width: 100%;
     height: 100%;
     border-radius: 10px;
     padding: 12px;
     font-family: 'Montserrat', sans-serif;
-      background-color: #2E334A;
-      
+    background-color: #2E334A;
+
 }
-.content-buttons{
+
+.content-buttons {
     width: 95%;
     height: 40px;
     display: flex;
@@ -43,7 +46,8 @@
     justify-content: flex-start;
     padding: 40px;
 }
-.content-buttons button{
+
+.content-buttons button {
     width: 150px;
     padding: 9px;
     margin: 5px;
@@ -54,7 +58,8 @@
     cursor: pointer;
     color: #fff;
 }
-.actual-zeropremium{
+
+.actual-zeropremium {
     width: 87%;
     display: flex;
     justify-content: center;
@@ -64,12 +69,14 @@
     border-radius: 10px;
     flex-direction: column;
 }
-.zeropremiun-box{
+
+.zeropremiun-box {
     width: 100%;
     border-radius: 10px;
     background: linear-gradient(45deg, black, transparent);
 }
-.supply{
+
+.supply {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -77,7 +84,8 @@
     align-items: center;
     margin-top: 50px;
 }
-.supply1{
+
+.supply1 {
     width: 90%;
     display: flex;
     justify-content: flex-start;
@@ -85,19 +93,21 @@
     height: 50px;
     padding: 2px;
     border-radius: 10px;
-   
+
 
 }
-.supply1 input{
+
+.supply1 input {
     width: 100%;
     height: 100%;
     border: none;
     font-family: 'Montserrat', sans-serif;
     border-radius: 10px;
- background-color: #2E334A;
- color:#757575
+    background-color: #2E334A;
+    color: #757575
 }
-.supply2{
+
+.supply2 {
     width: 90%;
     display: flex;
     justify-content: flex-start;
@@ -106,7 +116,8 @@
     padding: 2px;
     border-radius: 10px;
 }
-.supply2 input{
+
+.supply2 input {
     width: 100%;
     height: 100%;
     border: none;
@@ -115,7 +126,8 @@
     border-radius: 10px;
     color: #757575;
 }
-.dir-button{
+
+.dir-button {
     margin: 5px;
     width: 30px;
     height: 30px;
@@ -126,40 +138,56 @@
     align-items: center;
     background-color: #10BB35;
 }
+
 .css-0 {
     color: white;
 }
-.outerzero{
+
+.outerzero {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.Mint{
+
+.Mint {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
 }
-.Mint button{
+
+.Mint button {
     width: 300px;
     height: 50px;
     border: 2px solid;
     font-family: 'Montserrat', sans-serif;
-   font-size: medium;
-   border-radius: 10px;
-  background-color: #fff;
-  cursor: pointer;
+    font-size: medium;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
 }
-.Mint button:hover{
-background-color: #2EA550;
-color: #fff;
-border:2px #2EA550
+
+.Mint button:hover {
+    background-color: #2EA550;
+    color: #fff;
+    border: 2px #2EA550
 }
-    /* Mobile  */
-    @media only screen and (max-width:799px) {
-  .zeropremiun-box{
-    width: 100%;
-  }
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+    .zeropremiun-box {
+        width: 100%;
     }
+}
+
+.react-tabs__tab-panel--selected::-webkit-scrollbar {
+    height: 0px;
+    /* height of horizontal scrollbar ← You're missing this */
+    width: 0px;
+    /* width of vertical scrollbar */
+    border: 1px solid #d5d5d5;
+    overflow-y: scroll;
+
+}

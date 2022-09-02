@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import { NavLink ,Link} from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import dashboard from "../dashboard.svg";
 import BuyPolicy from "../BuyPolicy.svg";
 import Coverage from "../Coverage.svg";
@@ -14,19 +14,19 @@ import { useState } from "react";
 
 export default function Sidebar() {
 
-const [dropopen , setdeopopen]= useState(false)
-  
-let Drop=()=>{
-  if(dropopen==false){
-document.getElementById("drop").style.display="flex"
-setdeopopen(true)
-  }
-  else if(dropopen==true){
-    document.getElementById("drop").style.display="none"
-    setdeopopen(false) 
-  }
+  const [dropopen, setdeopopen] = useState(false)
 
-}
+  let Drop = () => {
+    if (dropopen == false) {
+      document.getElementById("drop").style.display = "flex"
+      setdeopopen(true)
+    }
+    else if (dropopen == true) {
+      document.getElementById("drop").style.display = "none"
+      setdeopopen(false)
+    }
+
+  }
 
 
 
@@ -40,14 +40,14 @@ setdeopopen(true)
       <div className="aside_content" id="aside300">
 
 
-      <Link
+        <Link
           to={{
             pathname: `/`,
           }}
         >
- <h1>SafeZen</h1>
+          <h1>SafeZen</h1>
         </Link>
-       
+
 
         <button onClick={Handlerr} id="connectt">
           {isWeb3Enabled ? <span>{account}</span> : "Connect Wallet"}
@@ -78,16 +78,16 @@ setdeopopen(true)
               <img width={100} src={Drops} alt="" />
             </span>
           </li>
-          
+
 
         </NavLink>
-        <div className="buy-div"id="drop" >
-         
+        <div className="buy-div" id="drop" >
+
           <p>Pay-as-you-go Insurance</p>
-           <Link to="/cover/BuyPolicy/ZeroPremium">
-             <p>Zero-premium insurance</p>
-           </Link>
-         
+          <Link to="/cover/BuyPolicy/ZeroPremium">
+            <p>Zero-premium insurance</p>
+          </Link>
+
           <p>Advantage pay-as-you-go</p>
         </div>
 
@@ -102,41 +102,41 @@ setdeopopen(true)
           </li>
         </NavLink>
 
-  {isWeb3Enabled && 
-        <NavLink
-          to={{
-            pathname: `/cover/Stake`,
-          }}
-        >
-          <li>
-            <img src={Lock} alt="" />
-            Stake / UnStake SZT
-          </li>
-        </NavLink>   } 
+        {isWeb3Enabled &&
+          <NavLink
+            to={{
+              pathname: `/cover/Stake`,
+            }}
+          >
+            <li>
+              <img src={Lock} alt="" />
+              Stake / UnStake SZT
+            </li>
+          </NavLink>}
 
-{isWeb3Enabled && 
-            <NavLink
-          to={{
-            pathname: `/cover/Sell-stake`,
-          }}
-        >
-          <li>
-            <img src={Sell} alt="" />
-             Buy & Sell 
-          </li>
-        </NavLink> }
+        {isWeb3Enabled &&
+          <NavLink
+            to={{
+              pathname: `/cover/Sell-stake`,
+            }}
+          >
+            <li>
+              <img src={Sell} alt="" />
+              Buy & Sell
+            </li>
+          </NavLink>}
 
-{isWeb3Enabled && 
-            <NavLink
-          to={{
-            pathname: `/cover/DAO`,
-          }}
-        >
-          <li>
-            <img src={DAO} alt="" />
-           DAO
-          </li>
-        </NavLink> }
+        {isWeb3Enabled &&
+          <NavLink
+            to={{
+              pathname: `/cover/DAO`,
+            }}
+          >
+            <li>
+              <img src={DAO} alt="" />
+              DAO
+            </li>
+          </NavLink>}
 
 
 
@@ -161,9 +161,9 @@ setdeopopen(true)
           </button>
         </NavLink> */}
 
-           <div className="gradient">
+        <div className="gradient">
 
-           </div>
+        </div>
       </div>
     </>
   );

@@ -10,10 +10,11 @@
   text-align: center;
 
 }
-body{
+
+body {
 
   /* background-color: #0F0D1E; */
- background-color: #141627;
+  background-color: #141627;
 }
 
 
@@ -47,27 +48,28 @@ body{
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-width
-::-webkit-scrollbar {
+
+width::-webkit-scrollbar {
   width: 1px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(233, 230, 230); 
-  
+  background: rgb(233, 230, 230);
+
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }

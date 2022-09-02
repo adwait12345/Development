@@ -1,38 +1,42 @@
-.Dashboard_after{
+.Dashboard_after {
     margin-left: 25px;
     margin-top: 20px;
     font-family: 'Montserrat', sans-serif;
 
 }
-.top_Dashboard_after{
+
+.top_Dashboard_after {
     display: flex;
 }
-.top_Dashboard_after .tab{
+
+.top_Dashboard_after .tab {
     list-style: none;
     padding: 10px;
     cursor: pointer;
     margin-left: 10px;
     color: #fff;
 }
+
 .react-tabs__tab--selected {
-border-bottom: 4px solid #fff !important;
-transition: 0.1s ease-in-out;
+    border-bottom: 4px solid #fff !important;
+    transition: 0.1s ease-in-out;
 
 }
 
-.active #Policies{
-     border-bottom: 5px solid;
+.active #Policies {
+    border-bottom: 5px solid;
 }
-.active #Liqidity{
+
+.active #Liqidity {
     border-bottom: 5px solid;
 
 }
 
-    /* Mobile  */
-    @media only screen and (max-width:799px) {
-.Dashboard_after{
-    margin-left: 0;
-}
-
-
+/* Mobile  */
+@media only screen and (max-width:799px) {
+    .Dashboard_after {
+        margin-left: 0;
     }
+
+
+}

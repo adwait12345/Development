@@ -7,62 +7,62 @@ import Modal from "react-modal"
 import LoginModal from '../../../Metamask Login Modal \'/LoginModal'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { PhoneIcon, AddIcon, WarningIcon, ArrowDownIcon } from '@chakra-ui/icons'
-import { useMoralis,useWeb3Contract } from 'react-moralis'
+import { useMoralis, useWeb3Contract } from 'react-moralis'
 import { ethers } from "ethers";
-import {BAT_Tokens,CompoundPool,CompoundAbi,StakingAbi,CBat_token} from '../../../../Constants/index'
+import { BAT_Tokens, CompoundPool, CompoundAbi, StakingAbi, CBat_token } from '../../../../Constants/index'
 export default function Zero_Premium() {
-    var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis ,account,web3} = useMoralis();
+    var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 
     const [open, setOpen] = useState(false)
-    const [SupplyAmount,setSupplyAmount]= useState("")
+    const [SupplyAmount, setSupplyAmount] = useState("")
 
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
 
     // Approve Bat Function
-const ApproveBat= async()=>{
-    const BATGET = new ethers.Contract(BAT_Tokens,CompoundAbi, provider);
-    var  BATPOST = new ethers.Contract(BAT_Tokens,StakingAbi, signer);
-    var trans = await BATPOST.approve(CompoundPool,SupplyAmount)
-}
+    const ApproveBat = async () => {
+        const BATGET = new ethers.Contract(BAT_Tokens, CompoundAbi, provider);
+        var BATPOST = new ethers.Contract(BAT_Tokens, StakingAbi, signer);
+        var trans = await BATPOST.approve(CompoundPool, SupplyAmount)
+    }
 
-   // Mint Bat 
-   const MintBat= async()=>{
-    const BATGET = new ethers.Contract(BAT_Tokens,CompoundAbi, provider);
-    var  BATPOST = new ethers.Contract(BAT_Tokens,CompoundAbi, signer);
-    const gen = await BATPOST.mintERC20Tokens2(account,BAT_Tokens,SupplyAmount,
-        {
-            gasLimit: 500000,
-          }
-        
-        
+    // Mint Bat 
+    const MintBat = async () => {
+        const BATGET = new ethers.Contract(BAT_Tokens, CompoundAbi, provider);
+        var BATPOST = new ethers.Contract(BAT_Tokens, CompoundAbi, signer);
+        const gen = await BATPOST.mintERC20Tokens2(account, BAT_Tokens, SupplyAmount,
+            {
+                gasLimit: 500000,
+            }
+
+
         )
-   }
+    }
 
-   // Supply 
-    const Supply = async()=>{
-            // const BATBalance = new ethers.Contract(CBat_token,StakingAbi, provider);
-            // var User_Balance = BigInt(BATBalance.balanceOf(CompoundPool)/1e8).toString()
-            
-// console.log(User_Balance)
-        
-    const BATGET = new ethers.Contract(BAT_Tokens,CompoundAbi, provider);
-    var  BATPOST = new ethers.Contract(CompoundPool,CompoundAbi, signer);
-    const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Tokens,CBat_token,SupplyAmount,
+    // Supply 
+    const Supply = async () => {
+        // const BATBalance = new ethers.Contract(CBat_token,StakingAbi, provider);
+        // var User_Balance = BigInt(BATBalance.balanceOf(CompoundPool)/1e8).toString()
 
-        // {
-        //     gasLimit: 500000,
-        //   }
-        
+        // console.log(User_Balance)
+
+        const BATGET = new ethers.Contract(BAT_Tokens, CompoundAbi, provider);
+        var BATPOST = new ethers.Contract(CompoundPool, CompoundAbi, signer);
+        const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Tokens, CBat_token, SupplyAmount,
+
+            // {
+            //     gasLimit: 500000,
+            //   }
+
         )
 
 
     }
 
 
-const bal=()=>{
+    const bal = () => {
 
-}
+    }
 
 
 
@@ -108,7 +108,7 @@ const bal=()=>{
                                                 <TabPanel>
                                                     <div className="supply">
                                                         <div className="supply1">
-                                                            <input type="text" placeholder='0.0'  onChange={(event)=>{setSupplyAmount(event.target.value)}}  />
+                                                            <input type="text" placeholder='0.0' onChange={(event) => { setSupplyAmount(event.target.value) }} />
                                                         </div>
                                                         <button className="dir-button">
                                                             <ArrowDownIcon />
@@ -116,7 +116,7 @@ const bal=()=>{
                                                         <div className="supply2">
                                                             <input type="text" placeholder='0.0' />
                                                         </div>
-                                                        <div className="approve-szt"onClick={ApproveBat}>
+                                                        <div className="approve-szt" onClick={ApproveBat}>
                                                             <span >Approve</span>
                                                         </div>
                                                         <div className="timeline">
