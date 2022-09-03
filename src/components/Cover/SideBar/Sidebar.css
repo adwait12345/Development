@@ -48,6 +48,13 @@
 .active li {
     color: #fff;
     background-color: #3D3273;
+
+}
+.active #buy{
+      /* margin-bottom: 0px; */
+      transition: 0.1s;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;   */
 }
 
 .active li:hover {
@@ -96,16 +103,27 @@
 }
 
 .buy-div {
-    display: none;
+    display: flex;
     flex-direction: column;
-    padding: 20px;
-    margin: 0px 20px 20px 20px;
+    padding: 0 15px 0px 15px;
+    margin: 0px 10px 0px 10px;
     color: #757575;
+    position: relative;
+   height: 0px;
+   top: -120px;
+   transition: 0.1s;
+   transition-timing-function: ease-in;
+   z-index: -1;
+opacity: 0;
+background-color: #302164;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+
 }
 
 .buy-div p {
     font-family: 'Montserrat', sans-serif;
-    color: rgb(146, 145, 145);
+    color: #fff;
     display: flex;
     align-items: center;
     list-style: none;

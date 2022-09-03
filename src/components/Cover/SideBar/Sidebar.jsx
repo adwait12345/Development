@@ -18,11 +18,28 @@ export default function Sidebar() {
 
   let Drop = () => {
     if (dropopen == false) {
-      document.getElementById("drop").style.display = "flex"
+      // document.getElementById("drop").style.display = "flex"
+
+
+            document.getElementById("drop").style.top = "0px"
+      document.getElementById("drop").style.height = "120px"
+      document.getElementById("drop").style.opacity = "1"
+      document.getElementById("buy").style.borderBottomLeftRadius = "0px"
+      document.getElementById("buy").style.borderBottomRightRadius = "0px"
+      document.getElementById("buy").style.marginBottom = "0px"
+
       setdeopopen(true)
     }
     else if (dropopen == true) {
-      document.getElementById("drop").style.display = "none"
+      // document.getElementById("drop").style.display = "none"
+      document.getElementById("drop").style.top = "-120px"
+      document.getElementById("drop").style.height = "0px"
+      document.getElementById("drop").style.opacity = "0"
+      document.getElementById("buy").style.borderBottomLeftRadius = "10px"
+      document.getElementById("buy").style.borderBottomRightRadius = "10px"
+      document.getElementById("buy").style.marginBottom = "10px"
+
+
       setdeopopen(false)
     }
 
@@ -71,12 +88,15 @@ export default function Sidebar() {
             pathname: `/cover/BuyPolicy`,
           }}
         >
-          <li>
+          <li id="buy">
             <img src={BuyPolicy} alt="" />
             Buy Policy
             <span onClick={Drop}>
               <img width={100} src={Drops} alt="" />
             </span>
+
+
+            
           </li>
 
 
