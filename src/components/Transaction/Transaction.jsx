@@ -37,10 +37,8 @@ export default function Transaction() {
     })
   };
 
-  //  useEffect(()=>{
 
-  //  },[Responce])
-
+  (async ()=>{
   fetch('https://eth-goerli.alchemyapi.io/v2/wKhHYRMeTZ3xJ9ww4jv7lVmRSEFamVH2', options)
     .then(function (responce) {
       return responce.json()
@@ -49,13 +47,10 @@ export default function Transaction() {
       // console.log(obj.result.transfers.hash)
     })
 
-    .catch(err => console.error(err));
+    // .catch(err => console.error(err));
+  })()
 
-  // console.log(Responce)
 
-  // fetch("https://eth-goerli.alchemyapi.io/v2/wKhHYRMeTZ3xJ9ww4jv7lVmRSEFamVH2",options)
-  // .then(r =>  r.json().then(data => ({status: r.status, body: data})))
-  // .then(obj => console.log(obj));
 
 
   return (
