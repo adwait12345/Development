@@ -1,169 +1,129 @@
-import React, { useState } from 'react'
-import LoginModal from '../../Metamask Login Modal \'/LoginModal'
-import Sidebar from '../SideBar/Sidebar'
-import Topbar from '../Topbar/Topbar'
-import Modal from "react-modal"
-import safezen from '../Stake/safezen.png'
-import check from '../check.svg'
-import Ethrum from '../Ethrum.svg'
-import { StakingAbi, stakingAddress, Buy_Sell, BuySell, Dai, GSZTToken } from '../../../Constants/index'
-import './sell-stake.css'
-import { useMoralis, useWeb3Contract } from 'react-moralis'
-import { useEffect } from 'react'
+import React, { useState } from 'react';
+// Components.
+import LoginModal from '../../Metamask Login Modal \'/LoginModal';
+import Sidebar from '../SideBar/Sidebar';
+import Topbar from '../Topbar/Topbar';
+import Modal from "react-modal";
+import Transaction from '../../Transaction/Transaction';
+import Loader from '../../Loader/Loader';
+
+// Assets.
+import safezen from '../Stake/safezen.png';
+import check from '../check.svg';
+import Ethrum from '../Ethrum.svg';
+
+// Libraries.
+import { useMoralis, useWeb3Contract } from 'react-moralis';
 import { ethers } from "ethers";
 
-// import Web3 from "web3"
-import { Network, Alchemy } from 'alchemy-sdk';
-import Loader from '../../Loader/Loader'
-import Transaction from '../../Transaction/Transaction'
+// Constants.
+import { ERC20, SZT_Token, Buy_Sell, BuySell, Dai, GSZTToken } from '../../../Constants/index';
 
+// Css Files.
+import './sell-stake.css';
+
+
+
+// Main Function.
 export default function Sell_Stake() {
 
 
-
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    // Provider.
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    // Signer
     const signer = provider.getSigner();
-    const [open, setOpen] = useState(false)
-    const [amount, setAmount] = useState("")
-    const [balance, setBalance] = useState("")
-    const [sellamount, setSellamount] = useState("")
-    const [issuedTokens, setIssuedTokens] = useState("")
-    const [confirmations, setConfirmations] = useState(false)
-    const [loading, setloading] = useState(false)
-    const [issued, setIssued]=useState("")
-    const [currentSZT_Price , setCurrentSZT_Price]=useState("")
-    const [needtoApprove,setNeedtoApprove]=useState("")
+
+    // All UseStates.
+    const [open, setOpen] = useState(false);
+    const [amount, setAmount] = useState("");
+    const [balance, setBalance] = useState("");
+    const [sellamount, setSellamount] = useState("");
+    const [issuedTokens, setIssuedTokens] = useState("");
+    const [confirmations, setConfirmations] = useState(false);
+    const [loading, setloading] = useState(false);
+    const [issued, setIssued] = useState("");
+    const [currentSZT_Price, setCurrentSZT_Price] = useState("");
+    const [needtoApprove, setNeedtoApprove] = useState("");
+    const [request, setRequest] = useState("Request Sell");
+
+    // Moralis Hooks.
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
+
+    // Global Variables & Constants.
 
     var contract = null;
 
-    // let acc = account.toString()
-    // console.log(account)
-    //     const runner = async()=>{
-    //               // await window.ethereum.send('eth_requestAccounts');
-    //         // window.web3 = new Web3(wind.ethereum);
-
-    //         // var accounts =await web3.eth.getAccounts();
-    //         // account =accounts[0]
-    //         // document.getElementById('lol').textContent=account;
-    //         // contract = new web3.eth.Contract(StakingAbi, stakingAddress);
-    //         contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
-    //     var  contractSigned = new ethers.Contract(stakingAddress,StakingAbi, signer);
-    //         // updateCurrentCount();
-    //     const value = await contract.decimals();
-    //     const value1 = await contract.name();
-    //     const value2 = await contract.symbol();
-    //     const value3 = await contract.balanceOf(account);
-    //     const value7 = BigInt(value3).toString()
-    //     const value4 = await contract.totalSupply()
-    //     const value6 = BigInt(value4).toString()
-
-    //   let value5 =  await contractSigned.transfer("0xDbDB0f30d51Eda693a88AEca322071974602FE34",`${amount*1000000000000000000}`)
-    //    Boolean(value5)
-
-    // console.log(value)  
-    // console.log(value1)  
-    // console.log(value2)  
-    // console.log(value7)  
-    // console.log(value6)  
-    // console.log(value5)
-    //     }
 
 
-    const DaiGET = new ethers.Contract(Dai, StakingAbi, provider);
-    var DaiPOST = new ethers.Contract(Dai, StakingAbi, signer);
+    // Async hidden function.
 
-
-
+    // #1. For getting User Balance.
     (async () => {
-        contract = new ethers.Contract(stakingAddress, StakingAbi, provider);
-
+        contract = new ethers.Contract(SZT_Token, ERC20, provider);
         const Extract = await contract.balanceOf(account)
         var User_Balance = BigInt(Extract).toString()
         setBalance(User_Balance / 1e18)
-        // console.log(balance)
-
-    })()  ;
-      
-    (async () => {
-        contract = new ethers.Contract(BuySell, Buy_Sell, provider);
-        var token= await contract.tokenCounter()
-      var token2= BigInt(token).toString()
-      setIssued(token2/1e18)
-        // console.log(token2/1e18)
-
     })();
 
+    // #2. For getting No of issued Token.  
     (async () => {
         contract = new ethers.Contract(BuySell, Buy_Sell, provider);
-        var SZTPrice= await contract.calculateSZTPrice(`${issued*1e18}`, `${(1 * 1000000000000000000)+(issued*1e18)}`)
-        var SZT_Price=  BigInt(SZTPrice[0]).toString()
-        setCurrentSZT_Price(SZT_Price/1e18)
-        // console.log(SZT_Price/1e18)
+        var token = await contract.tokenCounter()
+        var token2 = BigInt(token).toString()
+        setIssued(token2 / 1e18)
     })();
 
-     (async () => {
+    // #3. For getting current SZT Price.
+    (async () => {
         contract = new ethers.Contract(BuySell, Buy_Sell, provider);
-        var price = await contract.calculateSZTPrice(`${issued*1e18}`, `${(amount * 1000000000000000000)+(issued*1e18)}`)
-    //   var price2=  BigInt(price[0]).toString()
-      var price3=  BigInt(price[1]).toString()
-       setNeedtoApprove(price3/1e18)
-     })();
+        var SZTPrice = await contract.calculateSZTPrice(`${issued * 1e18}`, `${(1 * 1000000000000000000) + (issued * 1e18)}`)
+        var SZT_Price = BigInt(SZTPrice[0]).toString()
+        setCurrentSZT_Price(SZT_Price / 1e18)
+    })();
 
-
-    // Optional Config object, but defaults to demo api-key and eth-mainnet.
-    const settings = {
-        apiKey: 'qFF72R9T59pOGZHY7I3xrJOUX6Fnf4mT', // Replace with your Alchemy API Key.
-        network: Network.ETH_GOERLI, // Replace with your network.
-    };
-    const alchemy = new Alchemy(settings);
-
-    // Access standard Ethers.js JSON-RPC node request
-    //   alchemy.core.getAssetTransfers(
-
-
-    //   ).then(console.log);
+    // #4. For getting amount(DAI) needed to be approved be Buying SZT.
+    (async () => {
+        contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+        var price = await contract.calculateSZTPrice(`${issued * 1e18}`, `${(amount * 1000000000000000000) + (issued * 1e18)}`)
+        var price3 = BigInt(price[1]).toString()
+        setNeedtoApprove(price3 / 1e18)
+    })();
 
 
 
-    // const TransPrev= async()=>{
-    //     contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
-    //     // const networkProvider = new ethers.providers.EtherscanProvider(alchemy.network)
-    //     // const signer2 = networkProvider.getSigner();
 
-    //     const currentAddress = await signer.getAddress();
-    //     let currentHistory = await provider.getHistory(currentAddress);
-    // console.log(currentHistory)
-    // //    const Previous=  contract.filters.Transfer(account, "0xDbDB0f30d51Eda693a88AEca322071974602FE34")
-    //     // console.log(Previous)
-    // }
+    // Main Function.
 
-    // useEffect(()=>{
-    //     {isWeb3Enabled && TransPrev()}
-    // })
-
-
-    const Approve = async () => {
-
-        var trans = await DaiPOST.approve(BuySell,  `${needtoApprove * 1000000000000000000}`)
+    // Approve DAI Before Buying SZT.
+    const ApprovetoBuy = async () => {
+        const DaiGET = new ethers.Contract(Dai, ERC20, provider);
+        var DaiPOST = new ethers.Contract(Dai, ERC20, signer);
+        var trans = await DaiPOST.approve(BuySell, `${needtoApprove * 1000000000000000000}`)
     }
 
+    // Approve SZT & GSZT Before selling it.
+    const ApprovetoSell = async () => {
+        var contractSigned = new ethers.Contract(SZT_Token, ERC20, signer);
+        var trans = await contractSigned.approve(BuySell, `${sellamount * 1000000000000000000}`)
+
+        //Approving GSZT
+        const GSZT = async () => {
+            var contractSigned = new ethers.Contract(GSZTToken, ERC20, signer);
+            var gszt = await contractSigned.approve(BuySell, `${sellamount * 1000000000000000000}`)
+        }
+        GSZT()
+    }
+
+    // Function to BuySZT
     const Buy = async () => {
         try {
             setloading(true)
             contract = new ethers.Contract(BuySell, Buy_Sell, provider);
             var contractSigned = new ethers.Contract(BuySell, Buy_Sell, signer);
-            var trans = await contractSigned.buySZTToken( `${amount * 1000000000000000000}`,
-
-                // {
-                //     gasLimit: 5000000,
-                // }
+            var trans = await contractSigned.buySZTToken(`${amount * 1000000000000000000}`,
             )
 
-            // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
-            // console.log(trans)
-
-
+            // Waiting for Confirmation Recipt
             var receipt = await trans.wait();
 
             console.log(receipt.confirmations)
@@ -178,117 +138,55 @@ export default function Sell_Stake() {
 
     }
 
-    const random = async () => {
-        // contract = new ethers.Contract(stakingAddress,StakingAbi, provider);
-        var contractSigned = new ethers.Contract(stakingAddress, StakingAbi, signer);
-
-        var trans = await contractSigned.approve(BuySell, `${sellamount * 1000000000000000000}`)
-        const GSZT = async () => {
-            // contract = new ethers.Contract(GSZTToken,StakingAbi, provider);
-            var contractSigned = new ethers.Contract(GSZTToken, StakingAbi, signer);
-            var gszt = await contractSigned.approve(BuySell, `${sellamount * 1000000000000000000}`)
-        }
-        GSZT()
-    }
-
-
-
+    // Function to SellSZT
     const SellToken = async () => {
-        contract = new ethers.Contract(BuySell, Buy_Sell, provider);
-        var contractSigned = new ethers.Contract(BuySell, Buy_Sell, signer);
-        var sell = await contractSigned.sellSZTToken(sellamount)
 
-        // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
-        console.log(sell)
+        try {
+            contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+            var contractSigned = new ethers.Contract(BuySell, Buy_Sell, signer);
+            var sell = await contractSigned.sellSZTToken(sellamount)
 
+            console.log(sell)
 
-        var receipt = await sell.wait();
+            // Waiting for Confirmation Recipt
+            var receipt = await sell.wait();
 
-        console.log(receipt.confirmations)
-        if (receipt.confirmations > 0) {
-            setConfirmations(true)
-            Request()
+            console.log(receipt.confirmations)
+            if (receipt.confirmations > 0) {
+                setConfirmations(true)
+                Request()
+            }
+
+        } catch (error) {
+            console.log(error)
         }
-        // try {
-
-
-        // } catch (error) {
-        //     console.log(error)
-        // }
 
     }
 
 
-
-
-
-
-
-
-
-    //    const [rtBalance, setRtBalance]= useState("0")
-
-    // const {runContractFunction:getRtBalance}= useWeb3Contract({
-    //     abi:StakingAbi,
-    //     contractAddress:stakingAddress,
-    //     functionName:"balanceOf",
-    //     params:{
-    //         account:account,
-    //     }
-    // })
-
-    // useEffect(()=>{
-    //     if(isWeb3Enabled && account){
-    //             updateUiValues()
-
-    //     }
-    // },[account, isWeb3Enabled])
-
-    // async function updateUiValues(){
-    //     const rtBalanceFromContract = (
-    //          await getRtBalance({onError:(error)=>console.log(error)}).toString()
-    //     )
-    //     const formattedRtBalanceFromContract = ethers.utils.formatUnits(
-    //         rtBalanceFromContract,
-    //         "ether"
-    //     )
-    //     setRtBalance(formattedRtBalanceFromContract)
-    //     setRtBalance(rtBalanceFromContract)
-    // }
-
-    const [request, setRequest] = useState("Request Sell")
-
+    // Timer 
     const Request = () => {
 
         contract = new ethers.Contract(BuySell, Buy_Sell, provider);
 
         contract.activateSellTimer(`${sellamount * 1000000000000000000}`, "12")
-                setTimeout(() => {
+        setTimeout(() => {
             setRequest("Sell")
         }, 120)
     }
 
-    const RequestSell = async() => {
-        // SellToken()
-    //     contract = new ethers.Contract(BuySell, Buy_Sell, provider);
-    //     var price = await contract.calculateSZTPrice(`${issued*1e18}`, `${(amount * 1000000000000000000)+(issued*1e18)}`)
-    //   var price2=  BigInt(price[0]).toString()
-    //   var price3=  BigInt(price[1]).toString()
-    //     console.log(price2/1e18)
-    //     console.log(price3/1e18)
-        
-    }
 
-    // const RequestSell = async() => {
-    //     // SellToken()
-    //     contract = new ethers.Contract(BuySell, Buy_Sell, provider);
-    //     var price = await contract.calculateSZTPrice(`${issued*1e18}`, `${(amount * 1000000000000000000)+(issued*1e18)}`)
-    //   var price2=  BigInt(price[0]).toString()
-    //   var price3=  BigInt(price[1]).toString()
-    //     console.log(price2/1e18)
-    //     console.log(price3/1e18)
-        
-    // }
+    // Testing Function
+    const RequestSell = async () => {
+        // SellToken()
+        contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+        var price = await contract.calculateSZTPrice(issued, `${(amount * 1000000000000000000) + (issued)}`)
+        var price2 = BigInt(price[0]).toString()
+        var price3 = BigInt(price[1]).toString()
+        console.log(price2 / 1e18)
+        console.log(price3 / 1e18)
+
+    }
 
     return (
         <>
@@ -348,7 +246,7 @@ export default function Sell_Stake() {
                                                 </div>
                                             </div>
                                             <div className="buy-button">
-                                                <button onClick={Approve}>Approve {needtoApprove} DAI</button>
+                                                <button onClick={ApprovetoBuy}>Approve {needtoApprove} DAI</button>
                                                 <button onClick={Buy}>{loading ? <Loader /> : "Buy"}</button>
                                             </div>
                                             <div className="time">
@@ -378,7 +276,7 @@ export default function Sell_Stake() {
                                                 <span>SZT</span>
                                             </div>
                                             <div className="sell-button">
-                                                <button onClick={random}>Approve</button>
+                                                <button onClick={ApprovetoSell}>Approve</button>
                                                 <button id="sellbtn" onClick={RequestSell}>{request}</button>
                                             </div>
                                             <div className="time-sell">
