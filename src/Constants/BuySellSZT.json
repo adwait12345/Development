@@ -1,4 +1,4 @@
- [
+[
   {
     "inputs": [
       {
@@ -27,6 +27,11 @@
   },
   {
     "inputs": [],
+    "name": "LowSZTBalanceError",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "TransactionFailed",
     "type": "error"
   },
@@ -37,8 +42,27 @@
   },
   {
     "inputs": [],
-    "name": "TransactionRevertedError",
+    "name": "ZeroAddressTransactionError",
     "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "BoughtSZT",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -60,6 +84,50 @@
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "SoldSZT",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "TransferredSZT",
+    "type": "event"
+  },
+  {
     "inputs": [],
     "name": "SZTBasePrice",
     "outputs": [
@@ -76,33 +144,23 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_SZTtokenCount",
+        "name": "_value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_waitingPeriod",
         "type": "uint256"
       }
     ],
-    "name": "buySZTToken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "buySZTToken_0_01",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "buySZTToken_0_1",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "buySZTToken_0_5",
-    "outputs": [],
+    "name": "activateSellTimer",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -110,19 +168,19 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "issuedSZTTokens",
+        "name": "_value",
         "type": "uint256"
       }
     ],
-    "name": "calculateGSZTTokenCount",
+    "name": "buySZTToken",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "bool",
         "name": "",
-        "type": "uint256"
+        "type": "bool"
       }
     ],
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -145,53 +203,6 @@
         "name": "",
         "type": "uint256"
       },
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "checkWaitTime",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "ifExists",
-        "type": "bool"
-      },
-      {
-        "internalType": "uint256",
-        "name": "requestTime",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "SZTTokenCount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amountToBePaid",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "commonRatio",
-    "outputs": [
       {
         "internalType": "uint256",
         "name": "",
@@ -230,29 +241,18 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "_SZTTokenCount",
-        "type": "uint256"
-      }
-    ],
-    "name": "mintGSZT",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
+        "internalType": "address",
+        "name": "_investorAddress",
+        "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "",
+        "name": "_equivalentSZTTokens",
         "type": "uint256"
       }
     ],
+    "name": "mintGSZTForInvestors",
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -280,12 +280,18 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_SZTTokenCount",
+        "name": "_value",
         "type": "uint256"
       }
     ],
     "name": "sellSZTToken",
-    "outputs": [],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -339,6 +345,48 @@
     "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+      }
+    ],
+    "name": "transferSZT",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "viewSZTCurrentPrice",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   }
 ]

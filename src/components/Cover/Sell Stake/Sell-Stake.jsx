@@ -30,6 +30,9 @@ export default function Sell_Stake() {
     const [issuedTokens, setIssuedTokens] = useState("")
     const [confirmations, setConfirmations] = useState(false)
     const [loading, setloading] = useState(false)
+    const [issued, setIssued]=useState("")
+    const [currentSZT_Price , setCurrentSZT_Price]=useState("")
+    const [needtoApprove,setNeedtoApprove]=useState("")
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 
     var contract = null;
@@ -70,17 +73,7 @@ export default function Sell_Stake() {
     const DaiGET = new ethers.Contract(Dai, StakingAbi, provider);
     var DaiPOST = new ethers.Contract(Dai, StakingAbi, signer);
 
-    const updateCurrentCount = async () => {
-        //    if(contract){
-        //     var totalSupply = contract.methods.totalSupply().call()
-        //     console.log(totalSupply)
 
-        //    }
-
-    }
-    const increaseCurrentCount = async () => {
-
-    }
 
     (async () => {
         contract = new ethers.Contract(stakingAddress, StakingAbi, provider);
@@ -90,7 +83,32 @@ export default function Sell_Stake() {
         setBalance(User_Balance / 1e18)
         // console.log(balance)
 
-    })()
+    })()  ;
+      
+    (async () => {
+        contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+        var token= await contract.tokenCounter()
+      var token2= BigInt(token).toString()
+      setIssued(token2/1e18)
+        // console.log(token2/1e18)
+
+    })();
+
+    (async () => {
+        contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+        var SZTPrice= await contract.calculateSZTPrice(`${issued*1e18}`, `${(1 * 1000000000000000000)+(issued*1e18)}`)
+        var SZT_Price=  BigInt(SZTPrice[0]).toString()
+        setCurrentSZT_Price(SZT_Price/1e18)
+        // console.log(SZT_Price/1e18)
+    })();
+
+     (async () => {
+        contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+        var price = await contract.calculateSZTPrice(`${issued*1e18}`, `${(amount * 1000000000000000000)+(issued*1e18)}`)
+    //   var price2=  BigInt(price[0]).toString()
+      var price3=  BigInt(price[1]).toString()
+       setNeedtoApprove(price3/1e18)
+     })();
 
 
     // Optional Config object, but defaults to demo api-key and eth-mainnet.
@@ -127,7 +145,7 @@ export default function Sell_Stake() {
 
     const Approve = async () => {
 
-        var trans = await DaiPOST.approve(BuySell, amount)
+        var trans = await DaiPOST.approve(BuySell,  `${needtoApprove * 1000000000000000000}`)
     }
 
     const Buy = async () => {
@@ -135,11 +153,11 @@ export default function Sell_Stake() {
             setloading(true)
             contract = new ethers.Contract(BuySell, Buy_Sell, provider);
             var contractSigned = new ethers.Contract(BuySell, Buy_Sell, signer);
-            var trans = await contractSigned.buySZTToken(amount,
+            var trans = await contractSigned.buySZTToken( `${amount * 1000000000000000000}`,
 
-                {
-                    gasLimit: 5000000,
-                }
+                // {
+                //     gasLimit: 5000000,
+                // }
             )
 
             // "0xDbDB0f30d51Eda693a88AEca322071974602FE34",
@@ -241,16 +259,36 @@ export default function Sell_Stake() {
     const [request, setRequest] = useState("Request Sell")
 
     const Request = () => {
-        setTimeout(() => {
+
+        contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+
+        contract.activateSellTimer(`${sellamount * 1000000000000000000}`, "12")
+                setTimeout(() => {
             setRequest("Sell")
-        }, 120000)
-
+        }, 120)
     }
 
-    const RequestSell = () => {
-        SellToken()
-
+    const RequestSell = async() => {
+        // SellToken()
+    //     contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+    //     var price = await contract.calculateSZTPrice(`${issued*1e18}`, `${(amount * 1000000000000000000)+(issued*1e18)}`)
+    //   var price2=  BigInt(price[0]).toString()
+    //   var price3=  BigInt(price[1]).toString()
+    //     console.log(price2/1e18)
+    //     console.log(price3/1e18)
+        
     }
+
+    // const RequestSell = async() => {
+    //     // SellToken()
+    //     contract = new ethers.Contract(BuySell, Buy_Sell, provider);
+    //     var price = await contract.calculateSZTPrice(`${issued*1e18}`, `${(amount * 1000000000000000000)+(issued*1e18)}`)
+    //   var price2=  BigInt(price[0]).toString()
+    //   var price3=  BigInt(price[1]).toString()
+    //     console.log(price2/1e18)
+    //     console.log(price3/1e18)
+        
+    // }
 
     return (
         <>
@@ -268,11 +306,11 @@ export default function Sell_Stake() {
                             </div>
                             <div className="box-dashboard">
                                 <h4>Current SZT Price:</h4>
-                                <h3>0.00 USD</h3>
+                                <h3>{currentSZT_Price} DAI</h3>
                             </div>
                             <div className="box-dashboard">
                                 <h4>Issued SZT till Date:</h4>
-                                <h3>{issuedTokens} SZT</h3>
+                                <h3>{issued} SZT</h3>
                             </div>
                         </div>
                         <div className="outer-stake">
@@ -310,7 +348,7 @@ export default function Sell_Stake() {
                                                 </div>
                                             </div>
                                             <div className="buy-button">
-                                                <button onClick={Approve}>Approve</button>
+                                                <button onClick={Approve}>Approve {needtoApprove} DAI</button>
                                                 <button onClick={Buy}>{loading ? <Loader /> : "Buy"}</button>
                                             </div>
                                             <div className="time">
@@ -354,7 +392,7 @@ export default function Sell_Stake() {
                                         </div>
                                     </div>
                                     <div className="stake-box">
-                                        <div className="approve-szt">
+                                        <div className="approve-szt" onClick={SellToken}>
                                             <span >Approve SZT</span>
                                         </div>
                                         <div className="timeline">
