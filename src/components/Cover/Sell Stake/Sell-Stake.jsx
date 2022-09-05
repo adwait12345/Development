@@ -51,13 +51,14 @@ export default function Sell_Stake() {
 
     // Global Variables & Constants.
     const decimals = 18;
-    var contract = null;
-    var GET_SZT=new ethers.Contract(SZT_Token, ERC20ABI, provider);
-    var Buy_Sell=new ethers.Contract(BuySell, BuySellABI, provider);
-    var BuySellSigned=new ethers.Contract(BuySell, BuySellABI, signer);
-    var SZT_Signature=new ethers.Contract(SZT_Token, ERC20ABI, signer);
-    var GSZT_Signature=new ethers.Contract(GSZTToken, ERC20ABI, signer);
-    var DAI_Signature = new ethers.Contract(DAI, ERC20ABI, signer);
+    const DAI_SIGNER = new ethers.Contract(DAI, ERC20ABI, signer);
+    const GET_SZT = new ethers.Contract(SZT_Token, ERC20ABI, provider);
+    const SZT_SIGNER = new ethers.Contract(SZT_Token, ERC20ABI, signer);
+    const GSZT_SIGNER = new ethers.Contract(GSZTToken, ERC20ABI, signer);
+    const BUY_SELL_SIGNER = new ethers.Contract(BuySell, BuySellABI, signer);
+    const BUY_SELL_PROVIDER = new ethers.Contract(BuySell, BuySellABI, provider);
+    
+    
     // Async hidden function.
 
     // #1. For getting User Balance.
@@ -75,7 +76,7 @@ export default function Sell_Stake() {
     // #2. For getting No of issued Token.  
     (async () => {
         try {
-        var Raw_IssuedTokens = await Buy_Sell.tokenCounter()
+        var Raw_IssuedTokens = await BUY_SELL_PROVIDER.tokenCounter()
         var Issued_Tokens = BigInt(Raw_IssuedTokens).toString()
         setIssued(Issued_Tokens / 1e18)
         } catch (error) {
@@ -87,7 +88,7 @@ export default function Sell_Stake() {
     // #3. For getting current SZT Price.
     (async () => {
         try {
-        var Raw_SZTPrice = await Buy_Sell.calculateSZTPrice(`${issued * 1e18}`, `${(1 * 1000000000000000000) + (issued * 1e18)}`)
+        var Raw_SZTPrice = await BUY_SELL_PROVIDER.calculateSZTPrice(`${issued * 1e18}`, `${(1 * 1000000000000000000) + (issued * 1e18)}`)
         var SZT_Price = BigInt(Raw_SZTPrice[0]).toString()
         setCurrentSZT_Price(SZT_Price / 1e18)    
         } catch (error) {
@@ -99,8 +100,8 @@ export default function Sell_Stake() {
     // #4. For getting amount(DAI) needed to be approved for Buying SZT.
     (async () => {
         try {
-        var Raw_Price = await Buy_Sell.calculateSZTPrice(`${issued * 1e18}`, `${(amount * 1e18) + (issued * 1e18)}`)
-        var test2 = ethers.utils.parseUnits(`${Raw_Price[1]}`, decimals)
+        var Raw_Price = await BUY_SELL_PROVIDER.calculateSZTPrice(`${issued * 1e18}`, `${(amount * 1e18) + (issued * 1e18)}`)
+        var test2 = ethers.utils.parseUnits(`${Raw_Price[1]}`)
         var Price = BigInt(test2/1e18).toString()
         setNeedtoApprove(`${Price / 1e18}`)    
         } catch (error) {
@@ -117,15 +118,15 @@ export default function Sell_Stake() {
     // Approve DAI Before Buying SZT.
     const ApprovetoBuy = async () => {
         const test1 = ethers.utils.parseUnits(`${needtoApprove}`, decimals)
-        var approveDAI = await DAI_Signature.approve(BuySell, `${test1}`)
+        var approveDAI = await DAI_SIGNER.approve(BuySell, `${test1}`)
     }
 
     // Approve SZT & GSZT Before selling it.
     const ApprovetoSell = async () => {
-        var approveSZT = await SZT_Signature.approve(BuySell, `${sellamount * 1000000000000000000}`)
+        var approveSZT = await SZT_SIGNER.approve(BuySell, `${sellamount * 1000000000000000000}`)
    //Approving GSZT
         const GSZT = async () => {
-        var approveGSZT = await GSZT_Signature.approve(BuySell, `${sellamount * 1000000000000000000}`)
+        var approveGSZT = await GSZT_SIGNER.approve(BuySell, `${sellamount * 1000000000000000000}`)
         }
         GSZT()
     }
@@ -135,7 +136,7 @@ export default function Sell_Stake() {
         try {
             
             setloading(true)
-            var trans = await BuySellSigned.buySZTToken(`${amount * 1000000000000000000}`,
+            var trans = await BUY_SELL_SIGNER.buySZTToken(`${amount * 1000000000000000000}`,
             )
 
             // Waiting for Confirmation Recipt
@@ -158,7 +159,7 @@ export default function Sell_Stake() {
 
         try {
 
-            var sell = await BuySellSigned.sellSZTToken(sellamount)
+            var sell = await BUY_SELL_SIGNER.sellSZTToken(sellamount)
             console.log(sell)
 
             // Waiting for Confirmation Recipt
@@ -179,7 +180,7 @@ export default function Sell_Stake() {
 
     // Timer 
     const Request = () => {
-        Buy_Sell.activateSellTimer(`${sellamount * 1000000000000000000}`, "12")
+        BUY_SELL_PROVIDER.activateSellTimer(`${sellamount * 1000000000000000000}`, "12")
         setTimeout(() => {
             setRequest("Sell")
         }, 120)
@@ -190,7 +191,7 @@ export default function Sell_Stake() {
     const RequestSell = async () => {
         // SellToken()
        
-        var price = await Buy_Sell.calculateSZTPrice(issued, `${(amount * 1000000000000000000) + (issued)}`)
+        var price = await BUY_SELL_PROVIDER.calculateSZTPrice(issued, `${(amount * 1000000000000000000) + (issued)}`)
         var price2 = BigInt(price[0]).toString()
         var price3 = BigInt(price[1]).toString()
         console.log(price2 / 1e18)

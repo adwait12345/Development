@@ -9,11 +9,16 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { PhoneIcon, AddIcon, WarningIcon, ArrowDownIcon } from '@chakra-ui/icons'
 import { useMoralis, useWeb3Contract } from 'react-moralis'
 import { ethers } from "ethers";
-import { BAT_Tokens, CompoundPool, CompoundAbi, StakingAbi, CBat_token } from '../../../../Constants/index'
+import { BAT_Token, CompoundPool, CompoundABI, ERC20ABI, CBAT_Token } from '../../../../Constants/index'
+import dropp from '../../dropp.svg'
+import {ChevronDownIcon} from '@chakra-ui/icons'
+import ZeroModal from './Zero-Premium Modal/ZeroModal'
+
 export default function Zero_Premium() {
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 
     const [open, setOpen] = useState(false)
+    const [zeroOpen, setZeroOpen]=useState(false)
     const [SupplyAmount, setSupplyAmount] = useState("")
 
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -21,19 +26,18 @@ export default function Zero_Premium() {
 
     // Approve Bat Function
     const ApproveBat = async () => {
-        const BATGET = new ethers.Contract(BAT_Tokens, CompoundAbi, provider);
-        var BATPOST = new ethers.Contract(BAT_Tokens, StakingAbi, signer);
-        var trans = await BATPOST.approve(CompoundPool, SupplyAmount)
+        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+        var BATPOST = new ethers.Contract(BAT_Token, ERC20ABI, signer);
+        var trans = await BATPOST.approve(CompoundPool, `${SupplyAmount*1e18}`)
     }
 
     // Mint Bat 
     const MintBat = async () => {
-        const BATGET = new ethers.Contract(BAT_Tokens, CompoundAbi, provider);
-        var BATPOST = new ethers.Contract(BAT_Tokens, CompoundAbi, signer);
-        const gen = await BATPOST.mintERC20Tokens2(account, BAT_Tokens, SupplyAmount,
-            {
-                gasLimit: 500000,
-            }
+        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+        var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
+        
+        const gen = await BATPOST.mintERC20Tokens2(account, BAT_Token,`${SupplyAmount*1e18}`,
+   
 
 
         )
@@ -41,27 +45,29 @@ export default function Zero_Premium() {
 
     // Supply 
     const Supply = async () => {
-        // const BATBalance = new ethers.Contract(CBat_token,StakingAbi, provider);
+        // const BATBalance = new ethers.Contract(CBAT_Token,ERC20ABI, provider);
         // var User_Balance = BigInt(BATBalance.balanceOf(CompoundPool)/1e8).toString()
 
         // console.log(User_Balance)
+        var ERC20GET = new ethers.Contract(BAT_Token,ERC20ABI,provider);
+        const Erc= await ERC20GET.balanceOf(CompoundPool);
+        var Erc1 = BigInt(Erc/1e18).toString()
+        console.log(Erc1)
 
-        const BATGET = new ethers.Contract(BAT_Tokens, CompoundAbi, provider);
-        var BATPOST = new ethers.Contract(CompoundPool, CompoundAbi, signer);
-        const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Tokens, CBat_token, SupplyAmount,
+        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+        var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
+        const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Token, CBAT_Token, `${SupplyAmount*1e18}`,
 
-            // {
-            //     gasLimit: 500000,
-            //   }
 
         )
 
+        console.log(Erc1)
 
     }
 
 
-    const bal = () => {
-
+    const OpenModal = () => {
+        setZeroOpen(true)
     }
 
 
@@ -84,17 +90,7 @@ export default function Zero_Premium() {
                         <div className="BuyPolicy">
                             <div className="outerzero">
                                 <div className="Zero_premium">
-                                    <div className="contract-bar">
-                                        <div className="search-cont">
-                                            <input type="text" placeholder='Search Contract' />
-                                        </div>
-
-                                    </div>
-                                    <div className="content-buttons">
-                                        <button onClick={bal}>Compound</button>
-                                        <button>Aave</button>
-                                        <button>Uniswap</button>
-                                    </div>
+ 
 
 
                                     <div className="actual-zeropremium">
@@ -109,12 +105,19 @@ export default function Zero_Premium() {
                                                     <div className="supply">
                                                         <div className="supply1">
                                                             <input type="text" placeholder='0.0' onChange={(event) => { setSupplyAmount(event.target.value) }} />
+                                                            <div onClick={OpenModal} className="conversion">
+                                                                Compound
+                                                            <ChevronDownIcon/>
+                                                            </div>
                                                         </div>
                                                         <button className="dir-button">
                                                             <ArrowDownIcon />
                                                         </button>
                                                         <div className="supply2">
                                                             <input type="text" placeholder='0.0' />
+                                                            <div className="conversion">
+                                                                Compoundx
+                                                            </div>
                                                         </div>
                                                         <div className="approve-szt" onClick={ApproveBat}>
                                                             <span >Approve</span>
@@ -135,18 +138,25 @@ export default function Zero_Premium() {
 
 
                                                 <TabPanel>
-                                                    <div className="supply">
+                                                <div className="supply">
                                                         <div className="supply1">
-                                                            <input type="text" placeholder='0.0' />
+                                                            <input type="text" placeholder='0.0' onChange={(event) => { setSupplyAmount(event.target.value) }} />
+                                                            <div onClick={OpenModal} className="conversion">
+                                                                Compoundx
+                                                            <ChevronDownIcon/>
+                                                            </div>
                                                         </div>
                                                         <button className="dir-button">
                                                             <ArrowDownIcon />
                                                         </button>
                                                         <div className="supply2">
                                                             <input type="text" placeholder='0.0' />
+                                                            <div className="conversion">
+                                                                Compound
+                                                            </div>
                                                         </div>
-                                                        <div className="approve-szt">
-                                                            <span>Approve</span>
+                                                        <div className="approve-szt" onClick={ApproveBat}>
+                                                            <span >Approve</span>
                                                         </div>
                                                         <div className="timeline">
                                                             <div className="timeline-line">
@@ -156,8 +166,8 @@ export default function Zero_Premium() {
                                                             </div>
 
                                                         </div>
-                                                        <div className="transfer-szt">
-                                                            <span>Withdraw Token</span>
+                                                        <div onClick={Supply} className="transfer-szt">
+                                                            <span>WithDraw</span>
                                                         </div>
                                                     </div>
                                                 </TabPanel>
@@ -180,6 +190,9 @@ export default function Zero_Premium() {
 
 
             </div>
+            <Modal isOpen={zeroOpen} className="Modal">
+                <ZeroModal zeroOpen={zeroOpen} setZeroOpen={setZeroOpen}  />
+            </Modal>
             <Modal isOpen={open} className="Modal" >
                 <LoginModal open={open} setOpen={setOpen} />
             </Modal></>
