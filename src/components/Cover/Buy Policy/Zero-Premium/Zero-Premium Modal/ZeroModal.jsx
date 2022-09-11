@@ -1,37 +1,99 @@
-import React from 'react'
-import './Zero.css'
-import {CloseIcon } from '@chakra-ui/icons'
+import React from 'react';
+import './Zero.css';
+import { CloseIcon, ArrowBackIcon } from '@chakra-ui/icons';
+import Contracts from './data.jsx';
+import {
+  setPlatform,
+  selectedPlatform,
+} from '../../../../../redux/action/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function ZeroModal({setZeroOpen}) {
-    const CloseModal=()=>{
-        setZeroOpen(false)
-    }
+export default function ZeroModal({ setZeroOpen }) {
+  const CloseModal = () => {
+    setZeroOpen(false);
+  };
+
+  const Platform = useSelector(
+    (state) => state.allPlatforms
+  );
+
+  const dispatch = useDispatch(); 
+  
+  const Selector = () => {
+    document.getElementById('ZeroModal').style.justifyContent =
+      'flex-end';
+
+
+  dispatch(setPlatform('Adwait'));
+
+  console.log(Platform);
+
+  };
+
+  const GoBack = () => {
+    document.getElementById('ZeroModal').style.justifyContent =
+      'flex-start';
+  };
   return (
     <>
-    <div className="ZeroModal">
-       <div className="ZeroModal-top">
-        <h2>Select a token </h2>
-       <span> <CloseIcon onClick={CloseModal} /></span>
-        </div> 
-        <div className="ZeroModal-bet">
-            <input type="text" placeholder='Search name or symbol'/>
+      <div className="ZeroModal" id="ZeroModal">
+        <div className="zero1">
+          <div className="ZeroModal-top">
+            <h2>Select your Platform </h2>
+            <span>
+              {' '}
+              <CloseIcon onClick={CloseModal} />
+            </span>
+          </div>
+          <div className="ZeroModal-bet">
+            <input type="text" placeholder="Search name or symbol" />
+          </div>
+          <div className="ZeroModal-Bot">
+            {Contracts.map((Contract) => {
+              return (
+                <div className="Contracts-Need">
+                  <div className="Cont" onClick={()=>dispatch(setPlatform(Contract._name))}>
+                    <img src={Contract._Contract_img} alt="" />
+                    <p> {Contract._name}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
+        <div className="zero2">
+          <div className="ZeroModal-top">
+            <h2>
+              <ArrowBackIcon onClick={GoBack} />
+              Select a token{' '}
+            </h2>
+            <span>
+              {' '}
+              <CloseIcon onClick={CloseModal} />
+            </span>
+          </div>
+          <div className="ZeroModal-bet">
+            <input type="text" placeholder="Search name or symbol" />
+          </div>
+          <div className="ZeroModal-Bot">
+            {Contracts.map((Contract) => {
+              return (
+                <div className="Contracts-Need">
+                  {Contract._Token.map((Token) => {
+                    return (
+                      <div className="Cont">
+                        <img src={Token._img} alt="" />
 
-        <div className="Contracts-Need">
-            <div className='Cont'>
-                <img src="https://compound.finance/compound-components/assets/compound-mark.svg" alt="" />
-                Compound
+                        {Token._tname}
+                      </div>
+                    );
+                  })}
                 </div>
-            <div className='Cont' >
-                <img src="https://aave.com/aaveGhost.svg" alt="" />
-                Aave
-                </div>
-            <div className='Cont'>
-                <img src="https://assets.coingecko.com/coins/images/12504/large/uniswap-uni.png?1600306604" alt="" />
-                Uniswap
-                </div>
+              );
+            })}
+          </div>
         </div>
-    </div>
+      </div>
     </>
-  )
+  );
 }

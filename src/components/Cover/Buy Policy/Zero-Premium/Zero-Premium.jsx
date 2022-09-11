@@ -9,12 +9,14 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { PhoneIcon, AddIcon, WarningIcon, ArrowDownIcon } from '@chakra-ui/icons'
 import { useMoralis, useWeb3Contract } from 'react-moralis'
 import { ethers } from "ethers";
-import { BAT_Token, CompoundPool, CompoundABI, ERC20ABI, CBAT_Token } from '../../../../Constants/index'
+import { BAT_Token, CompoundPool, CompoundABI, ERC20ABI, CBAT_Token,    AAVE_Contract, AAVE_Token, aAAVE_Token ,AaveABI} from '../../../../Constants/index'
 import dropp from '../../dropp.svg'
 import {ChevronDownIcon} from '@chakra-ui/icons'
 import ZeroModal from './Zero-Premium Modal/ZeroModal'
+import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
-export default function Zero_Premium() {
+function Zero_Premium({platform}) {
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 
     const [open, setOpen] = useState(false)
@@ -24,40 +26,69 @@ export default function Zero_Premium() {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
 
+
+// For Compound Pool 
+
     // Approve Bat Function
-    const ApproveBat = async () => {
-        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
-        var BATPOST = new ethers.Contract(BAT_Token, ERC20ABI, signer);
-        var trans = await BATPOST.approve(CompoundPool, `${SupplyAmount*1e18}`)
-    }
 
-    // Mint Bat 
-    const MintBat = async () => {
-        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
-        var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
-        
-        const gen = await BATPOST.mintERC20Tokens2(account, BAT_Token,`${SupplyAmount*1e18}`,
-   
+    // const ApproveBat = async () => {
+    //     const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+    //     var BATPOST = new ethers.Contract(BAT_Token, ERC20ABI, signer);
+    //     var trans = await BATPOST.approve(CompoundPool, `${SupplyAmount*1e18}`)
+    // }
 
+    // // Mint Bat 
+    // const MintBat = async () => {
+    //     const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+    //     var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
+    //     const gen = await BATPOST.mintERC20Tokens2(account, BAT_Token,`${SupplyAmount*1e18}`)
 
-        )
+    // }
+
+    // // Supply 
+    // const Supply = async () => {
+    //     var ERC20GET = new ethers.Contract(BAT_Token,ERC20ABI,provider);
+    //     const Erc= await ERC20GET.balanceOf(CompoundPool);
+    //     var Erc1 = BigInt(Erc/1e18).toString()
+    //     console.log(Erc1)
+
+    //     const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+    //     var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
+    //     const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Token, CBAT_Token, `${SupplyAmount*1e18}`,
+
+    //     )
+
+    //     console.log(Erc1)
+
+    // }
+//
+
+// For Aave 
+
+const ApproveAave = async () => {
+    const AaveGET = new ethers.Contract(AAVE_Token, AaveABI, provider);
+    var AavePOST = new ethers.Contract(AAVE_Token, ERC20ABI, signer);
+    var trans = await AavePOST.approve(AAVE_Contract, `${SupplyAmount*1e18}`)
+}
+
+    // Mint AAve
+    const MintAave = async () => {
+        const AaveGET = new ethers.Contract(AAVE_Token, AaveABI, provider);
+        var AavePOST = new ethers.Contract(AAVE_Contract, AaveABI, signer);
+        const gen = await AavePOST.mintERC20Tokens( AAVE_Token,`${SupplyAmount*1e18}`)
+
     }
 
     // Supply 
-    const Supply = async () => {
-        // const BATBalance = new ethers.Contract(CBAT_Token,ERC20ABI, provider);
-        // var User_Balance = BigInt(BATBalance.balanceOf(CompoundPool)/1e8).toString()
-
-        // console.log(User_Balance)
-        var ERC20GET = new ethers.Contract(BAT_Token,ERC20ABI,provider);
-        const Erc= await ERC20GET.balanceOf(CompoundPool);
+    const SupplyAave = async () => {
+        var ERC20GET = new ethers.Contract(AAVE_Token,ERC20ABI,provider);
+        const Erc= await ERC20GET.balanceOf(AAVE_Contract);
         var Erc1 = BigInt(Erc/1e18).toString()
         console.log(Erc1)
 
-        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
-        var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
-        const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Token, CBAT_Token, `${SupplyAmount*1e18}`,
-
+        const AaveGET = new ethers.Contract(AAVE_Token, AaveABI, provider);
+        var AavePOST = new ethers.Contract(AAVE_Contract, AaveABI, signer);
+        const gen1 = await AavePOST.supplyToken(AAVE_Token, aAAVE_Token, `${SupplyAmount*1e18}`,
 
         )
 
@@ -66,6 +97,29 @@ export default function Zero_Premium() {
     }
 
 
+// For aAave 
+
+// Approve aAave
+const ApproveaAave = async () => {
+    const aAaveGET = new ethers.Contract(aAAVE_Token, AaveABI, provider);
+    var aAavePOST = new ethers.Contract(aAAVE_Token, ERC20ABI, signer);
+    var trans = await aAavePOST.approve(AAVE_Contract, `${SupplyAmount*1e18}`)
+}
+
+// Withdraw aAave
+    
+    const WithDrawaAave = async () => {
+
+
+        const aAaveGET = new ethers.Contract(aAAVE_Token, AaveABI, provider);
+        var aAavePOST = new ethers.Contract(AAVE_Contract, AaveABI, signer);
+        const gen1 = await aAavePOST.withdrawToken( AAVE_Token,aAAVE_Token, `${SupplyAmount*1e18}` )
+
+
+    }
+
+
+//
     const OpenModal = () => {
         setZeroOpen(true)
     }
@@ -119,7 +173,7 @@ export default function Zero_Premium() {
                                                                 Compoundx
                                                             </div>
                                                         </div>
-                                                        <div className="approve-szt" onClick={ApproveBat}>
+                                                        <div className="approve-szt" onClick={ApproveAave}>
                                                             <span >Approve</span>
                                                         </div>
                                                         <div className="timeline">
@@ -130,7 +184,7 @@ export default function Zero_Premium() {
                                                             </div>
 
                                                         </div>
-                                                        <div onClick={Supply} className="transfer-szt">
+                                                        <div onClick={SupplyAave} className="transfer-szt">
                                                             <span>Supply Token</span>
                                                         </div>
                                                     </div>
@@ -155,7 +209,7 @@ export default function Zero_Premium() {
                                                                 Compound
                                                             </div>
                                                         </div>
-                                                        <div className="approve-szt" onClick={ApproveBat}>
+                                                        <div className="approve-szt" onClick={ApproveaAave}>
                                                             <span >Approve</span>
                                                         </div>
                                                         <div className="timeline">
@@ -166,7 +220,7 @@ export default function Zero_Premium() {
                                                             </div>
 
                                                         </div>
-                                                        <div onClick={Supply} className="transfer-szt">
+                                                        <div  className="transfer-szt" onClick={WithDrawaAave}>
                                                             <span>WithDraw</span>
                                                         </div>
                                                     </div>
@@ -174,7 +228,7 @@ export default function Zero_Premium() {
                                             </Tabs>
                                         </div>
                                         <div className="Mint">
-                                            <button onClick={MintBat}>Mint Tokens</button>
+                                            <button onClick={MintAave}>Mint Tokens</button>
                                         </div>
 
                                     </div>
@@ -200,3 +254,9 @@ export default function Zero_Premium() {
 
     )
 }
+    const mapStateToProps = state => ({
+       
+        platform: state.allPlatforms
+    });
+   
+    export default connect(mapStateToProps)(Zero_Premium);

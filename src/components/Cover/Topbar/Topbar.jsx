@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 
 export default function Topbar(props) {
   // const [open , setOpen] = useState(false)
-  const { enableWeb3, isWeb3Enabled, account, logout, login, authenticate } = useMoralis();
+  const { enableWeb3, isWeb3Enabled, account, logout, login, authenticate ,chainId} = useMoralis();
 
 
   const Handler = () => {
@@ -77,6 +77,53 @@ export default function Topbar(props) {
 
     }
   }
+
+
+  const SwitchMainNet= async()=>{
+    try {
+      await web3.currentProvider.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0x1" }]
+      });
+    } catch (error) {
+      alert(error.message);
+    }
+  } 
+
+   const SwitchGoerli= async()=>{
+    try {
+      await web3.currentProvider.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0x5" }]
+      });
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
+  const SwitchPolygon = async () => {
+    try {
+      await web3.currentProvider.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x13881",
+            rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
+            chainName: "Polygon Testnet Mumbai",
+            nativeCurrency: {
+              name: "tMATIC",
+              symbol: "tMATIC", // 2-6 characters long
+              decimals: 18,
+            },
+            blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+          },
+        ],
+      });
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
   return (
     <>
       <div className="outer-topbar">
@@ -88,12 +135,17 @@ export default function Topbar(props) {
               <button class="dropbtn" onClick={Handler} >Select Chain</button>
               {isWeb3Enabled &&
                 <div class="dropdown-content">
-                  <a >
+                  <a onClick={SwitchMainNet}>
                     <img width={20} src={Ethrum} alt="" />
                     Ethereum
 
                   </a>
-                  <a >
+                  <a onClick={SwitchGoerli}>
+                    <img width={20} src={Ethrum} alt="" />
+                    Goerli Testnet
+
+                  </a>
+                  <a onClick={SwitchPolygon}>
                     <img width={20} src={polygon} alt="" />
                     Polygon
                   </a>

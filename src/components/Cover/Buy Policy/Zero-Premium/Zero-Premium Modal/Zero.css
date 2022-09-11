@@ -1,9 +1,9 @@
 .ZeroModal{
-    width: 100%;
+    width:450px;
     display: flex;
-    flex-direction: column;
+    
     align-items: center;
- justify-content: center;
+ justify-content: flex-start;
  align-items: center;
  color: #fff;
  background: linear-gradient(45deg, black, transparent);
@@ -11,6 +11,25 @@
     padding: 15px;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.zero1{
+    width:450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ justify-content: center;
+ align-items: center;
+ margin-right: 15px;
+}
+.zero2{
+    width:450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ justify-content: center;
+ align-items: center;
 }
 .ZeroModal-top{
     display: flex;
@@ -18,6 +37,14 @@
     justify-content: space-between;
     align-items: center;
 }
+.ZeroModal-top h2 {
+    display: flex;
+}
+.ZeroModal-top h2 svg{
+margin-right: 5px;
+cursor: pointer;
+}
+
 .ZeroModal-bet{
     width:450px;
     display: flex;
@@ -36,8 +63,18 @@
     background-color: #2E334A;
     color: #757575;
 }
+.ZeroModal-Bot{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 300px;
+    width: 100%;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden;
+}
 .Contracts-Need{
-    width: 450px;
+    width: 100%;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -69,4 +106,5 @@
 .ReactModal__Content .ReactModal__Content--after-open{
     width: 450px;
     background-color: transparent;
+    
 }

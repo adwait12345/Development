@@ -8,10 +8,44 @@ import Modal from "react-modal"
 import check from '../check.svg'
 import { useMoralis } from 'react-moralis'
 import LoginModal from '../../Metamask Login Modal \'/LoginModal'
+import { ethers } from "ethers";
 
+import { BAT_Token, CompoundPool, CompoundABI, ERC20ABI, CBAT_Token,    AAVE_Contract, AAVE_Token, aAAVE_Token ,AaveABI, SZTStakingABI,SZTStakingContract, SZT_Token} from '../../../Constants/index'
+
+const provider = new ethers.providers.Web3Provider(window.ethereum)
+const signer = provider.getSigner();
 
 export default function Stake() {
     const [open, setOpen] = useState(false)
+    const [SupplyAmount, setSupplyAmount] = useState("")
+    const [WithdrawAmount, setWithDrawAmount]= useState("")
+
+    const ApproveStakingSZT = async()=>{
+        const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
+        var SZTPOST = new ethers.Contract(SZT_Token, ERC20ABI, signer);
+        var trans = await SZTPOST.approve(SZTStakingContract, `${SupplyAmount*1e18}`)
+    }
+
+    const StakeSZT = async () => {
+
+
+        const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
+        var SZTPOST = new ethers.Contract(SZTStakingContract, SZTStakingABI, signer);
+        const gen1 = await SZTPOST.stakeSZT(  `${SupplyAmount*1e18}` )
+
+
+    }
+        const WithdrawSZT = async () => {
+
+
+        const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
+        var SZTPOST = new ethers.Contract(SZTStakingContract, SZTStakingABI, signer);
+        const gen1 = await SZTPOST.withdrawSZT(`${WithdrawAmount*1e18}` )
+
+
+    }
+
+    
 
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account } = useMoralis();
 
@@ -66,15 +100,15 @@ export default function Stake() {
                                                     <h4>Max</h4>
                                                 </div>
                                                 <div className="stake_input">
-                                                    <input type="text" placeholder='Amount' />
+                                                    <input type="text" placeholder='Amount' onChange={(event) => { setSupplyAmount(event.target.value) }} />
                                                     <span>SZT</span>
                                                 </div>
                                             </div>
-                                            <button>Stake</button>
+                                            <button onClick={StakeSZT}>Stake</button>
                                         </div>
                                     </div>
                                     <div className="stake-box">
-                                        <div className="approve-szt">
+                                        <div className="approve-szt" onClick={ApproveStakingSZT}>
                                             <span>Approve SZT</span>
                                         </div>
                                         <div className="timeline">
@@ -99,11 +133,11 @@ export default function Stake() {
                                         <div className="sell">
                                             <h3>UnStake Token</h3>
                                             <div className="selectStake">
-                                                <input type="text" placeholder='Enter Unstake' />
+                                                <input type="text" placeholder='Enter Unstake' onChange={(event) => {setWithDrawAmount(event.target.value) }}/>
                                                 <span>SZT</span>
                                             </div>
                                             <div className="sell-button">
-                                                <button>Unstake</button>
+                                                <button onClick={WithdrawSZT}>Unstake</button>
                                             </div>
                                         </div>
                                     </div>

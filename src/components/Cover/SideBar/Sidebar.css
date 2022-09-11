@@ -118,7 +118,6 @@ opacity: 0;
 background-color: #302164;
 border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
-
 }
 
 .buy-div p {
@@ -141,10 +140,7 @@ border-bottom-right-radius: 10px;
     color: #fff;
 }
 
-.buy-div a p {
-    color: #757575;
 
-}
 
 li span {
     height: 30px;
