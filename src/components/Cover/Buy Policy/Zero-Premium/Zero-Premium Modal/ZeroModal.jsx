@@ -5,6 +5,8 @@ import Contracts from './data.jsx';
 import {
   setPlatform,
   selectedPlatform,
+  selectedToken,
+ setToken
 } from '../../../../../redux/action/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -18,7 +20,9 @@ export default function ZeroModal({ setZeroOpen }) {
   );
 
   const dispatch = useDispatch(); 
-  
+  // console.log(Platform);
+
+
   const Selector = () => {
     document.getElementById('ZeroModal').style.justifyContent =
       'flex-end';
@@ -52,7 +56,7 @@ export default function ZeroModal({ setZeroOpen }) {
             {Contracts.map((Contract) => {
               return (
                 <div className="Contracts-Need">
-                  <div className="Cont" onClick={()=>dispatch(setPlatform(Contract._name))}>
+                  <div className="Cont" onClick={function (event) { dispatch(setPlatform(Contract._name));if(Platform==="Compound"){} setZeroOpen(false) }}>
                     <img src={Contract._Contract_img} alt="" />
                     <p> {Contract._name}</p>
                   </div>
@@ -62,7 +66,7 @@ export default function ZeroModal({ setZeroOpen }) {
           </div>
         </div>
         <div className="zero2">
-          <div className="ZeroModal-top">
+          {/* <div className="ZeroModal-top">
             <h2>
               <ArrowBackIcon onClick={GoBack} />
               Select a token{' '}
@@ -91,7 +95,7 @@ export default function ZeroModal({ setZeroOpen }) {
                 </div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </>

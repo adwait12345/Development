@@ -9,4 +9,11 @@ export const ActionTypes = {
     SELECTED_TOKEN:"SELECTED_TOKEN",
     REMOVE_SELECTED_TOKEN : "REMOVE_SELECTED_TOKEN",
 
+    // Dark Mode
+    SET_DARK:"SET_DARK",
+    SELCTED_DARK:"SELECTED_DARK",
+
+    // White Mode
+    SET_LIGHT: "SET_LIGHT",
+    SELCTED_LIGHT: "SELECTED_LIGHT"
 }

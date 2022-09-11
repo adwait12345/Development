@@ -14,9 +14,8 @@ import dropp from '../../dropp.svg'
 import {ChevronDownIcon} from '@chakra-ui/icons'
 import ZeroModal from './Zero-Premium Modal/ZeroModal'
 import { useDispatch, useSelector } from 'react-redux';
-import { connect } from 'react-redux';
 
-function Zero_Premium({platform}) {
+export default function Zero_Premium() {
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 
     const [open, setOpen] = useState(false)
@@ -26,41 +25,46 @@ function Zero_Premium({platform}) {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
 
+    const Platforms = useSelector(state => state.allPlatforms)
+    let platform = Platforms.platforms
+    console.log(platform)
+    // console.log(Platforms)
+   
 
 // For Compound Pool 
 
     // Approve Bat Function
 
-    // const ApproveBat = async () => {
-    //     const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
-    //     var BATPOST = new ethers.Contract(BAT_Token, ERC20ABI, signer);
-    //     var trans = await BATPOST.approve(CompoundPool, `${SupplyAmount*1e18}`)
-    // }
+    const ApproveBat = async () => {
+        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+        var BATPOST = new ethers.Contract(BAT_Token, ERC20ABI, signer);
+        var trans = await BATPOST.approve(CompoundPool, `${SupplyAmount*1e18}`)
+    }
 
-    // // Mint Bat 
-    // const MintBat = async () => {
-    //     const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
-    //     var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
-    //     const gen = await BATPOST.mintERC20Tokens2(account, BAT_Token,`${SupplyAmount*1e18}`)
+    // Mint Bat 
+    const MintBat = async () => {
+        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+        var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
+        const gen = await BATPOST.mintERC20Tokens2(account, BAT_Token,`${SupplyAmount*1e18}`)
 
-    // }
+    }
 
-    // // Supply 
-    // const Supply = async () => {
-    //     var ERC20GET = new ethers.Contract(BAT_Token,ERC20ABI,provider);
-    //     const Erc= await ERC20GET.balanceOf(CompoundPool);
-    //     var Erc1 = BigInt(Erc/1e18).toString()
-    //     console.log(Erc1)
+    // Supply 
+    const SupplyBat = async () => {
+        var ERC20GET = new ethers.Contract(BAT_Token,ERC20ABI,provider);
+        const Erc= await ERC20GET.balanceOf(CompoundPool);
+        var Erc1 = BigInt(Erc/1e18).toString()
+        console.log(Erc1)
 
-    //     const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
-    //     var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
-    //     const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Token, CBAT_Token, `${SupplyAmount*1e18}`,
+        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+        var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
+        const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Token, CBAT_Token, `${SupplyAmount*1e18}`,
 
-    //     )
+        )
 
-    //     console.log(Erc1)
+        console.log(Erc1)
 
-    // }
+    }
 //
 
 // For Aave 
@@ -95,6 +99,14 @@ const ApproveAave = async () => {
         console.log(Erc1)
 
     }
+    const ApproveCompoundx= async()=>{
+        const CompoundGET = new ethers.Contract(CBAT_Token, CompoundABI, provider);
+        var CompoundPOST = new ethers.Contract(CBAT_Token, ERC20ABI, signer);
+        var trans = await CompoundPOST.approve(CompoundPool, `${SupplyAmount * 1e18}`)
+    }
+    const WithDrawCompound=()=>{
+
+    }
 
 
 // For aAave 
@@ -117,6 +129,60 @@ const ApproveaAave = async () => {
 
 
     }
+
+
+// Global Functions
+
+const ApprovetoSupply=()=>{
+if(platform==="Compound"){
+    ApproveBat()
+}
+if(platform==="Aave"){
+    ApproveAave()
+}
+    if (platform === "Uniswap") {
+        alert("Platform Not Present")
+    }
+}
+
+const ApprovetoWithdraw=()=>{
+    if (platform === "Compound") {
+        ApproveCompoundx()
+    }
+    if (platform === "Aave") {
+        ApproveaAave()
+    }
+    if(platform==="Uniswap"){
+        alert("Platform Not Present")
+    }
+}
+
+const Supply=()=>{
+    if (platform === "Compound") {
+        SupplyBat()
+    }
+    if (platform === "Aave") {
+       SupplyAave()
+    }
+    if (platform === "Uniswap") {
+        alert("Platform Not Present")
+    }
+}
+
+const Withdraw=()=>{
+    if (platform === "Compound") {
+        WithDrawCompound()
+    }
+    if (platform === "Aave") {
+        WithDrawaAave()
+    }
+    if (platform === "Uniswap") {
+        alert("Platform Not Present")
+    }
+}
+
+
+
 
 
 //
@@ -160,7 +226,7 @@ const ApproveaAave = async () => {
                                                         <div className="supply1">
                                                             <input type="text" placeholder='0.0' onChange={(event) => { setSupplyAmount(event.target.value) }} />
                                                             <div onClick={OpenModal} className="conversion">
-                                                                Compound
+                                                                {platform}
                                                             <ChevronDownIcon/>
                                                             </div>
                                                         </div>
@@ -168,12 +234,12 @@ const ApproveaAave = async () => {
                                                             <ArrowDownIcon />
                                                         </button>
                                                         <div className="supply2">
-                                                            <input type="text" placeholder='0.0' />
+                                                            <input type="text" placeholder='0.0' value={SupplyAmount} />
                                                             <div className="conversion">
-                                                                Compoundx
+                                                                {platform}x
                                                             </div>
                                                         </div>
-                                                        <div className="approve-szt" onClick={ApproveAave}>
+                                                        <div className="approve-szt" onClick={ApprovetoSupply}>
                                                             <span >Approve</span>
                                                         </div>
                                                         <div className="timeline">
@@ -184,7 +250,7 @@ const ApproveaAave = async () => {
                                                             </div>
 
                                                         </div>
-                                                        <div onClick={SupplyAave} className="transfer-szt">
+                                                        <div onClick={Supply} className="transfer-szt">
                                                             <span>Supply Token</span>
                                                         </div>
                                                     </div>
@@ -196,7 +262,7 @@ const ApproveaAave = async () => {
                                                         <div className="supply1">
                                                             <input type="text" placeholder='0.0' onChange={(event) => { setSupplyAmount(event.target.value) }} />
                                                             <div onClick={OpenModal} className="conversion">
-                                                                Compoundx
+                                                                {platform}x
                                                             <ChevronDownIcon/>
                                                             </div>
                                                         </div>
@@ -204,12 +270,12 @@ const ApproveaAave = async () => {
                                                             <ArrowDownIcon />
                                                         </button>
                                                         <div className="supply2">
-                                                            <input type="text" placeholder='0.0' />
+                                                            <input type="text" placeholder='0.0' value={SupplyAmount}/>
                                                             <div className="conversion">
-                                                                Compound
+                                                                {platform}
                                                             </div>
                                                         </div>
-                                                        <div className="approve-szt" onClick={ApproveaAave}>
+                                                        <div className="approve-szt" onClick={ApprovetoWithdraw}>
                                                             <span >Approve</span>
                                                         </div>
                                                         <div className="timeline">
@@ -220,7 +286,7 @@ const ApproveaAave = async () => {
                                                             </div>
 
                                                         </div>
-                                                        <div  className="transfer-szt" onClick={WithDrawaAave}>
+                                                        <div  className="transfer-szt" onClick={Withdraw}>
                                                             <span>WithDraw</span>
                                                         </div>
                                                     </div>
@@ -254,9 +320,3 @@ const ApproveaAave = async () => {
 
     )
 }
-    const mapStateToProps = state => ({
-       
-        platform: state.allPlatforms
-    });
-   
-    export default connect(mapStateToProps)(Zero_Premium);

@@ -28,3 +28,17 @@ export const selectedToken = (sToken) => {
     payload: sToken,
   };
 };
+
+
+export const setThemeDark= (Theme)=>{
+  return {
+    type: ActionTypes.SET_LIGHT,
+    payload:Theme
+  }
+}
+export const setThemeLight= (Theme)=>{
+  return {
+    type: ActionTypes.SET_LIGHT,
+    payload:Theme
+  }
+}

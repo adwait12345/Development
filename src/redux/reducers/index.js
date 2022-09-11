@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import { PlatformReducer,selectedPlatformReducer} from './Reducer';
+import { PlatformReducer,selectedPlatformReducer,TokenReducer,selectedTokenReducer} from './Reducer';
 
 const reducer = combineReducers({
     allPlatforms:PlatformReducer,
     platform:selectedPlatformReducer,
+    allTokens:TokenReducer,
+    token:selectedTokenReducer
 })
 export default reducer 
