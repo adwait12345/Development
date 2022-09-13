@@ -28,9 +28,9 @@ export default function ZeroModal({ setZeroOpen }) {
       'flex-end';
 
 
-  dispatch(setPlatform('Adwait'));
+  // dispatch(setPlatform('Adwait'));
 
-  console.log(Platform);
+  // console.log(Platform);
 
   };
 
@@ -56,7 +56,7 @@ export default function ZeroModal({ setZeroOpen }) {
             {Contracts.map((Contract) => {
               return (
                 <div className="Contracts-Need">
-                  <div className="Cont" onClick={function (event) { dispatch(setPlatform(Contract._name));if(Platform==="Compound"){} setZeroOpen(false) }}>
+                  <div className="Cont" onClick={function (event) { dispatch(setPlatform(Contract._name));if(Platform==="Compound"){} setZeroOpen(false); }}>
                     <img src={Contract._Contract_img} alt="" />
                     <p> {Contract._name}</p>
                   </div>
@@ -66,7 +66,7 @@ export default function ZeroModal({ setZeroOpen }) {
           </div>
         </div>
         <div className="zero2">
-          {/* <div className="ZeroModal-top">
+          <div className="ZeroModal-top">
             <h2>
               <ArrowBackIcon onClick={GoBack} />
               Select a token{' '}
@@ -95,7 +95,7 @@ export default function ZeroModal({ setZeroOpen }) {
                 </div>
               );
             })}
-          </div> */}
+          </div>
         </div>
       </div>
     </>

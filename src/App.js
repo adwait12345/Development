@@ -23,6 +23,12 @@ import { Network, Alchemy } from 'alchemy-sdk';
 import NotFound from "./components/404/404";
 import Zero_Premium from "./components/Cover/Buy Policy/Zero-Premium/Zero-Premium";
 
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import PayAsYouGo from "./components/Cover/Buy Policy/PayasYouGo/PayAsYouGo";
+
+
+
 function App() {
 
   // Optional Config object, but defaults to demo api-key and eth-mainnet.
@@ -37,6 +43,18 @@ function App() {
   alchemy.core.getTokenBalances(usdcContract).then(console.log);
 
 
+  const Theme = useSelector((state) => state.alltheme);
+  // console.log(Theme)
+
+  useEffect(()=>{
+       if(Theme.theme==true){
+     document.querySelector("body").style.backgroundColor ="#141627"
+   }
+    if (Theme.theme == false){
+     document.querySelector("body").style.backgroundColor = "#fff"
+
+   }
+  },[Theme.theme])
 
   // const {account} = useMoralis();
   return (
@@ -53,8 +71,9 @@ function App() {
             <Route path="/cover/Dashboard" element={<DashBoard />} />
             <Route path="/cover/BuyPolicy" element={<Buypolicy />} />
             <Route path="/cover/BuyPolicy/ZeroPremium" element={<Zero_Premium />} />
+            <Route path="/cover/BuyPolicy/PayAsYouGo" element={<ProvideCoverage />} />
 
-            <Route path="/cover/ProvideCoverage" element={<ProvideCoverage />} />
+            <Route path="/cover/ProvideCoverage" element={<PayAsYouGo />} />
 
             <Route path="/cover/MetaMask" element={<LoginModal />} />
             <Route path="/cover/Dashboard/Policy" element={<MyPolicies />} />

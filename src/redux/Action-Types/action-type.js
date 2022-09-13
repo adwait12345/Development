@@ -15,5 +15,9 @@ export const ActionTypes = {
 
     // White Mode
     SET_LIGHT: "SET_LIGHT",
-    SELCTED_LIGHT: "SELECTED_LIGHT"
+    SELCTED_LIGHT: "SELECTED_LIGHT",
+
+    //UnderWrite
+    SET_UNDERWRITE:" SET_UNDERWRITE",
+    SELECTED_UNDERWRITE:" SELECTED_UNDERWRITE",
 }

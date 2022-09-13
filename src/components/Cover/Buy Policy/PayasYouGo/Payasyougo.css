@@ -1,0 +1,60 @@
+.pay-as {
+    width: 500px;
+    height: 500px;
+    background: rgba(28, 31, 55, 0.7);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    margin-top: 75px;
+}
+
+.pay-as h2 {
+    font-weight: bold;
+    font-size: 35px;
+    padding: 15px 15px 0px 20px;
+    display: flex;
+    align-items: center;
+}
+.pay-as h2 button{
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 5px;
+    background-color: #2E334A;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+.pay-as p {
+    padding: 15px 15px 0px 20px;
+    background: -webkit-linear-gradient(-70deg, #f10593 0%, #0074f8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+}
+
+.underwrite-input {
+    width: 90%;
+    height: 40px;
+    background-color: #2E334A;
+    padding: 7px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    justify-self: center;
+    align-self: center;
+}
+
+.underwrite-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #757575;
+}

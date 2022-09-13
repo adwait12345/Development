@@ -10,16 +10,23 @@ import { useMoralis } from 'react-moralis'
 import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 import Dashboard_after from './Dashboard_After/Dashboard_after'
 Modal.setAppElement('#root')
+
+
+
+
 export default function DashBoard(props) {
   const [open, setOpen] = useState(false)
 
   var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis } = useMoralis();
 
+ 
+  
+
 
   return (
     <>
       <div className="Navbar_Cover">
-        <Sidebar setOpen={setOpen} />
+        <Sidebar setOpen={setOpen}  />
         <div className="ri_content">
           <Topbar setOpen={setOpen} name="Dashboard" />
 
@@ -38,6 +45,7 @@ export default function DashBoard(props) {
       <Modal isOpen={open} className="Modal" >
         <LoginModal open={open} setOpen={setOpen} />
       </Modal>
+
     </>
   )
 }

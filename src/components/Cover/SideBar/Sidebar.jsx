@@ -4,49 +4,67 @@ import { NavLink, Link } from "react-router-dom";
 import dashboard from "../dashboard.svg";
 import BuyPolicy from "../BuyPolicy.svg";
 import Coverage from "../Coverage.svg";
-import Lock from "../Lock.svg"
-import Sell from '../Sell.svg'
-import Drops from '../drop.svg'
-import Assessment from '../Assessment.svg'
-import DAO from '../DAO.svg'
+import Lock from "../Lock.svg";
+import Sell from "../Sell.svg";
+import Drops from "../drop.svg";
+import Assessment from "../Assessment.svg";
+import DAO from "../DAO.svg";
 import { useMoralis } from "react-moralis";
 import { useState } from "react";
-
+import { SunIcon, MoonIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { selectedThemeDark, setThemeDark } from "../../../redux/action/actions";
 export default function Sidebar() {
+  const Theme = useSelector((state) => state.alltheme);
+  const dispatch = useDispatch();
+  const ThemeDark = () => {
+    console.log(Theme);
 
-  const [dropopen, setdeopopen] = useState(false)
+    dispatch(setThemeDark(true));
+
+  };
+  const ThemeLight = () => {
+    console.log(Theme);
+
+
+    dispatch(setThemeDark(false));
+
+  };
+  // Theme
+
+
+
+
+
+
+
+
+  const [dropopen, setdeopopen] = useState(false);
 
   let Drop = () => {
     if (dropopen == false) {
       // document.getElementById("drop").style.display = "flex"
 
+      document.getElementById("drop").style.top = "0px";
+      document.getElementById("drop").style.height = "120px";
+      document.getElementById("drop").style.opacity = "1";
+      document.getElementById("buy").style.borderBottomLeftRadius = "0px";
+      document.getElementById("buy").style.borderBottomRightRadius = "0px";
+      document.getElementById("buy").style.marginBottom = "0px";
 
-            document.getElementById("drop").style.top = "0px"
-      document.getElementById("drop").style.height = "120px"
-      document.getElementById("drop").style.opacity = "1"
-      document.getElementById("buy").style.borderBottomLeftRadius = "0px"
-      document.getElementById("buy").style.borderBottomRightRadius = "0px"
-      document.getElementById("buy").style.marginBottom = "0px"
-
-      setdeopopen(true)
-    }
-    else if (dropopen == true) {
+      setdeopopen(true);
+    } else if (dropopen == true) {
       // document.getElementById("drop").style.display = "none"
-      document.getElementById("drop").style.top = "-120px"
-      document.getElementById("drop").style.height = "0px"
-      document.getElementById("drop").style.opacity = "0"
-      document.getElementById("buy").style.borderBottomLeftRadius = "10px"
-      document.getElementById("buy").style.borderBottomRightRadius = "10px"
-      document.getElementById("buy").style.marginBottom = "10px"
+      document.getElementById("drop").style.top = "-120px";
+      document.getElementById("drop").style.height = "0px";
+      document.getElementById("drop").style.opacity = "0";
+      document.getElementById("buy").style.borderBottomLeftRadius = "10px";
+      document.getElementById("buy").style.borderBottomRightRadius = "10px";
+      document.getElementById("buy").style.marginBottom = "10px";
 
-
-      setdeopopen(false)
+      setdeopopen(false);
     }
-
-  }
-
-
-
+  };
 
   const { enableWeb3, isWeb3Enabled, account } = useMoralis();
   const Handlerr = () => {
@@ -55,23 +73,17 @@ export default function Sidebar() {
   return (
     <>
       <div className="aside_content" id="aside300">
-
-
         <Link
           to={{
             pathname: `/`,
           }}
         >
-          <h1>SafeZen</h1>
+          <h1 id="Title">SafeZen</h1>
         </Link>
-
 
         <button onClick={Handlerr} id="connectt">
           {isWeb3Enabled ? <span>{account}</span> : "Connect Wallet"}
         </button>
-
-
-
 
         <NavLink
           to={{
@@ -94,16 +106,13 @@ export default function Sidebar() {
             <span onClick={Drop}>
               <img width={100} src={Drops} alt="" />
             </span>
-
-
-            
           </li>
-
-
         </NavLink>
-        <div className="buy-div" id="drop" >
-
-          <p>Pay-as-you-go Insurance</p>
+        <div className="buy-div" id="drop">
+          <Link to="/cover/BuyPolicy/PayAsYouGo">
+          <p>Pay-as-you-go Insurance</p>   
+          </Link>
+  
           <Link to="/cover/BuyPolicy/ZeroPremium">
             <p>Zero-premium insurance</p>
           </Link>
@@ -122,7 +131,7 @@ export default function Sidebar() {
           </li>
         </NavLink>
 
-        {isWeb3Enabled &&
+        {isWeb3Enabled && (
           <NavLink
             to={{
               pathname: `/cover/Stake`,
@@ -132,9 +141,10 @@ export default function Sidebar() {
               <img src={Lock} alt="" />
               Stake / UnStake SZT
             </li>
-          </NavLink>}
+          </NavLink>
+        )}
 
-        {isWeb3Enabled &&
+        {isWeb3Enabled && (
           <NavLink
             to={{
               pathname: `/cover/Sell-stake`,
@@ -144,9 +154,10 @@ export default function Sidebar() {
               <img src={Sell} alt="" />
               Buy & Sell
             </li>
-          </NavLink>}
+          </NavLink>
+        )}
 
-        {isWeb3Enabled &&
+        {isWeb3Enabled && (
           <NavLink
             to={{
               pathname: `/cover/DAO`,
@@ -156,9 +167,8 @@ export default function Sidebar() {
               <img src={DAO} alt="" />
               DAO
             </li>
-          </NavLink>}
-
-
+          </NavLink>
+        )}
 
         {/* <NavLink
           to={{
@@ -181,8 +191,16 @@ export default function Sidebar() {
           </button>
         </NavLink> */}
 
-        <div className="gradient">
-
+        <div className="gradient"></div>
+        <div className="Themes">
+          <button onClick={ThemeLight}>
+            <SunIcon />
+            <p>Light</p>
+          </button>
+          <button onClick={ThemeDark}>
+            <MoonIcon />
+            <p>Dark</p>
+          </button>
         </div>
       </div>
     </>

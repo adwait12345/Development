@@ -32,13 +32,28 @@ export const selectedToken = (sToken) => {
 
 export const setThemeDark= (Theme)=>{
   return {
-    type: ActionTypes.SET_LIGHT,
+    type: ActionTypes.SET_DARK,
     payload:Theme
   }
 }
-export const setThemeLight= (Theme)=>{
+export const selectedThemeDark= (Theme)=>{
   return {
-    type: ActionTypes.SET_LIGHT,
+    type: ActionTypes.SELCTED_DARK,
     payload:Theme
   }
 }
+
+export const setUnderwrite= (Underwrite) => {
+  // console.log(Platform)
+  return {
+    type: ActionTypes.SET_UNDERWRITE,
+    payload: Underwrite,
+  };
+};
+
+export const selectedUnderWrite = (sUnderite) => {
+  return {
+    type: ActionTypes.SELECTED_UNDERWRITE,
+    payload: sUnderite,
+  };
+};

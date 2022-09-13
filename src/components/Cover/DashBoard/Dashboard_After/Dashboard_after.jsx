@@ -6,6 +6,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import MyLiqidity from './MyPolicies/MyLiqidity';
 import DashBoard_Boxes from './DashBoard_Boxes/DashBoard_Boxes';
+
+
+import { DownloadIcon } from '@chakra-ui/icons';
+
+
 export default function Dashboard_after() {
 
 
@@ -27,7 +32,7 @@ export default function Dashboard_after() {
           </NavLink>
           
         </div> */}
-        <div className="bottom_Dashboard_after">
+        <div className="bottom_Dashboard_after" id='after-dashboard'>
           <DashBoard_Boxes />
           <Tabs focusTabOnClick={false}>
             <TabList className="top_Dashboard_after">

@@ -156,6 +156,21 @@ li span img {
     height: 60px;
     object-fit: cover;
 }
+.Themes{
+    display: flex;
+
+}
+.Themes button{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+ font-family: 'Montserrat', sans-serif;
+ padding: 10px;
+}
 
 /* Mobile  */
 @media only screen and (max-width:799px) {

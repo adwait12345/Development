@@ -1,0 +1,52 @@
+.Payasyou{
+width: 530px;
+color: #fff;
+background-color: black;
+padding: 25px;
+border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+.selectPlatform-top{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.selectPlatform-top svg{
+    cursor: pointer;
+}
+.Underwrite-contract{
+    display: flex;
+}
+.selectPlatform-bot{
+    display: flex;
+    flex-wrap: wrap;
+}
+.UnCo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px 5px 5px 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 150px;
+}
+.UnCo p{
+    display: flex;
+    flex-direction: column;
+}
+.UnCo p span{
+    font-size: 12px;
+    margin-top: 3px;
+
+}
+.UnCo:hover{
+    background-color: rgb(73, 72, 72);
+}
+.UnCo img{
+   width: 40px;
+   height: 40px;
+   object-fit: contain;
+   margin-right: 20px;
+}
