@@ -1,0 +1,38 @@
+.Addprotocal{
+    display: flex;
+    width: 450px;
+    height: 450px;
+    background-color: #000;
+    color: #fff;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+        font-family: 'Montserrat', sans-serif;
+}
+.Addprotocal h2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Addprotocal h2 svg{
+    cursor: pointer;
+}
+.Addprotocal input{
+    height: 40px;
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 10px;
+    color: #757575;
+    padding: 10px;
+}
+.Addprotocal button{
+        height: 50px;
+            margin: 20px 10px 10px 10px;
+            font-family: 'Montserrat', sans-serif;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            padding: 10px;
+         background-color: #10BB35;
+}

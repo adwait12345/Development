@@ -1,7 +1,6 @@
 import React from 'react'
 import './Payasyou.css'
 import { CloseIcon } from '@chakra-ui/icons'
-import Contracts from './data2';
 
 import {
 setUnderwrite,selectedUnderWrite
@@ -12,32 +11,23 @@ export default function Payasyou({ setZeroOpen }) {
     const Close=()=>{
         setZeroOpen(false)
     }
+   const underwrite= useSelector(
+       (state) => state.allUnderwrite
+   )
 
     const dispatch = useDispatch(); 
   return (
     <>
-    <div className="Payasyou">
-        <div className="selectPlatform">
-                  <div className="selectPlatform-top">
-                 <h1>Select Your Platform</h1> 
-                      <CloseIcon onClick={Close}/>
-                  </div>
-                  <div className="selectPlatform-bot">
-                      {Contracts.map((Contract) => {
-                          return (
-                              <div className="Underwrite-contract">
-                                  <div className="UnCo" onClick={function (event) { dispatch(setUnderwrite(Contract._name)); setZeroOpen(false) }}>
-                                      <img src={Contract._Contract_img} alt="" />
-                                      <p> {Contract._name}
-                                         <span>Risk: {Contract._risk}</span> 
-                                      </p>
-                                  </div>
-                              </div>
-                          );
-                      })}
-                  </div>
-        </div>
-    </div>
+          <div className="pay-as"> 
+              <h2>UnderWrite <button >{underwrite.underwrite}</button> <CloseIcon onClick={Close} /></h2>
+              <div className="underwrite-input">
+                  <input type="text" placeholder='Enter no of Tokens' />
+                  DAI
+              </div>
+              <p>Last 30 Days return</p>
+              <p>Pool Liqidity</p>
+              <p>Utilization</p>
+          </div>
     </>
   )
 }

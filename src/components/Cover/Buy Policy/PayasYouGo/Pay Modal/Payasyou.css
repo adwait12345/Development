@@ -1,52 +1,64 @@
-.Payasyou{
-width: 530px;
-color: #fff;
-background-color: black;
-padding: 25px;
-border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
-}
-.selectPlatform-top{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-.selectPlatform-top svg{
-    cursor: pointer;
-}
-.Underwrite-contract{
-    display: flex;
-}
-.selectPlatform-bot{
-    display: flex;
-    flex-wrap: wrap;
-}
-.UnCo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    padding: 5px 5px 5px 5px;
-    cursor: pointer;
+.pay-as {
+    width: 500px;
+    height: 500px;
+    background: rgba(28, 31, 55, 0.7);
     border-radius: 10px;
-    width: 150px;
-}
-.UnCo p{
     display: flex;
     flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    
 }
-.UnCo p span{
-    font-size: 12px;
-    margin-top: 3px;
 
+.pay-as h2 {
+    font-weight: bold;
+    font-size: 35px;
+    padding: 15px 15px 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.UnCo:hover{
-    background-color: rgb(73, 72, 72);
+
+.pay-as h2 button {
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 5px;
+    background-color: #2E334A;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
 }
-.UnCo img{
-   width: 40px;
-   height: 40px;
-   object-fit: contain;
-   margin-right: 20px;
+
+.pay-as p {
+    padding: 0px 15px 0px 20px;
+    background: -webkit-linear-gradient(-70deg, #f10593 0%, #0074f8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+}
+
+.underwrite-input {
+    width: 90%;
+    height: 40px;
+    background-color: #2E334A;
+    padding: 7px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    justify-self: center;
+    align-self: center;
+}
+
+.underwrite-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #757575;
 }

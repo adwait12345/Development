@@ -6,21 +6,22 @@ import LoginModal from '../../../Metamask Login Modal \'/LoginModal'
 import Sidebar from '../../SideBar/Sidebar'
 import Topbar from '../../Topbar/Topbar'
 import Payasyou from './Pay Modal/Payasyou'
-
-
+import Contracts from '../PayasYouGo/Pay Modal/data2';
+import {setUnderwrite} from "../../../../redux/action/actions"
 import { useDispatch, useSelector } from 'react-redux';
+import { AddIcon } from '@chakra-ui/icons'
+import AddProtocal from './Add Protocal Modal/AddProtocal'
 
 export default function PayAsYouGo() {
   const [open, setOpen] = useState(false)
   const [zeroOpen, setZeroOpen] = useState(false)
-  const Underwrite = useSelector(state => state.allUnderwrite)
-  let underwritee = Underwrite.underwrite
+  const [ProtOpen, setProtOpen] = useState(false)
 
-  console.log(underwritee)
-  const OpenModal = () => {
-    setZeroOpen(true)
-  }
 
+  const dispatch= useDispatch()
+ const ProtOpner=()=>{
+   setProtOpen(true)
+ }
   return (
     <>
       <div className="Navbar_Cover">
@@ -30,16 +31,36 @@ export default function PayAsYouGo() {
 
           <div className="Bottom-Content">
             <div className="BuyPolicy">
-              <div className="pay-as">
-                <h2>UnderWrite <button onClick={OpenModal}>{underwritee}</button></h2>
-                <div className="underwrite-input">
-                  <input type="text" placeholder='Enter no of Tokens' />
-                  DAI
-                </div>
-                <p>Last 30 Days return</p>
-                <p>Pool Liqidity</p>
-                <p>Utilization</p>
+
+
+              <div className="addprotocol">
+                <input type="text" placeholder='Search Added Protocals' />
+                <button onClick={ProtOpner}><AddIcon/> Add Protocol</button>
               </div>
+              <div className="Payasyou">
+                <div className="selectPlatform">
+                  <div className="selectPlatform-top">
+                    <h1>Select Your Platform</h1>
+                    
+                  </div>
+                  <div className="selectPlatform-bot">
+                    {Contracts.map((Contract) => {
+                      return (
+                        <div className="Underwrite-contract">
+                          <div className="UnCo" onClick={function (event) { dispatch(setUnderwrite(Contract._name));setZeroOpen(true)}}>
+                            <img src={Contract._Contract_img} alt="" />
+                            <p> {Contract._name}
+                              <span>Risk: {Contract._risk}</span>
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+ 
 
 
             </div>
@@ -51,10 +72,12 @@ export default function PayAsYouGo() {
       <Modal isOpen={zeroOpen} className="Modal">
         <Payasyou zeroOpen={zeroOpen} setZeroOpen={setZeroOpen} />
       </Modal>
+      <Modal className="Modal" isOpen={ProtOpen}>
+        <AddProtocal setProtOpen={setProtOpen}/>
+      </Modal>
       <Modal isOpen={open} className="Modal" >
         <LoginModal open={open} setOpen={setOpen} />
       </Modal>
-
 
     </>
   )
