@@ -1,10 +1,10 @@
 import { ActionTypes } from "../Action-Types/action-type";
 
 const initialState = {
-  platforms: [],
+  platforms: ["Select"],
   tokens:[],
   theme:[false],
-  underwrite:[]
+  underwrite:["Click to Select"]
 };
 
 export const PlatformReducer = (state = initialState, action) => {

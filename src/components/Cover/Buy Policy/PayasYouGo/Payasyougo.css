@@ -25,10 +25,12 @@
     background-color: #2E334A;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .pay-as p {
-    padding: 15px 15px 0px 20px;
+    padding: 0px 15px 0px 20px;
     background: -webkit-linear-gradient(-70deg, #f10593 0%, #0074f8 100%);
     -webkit-background-clip: text;
     background-clip: text;
