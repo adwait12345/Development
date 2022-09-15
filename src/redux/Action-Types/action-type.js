@@ -20,4 +20,8 @@ export const ActionTypes = {
     //UnderWrite
     SET_UNDERWRITE:" SET_UNDERWRITE",
     SELECTED_UNDERWRITE:" SELECTED_UNDERWRITE",
+
+    //Activate Protocal
+    SET_PROTCAL:"SET_PROTOCAL",
+    SELECTED_PROTOCAL:"SELECTED_PROTOCAL"
 }

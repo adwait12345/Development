@@ -17,6 +17,8 @@ const aAAVE_Token="0xC4bf7684e627ee069e9873B70dD0a8a1241bf72c"
 const AaveABI= require("./AAVE.json")
 const SZTStakingABI=require("./SZTStaking.json")
 const SZTStakingContract="0x698F7212844d61180077D7620DcF25dF81300bc2"
+const CoveragePool ="0xa8b1c0dA3F87F90a9C5D1950411AE6e4eE1838e7"
+const SwapDAI=""
 module.exports = {
     ERC20ABI,
     SZT_Token,
@@ -36,6 +38,8 @@ module.exports = {
     aAAVE_Token,
     AaveABI,
     SZTStakingABI,
-    SZTStakingContract
+    SZTStakingContract,
+    CoveragePool,
+    SwapDAI
 
 }

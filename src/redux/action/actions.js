@@ -57,3 +57,18 @@ export const selectedUnderWrite = (sUnderite) => {
     payload: sUnderite,
   };
 };
+
+export const setProtocal = (Protocal) => {
+  // console.log(Platform)
+  return {
+    type: ActionTypes.SET_PROTCAL,
+    payload: Protocal,
+  };
+};
+
+export const selectedProtocal = (sProtocal) => {
+  return {
+    type: ActionTypes.SELECTED_PROTOCAL,
+    payload: sProtocal,
+  };
+};

@@ -42,6 +42,38 @@
     margin-right: 10px;
 }
 
+.swap{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+.stake-topp{
+    display: flex;
+    color: #fff;
+    width: 90%;
+    
+}
+.stake-topp h3{
+    font-size: 20px;
+    margin: 0;
+}
+.stake-top-titlee{
+        padding: 25px 25px 5px 25px;
+            width: 70%;
+}
+.stake-boxx{
+    width: 45%;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* height: 340px; */
+        overflow: hidden;
+        background: linear-gradient(45deg, black, transparent);
+}
 /* Mobile  */
 @media only screen and (max-width:799px) {
     .Contractss h5 {

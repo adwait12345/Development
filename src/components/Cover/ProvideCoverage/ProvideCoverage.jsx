@@ -10,8 +10,45 @@ import Topbar from '../Topbar/Topbar'
 import Modal from "react-modal"
 import ethrum from "../Ethrum.svg"
 import LoginModal from '../../Metamask Login Modal \'/LoginModal'
+
+
+
+// Libraries.
+import { useMoralis, useWeb3Contract } from "react-moralis";
+import { BigNumber, ethers } from "ethers";
+
+// Constants.
+import {
+  ERC20ABI,
+  SZT_Token,
+  BuySellABI,
+  BuySell,
+  DAI,
+  GSZTToken,
+  CoveragePool,
+  SwapDAI
+} from "../../../Constants/index";
+import ProvideCoverageModal from './ProvideCoverage Modal/ProvideCoverageModal'
+import { useDispatch, useSelector } from 'react-redux';
+import {setProtocal} from "../../../redux/action/actions"
 export default function ProvideCoverage() {
+
+const dispatch=useDispatch()
+  // Provider.
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  // Signer
+  const signer = provider.getSigner();
   const [open, setOpen] = useState(false)
+  const [activateOpen, setActivateOpen ] = useState(false)
+
+  // Functions
+  const ApproveDaI= async()=>{
+    const SZTGET = new ethers.Contract(DAI,ERC20ABI, provider);
+    var SZTPOST = new ethers.Contract(DAI, ERC20ABI, signer);
+    var trans = await SZTPOST.approve(SwapDAI, `10`)
+  }
+
+
 
   // Search logic
   const [searchTerm, setSearchTerm] = useState("")
@@ -28,6 +65,66 @@ export default function ProvideCoverage() {
 
 
             <div className="BuyPolicy">
+              <div className="swap">
+
+                <div className="stake-boxx">
+                  <div className="sell">
+                    <h3>Sell SZT Token</h3>
+                    <div className="selectStake">
+                      <input
+                        type="text"
+                        placeholder="Enter no of tokens"
+                        onChange={(event) => {
+
+                        }}
+                      />
+                      <span>SZT</span>
+                    </div>
+                    <div className="sell-button">
+                      <button onClick={ApproveDaI}>Approve DAI</button>
+                      <button id="sellbtn" >
+                          Swap SZT
+                      </button>
+                    </div>
+                    <div className="time-sell">
+                      <div className="time">
+                        <div className="time1">1</div>
+                        <div className="time2">2</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="stake-boxx">
+                  <div className="sell">
+                    <h3>Sell SZT Token</h3>
+                    <div className="selectStake">
+                      <input
+                        type="text"
+                        placeholder="Enter no of tokens"
+                        onChange={(event) => {
+                         
+                        }}
+                      />
+                      <span>SZT</span>
+                    </div>
+                    <div className="sell-button">
+                      <button >Approve</button>
+                      <button id="sellbtn" >
+                        
+                      </button>
+                    </div>
+                    <div className="time-sell">
+                      <div className="time">
+                        <div className="time1">1</div>
+                        <div className="time2">2</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
               <div className="Contractss">
                 <h5>Contracts({Contracts.length})</h5>
                 <span> <button> <img src={Add} alt="" /> Add Contract</button></span>
@@ -77,7 +174,7 @@ export default function ProvideCoverage() {
                         <p><span>Saturation:</span><span>{Contracts._Saturation}</span></p>
                       </div>
                       <div className="bot-contract">
-                        <button>Select</button>
+                        <button onClick={function (event) { dispatch(setProtocal(Contracts._title) );setActivateOpen(true)}}>Select</button>
                       </div>
                     </div>
 
@@ -100,6 +197,9 @@ export default function ProvideCoverage() {
 
 
       </div>
+      <Modal isOpen={activateOpen} className="Modal">
+      <ProvideCoverageModal setActivateOpen={setActivateOpen}/>
+      </Modal>
       <Modal isOpen={open} className="Modal" >
         <LoginModal open={open} setOpen={setOpen} />
       </Modal>
