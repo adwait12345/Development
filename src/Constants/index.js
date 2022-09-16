@@ -1,6 +1,10 @@
 const ERC20ABI = require("./ERC20.json")
 const BuySellABI = require("./BuySellSZT.json")
 const CompoundABI = require('./CompoundPool.json')
+const AaveABI= require("./AAVE.json")
+const SZTStakingABI=require("./SZTStaking.json")
+
+//
 const SZT_Token = "0x52BCC40b6fC68F126d772959daCDAC8552781e10"
 const BuySell = "0xA196915cD8DaBBF3E84cC168Dce1345451446693"
 const GSZTToken = "0x5D7cF7F03D973d3099de441449aAAc2Cac897557"
@@ -14,8 +18,6 @@ const  CompoundUSDC= "0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C"
 const AAVE_Contract="0xBdaF17EE5c3Bc603B330764c2281966dCd511160"
 const AAVE_Token="0x63242B9Bd3C22f18706d5c4E627B4735973f1f07"
 const aAAVE_Token="0xC4bf7684e627ee069e9873B70dD0a8a1241bf72c"
-const AaveABI= require("./AAVE.json")
-const SZTStakingABI=require("./SZTStaking.json")
 const SZTStakingContract="0x698F7212844d61180077D7620DcF25dF81300bc2"
 const CoveragePool ="0xa8b1c0dA3F87F90a9C5D1950411AE6e4eE1838e7"
 const SwapDAI=""

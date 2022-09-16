@@ -32,7 +32,7 @@ import ProvideCoverageModal from './ProvideCoverage Modal/ProvideCoverageModal'
 import { useDispatch, useSelector } from 'react-redux';
 import {setProtocal} from "../../../redux/action/actions"
 export default function ProvideCoverage() {
-
+  var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 const dispatch=useDispatch()
   // Provider.
   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -43,11 +43,12 @@ const dispatch=useDispatch()
 
   // Functions
   const ApproveDaI= async()=>{
-    const SZTGET = new ethers.Contract(DAI,ERC20ABI, provider);
-    var SZTPOST = new ethers.Contract(DAI, ERC20ABI, signer);
-    var trans = await SZTPOST.approve(SwapDAI, `10`)
-  }
-
+  
+    var DAIPOST = new ethers.Contract(DAI, ERC20ABI, signer);
+    var trans = await DAIPOST.approve(SwapDAI, `10`)
+  
+  } 
+ 
 
 
   // Search logic
