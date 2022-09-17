@@ -11,7 +11,7 @@
     margin: 20px 0px 20px 40px;
     
     border-radius: 10px;
-    background: rgba(28, 31, 55, 0.7);
+    background: var(--Dashboard-boxes);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.6px);
@@ -21,12 +21,13 @@
 .box-dashboard h4 {
     font-size: 15px;
     margin: 20px 0 15px 0;
-    color: #959393;
+    color: var(--tertiary-text);
 }
 
 .box-dashboard h3 {
     font-size: 30px;
     margin: 0;
+    color: var(--primary-text);
 }
 
 /* Mobile  */

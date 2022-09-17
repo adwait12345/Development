@@ -15,8 +15,8 @@
 
     border-radius: 10px;
     flex-direction: column;
-    background: rgba(28, 31, 55, 0.7);
-
+    background: var(--buy-policy-background);
+   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
 .stake-bot {
@@ -34,7 +34,8 @@
     flex-direction: column;
     height: 340px;
     overflow: hidden;
-    background: linear-gradient(45deg, black, transparent);
+    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+    background: linear-gradient(45deg, var(--main-grad-color1), var(--main-grad-color2));
 }
 
 .stake-top {
@@ -54,7 +55,7 @@
 .stake_title h3 {
     font-size: 35px;
     margin: 0;
-    color: #fff;
+    color: var(--primary-text);
 }
 
 .stake_title span {
@@ -63,7 +64,7 @@
     font-weight: 500;
     display: flex;
     align-items: center;
-    color: #757575;
+    color: var(--tertiary-text);
 }
 
 .stake_title span h5 {
@@ -81,7 +82,7 @@
 
 .stake-top h3 {
     margin: 0;
-    color: #fff;
+    color: var(--primary-text);
 }
 
 .stake-top p {
@@ -102,6 +103,7 @@
     padding: 3px;
     border-radius: 9px;
     background-color: #fff;
+    box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
 }
 
 .stake-input {
@@ -112,7 +114,7 @@
 }
 
 .stake-input button {
-    background-color: #10BB35;
+    background-color: var(--Green-buttons);
 }
 
 .stake-input-lim {
@@ -129,7 +131,7 @@
     justify-content: space-between;
     padding: 10px;
     border-radius: 10px;
-    background-color: #2e334a;
+    background-color: var(--placeholder-color);
     height: 40px;
 }
 
@@ -138,7 +140,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: var(--primary-text);
+
 }
 
 .stake_input input {
@@ -172,7 +175,8 @@
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
-    color: #fff;
+    color: var(--primary-text); 
+       box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 
 }
 
@@ -187,7 +191,8 @@
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
-    color: #fff;
+    color: var(--primary-text);
+    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 
 }
 
@@ -211,7 +216,7 @@
 .timeline-line {
     width: 3px;
     height: 40px;
-    background-color: #f0ebeb1e;
+    background-color: var(--timeline);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,6 +236,7 @@
     height: 18px;
 
 }
+
 .stake-bott button {
     font-family: 'Montserrat', sans-serif;
 
@@ -250,6 +256,7 @@
     font-weight: bolder;
     font-size: medium;
 }
+
 /* .approve-transfer{
     width: 100%;
     display: flex;
@@ -270,9 +277,11 @@
         justify-content: center;
         align-items: center;
     }
-.stake-bott button{
-    width: 140px;
-}
+
+    .stake-bott button {
+        width: 140px;
+    }
+
     .stake_title {
         flex-direction: column;
         align-items: flex-start;
@@ -310,14 +319,14 @@
 .sell h3 {
     margin-left: 45px;
     font-size: 20px;
-    color: #fff;
+    color: var(--primary-text);
 }
 
 .selectStake {
     width: 80%;
     height: 40px;
     border-radius: 10px;
-    background-color: #2E334A;
+    background-color: var(--placeholder-color);
     align-items: center;
     justify-content: space-between;
     display: flex;
@@ -327,7 +336,7 @@
 }
 
 .selectStake span {
-    color: #fff;
+    color: var(--primary-text);
 }
 
 .selectStake input {

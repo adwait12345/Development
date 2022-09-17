@@ -11,9 +11,9 @@
     border-radius: 10px;
      font-family: 'Montserrat', sans-serif;
      border: none;
-     color: #757575;
+     color: var(--tertiary-text);
      padding-left: 10px;
-     background-color: #2E334A;
+     background-color: var(--placeholder-color);
 }
 .addprotocol button{
     width: 160px;
@@ -25,18 +25,20 @@
     align-items: center;
     margin-right: 25px;
      font-family: 'Montserrat', sans-serif;
-     color: #fff;
-     background-color: #252A43;
+     color: var(--primary-text);
+     background-color: var(--placeholder-color);
      cursor: pointer;
 }
 .Payasyou {
     width: 75%;
-    color: #fff;
-    background-color: black;
+    color: var(--primary-text);
+    background-color: var(--buy-policy-background);
     padding: 25px;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
     margin-top: 30px;
+     box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+     height: 100vh;
 }
 
 .selectPlatform-top {
@@ -82,7 +84,7 @@
 }
 
 .UnCo:hover {
-    background-color: rgb(73, 72, 72);
+    background-color: var(--placeholder-color);
 }
 
 .UnCo img {

@@ -4,25 +4,10 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Chart_Active_Policy from './Chart/Chart_Active_Policy';
 import Chart_Inactive_Policy from './Chart/Chart_Inactive_Policy';
 import Chart_Claims from './Chart/Chart_Claims';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+
 export default function MyPolicies() {
-  const Theme = useSelector((state) => state.alltheme);
 
-  useEffect(()=>{
-      if (Theme.theme == false) {
-    document.getElementById("ip").style.color = "#000"
-    document.getElementById("ip").style.background = "#fff"
-        document.getElementById("ip").style.boxShadow = "rgb(204 204 204 / 25%) 0px 0px 6px 3px"
 
-  }
-  if (Theme.theme == true){
-        document.getElementById("ip").style.color = "#fff"
-    document.getElementById("ip").style.background = "#000"
-    document.getElementById("ip").style.boxShadow = "none"
-
-  }
-  },[Theme])
 
   return (
     <>

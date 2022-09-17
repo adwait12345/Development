@@ -7,7 +7,7 @@ export default function AddProtocal({ setProtOpen }) {
     }
   return (
     <>
-    <div className="Addprotocal">
+      <div className="Addprotocal" data-theme="white">
               <h2>Add Protocal <span><CloseIcon onClick={ProtCloser} /></span> </h2>
         <input type="text" placeholder='Enter Protocal name' />
         <input type="text" placeholder='Enter Contract Address' />

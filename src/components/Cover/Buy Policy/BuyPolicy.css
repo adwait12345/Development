@@ -22,13 +22,13 @@
     margin-left: 80px;
     font-size: 20px;
     font-weight: 500;
-    color: #757575;
+    color: var(--tertiary-text);
 }
 
 .Contracts span {
     margin-right: 65px;
     display: flex;
-    color: #757575;
+    color: var(--tertiary-text);
 
 }
 
@@ -46,7 +46,8 @@
     width: 93.5%;
     height: 100%;
 
-    background: rgba(28, 31, 55, 0.7);
+    background: var(--buy-policy-background);
+        box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
 .SearchContracts {
@@ -72,7 +73,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: #252A43;
+    background-color: var(--placeholder-color);
 
 }
 
@@ -83,7 +84,7 @@
     justify-content: flex-start;
     align-items: center;
     border-radius: 15px;
-    background-color: #2E334A;
+    background-color: var(--placeholder-color);
 
 }
 
@@ -94,7 +95,7 @@
     margin-left: 10px;
     width: 130px;
     font-family: 'Montserrat', sans-serif;
-    color: #757575;
+    color: var(--tertiary-text);
 }
 
 textarea:focus,
@@ -122,8 +123,9 @@ input:focus {
     box-sizing: border-box;
     border-radius: 10px;
     margin: 25px;
-    background: linear-gradient(45deg, black, transparent);
-    color: #fff;
+    background: linear-gradient(45deg, var(--main-grad-color1), var(--main-grad-color2));
+    color: var(--primary-text);
+    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
 .top-contract {
@@ -155,6 +157,8 @@ input:focus {
     background-color: transparent;
     cursor: pointer;
     background-color: #fff;
+    border: none;
+        box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
 }
 
 .title-contract h3 {
@@ -173,19 +177,19 @@ input:focus {
     width: 100%;
     height: 50px;
     border-radius: 10px;
-    border: 2px solid #757575;
+    border: 2px solid var(--tertiary-text);
     background-color: transparent;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     cursor: pointer;
-    color: #757575;
+    color: var(--tertiary-text);
 }
 
 .bot-contract button:hover {
     background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
+    color: var(--primary-text);
+    border: 2px solid var(--primary-text);
 }
 
 .Sort-section span {

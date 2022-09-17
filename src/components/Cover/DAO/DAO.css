@@ -11,20 +11,19 @@
     align-items: center;
     justify-content: center;
     width: 95%;
-    border: 2px solid;
+    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
     border-radius: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(45deg, black, transparent);
+    background: linear-gradient(45deg,var(--main-grad-color1), var(--main-grad-color2));
 }
 
 .vote_on_claim {
     filter: blur(3px);
     width: 90%;
     border: 2px solid;
-    box-shadow: 10px 10px 0 -1px white, 10px 10px black;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -82,7 +81,7 @@
 
 .Pending_claims h3 {
     font-size: 40px;
-    color: #fff;
+    color: var(--primary-text);
 }
 
 /* Mobile  */

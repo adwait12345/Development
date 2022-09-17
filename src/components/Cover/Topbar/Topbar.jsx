@@ -9,26 +9,12 @@ import Logout from '../logout.svg'
 import Ethrum from '../Ethrum.svg'
 import polygon from '../polygon.svg'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from "react-redux";
 
 
 
 export default function Topbar(props) {
  
-  const Theme = useSelector((state) => state.alltheme);
-  useEffect(()=>{
-if(Theme.theme==false){
-  document.getElementById("tc").style.color="#000"
 
-  document.getElementById('sc').style.background ="linear-gradient(40deg, #7991fd, rgb(233 66 230))"
-  document.getElementById('C').style.background ="linear-gradient(40deg, #7991fd, rgb(233 66 230))"
-}
-if(Theme.theme==true){
-  document.getElementById("tc").style.color="#fff"
-  document.getElementById('sc').style.background = "linear-gradient(40deg, #7991fd71, rgba(233, 66, 230, 0.426))"
-  document.getElementById('C').style.background = "linear-gradient(40deg, #7991fd71, rgba(233, 66, 230, 0.426))"
-}
-  },[Theme])
 
 
   // const [open , setOpen] = useState(false)

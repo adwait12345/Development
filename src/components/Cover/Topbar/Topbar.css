@@ -12,7 +12,7 @@
   justify-content: space-between;
   width: 100%;
   font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  color: var(--primary-text);
 }
 
 .top_content h1 {
@@ -30,8 +30,8 @@
   font-weight: 500;
   cursor: pointer;
   background-color: transparent;
-  color: #fff;
-  background: linear-gradient(40deg, #7991fd71, rgba(233, 66, 230, 0.426));
+  color:#fff;
+  background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426));
 }
 
 #logout {}
@@ -160,7 +160,7 @@
   }
 
   .outer-topbar {
-    color: #fff;
+    color: var(--primary-text);
   }
 
   .outer-mobile-topbar {
@@ -191,7 +191,7 @@
   }
   .mobile-topbar a{
     text-decoration: none;
-    color: #fff;
+    color: var(--primary-text);
   }
   .hamburger2 {
     display: flex;
@@ -211,7 +211,7 @@
     display: block;
     width: 30px;
     height: 2px;
-    background-color: #ffffff;
+    background-color: var(--primary-text);
     border-radius: 1px;
     transition: all .2s cubic-bezier(.1, .82, .76, .965);
   }

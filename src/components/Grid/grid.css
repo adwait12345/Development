@@ -3,7 +3,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--primary-text);
   font-family: 'Montserrat', sans-serif;
   margin-top: 200px;
   overflow: hidden;
@@ -28,7 +28,7 @@
   display: flex;
   text-align: center;
   letter-spacing: 1.5px;
-  color: #757575;
+  color: var(--tertiary-text);
   margin-bottom: 20px;
 }
 
@@ -48,7 +48,7 @@
   font-size: 16px;
   line-height: 25px;
   letter-spacing: 0.5px;
-  color: #b4b4c7;
+  color: var(--secondary-text);
 }
 
 .grid2 {
@@ -84,9 +84,10 @@
   width: 256px;
   padding: 28px;
   border-radius: 10px;
-  background: linear-gradient(45deg, black, transparent);
+  background: linear-gradient(45deg, var(--main-grad-color1),var(--main-grad-color2));
   box-sizing: border-box;
   /* filter: invert(1); */
+      box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
 .box h4 {
@@ -94,7 +95,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  color: #fff;
+  color: var(--primary-text);
   margin: 0;
 }
 
@@ -111,6 +112,8 @@
   backdrop-filter: blur(10px); */
   border-radius: 18px;
   background-color: transparent;
+  border: none;
+    box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
 }
 
 .box button img {

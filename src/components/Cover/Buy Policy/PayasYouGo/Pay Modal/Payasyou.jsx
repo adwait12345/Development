@@ -14,11 +14,11 @@ export default function Payasyou({ setZeroOpen }) {
    const underwrite= useSelector(
        (state) => state.allUnderwrite
    )
-
+ 
     const dispatch = useDispatch(); 
   return (
     <>
-          <div className="pay-as"> 
+          <div className="pay-as" data-theme="white"> 
               <h2>UnderWrite <button >{underwrite.underwrite}</button> <CloseIcon onClick={Close} /></h2>
               <div className="underwrite-input">
                   <input type="text" placeholder='Enter no of Tokens' />

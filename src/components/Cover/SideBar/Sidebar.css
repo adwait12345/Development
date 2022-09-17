@@ -31,7 +31,7 @@
 
 .aside_content li {
     font-family: 'Montserrat', sans-serif;
-    color: rgb(146, 145, 145);
+    color: var(--secondary-text);
     display: flex;
     align-items: center;
     list-style: none;
@@ -46,7 +46,7 @@
 }
 
 .active li {
-    color: #fff;
+    color:#fff;
     background-color: #3D3273;
 
 }
@@ -167,7 +167,7 @@ li span img {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: #fff;
+    color:#fff;
  font-family: 'Montserrat', sans-serif;
  padding: 10px;
 }

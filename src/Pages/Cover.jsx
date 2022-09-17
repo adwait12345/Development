@@ -21,6 +21,7 @@ export default function Cover() {
 
   return (
     <>
+    
       <DashBoard />
       <Buypolicy />
       <Zero_Premium />

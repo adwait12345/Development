@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
-    color: #fff;
+    color: var(--primary-text);
 }
 
 .Footer {
@@ -56,7 +56,7 @@
     list-style: none;
     font-size: 14px;
     line-height: 40px;
-    color: #757575;
+    color: var(--tertiary-text);
 }
 
 .div3 {
@@ -74,7 +74,7 @@
 
 .div3 p {
     font-size: 10px;
-    color: #757575;
+    color: var(--tertiary-text);
 }
 
 .div3 input {
@@ -82,16 +82,16 @@
     padding: 16px;
     margin: 10px 10px 10px 0px;
     font-family: 'Montserrat', sans-serif;
-    background-color: #2e334a;
+    background-color: var(--placeholder-color);
     border: none;
     border-radius: 10px;
-    color: #757575;
+    color: var(--tertiary-text);
 }
 
 .div3 button {
     border: none;
     font-family: 'Montserrat', sans-serif;
-    background: #10BB35;
+    background: var(--Green-buttons);
     cursor: pointer;
     color: #fff;
     padding: 16px;

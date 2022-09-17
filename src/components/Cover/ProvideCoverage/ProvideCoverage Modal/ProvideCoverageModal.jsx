@@ -10,7 +10,7 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
 
   return (
     <>
-    <div className="ProvideCoverageModal">
+      <div className="ProvideCoverageModal" data-theme="white">
 
          <h2>Activate Insurance <CloseIcon onClick={Close}/></h2>
         <div className="select-insurance">

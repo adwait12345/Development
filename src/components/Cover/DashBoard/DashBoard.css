@@ -29,6 +29,10 @@
 
 }
 
+.bottom_Dashboard_after{
+    height: 100vh;
+}
+
 /* Mobile  */
 @media only screen and (max-width:799px) {
     .ri_content {

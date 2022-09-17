@@ -53,7 +53,7 @@ export default function LoginModal({ setOpen }) {
   // })
   return (
     <>
-      <div className="outer-login" >
+      <div className="outer-login" data-theme="white" >
 
 
         <div className="Login">

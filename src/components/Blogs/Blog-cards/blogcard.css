@@ -27,7 +27,7 @@
 .blog-card-bet h5 {
     font-size: 14px;
     margin: 25px 0 0px 5px;
-    color: #757575;
+    color: var(--tertiary-text);
     font-family: 'Montserrat', sans-serif;
 
 }
@@ -36,13 +36,13 @@
     font-size: 20px;
     margin: 0 0 0 5px;
     font-family: 'Montserrat', sans-serif;
-    color: #fff;
+    color: var(--primary-text);
 
 }
 
 .blog-card-bet p {
     margin-left: 5px;
-    color: #757575;
+    color: var(--tertiary-text);
     font-weight: 500;
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
@@ -70,13 +70,13 @@
 
 .user-info h3 {
     font-size: 14px;
-    color: #fff;
+    color: var(--primary-text);
 
 }
 
 .user-info span {
     font-size: 14px;
-    color: #757575;
+    color: var(--tertiary-text);
 }
 
 .blog-card-bot img {

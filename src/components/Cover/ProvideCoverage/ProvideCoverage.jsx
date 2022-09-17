@@ -128,7 +128,7 @@ const dispatch=useDispatch()
               </div>
               <div className="Contractss">
                 <h5>Contracts({Contracts.length})</h5>
-                <span> <button> <img src={Add} alt="" /> Add Contract</button></span>
+                
               </div>
               <div className="ContractsList">
                 <div className="SearchContracts">

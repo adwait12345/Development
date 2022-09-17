@@ -1,7 +1,6 @@
 
 import "./App.css";
 import HomePage from "./Pages/HomePage.jsx";
-
 // import ComingSoon from "./components/ComingSoon/ComingSoon";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Cover from "./Pages/Cover";
@@ -23,14 +22,14 @@ import { Network, Alchemy } from 'alchemy-sdk';
 import NotFound from "./components/404/404";
 import Zero_Premium from "./components/Cover/Buy Policy/Zero-Premium/Zero-Premium";
 
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+
 import PayAsYouGo from "./components/Cover/Buy Policy/PayasYouGo/PayAsYouGo";
+import { useState } from "react";
 
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from "react";
 
 function App() {
-
   // Optional Config object, but defaults to demo api-key and eth-mainnet.
   const settings = {
     apiKey: 'qFF72R9T59pOGZHY7I3xrJOUX6Fnf4mT', // Replace with your Alchemy API Key.
@@ -42,30 +41,34 @@ function App() {
   const usdcContract = "0x3932DFF3c6dEB73e683B1dc62FC01a6f0aB87bBd";
   alchemy.core.getTokenBalances(usdcContract).then(console.log);
 
+const [themes,setThemes]=useState("white")
+  const Theme = useSelector(
+    (state) => state.alltheme
+  )
+  console.log(Theme.theme)
+useEffect(()=>{
+  if(Theme.theme==true){
+  setThemes("")
+}
+if(Theme.theme==false){
+  setThemes("white")
+}
+},[Theme])
 
-  const Theme = useSelector((state) => state.alltheme);
-  // console.log(Theme)
-
-  useEffect(()=>{
-       if(Theme.theme==true){
-     document.querySelector("body").style.backgroundColor ="#141627"
-   }
-    if (Theme.theme == false){
-     document.querySelector("body").style.backgroundColor = "#fff"
-
-   }
-  },[Theme.theme])
 
   // const {account} = useMoralis();
   return (
     <>
+      <body data-theme={themes}>
+
+   
       <MoralisProvider
         appId="8UhqmuFpbiSovZcwiHDSKKQ2gt1PsSlD22GCBFN5"
         serverUrl='https://kqn8aq56evez.usemoralis.com:2053/server'
 
       // initializeOnMount={false}
       >
-        <Router>
+        <Router >
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/cover/Dashboard" element={<DashBoard />} />
@@ -88,7 +91,7 @@ function App() {
         </Router>
 
       </MoralisProvider>
-
+</body>
     </>
   );
 }

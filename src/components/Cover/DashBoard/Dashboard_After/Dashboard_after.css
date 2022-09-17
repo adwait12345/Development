@@ -14,11 +14,11 @@
     padding: 10px;
     cursor: pointer;
     margin-left: 10px;
-    color: #fff;
+    color: var(--primary-text);
 }
 
 .react-tabs__tab--selected {
-    border-bottom: 4px solid #fff !important;
+    border-bottom: 4px solid var(--primary-text) !important;
     transition: 0.1s ease-in-out;
 
 }
