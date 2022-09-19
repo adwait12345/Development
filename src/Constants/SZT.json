@@ -2,23 +2,8 @@
     {
       "inputs": [
         {
-          "internalType": "string",
-          "name": "name_",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "symbol_",
-          "type": "string"
-        },
-        {
-          "internalType": "uint8",
-          "name": "decimals_",
-          "type": "uint8"
-        },
-        {
           "internalType": "address",
-          "name": "contractAddress_",
+          "name": "_buySZTCA",
           "type": "address"
         }
       ],

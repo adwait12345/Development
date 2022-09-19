@@ -3,6 +3,7 @@ import { ActionTypes } from "../Action-Types/action-type";
 const initialState = {
   platforms: ["Select"],
   tokens:[],
+  ctokens:[],
   theme:[false],
   underwrite:["Click to Select"],
   protocols:[]
@@ -51,6 +52,29 @@ export const selectedTokenReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const cTokenReducer = (state = initialState, action) => {
+  // console.log(action)
+  switch (action.type) {
+    case ActionTypes.SET_cTOKEN:
+      return { ...state, ctokens: action.payload };
+
+    default:
+      return state;
+  }
+
+};
+
+export const selectedcTokenReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ActionTypes.SELECTED_cTOKEN:
+      return { ...state, ...action.payload };
+
+    default:
+      return state;
+  }
+};
+
 
 export const ThemeDarkReducer = (state = initialState, action) => {
   switch (action.type) {

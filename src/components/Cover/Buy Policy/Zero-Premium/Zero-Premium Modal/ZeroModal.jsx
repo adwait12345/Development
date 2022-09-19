@@ -6,7 +6,7 @@ import {
   setPlatform,
   selectedPlatform,
   selectedToken,
- setToken
+ setToken,setcToken
 } from '../../../../../redux/action/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -23,21 +23,9 @@ export default function ZeroModal({ setZeroOpen }) {
   // console.log(Platform);
 
 
-  const Selector = () => {
-    document.getElementById('ZeroModal').style.justifyContent =
-      'flex-end';
+ 
 
 
-  // dispatch(setPlatform('Adwait'));
-
-  // console.log(Platform);
-
-  };
-
-  const GoBack = () => {
-    document.getElementById('ZeroModal').style.justifyContent =
-      'flex-start';
-  };
   return (
     <>
       <div className="ZeroModal" id="ZeroModal">
@@ -59,6 +47,28 @@ export default function ZeroModal({ setZeroOpen }) {
                   <div className="Cont" onClick={function (event) { dispatch(setPlatform(Contract._name));if(Platform==="Compound"){} setZeroOpen(false); }}>
                     <img src={Contract._Contract_img} alt="" />
                     <p> {Contract._name}</p>
+                    <div class="dropdown">
+                      <button class="dropbtn"  id='sc' >Select Coins</button>
+                     
+                        <div class="dropdown-content">
+                          {Contract._Token.map((Token)=>{
+                            return(
+                              <a onClick={function (event) { dispatch(setToken(Token._addr));dispatch(setcToken(Token._caddr))}}>
+                          {Token._tname}
+                           
+
+                          </a>   
+                            )
+       
+                          })}
+
+
+
+                        </div>
+                     
+
+
+                    </div>
                   </div>
                 </div>
               );
@@ -66,7 +76,7 @@ export default function ZeroModal({ setZeroOpen }) {
           </div>
         </div>
         <div className="zero2">
-          <div className="ZeroModal-top">
+          {/* <div className="ZeroModal-top">
             <h2>
               <ArrowBackIcon onClick={GoBack} />
               Select a token{' '}
@@ -95,7 +105,7 @@ export default function ZeroModal({ setZeroOpen }) {
                 </div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </>

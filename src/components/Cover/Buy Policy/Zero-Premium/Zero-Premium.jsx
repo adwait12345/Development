@@ -30,39 +30,53 @@ export default function Zero_Premium() {
     console.log(platform)
     // console.log(Platforms)
    
+// Global Coin Variable
 
+ var GlobalCoin=useSelector(
+    state=>state.allTokens
+ )
+ var GlobalToken=GlobalCoin.tokens
+
+ var GlobalcCoin=useSelector(
+     state => state.allcTokens
+ )
+ var GlobalcToken=GlobalcCoin.ctokens
 // For Compound Pool 
 
     // Approve Bat Function
 
     const ApproveBat = async () => {
-        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
-        var BATPOST = new ethers.Contract(BAT_Token, ERC20ABI, signer);
-        var trans = await BATPOST.approve(CompoundPool, `${SupplyAmount*1e18}`)
+        const BATGET = new ethers.Contract(GlobalToken, CompoundABI, provider);
+        var BATPOST = new ethers.Contract(GlobalToken, ERC20ABI, signer);
+        var trans = await BATPOST.transfer(CompoundPool, `${SupplyAmount*1e18}`)
     }
 
     // Mint Bat 
     const MintBat = async () => {
-        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+        const BATGET = new ethers.Contract(GlobalToken, CompoundABI, provider);
         var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
-        const gen = await BATPOST.mintERC20Tokens2(account, BAT_Token,`${SupplyAmount*1e18}`)
+        const gen = await BATPOST.mintERC20Tokens(account, GlobalToken,`${SupplyAmount*1e18}`)
 
     }
 
     // Supply 
     const SupplyBat = async () => {
-        var ERC20GET = new ethers.Contract(BAT_Token,ERC20ABI,provider);
-        const Erc= await ERC20GET.balanceOf(CompoundPool);
-        var Erc1 = BigInt(Erc/1e18).toString()
-        console.log(Erc1)
+        // var ERC20GET = new ethers.Contract(BAT_Token,ERC20ABI,provider);
+        // const Erc= await ERC20GET.balanceOf(CompoundPool);
+        // var Erc1 = BigInt(Erc/1e18).toString()
+        // console.log(Erc1)
 
-        const BATGET = new ethers.Contract(BAT_Token, CompoundABI, provider);
+        const BATGET = new ethers.Contract(GlobalToken, ERC20ABI, provider);
+       
+        var BATdecimal=  await  BATGET.decimals()
+      
+      
         var BATPOST = new ethers.Contract(CompoundPool, CompoundABI, signer);
-        const gen1 = await BATPOST.supplyErc20ToCompound(BAT_Token, CBAT_Token, `${SupplyAmount*1e18}`,
+        const gen1 = await BATPOST.supplyToken(GlobalToken, GlobalcToken, `${SupplyAmount*(10**(BATdecimal))}`,
 
         )
 
-        console.log(Erc1)
+        // console.log(Erc1)
 
     }
 //
@@ -102,10 +116,11 @@ const ApproveAave = async () => {
     const ApproveCompoundx= async()=>{
         const CompoundGET = new ethers.Contract(CBAT_Token, CompoundABI, provider);
         var CompoundPOST = new ethers.Contract(CBAT_Token, ERC20ABI, signer);
-        var trans = await CompoundPOST.approve(CompoundPool, `${SupplyAmount * 1e18}`)
+        var trans = await CompoundPOST.approve(CompoundPool, `${SupplyAmount * 1e8}`)
     }
-    const WithDrawCompound=()=>{
-
+    const WithDrawCompound=async()=>{
+        var CompoundPOST= new ethers.Contract(CompoundPool,CompoundABI,signer)
+        var trans = await CompoundPOST.withdrawToken(BAT_Token, CBAT_Token, `${SupplyAmount * 1e8}`)
     }
 
 
@@ -182,7 +197,17 @@ const Withdraw=()=>{
 }
 
 
-
+const Mint=()=>{
+    if(platform==="Compound"){
+        MintBat()
+    }
+    if(platform==="Aave"){
+        MintAave()
+    }
+    if (platform === "Uniswap") {
+        alert("Platform Not Present")
+    }
+}
 
 
 //
@@ -240,7 +265,7 @@ const Withdraw=()=>{
                                                             </div>
                                                         </div>
                                                         <div className="approve-szt" onClick={ApprovetoSupply}>
-                                                            <span >Approve</span>
+                                                            <span >{platform==="Compound"?"Transfer":"Approve"}</span>
                                                         </div>
                                                         <div className="timeline">
                                                             <div className="timeline-line">
@@ -294,7 +319,7 @@ const Withdraw=()=>{
                                             </Tabs>
                                         </div>
                                         <div className="Mint">
-                                            <button onClick={MintAave}>Mint Tokens</button>
+                                            <button onClick={Mint}>Mint Tokens</button>
                                         </div>
 
                                     </div>

@@ -26,7 +26,7 @@ import {
   DAI,
   GSZTToken,
   CoveragePool,
-  SwapDAI
+  SwapDAI, Swap_DaiABI, SwapsztDAI, ProtocolRegistryABI, ProtocolRegistry
 } from "../../../Constants/index";
 import ProvideCoverageModal from './ProvideCoverage Modal/ProvideCoverageModal'
 import { useDispatch, useSelector } from 'react-redux';
@@ -40,16 +40,39 @@ const dispatch=useDispatch()
   const signer = provider.getSigner();
   const [open, setOpen] = useState(false)
   const [activateOpen, setActivateOpen ] = useState(false)
+  const [swapDAIamount, setSwapDAIamount]=useState("")
+  const [swapsztDAIamount, setSwapsztDAIamount]=useState("")
 
   // Functions
   const ApproveDaI= async()=>{
-  
+
     var DAIPOST = new ethers.Contract(DAI, ERC20ABI, signer);
-    var trans = await DAIPOST.approve(SwapDAI, `10`)
+    var trans = await DAIPOST.approve(SwapDAI,`${ swapDAIamount*1e18}`)
   
   } 
- 
+ const Swap_DAI=async()=>{
+   var DAIPOST = new ethers.Contract(SwapDAI, Swap_DaiABI, signer);
+   var trans = await DAIPOST.swapDAI( `${swapDAIamount * 1e18}`)
+ }
 
+ const ApproveSZTDAI=async()=>{
+   var sztDAIPOST = new ethers.Contract(SwapsztDAI, ERC20ABI, signer);
+   var trans = await sztDAIPOST.approve(SwapDAI, `${swapsztDAIamount * 1e18}`)
+ }
+ const SwapSztDAI=async()=>{
+   var sztDAIPOST = new ethers.Contract(SwapsztDAI, Swap_DaiABI, signer);
+   var trans = await sztDAIPOST.swapsztDAI( `${swapsztDAIamount * 1e18}`)
+ }
+
+ const random =async()=>{
+   const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI,provider)
+var n = await protID.protocolID()
+var i;
+ for(i =1;i<=n;i++){
+  const trans= await protID.viewProtocolInfo(i)
+  console.log(trans)
+ }
+ }
 
   // Search logic
   const [searchTerm, setSearchTerm] = useState("")
@@ -58,7 +81,7 @@ const dispatch=useDispatch()
       <div className="Navbar_Cover">
         <Sidebar setOpen={setOpen} />
         <div className="ri_content">
-          <Topbar name="Provide Coverage" setOpen={setOpen} />
+          <Topbar name="Buy Insurance" setOpen={setOpen} />
 
           <div className="Bottom-Content">
 
@@ -70,21 +93,21 @@ const dispatch=useDispatch()
 
                 <div className="stake-boxx">
                   <div className="sell">
-                    <h3>Sell SZT Token</h3>
+                    <h3>Swap DAI to sztDAI </h3>
                     <div className="selectStake">
                       <input
                         type="text"
                         placeholder="Enter no of tokens"
                         onChange={(event) => {
-
+                          setSwapDAIamount(event.target.value);
                         }}
                       />
                       <span>SZT</span>
                     </div>
                     <div className="sell-button">
                       <button onClick={ApproveDaI}>Approve DAI</button>
-                      <button id="sellbtn" >
-                          Swap SZT
+                      <button id="sellbtn" onClick={Swap_DAI}>
+                          Swap DAI
                       </button>
                     </div>
                     <div className="time-sell">
@@ -98,21 +121,21 @@ const dispatch=useDispatch()
 
                 <div className="stake-boxx">
                   <div className="sell">
-                    <h3>Sell SZT Token</h3>
+                    <h3 onClick={random}>Swap sztDAI to DAI</h3>
                     <div className="selectStake">
                       <input
                         type="text"
                         placeholder="Enter no of tokens"
                         onChange={(event) => {
-                         
+                          setSwapsztDAIamount(event.target.value);
                         }}
                       />
                       <span>SZT</span>
                     </div>
                     <div className="sell-button">
-                      <button >Approve</button>
-                      <button id="sellbtn" >
-                        
+                      <button onClick={ApproveSZTDAI}>Approve sztDAI</button>
+                      <button id="sellbtn" onClick={SwapSztDAI}>
+                        Swap sztDAI
                       </button>
                     </div>
                     <div className="time-sell">

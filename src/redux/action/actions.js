@@ -29,6 +29,19 @@ export const selectedToken = (sToken) => {
   };
 };
 
+export const setcToken = (cToken) => {
+  return {
+    type: ActionTypes.SET_cTOKEN,
+    payload: cToken,
+  };
+};
+
+export const selectedcToken = (scToken) => {
+  return {
+    type: ActionTypes.SELECTED_cTOKEN,
+    payload: scToken,
+  };
+};
 
 export const setThemeDark= (Theme)=>{
   return {

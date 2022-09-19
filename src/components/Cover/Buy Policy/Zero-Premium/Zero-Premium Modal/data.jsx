@@ -1,5 +1,7 @@
 
-import {CompoundPool,CompoundBAT,CompoundDAI,CompoundUSDC} from '../../../../../Constants/index'
+import {
+    
+    _DAI,cDAI,BAT_Token,CBAT_Token,USDC,cUSDC,USDT,cUSDT,WBTC,cWBTC,CompoundPool,SAI,cSAI,Aave_DAI,Aave_cDAI,Aave_USDC,Aave_cUSDC,Aave_ChainLink,Aave_cChainLink,Aave_WBTC,Aave_cWBTC} from '../../../../../Constants/index'
   const Contracts = [
 {   
     _id:1,
@@ -12,22 +14,34 @@ import {CompoundPool,CompoundBAT,CompoundDAI,CompoundUSDC} from '../../../../../
     _Token:[
     {
     _tname:"DAI",
-    _DAI:CompoundDAI,
-    _img:"https://compound.finance/compound-components/assets/asset_DAI.svg",
+    _addr:_DAI,
+    _caddr:cDAI,
+
     },
     {
         _tname:"BAT",
-        _BAT:CompoundBAT,
-        _img:"https://compound.finance/compound-components/assets/asset_BAT.svg",
+        _addr:BAT_Token,
+        _caddr:CBAT_Token,
 
     },
     {
         _tname:"USDC",
-        _USDC:CompoundUSDC,
-        _img:"https://compound.finance/compound-components/assets/asset_USDC.svg"
+        _addr:USDC,
+        _caddr:cUSDC,
 
 
-    }
+    },
+    {
+        _tname: "SAI",
+        _addr: SAI,
+        _caddr: cSAI,
+    },
+
+        {
+            _tname: "WBTC",
+            _addr: WBTC,
+            _caddr: cWBTC,
+        },
     
 
     ]
@@ -40,56 +54,36 @@ import {CompoundPool,CompoundBAT,CompoundDAI,CompoundUSDC} from '../../../../../
     _contractAddress:"",
     _Contract_img:"https://aave.com/aaveGhost.svg",
     //Tokens Available on Plaform
-    _Token:[
+    _Token: [
         {
-            _tname:"DAI",
-            _DAI:CompoundDAI,
-            _img:"https://compound.finance/compound-components/assets/asset_DAI.svg",
-            },
-            {
-                _tname:"BAT",
-                _BAT:CompoundBAT,
-                _img:"https://compound.finance/compound-components/assets/asset_BAT.svg",
-        
-            },
-            {
-                _tname:"USDC",
-                _USDC:CompoundUSDC,
-                _img:"https://compound.finance/compound-components/assets/asset_USDC.svg"
-        
-        
-            }
-            ]
-},{
-    _id:3,
+            _tname: "DAI",
+            _addr: Aave_DAI,
+            _caddr: Aave_cDAI,
 
-    //Platform
-    _name:"Uniswap",
-    _contractAddress:"",
-    _Contract_img:"https://assets.coingecko.com/coins/images/12504/large/uniswap-uni.png?1600306604",
-    //Tokens Available on Plaform
-    _Token:[
+        },
+
         {
-            _tname:"DAI",
-            _DAI:CompoundDAI,
-            _img:"https://compound.finance/compound-components/assets/asset_DAI.svg",
-            },
-            {
-                _tname:"BAT",
-                _BAT:CompoundBAT,
-             _img:"https://compound.finance/compound-components/assets/asset_BAT.svg",
-        
-            },
-            {
-                _tname:"USDC",
-                _USDC:CompoundUSDC,
-               _img:"https://compound.finance/compound-components/assets/asset_USDC.svg"
-        
-        
-            }
-            ]
-},
+            _tname: "USDC",
+            _addr: Aave_USDC,
+            _caddr: Aave_cUSDC,
 
+
+        },
+        {
+            _tname: "ChainLink",
+            _addr: Aave_ChainLink,
+            _caddr: Aave_cChainLink,
+        },
+
+        {
+            _tname: "WBTC",
+            _addr: Aave_WBTC,
+            _caddr: Aave_cWBTC,
+        },
+
+
+    ]
+}
 
 ]
 export const TokenImg= [

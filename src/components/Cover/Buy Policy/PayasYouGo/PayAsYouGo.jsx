@@ -27,7 +27,7 @@ export default function PayAsYouGo() {
       <div className="Navbar_Cover">
         <Sidebar setOpen={setOpen} />
         <div className="ri_content">
-          <Topbar name="Pay-as-you-go" setOpen={setOpen} />
+          <Topbar name="Provide Coverage" setOpen={setOpen} />
 
           <div className="Bottom-Content">
             <div className="BuyPolicy">

@@ -3,23 +3,13 @@
       "inputs": [
         {
           "internalType": "string",
-          "name": "name_",
+          "name": "_name",
           "type": "string"
         },
         {
           "internalType": "string",
-          "name": "symbol_",
+          "name": "_symbol",
           "type": "string"
-        },
-        {
-          "internalType": "uint8",
-          "name": "decimals_",
-          "type": "uint8"
-        },
-        {
-          "internalType": "address",
-          "name": "contractAddress_",
-          "type": "address"
         }
       ],
       "stateMutability": "nonpayable",
@@ -208,6 +198,30 @@
         }
       ],
       "name": "increaseAllowance",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "mint",
       "outputs": [
         {
           "internalType": "bool",
