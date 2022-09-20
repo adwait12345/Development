@@ -15,7 +15,7 @@ import {
   DAI,
   GSZTToken,
   CoveragePool,
-  SwapDAI, Swap_DaiABI, SwapsztDAI,ActivateInsuranceABI
+  SwapDAI, Swap_DaiABI, SwapsztDAI, ActivateInsuranceABI, ProtocolRegistry, ProtocolRegistryABI, ConstantFlowAgreement
 } from "../../../../Constants/index";
 export default function ProvideCoverageModal({ setActivateOpen }) {
   // Provider.
@@ -32,9 +32,13 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
 
   var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 
-    const ActivateInsurance=()=>{
-      var Activate = new ethers.Contract(SwapsztDAI, ActivateInsuranceABI, signer);
-      const trans = Activate.activateInsurance(`${ActivateInsuranceAmount}`)
+    const ActivateInsurance=async()=>{
+      var Activate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
+      const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI, provider);
+      var n = await protID.protocolID()
+      console.log(n.toString())
+      var s= n.toString()
+      const trans = Activate.activateInsurance(`${ActivateInsuranceAmount*1e18}`,s)
     }
   return (
     <>

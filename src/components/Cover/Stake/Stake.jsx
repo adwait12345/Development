@@ -31,7 +31,7 @@ export default function Stake() {
 
         const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
         var SZTPOST = new ethers.Contract(SZTStakingContract, SZTStakingABI, signer);
-        const gen1 = await SZTPOST.stakeSZT(  `${SupplyAmount*1e18}` )
+        const gen1 = await SZTPOST.stakeSZT(`${SupplyAmount * 1e18}`)
 
 
     }
@@ -44,7 +44,11 @@ export default function Stake() {
 
 
     }
-
+const WithTimer = async () => {
+    var SZTPOST = new ethers.Contract(SZTStakingContract, SZTStakingABI, signer);
+    const gen1 = await SZTPOST.activateWithdrawalTimer(`${WithdrawAmount * 1e18}`)
+    
+}
     
 
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account } = useMoralis();
@@ -104,7 +108,7 @@ export default function Stake() {
                                                     <span>SZT</span>
                                                 </div>
                                             </div>
-                                            <button onClick={StakeSZT}>Stake</button>
+                                            {/* <button >Stake</button> */}
                                         </div>
                                     </div>
                                     <div className="stake-box">
@@ -119,8 +123,8 @@ export default function Stake() {
                                             </div>
 
                                         </div>
-                                        <div className="transfer-szt">
-                                            <span>Transfer SZT</span>
+                                        <div className="transfer-szt"onClick={StakeSZT}>
+                                            <span>Stake SZT</span>
                                         </div>
                                     </div>
 
@@ -137,12 +141,25 @@ export default function Stake() {
                                                 <span>SZT</span>
                                             </div>
                                             <div className="sell-button">
-                                                <button onClick={WithdrawSZT}>Unstake</button>
+                                                {/* <button onClick={WithdrawSZT}>Unstake</button> */}
                                             </div>
                                         </div>
                                     </div>
                                     <div className="stake-box">
+                                        <div className="approve-szt" onClick={WithTimer}>
+                                            <span>Activate Sell Timer</span>
+                                        </div>
+                                        <div className="timeline">
+                                            <div className="timeline-line">
+                                                <div className="blob">
+                                                    <img src={check} alt="" />
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                        <div className="transfer-szt" onClick={WithdrawSZT}>
+                                            <span>WithDraw SZT</span>
+                                        </div>
                                     </div>
                                 </div>
 

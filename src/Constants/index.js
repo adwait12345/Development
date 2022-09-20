@@ -6,7 +6,10 @@ const SZTStakingABI=require("./SZTStaking.json")
 const Swap_DaiABI=require('./SwapDAI.json')
 const ActivateInsuranceABI=require('./ConstantFlowAgreement.json')
 const ProtocolRegistryABI=require('./ProtocolRegistry.json')
+const FakeCoinABI=require('./FakeCoin.json')
 //
+
+const ConstantFlowAgreement ="0x75b5dF9371059b3709d9521012b40820e9785334"
 
 const SZT_Token = "0xDFbB73e0fb193c2Aae14E576710bad9e4B396F5A"
 const BuySell = "0x9aB7a4272450b714E34B97AD7bCe3E9c37Fd314e" 
@@ -91,5 +94,7 @@ module.exports = {
     Aave_WBTC,
     Aave_cWBTC,
    ProtocolRegistryABI,
-    ProtocolRegistry
+    ProtocolRegistry,
+    ConstantFlowAgreement,
+    FakeCoinABI
 }

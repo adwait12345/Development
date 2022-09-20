@@ -31,6 +31,7 @@ import {
 import ProvideCoverageModal from './ProvideCoverage Modal/ProvideCoverageModal'
 import { useDispatch, useSelector } from 'react-redux';
 import {setProtocal} from "../../../redux/action/actions"
+import { useEffect } from 'react'
 export default function ProvideCoverage() {
   var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 const dispatch=useDispatch()
@@ -42,6 +43,7 @@ const dispatch=useDispatch()
   const [activateOpen, setActivateOpen ] = useState(false)
   const [swapDAIamount, setSwapDAIamount]=useState("")
   const [swapsztDAIamount, setSwapsztDAIamount]=useState("")
+  const [Protocol,setProtocol]=useState([""])
 
   // Functions
   const ApproveDaI= async()=>{
@@ -53,6 +55,7 @@ const dispatch=useDispatch()
  const Swap_DAI=async()=>{
    var DAIPOST = new ethers.Contract(SwapDAI, Swap_DaiABI, signer);
    var trans = await DAIPOST.swapDAI( `${swapDAIamount * 1e18}`)
+   console.log(trans)
  }
 
  const ApproveSZTDAI=async()=>{
@@ -60,18 +63,44 @@ const dispatch=useDispatch()
    var trans = await sztDAIPOST.approve(SwapDAI, `${swapsztDAIamount * 1e18}`)
  }
  const SwapSztDAI=async()=>{
-   var sztDAIPOST = new ethers.Contract(SwapsztDAI, Swap_DaiABI, signer);
+   var sztDAIPOST = new ethers.Contract(SwapDAI, Swap_DaiABI, signer);
    var trans = await sztDAIPOST.swapsztDAI( `${swapsztDAIamount * 1e18}`)
  }
 
+
+
+const Protcols = [];
+
+
+  // (async () => {
+
+  // })();
+  useEffect(()=>{
+   random()
+   
+  },[])
  const random =async()=>{
-   const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI,provider)
+       try {
+const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI,provider)
 var n = await protID.protocolID()
 var i;
  for(i =1;i<=n;i++){
   const trans= await protID.viewProtocolInfo(i)
-  console.log(trans)
+  
+ Protcols.push(trans)
+ 
+  // console.log(trans)
  }
+  //  console.log(Protcols)
+   setProtocol(Protcols)
+  
+   console.log(Protocol)
+    } 
+    
+    catch (error) {
+      console.log(error)
+    }
+
  }
 
   // Search logic
@@ -121,7 +150,7 @@ var i;
 
                 <div className="stake-boxx">
                   <div className="sell">
-                    <h3 onClick={random}>Swap sztDAI to DAI</h3>
+                    <h3 >Swap sztDAI to DAI</h3>
                     <div className="selectStake">
                       <input
                         type="text"
@@ -167,10 +196,10 @@ var i;
                 <div className="Contract-All">
 
 
-                  {Contracts.filter((Contracts) => {
+                  {Protocol.filter((Contracts) => {
                     if (searchTerm == null) {
                       return Contracts
-                    } else if (Contracts._title.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    } else if ((`${Contracts[0]}`).toLowerCase().includes(searchTerm.toLowerCase())) {
 
 
 
@@ -179,11 +208,14 @@ var i;
 
 
                   }).map((Contracts, key) => {
-                    return (<div className="Contract-Cards" key={key} >
+                    
+                    
+                    return (
+                    <div className="Contract-Cards" key={key} >
                       <div className="top-contract">
                         <div className="title-contract">
-                          <img src={Contracts._title_img} alt="" />
-                          <h3>{Contracts._title}</h3>
+                          {/* <img src={Contracts._title_img} alt="" /> */}
+                          <h3>{Contracts[0].toString()}</h3>
                         </div>
 
                         <button>
@@ -191,14 +223,14 @@ var i;
                         </button>
                       </div>
                       <div className="bet-contract">
-                        <p><span>Liqudity:</span><span>{Contracts._Liqidity} USDT</span></p>
-                        <p><span>APY:</span><span>{Contracts._APY}%</span></p>
-                        <p><span>Token per Day:</span><span>{Contracts._Token_Per_Day}</span></p>
-                        <p><span>Utilization:</span><span>{Contracts._Utilization}%</span></p>
-                        <p><span>Saturation:</span><span>{Contracts._Saturation}</span></p>
+                        <p><span>Liqudity:</span><span>{Contracts[2].toString()} USDT</span></p>
+                          <p><span>Coverage Offered:</span><span>{Contracts[3].toString()}%</span></p>
+                        {/* <p><span>Token per Day:</span><span>{Contracts._Token_Per_Day}</span></p> */}
+                        {/* <p><span>Utilization:</span><span>{Contracts._Utilization}%</span></p> */}
+                          <p><span>Premium [ per min ]:</span><span>{((Contracts[4].toString())/1e10).toFixed(18)+ " DAI"}</span></p>
                       </div>
                       <div className="bot-contract">
-                        <button onClick={function (event) { dispatch(setProtocal(Contracts._title) );setActivateOpen(true)}}>Select</button>
+                        <button onClick={function (event) { dispatch(setProtocal(Contracts[0].toString()) );setActivateOpen(true)}}>Select</button>
                       </div>
                     </div>
 

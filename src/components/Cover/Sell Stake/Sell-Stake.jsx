@@ -24,6 +24,7 @@ import {
   BuySell,
   DAI,
   GSZTToken,
+  FakeCoinABI
 } from "../../../Constants/index";
 
 // Css Files.
@@ -45,6 +46,7 @@ export default function Sell_Stake() {
   const [confirmations, setConfirmations] = useState(false);
   const [loading, setloading] = useState(false);
   const [issued, setIssued] = useState("");
+  const [issued1, setIssued1] = useState("");
   const [currentSZT_Price, setCurrentSZT_Price] = useState("");
   const [needtoApprove, setNeedtoApprove] = useState("");
   const [request, setRequest] = useState("Request Sell");
@@ -87,24 +89,28 @@ export default function Sell_Stake() {
   // #2. For getting No of issued Token.
   (async () => {
     try {
-      var Raw_IssuedTokens = await BUY_SELL_PROVIDER.tokenCounter();
+      var Raw_IssuedTokens = await BUY_SELL_PROVIDER.getSZTTokenCount();
       var Issued_Tokens = Number(BigInt(Raw_IssuedTokens).toString());
-
-      setIssued(Issued_Tokens);
+      
+      setIssued(Issued_Tokens/1e18);
+     
     } catch (error) {
       console.log(error);
     }
   })();
+
+  
 
   // #3. For getting current SZT Price.
   (async () => {
     try {
       var Raw_SZTPrice = await BUY_SELL_PROVIDER.calculateSZTPrice(
         `${issued * 1e18}`,
-        `${1 * 1000000000000000000 + issued * 1e18}`
+        `${1 * 1e18 + issued * 1e18}`
       );
       var SZT_Price = BigInt(Raw_SZTPrice[0]).toString();
       setCurrentSZT_Price(SZT_Price / 1e18);
+      
     } catch (error) {
       console.log(error);
     }
@@ -114,10 +120,12 @@ export default function Sell_Stake() {
   (async () => {
     try {
       var tyz = ethers.utils.parseUnits(amount, decimals);
-      var reqtok = Number(issued) + Number(tyz);
+        const IssuedVar= issued*1e18;
+      var reqtok = Number(IssuedVar) + Number(tyz);
       // console.log(reqtok.toString())
+    
       var Raw_Price = await BUY_SELL_PROVIDER.calculateSZTPrice(
-        `${issued}`,
+        `${IssuedVar}`,
         `${reqtok}`
       );
       // console.log(Raw_Price[0],Raw_Price[1])
@@ -183,7 +191,7 @@ export default function Sell_Stake() {
   // Function to SellSZT
   const SellToken = async () => {
     try {
-      var sell = await BUY_SELL_SIGNER.sellSZTToken(sellamount);
+      var sell = await BUY_SELL_SIGNER.sellSZTToken(`${sellamount*1e18}`);
       console.log(sell);
 
       // Waiting for Confirmation Recipt
@@ -201,28 +209,36 @@ export default function Sell_Stake() {
 
   // Timer
   const Request = () => {
-    BUY_SELL_PROVIDER.activateSellTimer(
-      `${sellamount * 1000000000000000000}`,
-      "12"
+    BUY_SELL_SIGNER.activateSellTimer(
+      `${sellamount * 1000000000000000000}`
+      
     );
     setTimeout(() => {
       setRequest("Sell");
-    }, 120);
+     
+    }, 120000);
   };
 
-  // Testing Function
-  const RequestSell = async () => {
-    // SellToken()
 
-    var price = await BUY_SELL_PROVIDER.calculateSZTPrice(
-      issued,
-      `${amount * 1000000000000000000 + issued}`
-    );
-    var price2 = BigInt(price[0]).toString();
-    var price3 = BigInt(price[1]).toString();
-    console.log(price2 / 1e18);
-    console.log(price3 / 1e18);
-  };
+  // Mint DAI
+  const MintDAI = async()=>{
+    const DAIGET = new ethers.Contract(DAI, FakeCoinABI, provider);
+    var DAIPOST = new ethers.Contract(DAI, FakeCoinABI, signer);
+    const gen = await DAIPOST.mint(account, `${999*1e18}`)
+  }
+  // // Testing Function
+  // const RequestSell = async () => {
+  //   // SellToken()
+
+  //   var price = await BUY_SELL_PROVIDER.calculateSZTPrice(
+  //     issued,
+  //     `${amount * 1000000000000000000 + issued}`
+  //   );
+  //   var price2 = BigInt(price[0]).toString();
+  //   var price3 = BigInt(price[1]).toString();
+  //   console.log(price2 / 1e18);
+  //   console.log(price3 / 1e18);
+  // };
 
   return (
     <>
@@ -250,9 +266,12 @@ export default function Sell_Stake() {
               <div className="Stake">
                 <div className="stake_title">
                   <h3>Buy SZT Token</h3>
-                  <span>
+                  {/* <span>
                     Contract Address: <h5>{account}</h5>{" "}
-                  </span>
+                  </span> */}
+                  <button onClick={MintDAI}>
+                    Mint 999 DAI
+                  </button>
                 </div>
 
                 <div className="stake-bot">
@@ -325,7 +344,7 @@ export default function Sell_Stake() {
                       </div>
                       <div className="sell-button">
                         <button onClick={ApprovetoSell}>Approve</button>
-                        <button id="sellbtn" onClick={RequestSell}>
+                        <button id="sellbtn" onClick={SellToken}>
                           {request}
                         </button>
                       </div>
