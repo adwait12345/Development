@@ -6,7 +6,8 @@ const initialState = {
   ctokens:[],
   theme:[false],
   underwrite:["Click to Select"],
-  protocols:[]
+  protocols:[],
+  keys:[]
 };
 
 export const PlatformReducer = (state = initialState, action) => {
@@ -126,6 +127,25 @@ export const ProtocalReducer = (state = initialState, action) => {
 export const selectedProtocalReducer = (state = {}, action) => {
   switch (action.type) {
     case ActionTypes.SELECTED_PROTOCAL:
+      return { ...state, ...action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const KeyReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ActionTypes.SET_KEY:
+      return { ...state, keys: action.payload };
+
+    default:
+      return state;
+  }
+}
+export const selectedKeyReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ActionTypes.SELECTED_KEY:
       return { ...state, ...action.payload };
 
     default:

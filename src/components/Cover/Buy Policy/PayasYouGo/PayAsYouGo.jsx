@@ -11,17 +11,77 @@ import {setUnderwrite} from "../../../../redux/action/actions"
 import { useDispatch, useSelector } from 'react-redux';
 import { AddIcon } from '@chakra-ui/icons'
 import AddProtocal from './Add Protocal Modal/AddProtocal'
+import { BigNumber, ethers } from "ethers";
+
+import {
+  ERC20ABI,
+  SZT_Token,
+  BuySellABI,
+  BuySell,
+  DAI,
+  GSZTToken,
+  CoveragePool,
+  SwapDAI, Swap_DaiABI, SwapsztDAI, ProtocolRegistryABI, ProtocolRegistry
+} from "../../../../Constants/index";
+import { useEffect } from 'react'
 
 export default function PayAsYouGo() {
   const [open, setOpen] = useState(false)
   const [zeroOpen, setZeroOpen] = useState(false)
   const [ProtOpen, setProtOpen] = useState(false)
+  const [Protocol, setProtocol] = useState([])
 
+  // Provider.
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  // Signer
+  const signer = provider.getSigner();
 
   const dispatch= useDispatch()
  const ProtOpner=()=>{
    setProtOpen(true)
  }
+
+  const Protcols = [
+    {
+      _ProtocolIDs: [],
+      _Protocol: []
+    }
+  ];
+
+  Protcols.map((param) => {
+    const random = async () => {
+      try {
+        const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI, provider)
+        var n = await protID.protocolID()
+
+
+        var i;
+        for (i = 1; i <= n; i++) {
+          const trans = await protID.viewProtocolInfo(i)
+
+          param._Protocol.push(trans)
+          param._ProtocolIDs.push(i)
+
+        }
+        setProtocol(param._Protocol)
+      
+        // console.log(Protocol)
+
+
+      }
+
+      catch (error) {
+        console.log(error)
+      }
+
+    }
+
+    useEffect(() => {
+      random()
+      console.log(Protocol)
+    }, [])
+
+  })
   return (
     <>
       <div className="Navbar_Cover">
@@ -44,13 +104,13 @@ export default function PayAsYouGo() {
                     
                   </div>
                   <div className="selectPlatform-bot">
-                    {Contracts.map((Contract) => {
+                    {Protocol.map((Contract) => {
                       return (
                         <div className="Underwrite-contract">
-                          <div className="UnCo" onClick={function (event) { dispatch(setUnderwrite(Contract._name));setZeroOpen(true)}}>
-                            <img src={Contract._Contract_img} alt="" />
-                            <p> {Contract._name}
-                              <span>Risk: {Contract._risk}</span>
+                          <div className="UnCo" onClick={function (event) { dispatch(setUnderwrite(Contract[0].toString()));setZeroOpen(true)}}>
+                            {/* <img src={Contract._Contract_img} alt="" /> */}
+                            <p> {Contract[0].toString()}
+                              {/* <span>Risk: {Contract._risk}</span> */}
                             </p>
                           </div>
                         </div>

@@ -85,3 +85,18 @@ export const selectedProtocal = (sProtocal) => {
     payload: sProtocal,
   };
 };
+
+export const setkey = (key) => {
+  // console.log(Platform)
+  return {
+    type: ActionTypes.SET_KEY,
+    payload: key,
+  };
+};
+
+export const selectedkey = (skey) => {
+  return {
+    type: ActionTypes.SELECTED_KEY,
+    payload: skey,
+  };
+};

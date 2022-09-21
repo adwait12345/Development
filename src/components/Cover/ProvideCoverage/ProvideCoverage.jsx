@@ -30,7 +30,7 @@ import {
 } from "../../../Constants/index";
 import ProvideCoverageModal from './ProvideCoverage Modal/ProvideCoverageModal'
 import { useDispatch, useSelector } from 'react-redux';
-import {setProtocal} from "../../../redux/action/actions"
+import {setProtocal,setkey} from "../../../redux/action/actions"
 import { useEffect } from 'react'
 export default function ProvideCoverage() {
   var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
@@ -43,7 +43,8 @@ const dispatch=useDispatch()
   const [activateOpen, setActivateOpen ] = useState(false)
   const [swapDAIamount, setSwapDAIamount]=useState("")
   const [swapsztDAIamount, setSwapsztDAIamount]=useState("")
-  const [Protocol,setProtocol]=useState([""])
+  const [Protocol,setProtocol]=useState([])
+  const [Protocolid,setProtocolid]=useState([])
 
   // Functions
   const ApproveDaI= async()=>{
@@ -69,32 +70,40 @@ const dispatch=useDispatch()
 
 
 
-const Protcols = [];
+const Protcols = [
+  {
+       _ProtocolIDs:[],
+      _Protocol:[]
+  }
+];
+
 
 
   // (async () => {
 
   // })();
-  useEffect(()=>{
-   random()
-   
-  },[])
- const random =async()=>{
+
+
+  Protcols.map((param)=>{
+   const random =async()=>{
        try {
 const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI,provider)
 var n = await protID.protocolID()
+
+
 var i;
  for(i =1;i<=n;i++){
   const trans= await protID.viewProtocolInfo(i)
   
- Protcols.push(trans)
- 
-  // console.log(trans)
+ param._Protocol.push(trans)
+ param._ProtocolIDs.push(i)
+
  }
-  //  console.log(Protcols)
-   setProtocol(Protcols)
+   setProtocol(param._Protocol)
+   setProtocolid(param._ProtocolIDs)
+// console.log(Protocol)
   
-   console.log(Protocol)
+   
     } 
     
     catch (error) {
@@ -102,6 +111,14 @@ var i;
     }
 
  }
+
+  useEffect(()=>{
+   random()
+    console.log(Protocol)
+  },[])
+
+})
+
 
   // Search logic
   const [searchTerm, setSearchTerm] = useState("")
@@ -217,7 +234,7 @@ var i;
                           {/* <img src={Contracts._title_img} alt="" /> */}
                           <h3>{Contracts[0].toString()}</h3>
                         </div>
-
+                           {/* {console.log(key+1)} */}
                         <button>
                           <img src={ethrum} alt="" />
                         </button>
@@ -227,10 +244,10 @@ var i;
                           <p><span>Coverage Offered:</span><span>{Contracts[3].toString()}%</span></p>
                         {/* <p><span>Token per Day:</span><span>{Contracts._Token_Per_Day}</span></p> */}
                         {/* <p><span>Utilization:</span><span>{Contracts._Utilization}%</span></p> */}
-                          <p><span>Premium [ per min ]:</span><span>{((Contracts[4].toString())/1e10).toFixed(18)+ " DAI"}</span></p>
+                          <p><span>Premium [ per min ]:</span><span>{((Contracts[4].toString())/1e18).toFixed(18)+ " DAI"}</span></p>
                       </div>
                       <div className="bot-contract">
-                        <button onClick={function (event) { dispatch(setProtocal(Contracts[0].toString()) );setActivateOpen(true)}}>Select</button>
+                        <button onClick={function (event) { dispatch(setProtocal(Contracts[0].toString()) );setActivateOpen(true);dispatch(setkey(key+1))}}>Select</button>
                       </div>
                     </div>
 

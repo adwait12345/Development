@@ -11,7 +11,7 @@ import Topbar from '../Topbar/Topbar'
 import Modal from "react-modal"
 import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 import ethrum from '../Ethrum.svg'
-
+import { NavLink } from 'react-router-dom'
 export default function Buypolicy() {
     const [open, setOpen] = useState(false)
     // Search logic
@@ -28,7 +28,21 @@ export default function Buypolicy() {
 
                     <div className="Bottom-Content">
                         <div className="BuyPolicy">
-                            <div className="Contracts">
+
+                            <div className="redirects">
+                                <div className="redirect1">
+                                    <NavLink to="/cover/BuyPolicy/PayAsYouGo">
+                                <button>Pay as you go</button>
+                                </NavLink>
+                                </div>
+                                <div className="redirect2">
+                                    <NavLink to="/cover/BuyPolicy/ZeroPremium">
+                                  <button>Zero Premium</button>
+                                  </NavLink>
+                                </div>
+
+                            </div>
+                            {/* <div className="Contracts">
                                 <h5>Contracts({Contracts.length})</h5>
                                 <span> <img src={Question} alt="" />  What is covered</span>
                             </div>
@@ -91,7 +105,7 @@ export default function Buypolicy() {
 
 
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
 

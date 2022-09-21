@@ -28,17 +28,19 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
         setActivateOpen(false)
     }
     const Protocals = useSelector(state => state.allProtocol)
-    
+    const Ids = useSelector(state => state.allKey )
+  const key = Ids.keys
+    console.log(Ids.keys)
 
   var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 
     const ActivateInsurance=async()=>{
       var Activate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
-      const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI, provider);
-      var n = await protID.protocolID()
-      console.log(n.toString())
-      var s= n.toString()
-      const trans = Activate.activateInsurance(`${ActivateInsuranceAmount*1e18}`,s)
+      // const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI, provider);
+      // var n = await protID.protocolID()
+      // console.log(n.toString())
+      // var s= n.toString()
+      const trans = Activate.activateInsurance(`${ActivateInsuranceAmount*1e18}`,key)
     }
   return (
     <>

@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import { PlatformReducer,selectedPlatformReducer,TokenReducer,selectedTokenReducer, ThemeDarkReducer, selectedThemeDarkReducer,selectedUnderwriteReducer,UnderwriteReducer,ProtocalReducer,selectedProtocalReducer,cTokenReducer,selectedcTokenReducer} from './Reducer';
+import { PlatformReducer,selectedPlatformReducer,TokenReducer,selectedTokenReducer, ThemeDarkReducer, selectedThemeDarkReducer,selectedUnderwriteReducer,UnderwriteReducer,ProtocalReducer,selectedProtocalReducer,cTokenReducer,selectedcTokenReducer,selectedKeyReducer,KeyReducer} from './Reducer';
 
 const reducer = combineReducers({
     allPlatforms:PlatformReducer,
@@ -14,5 +14,7 @@ const reducer = combineReducers({
     Protocal:selectedProtocalReducer,
     allcTokens:cTokenReducer,
     ctoken:selectedcTokenReducer,
+    allKey:KeyReducer,
+    key:selectedKeyReducer
 })
 export default reducer  
