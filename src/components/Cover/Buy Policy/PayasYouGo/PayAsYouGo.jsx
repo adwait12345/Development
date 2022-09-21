@@ -7,7 +7,7 @@ import Sidebar from '../../SideBar/Sidebar'
 import Topbar from '../../Topbar/Topbar'
 import Payasyou from './Pay Modal/Payasyou'
 import Contracts from '../PayasYouGo/Pay Modal/data2';
-import {setUnderwrite} from "../../../../redux/action/actions"
+import {setUnderwrite,setkey} from "../../../../redux/action/actions"
 import { useDispatch, useSelector } from 'react-redux';
 import { AddIcon } from '@chakra-ui/icons'
 import AddProtocal from './Add Protocal Modal/AddProtocal'
@@ -81,6 +81,9 @@ export default function PayAsYouGo() {
       console.log(Protocol)
     }, [])
 
+
+    
+
   })
   return (
     <>
@@ -104,10 +107,10 @@ export default function PayAsYouGo() {
                     
                   </div>
                   <div className="selectPlatform-bot">
-                    {Protocol.map((Contract) => {
+                    {Protocol.map((Contract,key) => {
                       return (
-                        <div className="Underwrite-contract">
-                          <div className="UnCo" onClick={function (event) { dispatch(setUnderwrite(Contract[0].toString()));setZeroOpen(true)}}>
+                        <div className="Underwrite-contract" key={key}>
+                          <div className="UnCo" onClick={function (event) { dispatch(setUnderwrite(Contract[0].toString())); setZeroOpen(true); dispatch(setkey(key + 1)) }}>
                             {/* <img src={Contract._Contract_img} alt="" /> */}
                             <p> {Contract[0].toString()}
                               {/* <span>Risk: {Contract._risk}</span> */}
