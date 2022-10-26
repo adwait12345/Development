@@ -11,6 +11,8 @@ import Sell_Stake from '../components/Cover/Sell Stake/Sell-Stake';
 import { useMoralis } from 'react-moralis'
 import Zero_Premium from '../components/Cover/Buy Policy/Zero-Premium/Zero-Premium';
 import Sidebar from '../components/Cover/SideBar/Sidebar';
+import Metamask from '../components/Metamask Login Modal \'/Metamask Popup/Metamask';
+import Main_Available_insurance from '../components/Cover/DashBoard/Available Insurance/Main_Available_insurance';
 
 
 
@@ -26,12 +28,13 @@ export default function Cover() {
       <Buypolicy />
       <Zero_Premium />
       <ProvideCoverage />
-
+      <Main_Available_insurance/>
       <Stake />
       <Sell_Stake />
       <DAO />
 
       <MyPolicies />
+      <Metamask/>
     </>
   )
 }

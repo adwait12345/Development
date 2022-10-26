@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import { PlatformReducer,selectedPlatformReducer,TokenReducer,selectedTokenReducer, ThemeDarkReducer, selectedThemeDarkReducer,selectedUnderwriteReducer,UnderwriteReducer,ProtocalReducer,selectedProtocalReducer,cTokenReducer,selectedcTokenReducer,selectedKeyReducer,KeyReducer} from './Reducer';
+import { PlatformReducer,selectedPlatformReducer,TokenReducer,selectedTokenReducer, ThemeDarkReducer, selectedThemeDarkReducer,selectedUnderwriteReducer,UnderwriteReducer,ProtocalReducer,selectedProtocalReducer,cTokenReducer,selectedcTokenReducer,selectedKeyReducer,KeyReducer,ContractReducer,selectedContractReducer,DropdownReducer,selectedDropdownReducer,selectedInsuranceReducer,InsuranceReducer} from './Reducer';
 
 const reducer = combineReducers({
     allPlatforms:PlatformReducer,
@@ -15,6 +15,12 @@ const reducer = combineReducers({
     allcTokens:cTokenReducer,
     ctoken:selectedcTokenReducer,
     allKey:KeyReducer,
-    key:selectedKeyReducer
+    key:selectedKeyReducer,
+    allContracts:ContractReducer,
+    contract:selectedContractReducer,
+    allDropdown:DropdownReducer,
+    dropdown:selectedDropdownReducer,
+    allInsurance:InsuranceReducer,
+    Insurance:selectedInsuranceReducer,
 })
 export default reducer  

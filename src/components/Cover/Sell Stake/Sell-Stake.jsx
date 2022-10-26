@@ -6,6 +6,10 @@ import Topbar from "../Topbar/Topbar";
 import Modal from "react-modal";
 import Transaction from "../../Transaction/Transaction";
 import Loader from "../../Loader/Loader";
+import { BsBarChart, BsArrowUpRight, IoIosAdd, BsPeople, BsInfoCircle } from "react-icons/bs";
+import { GrCubes } from "react-icons/gr";
+import { MdAccountBalanceWallet } from "react-icons/md";
+import { DiStreamline } from "react-icons/di";
 
 // Assets.
 import safezen from "../Stake/safezen.png";
@@ -15,25 +19,58 @@ import Ethrum from "../Ethrum.svg";
 // Libraries.
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import { BigNumber, ethers } from "ethers";
+import { useDispatch, useSelector } from 'react-redux';
 
 // Constants.
 import {
   ERC20ABI,
-  SZT_Token,
-  BuySellABI,
-  BuySell,
-  DAI,
-  GSZTToken,
+  
+  BuySellABI, 
+  
+  
+  
   FakeCoinABI
 } from "../../../Constants/index";
+
+
 
 // Css Files.
 import "./sell-stake.css";
 
 // Main Function.
 export default function Sell_Stake() {
+
+
+  var token = useSelector(
+    state => state.allContracts
+  )
+  console.log()
+  var ConstantFlowAgreement = token.contracts.ConstantFlowAgreement;
+  var SZT_Token = token.contracts.SZT_Token;
+  var BuySell = token.contracts.BuySell;
+  var GSZTToken = token.contracts.GSZTToken;
+  var DAI = token.contracts.DAI;
+  var CompoundPool = token.contracts.CompoundPool;
+  var ProtocolRegistry = token.contracts.ProtocolRegistry;
+  var AAVE_Contract = token.contracts.AAVE_Contract;
+  var SZTStakingContract = token.contracts.SZTStakingContract;
+  var CoveragePool = token.contracts.CoveragePool;
+  var SwapDAI = token.contracts.SwapDAI;
+  var SwapsztDAI = token.contracts.SwapsztDAI;
+  var AAVE_Token = token.contracts.AAVE_Token;
+  var aAAVE_Token = token.contracts.aAAVE_Token;
+  var Aave_DAI = token.contracts.Aave_DAI;
+  var Aave_cDAI = token.contracts.Aave_cDAI;
+  var Aave_USDC = token.contracts.Aave_USDC;
+  var Aave_cUSDC = token.contracts.Aave_cUSDC;
+  var Aave_ChainLink = token.contracts.Aave_ChainLink;
+  var Aave_cChainLink = token.contracts.Aave_cChainLink;
+  var Aave_WBTC = token.contracts.Aave_WBTC;
+  var Aave_cWBTC = token.contracts.Aave_cWBTC;
+
   // Provider.
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const provider = new ethers.providers.Web3Provider(window.ethereum,);
+ 
   // Signer
   const signer = provider.getSigner();
 
@@ -121,17 +158,19 @@ export default function Sell_Stake() {
     try {
       var tyz = ethers.utils.parseUnits(amount, decimals);
         const IssuedVar= issued*1e18;
-      var reqtok = Number(IssuedVar) + Number(tyz);
+      var reqtok = Number(IssuedVar) +Number(tyz) ;
       // console.log(reqtok.toString())
-    
-      var Raw_Price = await BUY_SELL_PROVIDER.calculateSZTPrice(
-        `${IssuedVar}`,
-        `${reqtok}`
-      );
+    // console.log("12")
+    // console.log(IssuedVar, reqtok);
+      let Raw_Price = await BUY_SELL_PROVIDER.calculateSZTPrice( `${IssuedVar}`, `${reqtok}`);
+      
       // console.log(Raw_Price[0],Raw_Price[1])
       // var test2 = ethers.utils.parseUnits(`${Raw_Price[1]}`)
+      console.log("13")
+
       var TY = BigNumber.from(Raw_Price[1]).toString();
-      //
+      // //
+      // console.log("14")
 
       //
       // console.log(TY/1e18)
@@ -200,7 +239,7 @@ export default function Sell_Stake() {
       console.log(receipt.confirmations);
       if (receipt.confirmations > 0) {
         setConfirmations(true);
-        Request();
+        // Request();
       }
     } catch (error) {
       console.log(error);
@@ -248,7 +287,7 @@ export default function Sell_Stake() {
           <Topbar setOpen={setOpen} name="Buy & Sell" />
 
           <div className="Bottom-Content">
-            <div className="DashBoard_Boxes">
+            {/* <div className="DashBoard_Boxes">
               <div className="box-dashboard">
                 <h4 id="lol">My Balance:</h4>
                 <h3>{balance} SZT</h3>
@@ -261,7 +300,86 @@ export default function Sell_Stake() {
                 <h4>Issued SZT till Date:</h4>
                 <h3>{issued} SZT</h3>
               </div>
+            </div> */}
+
+            <div className="Dashboard_after">
+            <div className="DashboardBoxes">
+              <div className="b1">
+                <div className="b1In">
+                  <div className="topB">
+                    <div className="border"><BsBarChart color='#fff' /></div>
+                    <h4>Active Cover Amount</h4>
+                    <div className="info"><BsInfoCircle /> </div>
+
+                  </div>
+                  <div className="midB">
+                    <h3>{balance} SZT </h3>
+                  </div>
+                  <div className="botB">
+                    <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                    <p>	&nbsp; &nbsp; +  1550K this week</p>
+                  </div>
+                </div>
+
+              </div>
+              <div className="b2">
+                <div className="b1In">
+                  <div className="topB">
+                    <div className="border"><DiStreamline width={50} height={50} color="#fff" /></div>
+                    <h4>Current SZT Price</h4>
+                    <div className="info"> <BsInfoCircle color='#fff' /></div>
+
+                  </div>
+                  <div className="midB">
+                    <h3>{currentSZT_Price} DAI </h3>
+                  </div>
+                  <div className="botB">
+                    <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                    <p>	&nbsp; &nbsp; +  1550K this week</p>
+                  </div>
+                </div>
+
+              </div>
+              <div className="b3">
+                <div className="b1In">
+                  <div className="topB">
+                    <div className="border"><BsPeople color='#fff' /></div>
+                    <h4>Issued SZT till Date</h4>
+                    <div className="info"> <BsInfoCircle color='#fff' /></div>
+
+                  </div>
+                  <div className="midB">
+                    <h3>{issued} SZT </h3>
+                  </div>
+                  <div className="botB">
+                    <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                    <p>	&nbsp; &nbsp; +  1550K this week</p>
+                  </div>
+                </div>
+
+              </div>
+              <div className="b4">
+                <div className="b1In">
+                  <div className="topB">
+                    <div className="border"><MdAccountBalanceWallet color='#fff' /></div>
+                    <h4>My Balance</h4>
+                    <div className="info"> <BsInfoCircle color='#fff' /></div>
+
+                  </div>
+                  <div className="midB">
+                    <h3>{balance} SZT </h3>
+                  </div>
+                  <div className="botB">
+                    <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                    <p>	&nbsp; &nbsp; +  1550K this week</p>
+                  </div>
+                </div>
+
+              </div>
             </div>
+
+
+
             <div className="outer-stake">
               <div className="Stake">
                 <div className="stake_title">
@@ -318,10 +436,11 @@ export default function Sell_Stake() {
                     </div>
                   </div>
                   <div className="stake-box">
-                    <div className="transaction-Details">
+                    Coming Soon
+                    {/* <div className="transaction-Details">
                       <h4>Transaction History </h4>
                       <Transaction />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="sell-tit">
@@ -345,7 +464,7 @@ export default function Sell_Stake() {
                       <div className="sell-button">
                         <button onClick={ApprovetoSell}>Approve</button>
                         <button id="sellbtn" onClick={SellToken}>
-                          {request}
+                          Sell
                         </button>
                       </div>
                       <div className="time-sell">
@@ -357,7 +476,8 @@ export default function Sell_Stake() {
                     </div>
                   </div>
                   <div className="stake-box">
-                    <div className="approve-szt" onClick={SellToken}>
+                    Coming Soon
+                    {/* <div className="approve-szt" onClick={SellToken}>
                       <span>Approve SZT</span>
                     </div>
                     <div className="timeline">
@@ -369,10 +489,11 @@ export default function Sell_Stake() {
                     </div>
                     <div className="transfer-szt">
                       <span>Transfer SZT</span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>

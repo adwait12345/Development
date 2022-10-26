@@ -9,12 +9,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { PhoneIcon, AddIcon, WarningIcon, ArrowDownIcon } from '@chakra-ui/icons'
 import { useMoralis, useWeb3Contract } from 'react-moralis'
 import { ethers } from "ethers";
-import { BAT_Token, CompoundPool, CompoundABI, ERC20ABI, CBAT_Token,    AAVE_Contract, AAVE_Token, aAAVE_Token ,AaveABI} from '../../../../Constants/index'
+import {  CompoundABI, ERC20ABI, AaveABI} from '../../../../Constants/index'
 import dropp from '../../dropp.svg'
 import {ChevronDownIcon} from '@chakra-ui/icons'
 import ZeroModal from './Zero-Premium Modal/ZeroModal'
 import { useDispatch, useSelector } from 'react-redux';
-
 export default function Zero_Premium() {
     var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 
@@ -42,6 +41,42 @@ export default function Zero_Premium() {
  )
  var GlobalcToken=GlobalcCoin.ctokens
 // For Compound Pool 
+
+
+
+
+
+var token =useSelector(
+    state => state.allContracts
+)
+console.log()
+    var ConstantFlowAgreement = token.contracts.ConstantFlowAgreement;
+    var SZT_Token = token.contracts.SZT_Token;
+    var BuySell = token.contracts.BuySell;
+    var GSZTToken = token.contracts.GSZTToken;
+    var DAI = token.contracts.DAI;
+    var CompoundPool = token.contracts.CompoundPool;
+    var ProtocolRegistry = token.contracts.ProtocolRegistry;
+    var AAVE_Contract = token.contracts.AAVE_Contract;
+    var SZTStakingContract = token.contracts.SZTStakingContract;
+    var CoveragePool = token.contracts.CoveragePool;
+    var SwapDAI = token.contracts.SwapDAI;
+    var SwapsztDAI = token.contracts.SwapsztDAI;
+    var AAVE_Token = token.contracts.AAVE_Token;
+    var aAAVE_Token = token.contracts.aAAVE_Token;
+    var Aave_DAI = token.contracts.Aave_DAI;
+    var Aave_cDAI = token.contracts.Aave_cDAI;
+    var Aave_USDC = token.contracts.Aave_USDC;
+    var Aave_cUSDC = token.contracts.Aave_cUSDC;
+    var Aave_ChainLink = token.contracts.Aave_ChainLink;
+    var Aave_cChainLink = token.contracts.Aave_cChainLink;
+    var Aave_WBTC = token.contracts.Aave_WBTC;
+    var Aave_cWBTC = token.contracts.Aave_cWBTC;
+console.log(ConstantFlowAgreement)
+
+
+
+
 
     // Approve Bat Function
 
@@ -84,29 +119,29 @@ export default function Zero_Premium() {
 // For Aave 
 
 const ApproveAave = async () => {
-    const AaveGET = new ethers.Contract(AAVE_Token, AaveABI, provider);
-    var AavePOST = new ethers.Contract(AAVE_Token, ERC20ABI, signer);
+    const AaveGET = new ethers.Contract(GlobalToken, AaveABI, provider);
+    var AavePOST = new ethers.Contract(GlobalToken, ERC20ABI, signer);
     var trans = await AavePOST.approve(AAVE_Contract, `${SupplyAmount*1e18}`)
 }
 
     // Mint AAve
     const MintAave = async () => {
-        const AaveGET = new ethers.Contract(AAVE_Token, AaveABI, provider);
+        const AaveGET = new ethers.Contract(GlobalToken, AaveABI, provider);
         var AavePOST = new ethers.Contract(AAVE_Contract, AaveABI, signer);
-        const gen = await AavePOST.mintERC20Tokens( AAVE_Token,`${SupplyAmount*1e18}`)
+        const gen = await AavePOST.mintERC20Tokens(GlobalToken,`${SupplyAmount*1e18}`)
 
     }
 
     // Supply 
     const SupplyAave = async () => {
-        var ERC20GET = new ethers.Contract(AAVE_Token,ERC20ABI,provider);
+        var ERC20GET = new ethers.Contract(GlobalToken,ERC20ABI,provider);
         const Erc= await ERC20GET.balanceOf(AAVE_Contract);
         var Erc1 = BigInt(Erc/1e18).toString()
         console.log(Erc1)
 
-        const AaveGET = new ethers.Contract(AAVE_Token, AaveABI, provider);
+        const AaveGET = new ethers.Contract(GlobalToken, AaveABI, provider);
         var AavePOST = new ethers.Contract(AAVE_Contract, AaveABI, signer);
-        const gen1 = await AavePOST.supplyToken(AAVE_Token, aAAVE_Token, `${SupplyAmount*1e18}`,
+        const gen1 = await AavePOST.supplyToken(GlobalToken, GlobalcToken, `${SupplyAmount*1e18}`,
 
         )
 
@@ -114,13 +149,13 @@ const ApproveAave = async () => {
 
     }
     const ApproveCompoundx= async()=>{
-        const CompoundGET = new ethers.Contract(CBAT_Token, CompoundABI, provider);
-        var CompoundPOST = new ethers.Contract(CBAT_Token, ERC20ABI, signer);
+        const CompoundGET = new ethers.Contract(GlobalcToken, CompoundABI, provider);
+        var CompoundPOST = new ethers.Contract(GlobalcToken, ERC20ABI, signer);
         var trans = await CompoundPOST.approve(CompoundPool, `${SupplyAmount * 1e8}`)
     }
     const WithDrawCompound=async()=>{
         var CompoundPOST= new ethers.Contract(CompoundPool,CompoundABI,signer)
-        var trans = await CompoundPOST.withdrawToken(BAT_Token, CBAT_Token, `${SupplyAmount * 1e8}`)
+        var trans = await CompoundPOST.withdrawToken(GlobalToken,GlobalcToken, `${SupplyAmount * 1e8}`)
     }
 
 
@@ -128,8 +163,8 @@ const ApproveAave = async () => {
 
 // Approve aAave
 const ApproveaAave = async () => {
-    const aAaveGET = new ethers.Contract(aAAVE_Token, AaveABI, provider);
-    var aAavePOST = new ethers.Contract(aAAVE_Token, ERC20ABI, signer);
+    const aAaveGET = new ethers.Contract(GlobalcToken, AaveABI, provider);
+    var aAavePOST = new ethers.Contract(GlobalcToken, ERC20ABI, signer);
     var trans = await aAavePOST.approve(AAVE_Contract, `${SupplyAmount*1e18}`)
 }
 
@@ -138,9 +173,9 @@ const ApproveaAave = async () => {
     const WithDrawaAave = async () => {
 
 
-        const aAaveGET = new ethers.Contract(aAAVE_Token, AaveABI, provider);
+        const aAaveGET = new ethers.Contract(GlobalcToken, AaveABI, provider);
         var aAavePOST = new ethers.Contract(AAVE_Contract, AaveABI, signer);
-        const gen1 = await aAavePOST.withdrawToken( AAVE_Token,aAAVE_Token, `${SupplyAmount*1e18}` )
+        const gen1 = await aAavePOST.withdrawToken( GlobalToken,GlobalcToken, `${SupplyAmount*1e18}` )
 
 
     }

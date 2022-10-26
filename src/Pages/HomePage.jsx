@@ -2,6 +2,7 @@ import React from 'react'
 import Blogs from '../components/Blogs/Blogs'
 import Footer from '../components/Footer/Footer'
 import Grid from '../components/Grid/Grid'
+import Metamask from '../components/Metamask Login Modal \'/Metamask Popup/Metamask'
 import Navbar from '../components/Navbar/Navbar'
 import Stats from '../components/Stats/Stats'
 import Topbox from '../components/Topbox/Topbox'
@@ -16,8 +17,9 @@ export default function HomePage() {
       <Stats />
       <Grid />
       <Underwrite />
-      <Blogs />
+      {/* <Blogs /> */}
       <Footer />
+      {/* <Metamask/> */}
     </>
   )
 }

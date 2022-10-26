@@ -56,15 +56,20 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
 
     const AddInsured=async()=>{
       var Activate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
-      const trans = await Activate.getUserInsuranceStatus(`${Addinsured*1e18}`, key)
+      const trans = await Activate.addInsuranceAmount(`${Addinsured*1e18}`, key)
     }
     const SubtractInsured=async()=>{
       var Activate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
-      const trans = await Activate.getUserInsuranceStatus(`${Subinsured * 1e18}`, key)
+      const trans = await Activate.minusInsuranceAmount(`${Subinsured * 1e18}`, key)
     }
     const Deactivate=async()=>{
       var deactivate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
       const trans = await deactivate.closeTokenStream(account, key)
+    }
+
+    const ApproveSztDai = async()=>{
+      var approneSztDai = new ethers.Contract(SwapsztDAI, ERC20ABI, signer);
+      var trans = await approneSztDai.approve(ConstantFlowAgreement, `${999 * 1e18}`)
     }
   return (
     <>
@@ -101,7 +106,7 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
             }}
           />
           <button onClick={SubtractInsured}>minus</button> 
-
+          <button onClick={ApproveSztDai}>approve</button>
           <button onClick={Deactivate}>Deactivate Insurance</button>
         </div>
     

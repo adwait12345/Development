@@ -1,3 +1,6 @@
+
+import { useMoralis, useWeb3Contract } from "react-moralis";
+
 const ERC20ABI = require("./ERC20.json")
 const BuySellABI = require("./BuySellSZT.json")
 const CompoundABI = require('./CompoundPool.json')
@@ -8,14 +11,13 @@ const ActivateInsuranceABI=require('./ConstantFlowAgreement.json')
 const ProtocolRegistryABI=require('./ProtocolRegistry.json')
 const FakeCoinABI=require('./FakeCoin.json')
 const CoveragePoolABI=require('./CoveragePool.json')
-//
 
-const ConstantFlowAgreement ="0x1575c202E85A88e893F1846e1065997eE2D49D33"
+const ConstantFlowAgreement ="0x63f9e66dFAA212ED93A402c46CBB26e0D21F63bd"
 
-const SZT_Token = "0xD35492aaAEdCb040C365A02Db685665D79dAAa91"
-const BuySell = "0x0266B687189943cf40874676b5040b6FDfC7F0D9" 
-const GSZTToken = "0xDED35C12980c336014Dc9f8787B0fc90c7F27f7b"
-const DAI = "0x58CA2A61cfd3Fa908e95981034b71f977e25d232"
+const SZT_Token = "0x53c354B902d873E2E41105f461F1f7E2B0C139F4"
+const BuySell = "0x79fE13982f57CF49cDaC83E4b04C6e2213B774C4" 
+const GSZTToken = "0xe11598AC526cA8a1D6a9fff0a09a2226C66E7750"
+const DAI = "0x1B0d52Cda4E7AaC7C974d4b182efa81f41773fa3"
 
 
 const _DAI = "0xdc31Ee1784292379Fbb2964b3B9C4124D8F89C60"
@@ -33,11 +35,11 @@ const cSAI ="0x5D4373F8C1AF21C391aD7eC755762D8dD3CCA809"
 const WBTC ="0xC04B0d3107736C32e19F1c62b2aF67BE61d63a05"
 const cWBTC ="0x6CE27497A64fFFb5517AA4aeE908b1E7EB63B9fF"
 
-const CompoundPool = "0x879912309c0e4fEBad7452F6Da61669ced195AF8"
+const CompoundPool = "0xDFBFeEBf3c0E03556C872b398D280ae151983100"
 
-const ProtocolRegistry ="0xC3DB114E6D375a8A8CC8e010EE49FcaE6F6Ed261"
+const ProtocolRegistry ="0xB6Fa9699616e2D790fDBD75b2b2492C483bE4074"
 
-const AAVE_Contract ="0x8Dd0CB49187161928219666915b38d36E9069cD5"
+const AAVE_Contract ="0x5C0fA168eA95DF222C7B0Facf717c00b85E2E61F"
 const AAVE_Token="0x63242B9Bd3C22f18706d5c4E627B4735973f1f07"
 const aAAVE_Token="0xC4bf7684e627ee069e9873B70dD0a8a1241bf72c"
 
@@ -53,11 +55,11 @@ const Aave_cChainLink ="0x6A639d29454287B3cBB632Aa9f93bfB89E3fd18f"
 const Aave_WBTC ="0x8869DFd060c682675c2A8aE5B21F2cF738A0E3CE"
 const Aave_cWBTC ="0xc0ac343EA11A8D05AAC3c5186850A659dD40B81B"
 
-const SZTStakingContract ="0xE649f3E2C47331E2077BA412d5691788676eD7A3"
-const CoveragePool ="0xa4A4f0f550f418416b5C96d5e67eC672Dac26791"
-const SwapDAI ="0xAF6D4f38e22321D25C9Ad06901F5A4E06F997A94"
-const SwapsztDAI ="0xBC2D6FC03ef086E824b8f040a7Ca09515a8C2CEd"
-module.exports = {
+const SZTStakingContract ="0x11c55bF157169798B469367F3E41dfa0D2cE1C79"
+const CoveragePool ="0x7382b140892a51807C39B1ff4913e7D0cF563850"
+const SwapDAI ="0x4081aEfB19A28A3C17a1306cE605B964748B5405"
+const SwapsztDAI ="0x5d1505b80b8AC3f576EEAa0eC611c5eDF4AeC594"
+export  {
     ERC20ABI,
     SZT_Token,
     BuySellABI,
@@ -100,3 +102,6 @@ module.exports = {
     FakeCoinABI,
     CoveragePoolABI
 }
+
+
+

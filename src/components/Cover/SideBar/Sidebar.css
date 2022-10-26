@@ -6,23 +6,43 @@
     height: 100vh;
     position: fixed;
     background-color: #141627;
-
+justify-content: space-between;
     transition: 0.2s ease-in-out;
     z-index: 1;
     overflow: hidden;
+}
+.aside-top{
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .gradient {
     position: absolute;
     height: 350px;
     width: 200px;
-    background-image: linear-gradient(to bottom, #660efe84, #df19cc77);
+    /* background-image: linear-gradient(to bottom, #660efe84, #df19cc77); */
     filter: blur(40px);
     border-radius: 90px;
     top: 40px;
     right: -160px;
 }
-
+.sidebar-wrapper{
+        z-index: 1;
+            position: absolute;
+            left: 264px;
+            top: 44px;
+            height: 25px;
+            width: 25px;
+            border-radius: 100%;
+            background-color: #1e1e1e;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+}
+.sidebar-wrapper:hover{
+    background-color: #525151;
+}
 .aside_content h1 {
     text-align: center;
     font-weight: 400;
@@ -47,7 +67,7 @@
 
 .active li {
     color:#fff;
-    background-color: #3D3273;
+    background-color: var(--Green-buttons);
 
 }
 .active #buy{
@@ -144,21 +164,25 @@ border-bottom-right-radius: 10px;
 
 li span {
     height: 30px;
-    width: 30px;
+    width: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 70px;
+    margin-top: 10px;
+        font-size: 9px;
+            font-style: italic;
+        
 }
 
-li span img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
+li  svg {
+    width: 30px;
+        height: 25px;
+        margin-right: 5px;
 }
 .Themes{
     display: flex;
-
+    align-items: center;
+    justify-content: center;
 }
 .Themes button{
     background-color: transparent;
@@ -166,12 +190,21 @@ li span img {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     color:#fff;
  font-family: 'Montserrat', sans-serif;
- padding: 10px;
+ padding: 5px;
+ margin: 0;
 }
-
+.Themes button svg{
+    margin-right: 5px;
+}
+.theme{
+    display: flex;
+    background-color: #1e1e1e;
+   margin: 10px;
+   border-radius: 10px;
+   width: 200px;
+}
 /* Mobile  */
 @media only screen and (max-width:799px) {
     .aside_content {

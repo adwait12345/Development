@@ -1,6 +1,7 @@
 import React from 'react'
 import './underwrite.css'
 import underwrite1 from './fin.svg'
+import { Link } from 'react-router-dom'
 export default function Underwrite() {
     return (
         <>
@@ -18,9 +19,11 @@ export default function Underwrite() {
                             <li>Leverage premiums earnings with <br /> Advantage Pay-As-You-Go Insurance Model</li>
                         </ol>
                         <div className="underwrite-outer-button">
+                            <Link to='/cover/providecoverage'>
+                           
                             <button>
                                 Underwrite Coverage Pools
-                            </button>
+                            </button></Link>
                         </div>
                     </div>
                     <div className="underwrite-right">

@@ -36,7 +36,11 @@
 @media only screen and (max-width:799px) {
     .Dashboard_after {
         margin-left: 0;
+         flex-direction: column;
+            display: flex;
+                align-items: center;
+                justify-content: center;
     }
-
+  
 
 }

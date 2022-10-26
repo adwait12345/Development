@@ -38,3 +38,9 @@
          background-color: var(--Green-buttons);
          cursor: pointer;
 }
+/* Mobile  */
+@media only screen and (max-width:799px) {
+    .Addprotocal{
+        width: 330px;
+    }
+}

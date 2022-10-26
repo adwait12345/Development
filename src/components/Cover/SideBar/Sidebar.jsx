@@ -13,7 +13,10 @@ import { useMoralis } from "react-moralis";
 import { useState } from "react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedThemeDark, setThemeDark } from "../../../redux/action/actions";
+import { selectedThemeDark, setThemeDark,setDropDown } from "../../../redux/action/actions";
+import { MdKeyboardArrowLeft, MdOutlineSpaceDashboard, MdSettingsInputAntenna, MdLockOutline } from "react-icons/md"; 
+import { TbSwitch, TbBuildingBank } from "react-icons/tb"; 
+
 export default function Sidebar() {
   const Theme = useSelector((state) => state.alltheme);
   const dispatch = useDispatch();
@@ -35,14 +38,14 @@ export default function Sidebar() {
 
 
 
+  const Dropdown = useSelector((state) => state.allDropdown)
+
+console.log(Dropdown.dropdown)
 
 
-
-
-  const [dropopen, setdeopopen] = useState(false);
 
   let Drop = () => {
-    if (dropopen == false) {
+    if (Dropdown.dropdown == false) {
       // document.getElementById("drop").style.display = "flex"
 
       document.getElementById("drop").style.top = "0px";
@@ -52,8 +55,9 @@ export default function Sidebar() {
       document.getElementById("buy").style.borderBottomRightRadius = "0px";
       document.getElementById("buy").style.marginBottom = "0px";
 
-      setdeopopen(true);
-    } else if (dropopen == true) {
+     dispatch(setDropDown(true))
+    } 
+    else if (Dropdown.dropdown == true) {
       // document.getElementById("drop").style.display = "none"
       document.getElementById("drop").style.top = "-85px";
       document.getElementById("drop").style.height = "0px";
@@ -62,7 +66,7 @@ export default function Sidebar() {
       document.getElementById("buy").style.borderBottomRightRadius = "10px";
       document.getElementById("buy").style.marginBottom = "10px";
 
-      setdeopopen(false);
+      dispatch(setDropDown(false))
     }
   };
 
@@ -73,7 +77,8 @@ export default function Sidebar() {
   return (
     <>
       <div className="aside_content" id="aside300">
-        <Link
+        <div className="aside-top">
+              <Link
           to={{
             pathname: `/`,
           }}
@@ -87,15 +92,16 @@ export default function Sidebar() {
 
         <NavLink
           to={{
-            pathname: `/cover/DashBoard`,
+            pathname: `/cover/dashboard`,
           }}
         >
           <li>
-            <img src={dashboard} alt="" />
+            {/* <img src={dashboard} alt="" /> */}
+              <MdOutlineSpaceDashboard/>
             Dashboard
           </li>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to={{
             pathname: `/cover/BuyPolicy`,
           }}
@@ -117,15 +123,16 @@ export default function Sidebar() {
             <p>Zero-premium insurance</p>
           </Link>
 
-        </div>
+        </div> */}
 
         <NavLink
           to={{
-            pathname: `/cover/ProvideCoverage`,
+            pathname: `/cover/providecoverage`,
           }}
         >
           <li>
-            <img src={Coverage} alt="" />
+            {/* <img src={Coverage} alt="" /> */}
+              <MdSettingsInputAntenna/>
             Provide Coverage
           </li>
         </NavLink>
@@ -133,11 +140,12 @@ export default function Sidebar() {
         {isWeb3Enabled && (
           <NavLink
             to={{
-              pathname: `/cover/Stake`,
+              pathname: `/cover/stake`,
             }}
           >
             <li>
-              <img src={Lock} alt="" />
+              {/* <img src={Lock} alt="" /> */}
+                <MdLockOutline/>
               Stake / UnStake SZT
             </li>
           </NavLink>
@@ -146,12 +154,13 @@ export default function Sidebar() {
         {isWeb3Enabled && (
           <NavLink
             to={{
-              pathname: `/cover/Sell-stake`,
+              pathname: `/cover/sell-stake`,
             }}
           >
             <li>
-              <img src={Sell} alt="" />
-              Buy & Sell
+              {/* <img src={Sell} alt="" /> */}
+                <TbSwitch/>
+              Buy & Sell SZT
             </li>
           </NavLink>
         )}
@@ -159,12 +168,14 @@ export default function Sidebar() {
         {isWeb3Enabled && (
           <NavLink
             to={{
-              pathname: `/cover/DAO`,
+              pathname: `/cover/dao`,
             }}
           >
             <li>
-              <img src={DAO} alt="" />
-              DAO
+              {/* <img src={DAO} alt="" /> */}
+                <TbBuildingBank/>
+              DAO 
+              <span>Coming Soon</span>
             </li>
           </NavLink>
         )}
@@ -188,11 +199,21 @@ export default function Sidebar() {
               <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
             </svg>
           </button>
-        </NavLink> */}
+        </NavLink> */}   
+        </div>
+        <div className="sidebar-wrapper">
+                    <MdKeyboardArrowLeft color="#fff"/>
 
-        <div className="gradient"></div>
+        </div>
+<div className="aside-bot">
+  
+          <div className="gradient">
+           
+
+          </div>
         <div className="Themes">
-          <button onClick={ThemeLight}>
+          <div className="theme">
+              <button onClick={ThemeLight}>
             <svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-0"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="#fff"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2"></path><path d="M12 21v2"></path><path d="M4.22 4.22l1.42 1.42"></path><path d="M18.36 18.36l1.42 1.42"></path><path d="M1 12h2"></path><path d="M21 12h2"></path><path d="M4.22 19.78l1.42-1.42"></path><path d="M18.36 5.64l1.42-1.42"></path></g></svg>
             <p>Light</p>
           </button>
@@ -200,7 +221,12 @@ export default function Sidebar() {
             <svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-0"><path fill="#fff" d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"></path></svg>
             <p>Dark</p>
           </button>
+          </div>
+
         </div>
+</div>
+
+
       </div>
     </>
   );

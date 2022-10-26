@@ -9,24 +9,60 @@ import check from '../check.svg'
 import { useMoralis } from 'react-moralis'
 import LoginModal from '../../Metamask Login Modal \'/LoginModal'
 import { ethers } from "ethers";
-
+import { useSelector } from 'react-redux'
 import { BAT_Token, CompoundPool, CompoundABI, ERC20ABI, CBAT_Token,    AAVE_Contract, AAVE_Token, aAAVE_Token ,AaveABI, SZTStakingABI,SZTStakingContract, SZT_Token,BuySell} from '../../../Constants/index'
+import { BsBarChart, BsArrowUpRight, IoIosAdd, BsPeople, BsInfoCircle } from "react-icons/bs";
+import { GrCubes } from "react-icons/gr";
+import { MdAccountBalanceWallet } from "react-icons/md";
+import { DiStreamline } from "react-icons/di";
+import SkeletonInfo from '../../Skeleton/SkeletonInfo'
 
-const provider = new ethers.providers.Web3Provider(window.ethereum)
-const signer = provider.getSigner();
+
 
 export default function Stake() {
+
+const provider = new ethers.providers.Web3Provider(window.ethereum)
+// 
+const signer = provider.getSigner();
+    var token = useSelector(
+        state => state.allContracts
+    )
+    console.log()
+    var ConstantFlowAgreement = token.contracts.ConstantFlowAgreement;
+    var SZT_Token = token.contracts.SZT_Token;
+    var BuySell = token.contracts.BuySell;
+    var GSZTToken = token.contracts.GSZTToken;
+    var DAI = token.contracts.DAI;
+    var CompoundPool = token.contracts.CompoundPool;
+    var ProtocolRegistry = token.contracts.ProtocolRegistry;
+    var AAVE_Contract = token.contracts.AAVE_Contract;
+    var SZTStakingContract = token.contracts.SZTStakingContract;
+    var CoveragePool = token.contracts.CoveragePool;
+    var SwapDAI = token.contracts.SwapDAI;
+    var SwapsztDAI = token.contracts.SwapsztDAI;
+    var AAVE_Token = token.contracts.AAVE_Token;
+    var aAAVE_Token = token.contracts.aAAVE_Token;
+    var Aave_DAI = token.contracts.Aave_DAI;
+    var Aave_cDAI = token.contracts.Aave_cDAI;
+    var Aave_USDC = token.contracts.Aave_USDC;
+    var Aave_cUSDC = token.contracts.Aave_cUSDC;
+    var Aave_ChainLink = token.contracts.Aave_ChainLink;
+    var Aave_cChainLink = token.contracts.Aave_cChainLink;
+    var Aave_WBTC = token.contracts.Aave_WBTC;
+    var Aave_cWBTC = token.contracts.Aave_cWBTC;
+
     const [open, setOpen] = useState(false)
     const [SupplyAmount, setSupplyAmount] = useState("")
     const [WithdrawAmount, setWithDrawAmount]= useState("")
     const [stakedToken, setStakedTokens]=useState("")
     const [lockedToken, setLockedTokens]=useState("")
     const [balance, setBalance] = useState("");
+    const [loading, setloading] = useState(true)
 
     const ApproveStakingSZT = async()=>{
         const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
         var SZTPOST = new ethers.Contract(SZT_Token, ERC20ABI, signer);
-        var trans = await SZTPOST.approve(BuySell, `${SupplyAmount*1e18}`)
+        var trans = await SZTPOST.approve(SZTStakingContract, `${SupplyAmount*1e18}`)
     }
 
     const StakeSZT = async () => {
@@ -110,7 +146,7 @@ const WithTimer = async () => {
                     <Topbar setOpen={setOpen} name="Stake /UnStake SZT" />
 
                     <div className="Bottom-Content">
-                        <div className="DashBoard_Boxes">
+                        {/* <div className="DashBoard_Boxes">
                             <div className="box-dashboard">
                                 <h4>My SZT Balance</h4>
                                 <h3>{balance} SZT</h3>
@@ -123,7 +159,86 @@ const WithTimer = async () => {
                                 <h4>Total SZT Locked</h4>
                                 <h3>{stakedToken} SZT</h3>
                             </div>
+                        </div> */}
+<div className="Dashboard_after">
+       <div className="DashboardBoxes">
+                            <div className="b1">
+                                <div className="b1In">
+                                    <div className="topB">
+                                        <div className="border"><BsBarChart color='#fff' /></div>
+                                        <h4>Active Cover Amount</h4>
+                                        <div className="info"><BsInfoCircle /> </div>
+
+                                    </div>
+                                    <div className="midB">
+                                        <h3>{balance} SZT </h3>
+                                    </div>
+                                    <div className="botB">
+                                        <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                                        <p>	&nbsp; &nbsp; +  1550K this week</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className="b2">
+                                <div className="b1In">
+                                    <div className="topB">
+                                        <div className="border"><DiStreamline width={50} height={50} color="#fff" /></div>
+                                        <h4>Staked Amount</h4>
+                                        <div className="info"> <BsInfoCircle color='#fff' /></div>
+
+                                    </div>
+                                    <div className="midB">
+                                        <h3>{stakedToken} SZT </h3>
+                                    </div>
+                                    <div className="botB">
+                                        <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                                        <p>	&nbsp; &nbsp; +  1550K this week</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className="b3">
+                                <div className="b1In">
+                                    <div className="topB">
+                                        <div className="border"><BsPeople color='#fff' /></div>
+                                        <h4>Number of Votes</h4>
+                                        <div className="info"> <BsInfoCircle color='#fff' /></div>
+
+                                    </div>
+                                    <div className="midB">
+                                        <h3>{lockedToken} SZT </h3>
+                                    </div>
+                                    <div className="botB">
+                                        <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                                        <p>	&nbsp; &nbsp; +  1550K this week</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className="b4">
+                                <div className="b1In">
+                                    <div className="topB">
+                                        <div className="border"><MdAccountBalanceWallet color='#fff' /></div>
+                                        <h4>My Balance</h4>
+                                        <div className="info"> <BsInfoCircle color='#fff' /></div>
+
+                                    </div>
+                                    <div className="midB">
+                                        <h3>{balance} SZT </h3>
+                                    </div>
+                                    <div className="botB">
+                                        <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                                        <p>	&nbsp; &nbsp; +  1550K this week</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
+
+
+
                         <div className="outer-stake">
 
 
@@ -131,7 +246,7 @@ const WithTimer = async () => {
                             <div className="Stake">
                                 <div className="stake_title">
                                     <h3>Stake SZT Token</h3>
-                                    <span>Contract Address: <h5>{account}</h5> </span>
+                                    {/* <span>Contract Address: <h5>{account}</h5> </span> */}
 
                                 </div>
                                 <div className="stake-bot">
@@ -217,6 +332,9 @@ const WithTimer = async () => {
                             </div>
 
                         </div>
+</div>
+
+                     
 
 
                     </div>

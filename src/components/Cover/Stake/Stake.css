@@ -265,12 +265,19 @@
 } */
 /* Mobile  */
 @media only screen and (max-width:799px) {
+    .Stake{
+        width: 100%;
+    }
+        .stake_title h3{
+            margin: 15px;
+        }
     .stake-bot {
         flex-direction: column;
     }
 
     .stake-box {
         width: 90%;
+        height: 350px;
     }
 
     .stake-bot {
@@ -283,9 +290,15 @@
     }
 
     .stake_title {
-        flex-direction: column;
-        align-items: flex-start;
+        /* flex-direction: column;
+        align-items: flex-start; */
+        align-items: center;
+        padding: 15px;
     }
+    .stake_title h3{
+        font-size: 25px;
+    }
+    
 
     .stake_title span {
         margin-left: 0;

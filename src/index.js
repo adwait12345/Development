@@ -6,16 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store,{Persistor} from "./redux/store";
 import { PersistGate } from 'redux-persist/integration/react'; 
-
+import { MoralisProvider, useMoralis } from "react-moralis"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
     <Provider store={store}>
       <PersistGate loading={null} persistor={Persistor}>
-        
+
       <App />
-      
+     
       </PersistGate>
     </Provider>
 

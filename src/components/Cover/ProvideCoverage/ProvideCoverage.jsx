@@ -1,7 +1,7 @@
 import React from 'react'
 import Add from '../Add.svg'
 import { useState } from 'react'
-import { Contracts } from '../../../Data/Contracts'
+// import { Contracts } from '../../../Data/Contracts'
 import Search from '../Search.svg'
 import Sort from '../Sort.svg'
 import './ProvideCoverage.css'
@@ -32,7 +32,34 @@ import ProvideCoverageModal from './ProvideCoverage Modal/ProvideCoverageModal'
 import { useDispatch, useSelector } from 'react-redux';
 import {setProtocal,setkey} from "../../../redux/action/actions"
 import { useEffect } from 'react'
+import SketetonCard from '../../Skeleton/SketetonCard'
 export default function ProvideCoverage() {
+  var token = useSelector(
+    state => state.allContracts
+  )
+  console.log()
+  var ConstantFlowAgreement = token.contracts.ConstantFlowAgreement;
+  var SZT_Token = token.contracts.SZT_Token;
+  var BuySell = token.contracts.BuySell;
+  var GSZTToken = token.contracts.GSZTToken;
+  var DAI = token.contracts.DAI;
+  var CompoundPool = token.contracts.CompoundPool;
+  var ProtocolRegistry = token.contracts.ProtocolRegistry;
+  var AAVE_Contract = token.contracts.AAVE_Contract;
+  var SZTStakingContract = token.contracts.SZTStakingContract;
+  var CoveragePool = token.contracts.CoveragePool;
+  var SwapDAI = token.contracts.SwapDAI;
+  var SwapsztDAI = token.contracts.SwapsztDAI;
+  var AAVE_Token = token.contracts.AAVE_Token;
+  var aAAVE_Token = token.contracts.aAAVE_Token;
+  var Aave_DAI = token.contracts.Aave_DAI;
+  var Aave_cDAI = token.contracts.Aave_cDAI;
+  var Aave_USDC = token.contracts.Aave_USDC;
+  var Aave_cUSDC = token.contracts.Aave_cUSDC;
+  var Aave_ChainLink = token.contracts.Aave_ChainLink;
+  var Aave_cChainLink = token.contracts.Aave_cChainLink;
+  var Aave_WBTC = token.contracts.Aave_WBTC;
+  var Aave_cWBTC = token.contracts.Aave_cWBTC;
   var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
 const dispatch=useDispatch()
   // Provider.
@@ -45,7 +72,7 @@ const dispatch=useDispatch()
   const [swapsztDAIamount, setSwapsztDAIamount]=useState("")
   const [Protocol,setProtocol]=useState([])
   const [Protocolid,setProtocolid]=useState([])
-
+  const [loading, setloading]=useState(true)
   // Functions
   const ApproveDaI= async()=>{
 
@@ -87,33 +114,38 @@ const Protcols = [
   Protcols.map((param)=>{
    const random =async()=>{
        try {
+         
 const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI,provider)
 var n = await protID.protocolID()
 
 
 var i;
  for(i =1;i<=n;i++){
+//  setloading(true)
   const trans= await protID.viewProtocolInfo(i)
-  
+
  param._Protocol.push(trans)
- param._ProtocolIDs.push(i)
+ param._ProtocolIDs.push(i) 
+ 
 
  }
+        
    setProtocol(param._Protocol)
    setProtocolid(param._ProtocolIDs)
 // console.log(Protocol)
-  
-   
+setloading(false)
     } 
     
     catch (error) {
       console.log(error)
+      setloading(true)
     }
 
  }
 
   useEffect(()=>{
    random()
+   
     console.log(Protocol)
   },[])
 
@@ -148,7 +180,7 @@ var i;
                           setSwapDAIamount(event.target.value);
                         }}
                       />
-                      <span>SZT</span>
+                      <span>DAI</span>
                     </div>
                     <div className="sell-button">
                       <button onClick={ApproveDaI}>Approve DAI</button>
@@ -176,7 +208,7 @@ var i;
                           setSwapsztDAIamount(event.target.value);
                         }}
                       />
-                      <span>SZT</span>
+                      <span>sztDAI</span>
                     </div>
                     <div className="sell-button">
                       <button onClick={ApproveSZTDAI}>Approve sztDAI</button>
@@ -196,7 +228,7 @@ var i;
 
               </div>
               <div className="Contractss">
-                <h5>Contracts({Contracts.length})</h5>
+                <h5>Contracts({Protocol.length})</h5>
                 
               </div>
               <div className="ContractsList">
@@ -210,6 +242,31 @@ var i;
                     <img src={Sort} alt="" />
                   </button>
                 </div>
+                {loading ? 
+                
+                  <div className="Contract-All">
+
+
+
+                        <>
+
+                          <div className="Contract-Card"  ><SketetonCard/></div>
+                          <div className="Contract-Card"  ><SketetonCard/></div>
+                          <div className="Contract-Card"  ><SketetonCard/></div>
+                          <div className="Contract-Card"  ><SketetonCard/></div>
+                        </>
+   
+
+
+
+
+                  </div>
+                
+                
+                
+                
+                
+                :
                 <div className="Contract-All">
 
 
@@ -226,38 +283,38 @@ var i;
 
                   }).map((Contracts, key) => {
                     
-                    
                     return (
-                    <div className="Contract-Cards" key={key} >
+               <>
+              
+               <div className="Contract-Cards" key={key} >
+<>
+
                       <div className="top-contract">
                         <div className="title-contract">
-                          {/* <img src={Contracts._title_img} alt="" /> */}
                           <h3>{Contracts[0].toString()}</h3>
                         </div>
-                           {/* {console.log(key+1)} */}
                         <button>
                           <img src={ethrum} alt="" />
                         </button>
                       </div>
                       <div className="bet-contract">
-                        <p><span>Liqudity:</span><span>{Contracts[2].toString()} USDT</span></p>
-                          <p><span>Coverage Offered:</span><span>{Contracts[3].toString()}%</span></p>
-                        {/* <p><span>Token per Day:</span><span>{Contracts._Token_Per_Day}</span></p> */}
-                        {/* <p><span>Utilization:</span><span>{Contracts._Utilization}%</span></p> */}
+                        <p><span>Liqidity:</span><span>{Contracts[2].toString()/1e18} USDT</span></p>
+                          <p><span>Coverage Offered:</span><span>{Contracts[3].toString()/1e18}</span></p>
+                      
                           <p><span>Premium [ per min ]:</span><span>{((Contracts[4].toString())/1e18).toFixed(18)+ " DAI"}</span></p>
                       </div>
                       <div className="bot-contract">
                         <button onClick={function (event) { dispatch(setProtocal(Contracts[0].toString()) );setActivateOpen(true);dispatch(setkey(key+1))}}>Select</button>
-                      </div>
-                    </div>
-
+                      </div></>
+                    </div>  
+</>
                     );
                   })}
 
 
 
 
-                </div>
+                </div>}
               </div>
 
             </div>

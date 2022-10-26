@@ -14,7 +14,7 @@ code {
     monospace;
 }
 :root {
-  --background: #141627;
+  --background: #101213;
   --primary-text:#fff;
   --secondary-text:#b4b4c7;
   --tertiary-text:#757575;
@@ -57,3 +57,5 @@ code {
           --timeline:#7a787838;
           --time: rgb(233, 233, 233);
 }
+
+

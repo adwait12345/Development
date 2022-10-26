@@ -20,7 +20,7 @@ export default function Topbox() {
         <div className="button">
           <Link
             to={{
-              pathname: `/cover/DashBoard`,
+              pathname: `/cover/dashBoard`,
             }}
           >
             <button>

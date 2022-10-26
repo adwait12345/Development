@@ -127,3 +127,48 @@
     //     console.log(price3/1e18)
         
     // }
+
+//     :root {
+//     --background: #141627;
+//     --primary - text: #fff;
+//     --secondary - text: #b4b4c7;
+//     --tertiary - text: #757575;
+//     /* main Gradient Color */
+//     --main - grad - color1: #000;
+//     --main - grad - color2: transparent;
+//     /* Placeholder Color */
+//     --placeholder - color: #2e334a;
+//     /* Green Buttons */
+//     --Green - buttons: #10BB35;
+//     /* home button */
+//     --Home - button: #0f0d1e;
+//     /* Hamburger */
+//     --hamburger: #aba8b7;
+//     /* Dashboard-boxes */
+//     --Dashboard - boxes: #1A1D33;
+//     /* buy-policy background */
+//     --buy - policy - background: rgb(20, 20, 22);
+//     /* zero-premium */
+//     --zero - premium - button: #3b4159;
+//     --timeline: #f0ebeb1e;
+//     --time: #fff;
+// }
+
+// [data - theme='white'] {
+//     --background: #fff;
+//     --primary - text: #000;
+//     --secondary - text: #b4b4c7;
+//     --tertiary - text: #757575;
+//     --Dashboard - boxes: #fff;
+//     /* main Gradient Color */
+//     --main - grad - color1: #fff;
+//     --main - grad - color2: transparent;
+//     /* buy-policy background */
+//     --buy - policy - background: #fff;
+//     /* Placeholder Color */
+//     --placeholder - color: #f1f1f1;
+//     /* zero-premium */
+//     --zero - premium - button: #fff;
+//     --timeline: #7a787838;
+//     --time: rgb(233, 233, 233);
+// }

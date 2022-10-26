@@ -127,7 +127,16 @@ input:focus {
     color: var(--primary-text);
     box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
-
+.Contract-Card {
+    width: 40%;
+    padding: 24px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 25px;
+    background: linear-gradient(45deg, var(--main-grad-color1), var(--main-grad-color2));
+    color: var(--primary-text);
+    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+}
 .top-contract {
     display: flex;
     justify-content: space-between;
@@ -284,9 +293,21 @@ input:focus {
 
     .Contract-Cards {
         width: 100%;
+        
     }
-
+.Contract-Cards span{
+    font-size: 11px;
+}
     .contract-search input {
         width: 100%;
+    }
+    .redirects{
+        flex-direction: column;
+    }
+    .redirect1{
+        width: 350px;
+    }   
+     .redirect2{
+        width: 350px;
     }
 }

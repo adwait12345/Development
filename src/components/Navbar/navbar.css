@@ -60,8 +60,8 @@
 }
 
 .launch-app button {
-  background: linear-gradient(40deg, #7991fd71, rgba(233, 66, 230, 0.426));
-  border: none;
+    background: linear-gradient(40deg, #7991fd, rgb(233 66 230));
+      border: none;
   width: 120px;
   height: 45px;
   color: white;
@@ -84,7 +84,7 @@
   text-align: left;
   margin-left: 20px;
   margin-top: 40px;
-  color: var(--primary-text);
+  color: #fff;
 }
 
 .side-menu li {
@@ -101,8 +101,7 @@
   padding: 14px 33px;
   color: #000;
   /* border-radius: 15px; */
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;  font-weight: 500;
   cursor: pointer;
 }
 

@@ -100,3 +100,46 @@ export const selectedkey = (skey) => {
     payload: skey,
   };
 };
+
+export const setContract = (Contract) => {
+  // console.log(Platform)
+  return {
+    type: ActionTypes.SET_CONTRACT,
+    payload: Contract,
+  };
+};
+
+export const selectedContract = (sContract) => {
+  return {
+    type: ActionTypes.SELECTED_CONTRACT,
+    payload: sContract,
+  };
+};
+
+export const setDropDown = (Dropdown) => {
+  // console.log(Platform)
+  return {
+    type: ActionTypes.SET_DROPDOWN,
+    payload: Dropdown,
+  };
+};
+
+export const selectedDropDown = (sDropdown) => {
+  return {
+    type: ActionTypes.SELECTED_DROPDOWN,
+    payload: sDropdown,
+  };
+};
+
+export const setActivatedInsurance = (Activated) => {
+  return {
+    type: ActionTypes.SET_ACTIVATED_INSURANCE,
+    payload: Activated,
+  };
+};
+
+export const selectedActivatedInsurance = (sActivated) => {
+  return {
+    type: ActionTypes.SELECTED_ACTIVATED_INSURANCE
+  };
+};

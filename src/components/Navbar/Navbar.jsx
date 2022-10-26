@@ -57,53 +57,29 @@ export default function Navbar() {
                   width="18"
                   height="18"
                   viewBox="0 0 18 18"
-                  fill="#fff"
+                  fill="var(--primary-text)"
                 >
                   <path
                     d="M6.99411 6.11987H12.2398V11.3656"
-                    stroke="#fff"
+                    stroke="var(--primary-text)"
                     stroke-width="1.2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                   <path
                     d="M6.11983 12.2399L12.2398 6.11987"
-                    stroke="#fff"
+                    stroke="var(--primary-text)"
                     stroke-width="1.2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                 </svg>
               </li></a>
-            <li>
-              Docs
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="#fff"
-              >
-                <path
-                  d="M6.99411 6.11987H12.2398V11.3656"
-                  stroke="#fff"
-                  stroke-width="1.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M6.11983 12.2399L12.2398 6.11987"
-                  stroke="#fff"
-                  stroke-width="1.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </li>
-            <li>Blogs</li>
+           
+            
           </div>
           <div className="launch-app">
-            <Link to='/cover/DashBoard'>
+            <Link to='/cover/dashBoard'>
               <button>Launch app</button>
             </Link>          </div>
           <div className="hamburger" onClick={clicked}>
@@ -168,7 +144,7 @@ export default function Navbar() {
             </li>
             <li>Blogs</li>
             <div className="launch">
-              <Link to='/cover/DashBoard'>
+              <Link to='/cover/dashBoard'>
                 <button>Launch app</button>
               </Link>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Zero.css';
 import { CloseIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import Contracts from './data.jsx';
+// import Contracts from './data.jsx';
 import {
   setPlatform,
   selectedPlatform,
@@ -9,8 +9,12 @@ import {
  setToken,setcToken
 } from '../../../../../redux/action/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import data from './data.jsx';
+
+
 
 export default function ZeroModal({ setZeroOpen }) {
+  var Contracts =data()
   const CloseModal = () => {
     setZeroOpen(false);
   };

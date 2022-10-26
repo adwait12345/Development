@@ -1,5 +1,6 @@
 import React from 'react'
 import './BuyPolicy.css'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Question from '../Question.svg'
 import Search from '../Search.svg'
@@ -17,26 +18,28 @@ export default function Buypolicy() {
     // Search logic
     const [searchTerm, setSearchTerm] = useState("")
 
-
+    var SelectedInsurance = useSelector(
+        state => state.allInsurance
+    )
 
     return (
         <>
             <div className="Navbar_Cover">
                 <Sidebar setOpen={setOpen} />
                 <div className="ri_content">
-                    <Topbar name="Policy" setOpen={setOpen} />
+                    <Topbar name={SelectedInsurance.insurance} setOpen={setOpen} />
 
                     <div className="Bottom-Content">
                         <div className="BuyPolicy">
 
                             <div className="redirects">
                                 <div className="redirect1">
-                                    <NavLink to="/cover/BuyPolicy/PayAsYouGo">
+                                    <NavLink to="/cover/buypolicy/payasyougo">
                                 <button>Pay as you go</button>
                                 </NavLink>
                                 </div>
                                 <div className="redirect2">
-                                    <NavLink to="/cover/BuyPolicy/ZeroPremium">
+                                    <NavLink to="/cover/buypolicy/zeropremium">
                                   <button>Zero Premium</button>
                                   </NavLink>
                                 </div>

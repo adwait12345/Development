@@ -9,6 +9,7 @@ import DashBoard_Boxes from './DashBoard_Boxes/DashBoard_Boxes';
 
 
 import { DownloadIcon } from '@chakra-ui/icons';
+import Insurance_Available from '../Available Insurance/Insurance_Available';
 
 
 export default function Dashboard_after() {
@@ -34,6 +35,7 @@ export default function Dashboard_after() {
         </div> */}
         <div className="bottom_Dashboard_after" id='after-dashboard'>
           <DashBoard_Boxes />
+          <Insurance_Available/>
           <Tabs focusTabOnClick={false}>
             <TabList className="top_Dashboard_after">
               <Tab className="tab">My Policies</Tab>

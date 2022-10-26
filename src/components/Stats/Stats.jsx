@@ -18,8 +18,8 @@ export default function Stats() {
             <h5>Claim Rejection Ratio</h5>
           </div>
           <div className="assets_under">
-            <h1>1000M</h1>
-            <h5>Claim Rejection Ratio</h5>
+            <h1>100+</h1>
+            <h5>Platform Insured</h5>
           </div>
         </div>
       </div>
