@@ -140,6 +140,48 @@ export const setActivatedInsurance = (Activated) => {
 
 export const selectedActivatedInsurance = (sActivated) => {
   return {
-    type: ActionTypes.SELECTED_ACTIVATED_INSURANCE
+    type: ActionTypes.SELECTED_ACTIVATED_INSURANCE,
+    payload:sActivated
+  };
+};
+
+export const setInsuranceType = (Type) => {
+  return {
+    type: ActionTypes.SET_INSURANCE_TYPE,
+    payload: Type,
+  };
+};
+
+export const selectedInsuranceType = (sType) => {
+  return {
+    type: ActionTypes.SELECTED_INSURANCE_TYPE,
+    payload:sType
+  };
+};
+export const setInsuranceCategory = (Category) => {
+  return {
+    type: ActionTypes.SET_INSURANCE_CATEGORY,
+    payload: Category,
+  };
+};
+
+export const selectedInsuranceCategory = (sCategory) => {
+  return {
+    type: ActionTypes.SELECTED_INSURANCE_CATEGORY,
+    payload:sCategory
+  };
+};
+
+export const setInsuranceMethod = (Method) => {
+  return {
+    type: ActionTypes.SET_INSURANCE_METHOD,
+    payload: Method,
+  };
+};
+
+export const selectedInsuranceMethod = (sMethod) => {
+  return {
+    type: ActionTypes.SELECTED_INSURANCE_METHOD,
+    payload: sMethod
   };
 };

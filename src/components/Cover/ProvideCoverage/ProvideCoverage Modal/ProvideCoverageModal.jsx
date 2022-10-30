@@ -18,6 +18,16 @@ import {
   SwapDAI, Swap_DaiABI, SwapsztDAI, ActivateInsuranceABI, ProtocolRegistry, ProtocolRegistryABI, ConstantFlowAgreement
 } from "../../../../Constants/index";
 export default function ProvideCoverageModal({ setActivateOpen }) {
+
+
+  var token = useSelector(
+    state => state.allContracts
+  )
+  console.log()
+  var ConstantFlowAgreement = token.contracts.ConstantFlowAgreement;
+  var SwapsztDAI = token.contracts.SwapsztDAI;
+
+
   // Provider.
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   // Signer

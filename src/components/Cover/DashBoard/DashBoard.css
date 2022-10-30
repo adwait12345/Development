@@ -1,7 +1,7 @@
 .Navbar_Cover {
     display: flex;
     font-family: "Poppins", sans-serif;
-
+background: var(--background);
 }
 
 .ri_content {

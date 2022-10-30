@@ -1,0 +1,50 @@
+.InsuranceTypeModal{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.top-InsuranceType{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+}
+.top-InsuranceType svg{
+    cursor: pointer;
+}
+.bet-InsuranceType{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bet-InsuranceType input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+   font-family: 'Montserrat', sans-serif;
+   border: none;
+}
+.bot-InsuranceType{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bot-InsuranceType p{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0;
+}
+.bot-InsuranceType p:hover{
+        background-color: #262833;
+
+}

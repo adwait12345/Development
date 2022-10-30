@@ -1,0 +1,57 @@
+.InsuranceCategory {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-InsuranceCategory {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.top-InsuranceCategory svg {
+    cursor: pointer;
+}
+
+.bet-InsuranceCategory {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bet-InsuranceCategory input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+}
+
+.bot-InsuranceCategory {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bot-InsuranceCategory p {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.bot-InsuranceCategory p:hover {
+    background-color: #262833;
+
+}

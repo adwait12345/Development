@@ -1,96 +1,225 @@
-.outer-DAO {
+.Dao-Sidebar{
+    position: fixed;
+    width: 600px;
+    background-color: #fff;
+    top: 0;
+    right: -600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1e1e1e;
+            transition: 0.3s;
+}
+.vote-top{
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+   border-bottom: 2px solid #363636 ;
+   color: #fff;
+}
+.vote-top h3{
+    font-size: 25px;
+}
+.vote-top svg{
+    cursor: pointer;
+}
+
+.vote-bet{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.user-address{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
 }
-
-.DAO {
+.user-address input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #2E334A;
+    color: #757575;
+}
+.claim-id p{
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 95%;
-    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(45deg,var(--main-grad-color1), var(--main-grad-color2));
 }
-
-.vote_on_claim {
-    filter: blur(3px);
-    width: 90%;
-    border: 2px solid;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-}
-
-.vote_on_claim h3 {
-    margin-left: 20px;
-}
-
-.vote_on_claim button {
-    width: 200px;
-    height: 40px;
-    border: 1px solid;
-    border-radius: 10px;
-    margin-right: 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    background-color: transparent;
+.claim-id p svg{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #757575;
     cursor: pointer;
 }
+.insurance-methodlogy{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+.insurance-methodlogy svg{
+    color: #ffce00;;
+}
 
-.vote_on_claim button:hover {
-    background-color: #000;
+.claim-id{
+    font-size: 13px;
+    font-style: italic;
+        margin-left: 10px;
+            margin-top: 7px;
+            color: #757575;
+}
+.vote-top-start{
+    display: flex;
+    align-items: center;
+   justify-content: flex-end;
+}
+.insurance-category,.insurance-method,.protocol-id{
+    cursor: pointer;
+    padding: 15px;
+    background-color: #262833;
+    border-radius: 10px;
+}
+.insurance-category:hover,.insurance-method:hover,.protocol-id:hover{
+background-color: var(--Green-buttons);
+}
+.claimAmount-Requested{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.claimAmount-Requested h4{
+    align-self: flex-start
+}
+.claimAmount-Requested input{
+        width: 96%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #2E334A;
+            color: #757575;
+            align-self: center;
+}
+.claimAmount-Requested h4 svg, .stringProof h4 svg{
+    margin-left: 5px;
+        color: #757575;
+        cursor: pointer;
+}
+.claimAmount-Requested h4, .stringProof h4{
+    display: flex;
+        align-items: center;
+}
+.stringProof{
+        display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+}
+.stringProof h4{
+        align-self: flex-start
+}
+.stringProof textarea{
+            width: 96%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #2E334A;
+            color: #757575;
+            align-self: center;
+}
+
+.vote-bot{
+width: 95%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    justify-content: flex-end;
+}
+.vote-bot button{
+width: 40%;
+padding: 20px;
+ font-family: 'Montserrat', sans-serif;
+ border-radius: 10px;
+ color: #fff;
+ font-size: 17px;
+background-color: var(--Green-buttons);
+cursor: pointer;
+border: none;
+}
+
+.DAO_Content{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+.DAO{
+    margin-top: 30px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+.dao-top{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.dao-top button{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
     color: #fff;
+    background-color: var(--Green-buttons);
 }
 
-.vote_on_claim h3 {
-    font-weight: 600;
-}
-
-.Participate_in_governance {
-    filter: blur(3px);
-    width: 94%;
+.dao-bottom{
     display: flex;
     flex-direction: column;
 }
 
-.Participate_in_governance h3 {
-    font-weight: 500;
-}
-
-.Participate_in_governance h3 {
-    margin: 40px 0 0px 50px;
-}
-
-.Pending_claims {
-    width: 94%;
+.dao-bottom-top{
     display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-
+    width: 100%;
+    justify-content: space-between;
+    margin: 20px 0 20px 0;
 }
-
-.Pending_claims h3 {
-    font-size: 40px;
-    color: var(--primary-text);
+.dao-bottom-top button{
+padding: 10px;
+color: #fff;
+background-color: #1e1e1e;
+border: none;
+border-radius: 10px;
+display: flex;
+align-items: center;
+cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
 }
-
-/* Mobile  */
-@media only screen and (max-width:799px) {
-    .Pending_claims {
-        overflow-x: scroll;
-    }
-
-    .Participate_in_governance {
-        overflow-x: scroll;
-    }
+.dao-bottom-top button svg {
+    margin-right: 5px;
+   
+}
+.dao-bottom-top input{
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+        font-family: 'Montserrat', sans-serif;
+        color :#757575;
+        background-color: #2E334A;
 }

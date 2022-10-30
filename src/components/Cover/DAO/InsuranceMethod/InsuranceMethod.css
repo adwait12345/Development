@@ -1,0 +1,44 @@
+.InsuranceMethod {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-InsuranceMethod {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.top-InsuranceMethod svg {
+    cursor: pointer;
+}
+
+
+
+.bot-InsuranceMethod {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bot-InsuranceMethod p {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.bot-InsuranceMethod p:hover {
+    background-color: #262833;
+
+}

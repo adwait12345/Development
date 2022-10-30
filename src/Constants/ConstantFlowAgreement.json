@@ -1,4 +1,4 @@
- [
+[
     {
       "inputs": [],
       "name": "ActiveInsuranceExistError",
@@ -7,6 +7,11 @@
     {
       "inputs": [],
       "name": "InactiveInsuranceError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InsuranceCoverNotAvailableError",
       "type": "error"
     },
     {
@@ -54,15 +59,41 @@
       "type": "event"
     },
     {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_insuredAmount",
+          "name": "insuredAmount",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "protocolID",
           "type": "uint256"
         }
       ],
@@ -75,12 +106,12 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_insuredAmount",
+          "name": "insuredAmount",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "protocolID",
           "type": "uint256"
         }
       ],
@@ -93,7 +124,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_userAddress",
+          "name": "userAddress",
           "type": "address"
         }
       ],
@@ -112,12 +143,18 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_userAddress",
+          "name": "userAddress",
           "type": "address"
         }
       ],
       "name": "closeAllStream",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -125,7 +162,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_userAddress",
+          "name": "userAddress",
           "type": "address"
         },
         {
@@ -135,7 +172,13 @@
         }
       ],
       "name": "closeTokenStream",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -143,7 +186,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_userAddress",
+          "name": "userAddress",
           "type": "address"
         },
         {
@@ -169,10 +212,88 @@
           "internalType": "address",
           "name": "_userAddress",
           "type": "address"
+        }
+      ],
+      "name": "getGlobalUserInsuranceInfo",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "protocolID",
+          "type": "uint256"
+        }
+      ],
+      "name": "getUserInsuranceInfo",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "protocolID",
           "type": "uint256"
         }
       ],
@@ -191,12 +312,12 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_userAddress",
+          "name": "userAddress",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "protocolID",
           "type": "uint256"
         }
       ],
@@ -215,12 +336,12 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_insuredAmount",
+          "name": "insuredAmount",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "protocolID",
           "type": "uint256"
         }
       ],
@@ -244,6 +365,19 @@
     },
     {
       "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "renounceOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -253,7 +387,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_DAIaddress",
+          "name": "tokenDAIaddress",
           "type": "address"
         }
       ],
@@ -266,7 +400,33 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_sztDAIAddress",
+          "name": "protocolRegistryAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setProtocolRegistryAddress",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "contractAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setTerminateInsuranceAddress",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "sztDAIAddress",
           "type": "address"
         }
       ],
@@ -279,21 +439,16 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
           "name": "to",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_amount",
+          "name": "amount",
           "type": "uint256"
         }
       ],
-      "name": "transferFrom",
+      "name": "transfer",
       "outputs": [
         {
           "internalType": "bool",
@@ -321,7 +476,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_days",
+          "name": "timeInDays",
           "type": "uint256"
         }
       ],
@@ -333,12 +488,12 @@
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "_protocolRegistryAddress",
-          "type": "address"
+          "internalType": "uint256",
+          "name": "timeInMinutes",
+          "type": "uint256"
         }
       ],
-      "name": "updateProtocolRegistryAddress",
+      "name": "updateMinimumInsurancePeriod",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -346,14 +501,38 @@
     {
       "inputs": [
         {
-          "internalType": "address payable",
-          "name": "_contractAddress",
+          "internalType": "uint256",
+          "name": "timeInMinutes",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateStartWaitingTime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
           "type": "address"
         }
       ],
-      "name": "updateTerminateInsuranceAddress",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "name": "usersGlobalInsuranceInfo",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "insuranceStreamRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "validTill",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     }
   ]

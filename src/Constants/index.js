@@ -11,6 +11,10 @@ const ActivateInsuranceABI=require('./ConstantFlowAgreement.json')
 const ProtocolRegistryABI=require('./ProtocolRegistry.json')
 const FakeCoinABI=require('./FakeCoin.json')
 const CoveragePoolABI=require('./CoveragePool.json')
+const Claim_Governance_ABI=require('./ClaimGovernance.json')
+
+const Claim_Governance = "0x9aB7a4272450b714E34B97AD7bCe3E9c37Fd314e"
+
 
 const ConstantFlowAgreement ="0x63f9e66dFAA212ED93A402c46CBB26e0D21F63bd"
 
@@ -100,7 +104,9 @@ export  {
     ProtocolRegistry,
     ConstantFlowAgreement,
     FakeCoinABI,
-    CoveragePoolABI
+    CoveragePoolABI,
+    Claim_Governance,
+    Claim_Governance_ABI
 }
 
 
