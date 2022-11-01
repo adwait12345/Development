@@ -1,46 +1,23 @@
 import React from "react";
 import "./topbox.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Topbar from "./SubComponents/Topbar1";
+import Topbar2 from "./SubComponents/Topbar2";
+import Topbar3 from "./SubComponents/Topbar3";
+import Footer from "./SubComponents/TopBar5";
+import Topbar4 from "./SubComponents/Topbar4";
 
 export default function Topbox() {
   return (
     <>
-      <div className="topbox">
-        <h5>WELCOME TO SAFEZEN</h5>
-        {/* <div className="blob"></div>
-        <div className="blob2"></div> */}
-        <h1>
-          World's first innovative peer-to-peer insurance
-          coverages to protect you from uncertain future risk
-        </h1>
-        <h3>
-          Zero-premium risk coverage to pay-as-you-go insurance
-          we have got you all covered
-        </h3>
-        <div className="button">
-          <Link
-            to={{
-              pathname: `/cover/dashBoard`,
-            }}
-          >
-            <button>
-              Get SafeZen Insured Now &nbsp;
-              <svg
-                width={20}
-                viewBox="0 0 24 24"
-                focusable="false"
-                class="chakra-icon css-onkibi"
-              >
-                <path
-                  fill="currentColor"
-                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                ></path>
-              </svg>
-            </button>
-          </Link>
+    <div className="alltopbar">
 
-        </div>
-      </div>
+    
+      <Topbar/>
+      <Topbar2/>
+      <Topbar3/>
+      <Topbar4/>
+      <Footer/></div>
     </>
   );
 }

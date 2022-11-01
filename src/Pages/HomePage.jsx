@@ -12,14 +12,15 @@ export default function HomePage() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <Topbox />
       <Stats />
       <Grid />
       <Underwrite />
-      {/* <Blogs /> */}
+      <Blogs />
       <Footer />
-      {/* <Metamask/> */}
+      <Metamask/> */}
+      <Topbox/>
     </>
   )
 }

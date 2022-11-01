@@ -60,7 +60,7 @@
 }
 
 .launch-app button {
-    background: linear-gradient(40deg, #7991fd, rgb(233 66 230));
+    /* background: linear-gradient(40deg, #7991fd, rgb(233 66 230)); */
       border: none;
   width: 120px;
   height: 45px;

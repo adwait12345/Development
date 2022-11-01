@@ -43,6 +43,7 @@ export default function DAO() {
     const [sidebar,setSidebar]= useState(false)
     const [string, setString]= useState("")
     const [ClaimAmount, setClaimAmount]= useState('')
+    const [Info, setinfo]=useState([])
     // Provider.
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     // Signer
@@ -53,7 +54,21 @@ export default function DAO() {
         const trans = Create.createClaim(key.keys, string, `${ClaimAmount * 1e18}`)
 
     }
+    useEffect(()=>{
+   (async()=>{
+        var ClaimID = new ethers.Contract(Claim_Governance, Claim_Governance_ABI, signer);
+        const trans= await ClaimID._claimID()
+        const ID = trans.toString()
+                const tran2 = await ClaimID.getVotingInfo(ID)
+         const info= await ClaimID.claims(ID)
+         setinfo(info)
+       console.log(info)
 
+        // console.log(Info)
+    })();
+    },[])
+ 
+// console.log(Info.claimer)
     const DAO_bar=()=>{
         if(sidebar===true){
             document.querySelector("#DAO-S").style.right="-600px";
@@ -165,19 +180,23 @@ export default function DAO() {
                                                 </TableRow>
                                             </TableHead>
                                             <TableBody>
-     
-                                                    <TableRow 
+                                        {Info.map((info)=>{
+                                            
+                                              return     <TableRow 
 
                                                         sx={{ '&:last-child td, &:last-child th': { border: 0 }, cursor: "pointer" }}
 
                                                     >
-                                                        <TableCell component="th" scope="row">
+                                                        <TableCell component="th" scope="row" >
+                                                           {info.toString()}
                                                         </TableCell>
                                                         <TableCell align="right"></TableCell>
                                                         <TableCell align="right"></TableCell>
                                                         <TableCell align="right"></TableCell>
                                                         <TableCell align="right"></TableCell>
                                                     </TableRow>
+                                        })}
+ 
                                             
                                             </TableBody>
                                         </Table>

@@ -184,7 +184,7 @@ export default function PayAsYouGo() {
 
                             return Contracts
                           }
-
+6
 
                         }).map((Contract,key) => (
                             <TableRow className="TableRow" key={key}
