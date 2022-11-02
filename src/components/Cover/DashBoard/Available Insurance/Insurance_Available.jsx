@@ -37,8 +37,8 @@ export default function Insurance_Available() {
                           </div>
 
                           <div className="top_Insu_end">
-                              <BsInfoCircle color='#fff'/>
-                              <MdOutlineArrowForwardIos color='#fff' />
+                              <BsInfoCircle />
+                              <MdOutlineArrowForwardIos  />
                           </div>
                 </div>
                 <div className="mid_card_insu">

@@ -174,7 +174,7 @@ console.log(Dropdown.dropdown)
             <li>
               {/* <img src={DAO} alt="" /> */}
                 <TbBuildingBank/>
-              DAO 
+              Governance
               <span>Coming Soon</span>
             </li>
           </NavLink>

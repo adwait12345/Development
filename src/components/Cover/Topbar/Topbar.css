@@ -30,7 +30,7 @@
   font-weight: 500;
   cursor: pointer;
   background-color: transparent;
-  color:#fff;
+  color:var(--primary-text);
   /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
 }
 .dropbtn2 {
@@ -42,8 +42,7 @@
   font-weight: 500;
   cursor: pointer;
   background-color: transparent;
-  color: #fff;
-  /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
+  color: var(--primary-text);  /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
 }
 #logout {}
 

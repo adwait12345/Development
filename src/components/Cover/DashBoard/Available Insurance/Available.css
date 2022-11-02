@@ -37,7 +37,7 @@ justify-content: space-between;
     flex: 1;
 
     height: 250px;
-    background-color: #1E1E1E;
+    background-color: var(--box-color);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -45,17 +45,17 @@ justify-content: space-between;
     margin-right: 5px;
     margin-left: 5px;
     cursor: pointer;
-
+box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 .card_insu:hover{
-    background-color: #262833;
+    background-color: var(--box-hover);
 }
 .top_card_insu{
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-around;
-    color: #fff;
+    color: var(--primary-text);
 }
 .top_Insu_start{
     display: flex;
@@ -87,7 +87,7 @@ justify-content: space-between;
     justify-content: space-between;
 }
 .mid_card_insu{
-    color: #fff;
+    color: var(--primary-text);
     display: flex;
     align-items: center;
     width: 100%;
@@ -111,7 +111,7 @@ width: 40%;
 .bot_card-insu p{
     display: flex;
     align-items: center;
-    color: #fff;
+    color: var(--primary-text);
     font-size: 15px;
 }
 .bot_card-insu p span{
@@ -127,7 +127,7 @@ width: 40%;
     padding: 50px;
 }
 .back-dashboard p{
-    color: white;
+    color: var(--primary-text);
     font-family: 'Montserrat', sans-serif;
     display: flex;
     align-items: center;
@@ -147,7 +147,7 @@ width: 40%;
     padding: 15px;
     border-radius: 10px;
     border: none;
-    background-color: #2E334A;
+    background-color: var(--placeholder-color);
     font-family: 'Montserrat', sans-serif;
     color: #757575;
     margin-right: 5px;
