@@ -185,3 +185,17 @@ export const selectedInsuranceMethod = (sMethod) => {
     payload: sMethod
   };
 };
+
+export const setTransactionAddress = (Transaction) => {
+  return {
+    type: ActionTypes.SET_TRANSACTION_ADDRESS,
+    payload: Transaction,
+  };
+};
+
+export const selectedTransactionAddress = (sTransaction) => {
+  return {
+    type: ActionTypes.SELECTED_TRANSACTION_ADDRESS,
+    payload: sTransaction
+  };
+};

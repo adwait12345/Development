@@ -31,6 +31,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
 import Metamask from "./components/Metamask Login Modal '/Metamask Popup/Metamask";
 import Main_Available_insurance from "./components/Cover/DashBoard/Available Insurance/Main_Available_insurance";
+import ActivityHistory from "./components/Cover/Activity History/ActivityHistory";
 
 function App() {
 
@@ -106,6 +107,7 @@ function App() {
               {/* <Route path="/cover/Stake" element={<Stake />} /> */}
               <Route path="/cover/sell-stake" element={<Sell_Stake />} />
               <Route path="/cover/dao" element={<DAO />} />
+              <Route path="/cover/activityhistory" element={<ActivityHistory />} />
               <Route path="/notfound" element={<NotFound />} />
               
 

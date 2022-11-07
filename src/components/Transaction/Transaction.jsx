@@ -4,6 +4,7 @@ import { useMoralis, useWeb3Contract } from 'react-moralis'
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
+import {DAI} from '../../Constants/index'
 export default function Transaction() {
   var { enableWeb3, isWeb3Enabled, authenticate, isAuthenticated, user, Moralis, account, web3 } = useMoralis();
   var [Responce, setResponce] = useState([])
@@ -14,7 +15,7 @@ export default function Transaction() {
     body: JSON.stringify({
       id: 1,
       jsonrpc: '2.0',
-      method: 'alchemy_getAssetTransfers',
+      method: 'eth_getTransactionByBlockHashAndIndex',
       params: [
         {
           fromBlock: '0x0',
@@ -31,7 +32,7 @@ export default function Transaction() {
           excludeZeroValue: true,
           maxCount: '0x3e8',
           fromAddress: account,
-          toAddress: '0xD174c7EF106269c717B9aB3e9bbd1e6215F19de9'
+          toAddress: DAI
         }
       ]
     })
@@ -39,7 +40,7 @@ export default function Transaction() {
 
 
   (async ()=>{
-  fetch('https://eth-goerli.alchemyapi.io/v2/wKhHYRMeTZ3xJ9ww4jv7lVmRSEFamVH2', options)
+    fetch('https://polygon-mumbai.g.alchemy.com/v2/F12pxqQC8hP6cvj2S2mQqviwq3b5P6Ns', options)
     .then(function (responce) {
       return responce.json()
     }).then(function (obj) {

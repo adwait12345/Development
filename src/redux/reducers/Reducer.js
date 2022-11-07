@@ -15,6 +15,7 @@ const initialState = {
   InsuranceTypes:[],
   InsuranceCategory:[],
   InsuranceMethod:[],
+  TransactionAddress:[],
   contracts: 
     {
     // ConstantFlowAgreement: process.env.REACT_APP_GOERLI_ConstantFlowAgreement,
@@ -304,6 +305,25 @@ export const InsuranceMethodReducer = (state = initialState, action) => {
 export const selectedInsuranceMethodReducer = (state = {}, action) => {
   switch (action.type) {
     case ActionTypes.SELECTED_INSURANCE_METHOD:
+      return { ...state, ...action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const TransactionAddressReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ActionTypes.SET_TRANSACTION_ADDRESS:
+      return { ...state, TransactionAddress: action.payload };
+
+    default:
+      return state;
+  }
+}
+export const selectedTransactionAddressReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ActionTypes.SELECTED_TRANSACTION_ADDRESS:
       return { ...state, ...action.payload };
 
     default:

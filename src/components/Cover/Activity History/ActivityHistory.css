@@ -1,0 +1,31 @@
+.ActivityHistory{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.ActivityHistory-top{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ActivityHistory-top input{
+font-family: 'Montserrat', sans-serif;
+border: none;
+padding: 10px;
+border-radius: 15px;
+cursor: pointer;
+background-color: var(--placeholder-color);
+color: #fff;
+}
+
+.ActivityHistory-bet{
+    width: 95%;
+    background-color: #1e1e1e;
+    border-radius: 30px;
+    padding: 20px;
+    margin-top: 50px;
+    margin-left: 30px;
+}

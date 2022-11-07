@@ -14,7 +14,7 @@ import { useState } from "react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedThemeDark, setThemeDark,setDropDown } from "../../../redux/action/actions";
-import { MdKeyboardArrowLeft, MdOutlineSpaceDashboard, MdSettingsInputAntenna, MdLockOutline } from "react-icons/md"; 
+import { MdKeyboardArrowLeft, MdOutlineSpaceDashboard, MdSettingsInputAntenna, MdLockOutline, MdOutlineHistory } from "react-icons/md"; 
 import { TbSwitch, TbBuildingBank } from "react-icons/tb"; 
 
 export default function Sidebar() {
@@ -176,6 +176,20 @@ console.log(Dropdown.dropdown)
                 <TbBuildingBank/>
               Governance
               <span>Coming Soon</span>
+            </li>
+          </NavLink>
+        )}   
+        
+             {isWeb3Enabled && (
+          <NavLink
+            to={{
+                pathname: `/cover/activityhistory`,
+            }}
+          >
+            <li>
+              {/* <img src={DAO} alt="" /> */}
+                <MdOutlineHistory />
+              Activity History
             </li>
           </NavLink>
         )}
