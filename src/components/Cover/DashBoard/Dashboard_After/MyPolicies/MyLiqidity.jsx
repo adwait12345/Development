@@ -2,6 +2,7 @@ import React from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Chart_Liqidity from './Chart/Chart_Liqidity';
 import Chart_Withdrawal_Request from './Chart/Chart_Withdrawal_Request';
+import PastLiqidity from './Chart/PastLiqidity';
 
 export default function MyLiqidity() {
   return (
@@ -15,8 +16,9 @@ export default function MyLiqidity() {
                 <h2>My Liquidity</h2>
                 <div className="Policy-btns">
                   <TabList>
-                    <Tab><button>Liquidity</button></Tab>
-                    <Tab><button>WithDrawal Requests</button></Tab>
+                    <Tab><button> Current Liquidity</button></Tab>
+                    <Tab><button>Pending </button></Tab>
+                    <Tab><button>Past Liqidity</button></Tab>
 
                   </TabList>
 
@@ -28,7 +30,9 @@ export default function MyLiqidity() {
               <TabPanel>
                 <Chart_Withdrawal_Request />
               </TabPanel>
-
+             <TabPanel>
+              <PastLiqidity/>
+             </TabPanel>
             </Tabs>
 
           </div>

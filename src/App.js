@@ -32,6 +32,7 @@ import { useEffect } from "react";
 import Metamask from "./components/Metamask Login Modal '/Metamask Popup/Metamask";
 import Main_Available_insurance from "./components/Cover/DashBoard/Available Insurance/Main_Available_insurance";
 import ActivityHistory from "./components/Cover/Activity History/ActivityHistory";
+import Community from "./components/Community/community";
 
 function App() {
 
@@ -108,6 +109,7 @@ function App() {
               <Route path="/cover/sell-stake" element={<Sell_Stake />} />
               <Route path="/cover/dao" element={<DAO />} />
               <Route path="/cover/activityhistory" element={<ActivityHistory />} />
+              <Route path="/cover/protocolsinfo" element={<Community />} />
               <Route path="/notfound" element={<NotFound />} />
               
 

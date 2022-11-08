@@ -1,315 +1,220 @@
-.outer-community {
+.Community{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.community {
-  display: flex;
-  width: 90%;
   flex-direction: column;
-  justify-content: center;
+  width: 100%;
   align-items: center;
-  /* text-align: center; */
   color: #fff;
-  font-family: "Poppins", sans-serif;
-  margin-top: 200px;
 }
 
-.community h5 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  text-align: center;
-  letter-spacing: 1.5px;
-  color: #4d495d;
-}
-
-.community h1 {
-  margin: 0;
-  font-size: 48px;
-  line-height: 130%;
-  text-align: center;
-}
-
-.community p {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
-  letter-spacing: 0.5px;
-  color: #b4b4c7;
-  max-width: 695px;
-  text-align: center;
-}
-
-.bottom-community {
+.top-community{
   display: flex;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-  margin-top: 65px;
+  width: 80%;
+  height: 400px;
 }
 
-.left {
-  display: flex;
-}
-
-.left button {
+.top-community-left{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  padding: 32px;
-  width: 387px;
-  height: 409.02px;
-  background: linear-gradient(123.71deg, #fff, rgba(189, 179, 255, 0) 50.21%),
-    linear-gradient(122.69deg, #8769ff 8.82%, #67ffd5 109.84%);
-  box-shadow: inset 0 4px 30px 10px rgb(84 52 208 / 50%);
-  -webkit-backdrop-filter: blur(30px);
-  backdrop-filter: blur(30px);
-  border-radius: 25px;
-  border: none;
+  width: 80%;
+  justify-content: center;
 }
 
-.left img {
-  width: 344px;
-  height: 293px;
-  margin-left: -21px;
-  margin-top: -81px;
+
+
+.top-community-left-top{
+  display: flex;
+    width: 315px;
+    justify-content: space-between;}
+
+.top-community-left-top-left img{
+width: 90px;
+height: 90px;
+object-fit: contain;
+border-radius: 100%;
 }
 
-.left svg {
-  margin-left: 12px;
-}
+.top-community-left-top-right{
+ display: flex;
+ flex-direction: column;
+text-align: left;
 
-.left h2 {
-  font-size: 32px;
-  line-height: 33px;
-  font-family: Poppins, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: #191531;
 }
-
-.left h3 {
-  font-family: Poppins, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: #191531;
-  font-size: 16px;
-  line-height: 25px;
+.top-community-left-top-right h1{
+  font-size: 50px;
+  font-family: "Poppins";
+  font-weight: 300;
   margin: 0;
+  line-height: 65px;
+}
+
+.top-community-left-top-right h2 {
+  font-size: 30px;
+  font-family: "Poppins";
+  font-weight: 500;
+  margin: 0;
+  line-height: 10px;
+}
+
+.top-community-content{
+  max-width: 615px;
+}
+.top-community-content p{
+    font-family: "Poppins";
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.top-community-right {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.perks{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+ padding-left: 10px;
+ padding-right: 10px;
+}
+
+.risk-rating{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.risk-rating button{
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins";
+  color: #fff;
+  background-color: var(--Green-buttons);
+}
+
+.protocol-code-quality,.maturity,.protocol-design{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #363636;
+}
+
+.protocol-code-quality button,
+.maturity button,
+.protocol-design button {
+  border: none;
+  border-radius: 2px;
+  font-family: "Poppins";
+  color: #fff;
+  background-color: var(--Green-buttons);
+  padding: 4px;
+}
+
+.bet-community {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bet-community-left{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
   text-align: left;
+align-items: flex-start;  
 }
 
-.right {
+
+.bet-community-left-top h1{
+font-weight: 300;
+}
+.bet-community-left-top{
+  width: 615px;
+}
+.bet-community-left-end{
+    width: 815px;
+}
+.bet-community-left-end h2{
+  font-size: 16px;
+  font-weight: 500;
+}
+.bet-community-left-end p{
+    font-family: "Poppins";
+      font-size: 14px;
+      font-weight: 200;
+      color: #757575;
+}
+
+.bet-community-right {
+  width: 20%;
   display: flex;
   flex-direction: column;
+}
+
+.bet-community-right-information{
+  width:90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Exploit-Hacks{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+    padding-left: 10px;
+      padding-right: 10px;
+}
+
+.Exploit-Hacks-top {
+  display: flex;
   justify-content: space-between;
-  margin-left: 32px;
-}
-
-.right1 {
-  cursor: pointer;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 1px;
-  background: #3e385b;
-  border-radius: 25px;
-  background-blend-mode: overlay;
-  position: relative;
-  margin-bottom: 20px;
-  z-index: 1;
-}
 
-.right1:hover {
-  background: linear-gradient(115.26deg, #4010ff 4.79%, #67ffd5 99.36%),
-    linear-gradient(119.78deg, #fff 5.43%, hsla(0, 0%, 100%, 0) 75.01%);
 }
-
-.right1-1 {
-  width: 513px;
-  height: 195px;
-  background: linear-gradient(181.12deg,
-      rgba(119, 113, 135, 0.15) 0.96%,
-      rgba(119, 113, 135, 0) 139.33%);
-  border-radius: 25px;
+.Exploit-Hacks-top h3,.Info-top h3,.key-metrics-top h3{
+  font-weight: 300;
 }
-
-.right1-1 button {
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background: url("https://unslashed.finance/graphic/lineGraphics.svg") no-repeat 100% 0;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-  border-radius: 25px;
-  border: none;
-  background-color: #0f0d1e;
-  cursor: pointer;
-}
-
-.right1-1 h2 {
-  font-family: Poppins, sans-serif;
-  font-style: normal;
-  letter-spacing: 0.5px;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 45px;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  margin: 0;
+.Exploit-Hacks-top button{
+  border: 1px solid var(--Green-buttons);
+  border-radius: 5px;
+  padding: 3px;
+  font-family: "Poppins";
+  background-color: #0fab0f47;
   color: #fff;
 }
 
-.right1-1 h2 svg {
-  margin-left: 12px;
-}
-
-.right1-1 h4 {
-  margin: 0;
-  font-family: Poppins, sans-serif;
-  font-style: normal;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 27px;
-  color: #d8d8ea;
-}
-
-.right2 {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  background: #3e385b;
-  border-radius: 25px;
-  background-blend-mode: overlay;
-}
-
-.right2:hover {
-  background: linear-gradient(115.26deg, #4010ff 4.79%, #67ffd5 99.36%),
-    linear-gradient(119.78deg, #fff 5.43%, hsla(0, 0%, 100%, 0) 75.01%);
-}
-
-.right2-2 {
-  z-index: 3;
-  width: 513px;
-  height: 195px;
-  background: linear-gradient(181.12deg,
-      rgba(119, 113, 135, 0.15) 0.96%,
-      rgba(119, 113, 135, 0) 139.33%);
-  border-radius: 25px;
-}
-
-.right2-2 button {
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background: url("https://unslashed.finance/graphic/lineGraphics2.svg") no-repeat 100% 0;
-  border: none;
-  padding: 32px;
+.Exploit-Hacks-end{
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-  border-radius: 25px;
-  background-color: #0f0d1e;
-  cursor: pointer;
 }
 
-.right2-2 h2 {
-  font-family: Poppins, sans-serif;
-  font-style: normal;
-  letter-spacing: 0.5px;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 45px;
-  margin-bottom: 4px;
+.Exploit-Hacks-end li,.Info-end li,.key-metrics-end li{
   display: flex;
   align-items: center;
-  margin: 0;
-  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.right2-2 h2 svg {
-  margin-left: 12px;
+.Exploit-Hacks-end li svg{
+  width: 15px;
+  margin-left: 5px;
 }
 
-.right2-2 h4 {
-  margin: 0;
-  font-family: Poppins, sans-serif;
-  font-style: normal;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 27px;
-  color: #d8d8ea;
+.Info,.key-metrics{
+    display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-top: 10px;
 }
 
-/* Mobile  */
-@media only screen and (max-width:799px) {
-  .community {
-    text-align: left;
-  }
-
-  .top-community h5 {
-    text-align: left;
-  }
-
-  .top-community p {
-    text-align: left;
-    max-width: 562px;
-  }
-
-  .top-community h1 {
-    font-size: 32px;
-    line-height: 40px;
-    text-align: left;
-    margin-top: 12px;
-  }
-
-  .bottom-community {
-    flex-direction: column;
-
-  }
-
-  .left {
-    width: 100%;
-    margin-bottom: 16px;
-
-    padding-left: 0;
-    padding-right: 0;
-
-  }
-
-  .left button {
-    width: 100%;
-  }
-
-  .right {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .right1-1 {
-    width: 100%;
-    height: 169px;
-  }
-
-  .right2-2 {
-    width: 100%;
-    height: 169px;
-  }
-}
