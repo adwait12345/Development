@@ -57,54 +57,30 @@ export default function Community() {
             </div>
           </div>
           <div className="bet-community-right">
-            <div className="bet-community-right-information">
-              <div className="Exploit-Hacks">
-                <div className="Exploit-Hacks-top">
-                  <h3>Exploit/Hacks</h3>
-                  <button>None</button>
-                </div>
-                <div className="Exploit-Hacks-end">
-                  <li>Documention <VscLinkExternal /></li>
-                  <li>Auditors</li>
-                   <ul>
-                    <li> Audit 3 </li>
-                    <li> Audit 2 </li>
-                    <li> Audit 1 </li>
-                   </ul>
-                </div>
-              </div>
-              <div className="Info">
-                <div className="Info-top">
-                  <h3>Info</h3>
-                </div>
-                <div className="Info-end">
-                  <li>Website  <VscLinkExternal /></li>
-                  <li>Token: UNI</li>
-                  <li>Tags: Dexes</li>
-                </div>
-              </div>
-              <div className="key-metrics">
-                <div className="key-metrics-top">
-                  <h3>Key Metrics</h3>
-                </div>
-                <div className="key-metrics-end">
-                  <li>TVL: $4.6B (Rank #4)</li>
-                  <li>TVL Ranking by Dexes: #2</li>
-                  <li>Blockchain: Ethereum, Arbitrum, Polygon, Optimism, Celo</li>
-                  Chain TVL
-                  <ul>
-                    <li>Ethereum: $4.35B</li>
-                    <li>Arbitrum: $89.29M</li>
-                    <li>Polygon: $80.21M</li>
-                    <li>Optimism: $37.03M</li>
-                    <li>Celo: $1.03M</li>
-                  </ul>
-                </div>
-              </div>
+           
+          </div>
+        </div>
+        <div className="bot-community">
+          <div className="bot-community-top">
+            <p>Price</p>
+             <h1>$0.38 <span>-15.55%</span></h1>
+             <p>0.0000215 BTC</p>
+          </div>
+          <div className="bot-community-end">
+            <div className="bot-community-end-left">
+              <p>Market Cap</p>
+              <h1>$3,877,995 <span>-15.55%</span></h1>
+              <p>Circulating Supply</p>
+              <h1>10,149,070 SD <span>(6.77%)</span></h1>
+            </div>
+            <div className="bot-community-end-right">
+              <p>Trading Volume (24h)</p>
+              <h1>$1,208,775</h1>
+              <p>Total Supply</p>
+              <h1>150,000,000 SD</h1>
             </div>
           </div>
         </div>
-        <div className="bot-community"></div>
       </div>
     </>
   );

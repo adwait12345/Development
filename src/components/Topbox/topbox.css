@@ -68,6 +68,8 @@
   text-decoration: none;
   color: #fff;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .nav-topbar {

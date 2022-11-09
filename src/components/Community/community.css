@@ -156,65 +156,7 @@ font-weight: 300;
   flex-direction: column;
 }
 
-.bet-community-right-information{
-  width:90%;
+.bot-community{
   display: flex;
   flex-direction: column;
 }
-
-.Exploit-Hacks{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: #1e1e1e;
-  border-radius: 10px;
-    padding-left: 10px;
-      padding-right: 10px;
-}
-
-.Exploit-Hacks-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-}
-.Exploit-Hacks-top h3,.Info-top h3,.key-metrics-top h3{
-  font-weight: 300;
-}
-.Exploit-Hacks-top button{
-  border: 1px solid var(--Green-buttons);
-  border-radius: 5px;
-  padding: 3px;
-  font-family: "Poppins";
-  background-color: #0fab0f47;
-  color: #fff;
-}
-
-.Exploit-Hacks-end{
-  display: flex;
-  flex-direction: column;
-}
-
-.Exploit-Hacks-end li,.Info-end li,.key-metrics-end li{
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.Exploit-Hacks-end li svg{
-  width: 15px;
-  margin-left: 5px;
-}
-
-.Info,.key-metrics{
-    display: flex;
-      flex-direction: column;
-      width: 100%;
-      background-color: #1e1e1e;
-      border-radius: 10px;
-      padding-left: 10px;
-      padding-right: 10px;
-      margin-top: 10px;
-}
-
