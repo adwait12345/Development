@@ -24,11 +24,11 @@ import { useDispatch, useSelector } from 'react-redux';
 // Constants.
 import {
   ERC20ABI,
-  
-  BuySellABI, 
-  
-  
-  
+
+  BuySellABI,
+
+
+
   FakeCoinABI
 } from "../../../Constants/index";
 
@@ -70,7 +70,7 @@ export default function Sell_Stake() {
 
   // Provider.
   const provider = new ethers.providers.Web3Provider(window.ethereum,);
- 
+
   // Signer
   const signer = provider.getSigner();
 
@@ -128,26 +128,29 @@ export default function Sell_Stake() {
     try {
       var Raw_IssuedTokens = await BUY_SELL_PROVIDER.getSZTTokenCount();
       var Issued_Tokens = Number(BigInt(Raw_IssuedTokens).toString());
-      
-      setIssued(Issued_Tokens/1e18);
-     
+
+      setIssued(Issued_Tokens / 1e18);
+
     } catch (error) {
       console.log(error);
     }
   })();
 
-  
+
 
   // #3. For getting current SZT Price.
   (async () => {
     try {
-      var Raw_SZTPrice = await BUY_SELL_PROVIDER.calculateSZTPrice(
-        `${issued * 1e18}`,
-        `${1 * 1e18 + issued * 1e18}`
-      );
-      var SZT_Price = BigInt(Raw_SZTPrice[0]).toString();
-      setCurrentSZT_Price(SZT_Price / 1e18);
-      
+      var issuedTokenToNow = await BUY_SELL_PROVIDER.getSZTTokenCount();
+      // console.log(issuedTokenToNow.toString());
+      var oneTokenValue = ethers.utils.parseUnits("1", decimals);
+      var requiredTokens = oneTokenValue.add(issuedTokenToNow);
+      // console.log(requiredTokens.toString());
+      let currentPriceInGwei = await BUY_SELL_PROVIDER.calculateSZTPrice(`${issuedTokenToNow}`, `${requiredTokens}`);
+      // console.log(currentPriceInGwei[0].toString());
+      var currentPrice = ethers.utils.formatEther(currentPriceInGwei[0]);
+      setCurrentSZT_Price(currentPrice);
+
     } catch (error) {
       console.log(error);
     }
@@ -156,26 +159,15 @@ export default function Sell_Stake() {
   // #4. For getting amount(DAI) needed to be approved for Buying SZT.
   (async () => {
     try {
-      var tyz = ethers.utils.parseUnits(amount, decimals);
-        const IssuedVar= issued*1e18;
-      var reqtok = Number(IssuedVar) +Number(tyz) ;
-      // console.log(reqtok.toString())
-    // console.log("12")
-    // console.log(IssuedVar, reqtok);
-      let Raw_Price = await BUY_SELL_PROVIDER.calculateSZTPrice( `${IssuedVar}`, `${reqtok}`);
-      
-      // console.log(Raw_Price[0],Raw_Price[1])
-      // var test2 = ethers.utils.parseUnits(`${Raw_Price[1]}`)
-      console.log("13")
+      var userInput = ethers.utils.parseUnits(amount, decimals);
+      var issuedTokenToNow = await BUY_SELL_PROVIDER.getSZTTokenCount();
+      var requiredTokens = userInput.add(issuedTokenToNow);
+      let amountToBePaidInGwei = await BUY_SELL_PROVIDER.calculateSZTPrice(`${issuedTokenToNow}`, `${requiredTokens}`);
+      // console.log(amountToBePaid[1].toString())
+      var amountToBePaid = ethers.utils.formatEther(amountToBePaidInGwei[1]);
+      // console.log(typeof amountToBePaid, amountToBePaid)
+      setNeedtoApprove(`${amountToBePaid}`);
 
-      var TY = BigNumber.from(Raw_Price[1]).toString();
-      // //
-      // console.log("14")
-
-      //
-      // console.log(TY/1e18)
-      var Price = ethers.utils.formatEther(TY).toString();
-      setNeedtoApprove(`${Price}`);
     } catch (error) {
       console.log(error);
     }
@@ -185,21 +177,25 @@ export default function Sell_Stake() {
 
   // Approve DAI Before Buying SZT.
   const ApprovetoBuy = async () => {
-    const test1 = ethers.utils.parseUnits(`${needtoApprove}`, decimals);
-    var approveDAI = await DAI_SIGNER.approve(BuySell, `${test1}`);
+    // const test1 = ethers.utils.parseUnits(`${needtoApprove}`, decimals);
+    const oneEther = ethers.utils.parseUnits(`${needtoApprove}`, "ether");
+
+    var approveDAI = await DAI_SIGNER.approve(BuySell, oneEther);
   };
 
   // Approve SZT & GSZT Before selling it.
   const ApprovetoSell = async () => {
+    const oneEther = ethers.utils.parseUnits(`${sellamount}`, "ether");
+
     var approveSZT = await SZT_SIGNER.approve(
       BuySell,
-      `${sellamount * 1000000000000000000}`
+     oneEther
     );
     //Approving GSZT
     const GSZT = async () => {
       var approveGSZT = await GSZT_SIGNER.approve(
         BuySell,
-        `${sellamount * 1000000000000000000}`
+        oneEther
       );
     };
     GSZT();
@@ -209,9 +205,9 @@ export default function Sell_Stake() {
   const Buy = async () => {
     try {
       setloading(true);
-      var trans = await BUY_SELL_SIGNER.buySZTToken(
-        `${amount * 1000000000000000000}`
-      );
+      const oneEther = ethers.utils.parseUnits(`${amount}`, "ether");
+      // console.log(oneEther.toString())
+      var trans = await BUY_SELL_SIGNER.buySZTToken(oneEther);
 
       // Waiting for Confirmation Recipt
       var receipt = await trans.wait();
@@ -230,7 +226,9 @@ export default function Sell_Stake() {
   // Function to SellSZT
   const SellToken = async () => {
     try {
-      var sell = await BUY_SELL_SIGNER.sellSZTToken(`${sellamount*1e18}`);
+      const oneEther = ethers.utils.parseUnits(`${sellamount}`, "ether");
+
+      var sell = await BUY_SELL_SIGNER.sellSZTToken(oneEther);
       console.log(sell);
 
       // Waiting for Confirmation Recipt
@@ -250,20 +248,25 @@ export default function Sell_Stake() {
   const Request = () => {
     BUY_SELL_SIGNER.activateSellTimer(
       `${sellamount * 1000000000000000000}`
-      
+
     );
     setTimeout(() => {
       setRequest("Sell");
-     
+
     }, 120000);
   };
 
 
   // Mint DAI
-  const MintDAI = async()=>{
+
+  // console.log(oneEther)
+
+  const MintDAI = async () => {
+    const oneEther = ethers.utils.parseUnits(`${100000}`, "ether");
+
     const DAIGET = new ethers.Contract(DAI, FakeCoinABI, provider);
     var DAIPOST = new ethers.Contract(DAI, FakeCoinABI, signer);
-    const gen = await DAIPOST.mint(account, `${999*1e18}`)
+    const gen = await DAIPOST.mint(account, oneEther)
   }
   // // Testing Function
   // const RequestSell = async () => {
@@ -303,181 +306,181 @@ export default function Sell_Stake() {
             </div> */}
 
             <div className="Dashboard_after">
-            <div className="DashboardBoxes">
-              <div className="b1">
-                <div className="b1In">
-                  <div className="topB">
-                    <div className="border"><BsBarChart color='#fff' /></div>
-                    <h4>Active Cover Amount</h4>
-                    <div className="info"><BsInfoCircle /> </div>
+              <div className="DashboardBoxes">
+                <div className="b1">
+                  <div className="b1In">
+                    <div className="topB">
+                      <div className="border"><BsBarChart color='#fff' /></div>
+                      <h4>Active Cover Amount</h4>
+                      <div className="info"><BsInfoCircle /> </div>
 
+                    </div>
+                    <div className="midB">
+                      <h3>{balance} SZT </h3>
+                    </div>
+                    <div className="botB">
+                      <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                      <p>	&nbsp; &nbsp; +  1550K this week</p>
+                    </div>
                   </div>
-                  <div className="midB">
-                    <h3>{balance} SZT </h3>
-                  </div>
-                  <div className="botB">
-                    <p><BsArrowUpRight /> 	&nbsp; 26% </p>
-                    <p>	&nbsp; &nbsp; +  1550K this week</p>
-                  </div>
+
                 </div>
+                <div className="b2">
+                  <div className="b1In">
+                    <div className="topB">
+                      <div className="border"><DiStreamline width={50} height={50} color="#fff" /></div>
+                      <h4>Current SZT Price</h4>
+                      <div className="info"> <BsInfoCircle color='#fff' /></div>
 
-              </div>
-              <div className="b2">
-                <div className="b1In">
-                  <div className="topB">
-                    <div className="border"><DiStreamline width={50} height={50} color="#fff" /></div>
-                    <h4>Current SZT Price</h4>
-                    <div className="info"> <BsInfoCircle color='#fff' /></div>
+                    </div>
+                    <div className="midB">
+                      <h3>{currentSZT_Price} DAI </h3>
+                    </div>
+                    <div className="botB">
+                      <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                      <p>	&nbsp; &nbsp; +  1550K this week</p>
+                    </div>
+                  </div>
 
-                  </div>
-                  <div className="midB">
-                    <h3>{currentSZT_Price} DAI </h3>
-                  </div>
-                  <div className="botB">
-                    <p><BsArrowUpRight /> 	&nbsp; 26% </p>
-                    <p>	&nbsp; &nbsp; +  1550K this week</p>
-                  </div>
                 </div>
+                <div className="b3">
+                  <div className="b1In">
+                    <div className="topB">
+                      <div className="border"><BsPeople color='#fff' /></div>
+                      <h4>Issued SZT till Date</h4>
+                      <div className="info"> <BsInfoCircle color='#fff' /></div>
 
-              </div>
-              <div className="b3">
-                <div className="b1In">
-                  <div className="topB">
-                    <div className="border"><BsPeople color='#fff' /></div>
-                    <h4>Issued SZT till Date</h4>
-                    <div className="info"> <BsInfoCircle color='#fff' /></div>
+                    </div>
+                    <div className="midB">
+                      <h3>{issued} SZT </h3>
+                    </div>
+                    <div className="botB">
+                      <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                      <p>	&nbsp; &nbsp; +  1550K this week</p>
+                    </div>
+                  </div>
 
-                  </div>
-                  <div className="midB">
-                    <h3>{issued} SZT </h3>
-                  </div>
-                  <div className="botB">
-                    <p><BsArrowUpRight /> 	&nbsp; 26% </p>
-                    <p>	&nbsp; &nbsp; +  1550K this week</p>
-                  </div>
                 </div>
+                <div className="b4">
+                  <div className="b1In">
+                    <div className="topB">
+                      <div className="border"><MdAccountBalanceWallet color='#fff' /></div>
+                      <h4>My Balance</h4>
+                      <div className="info"> <BsInfoCircle color='#fff' /></div>
 
-              </div>
-              <div className="b4">
-                <div className="b1In">
-                  <div className="topB">
-                    <div className="border"><MdAccountBalanceWallet color='#fff' /></div>
-                    <h4>My Balance</h4>
-                    <div className="info"> <BsInfoCircle color='#fff' /></div>
+                    </div>
+                    <div className="midB">
+                      <h3>{balance} SZT </h3>
+                    </div>
+                    <div className="botB">
+                      <p><BsArrowUpRight /> 	&nbsp; 26% </p>
+                      <p>	&nbsp; &nbsp; +  1550K this week</p>
+                    </div>
+                  </div>
 
-                  </div>
-                  <div className="midB">
-                    <h3>{balance} SZT </h3>
-                  </div>
-                  <div className="botB">
-                    <p><BsArrowUpRight /> 	&nbsp; 26% </p>
-                    <p>	&nbsp; &nbsp; +  1550K this week</p>
-                  </div>
                 </div>
-
               </div>
-            </div>
 
 
 
-            <div className="outer-stake">
-              <div className="Stake">
-                <div className="stake_title">
-                  <h3>Buy SZT Token</h3>
-                  {/* <span>
+              <div className="outer-stake">
+                <div className="Stake">
+                  <div className="stake_title">
+                    <h3>Buy SZT Token</h3>
+                    {/* <span>
                     Contract Address: <h5>{account}</h5>{" "}
                   </span> */}
-                  <button onClick={MintDAI}>
-                    Mint 999 DAI
-                  </button>
-                </div>
+                    <button onClick={MintDAI}>
+                      Mint 100000 DAI
+                    </button>
+                  </div>
 
-                <div className="stake-bot">
-                  <div className="stake-box">
-                    <div className="stake-top">
-                      <img src={safezen} alt="" />
-                      <div className="stake-top-title">
-                        <h3>SafeZen (SZT)</h3>
-                        <p>Native Platform Token</p>
-                      </div>
-                      <div className="eth">
-                        <img src={Ethrum} alt="" />
-                      </div>
-                    </div>
-                    <div className="stake-bott">
-                      <div className="stake-input">
-                        <div className="stake-input-lim">
-                          <h4>Amount</h4>
-                          <h4>Max</h4>
+                  <div className="stake-bot">
+                    <div className="stake-box">
+                      <div className="stake-top">
+                        <img src={safezen} alt="" />
+                        <div className="stake-top-title">
+                          <h3>SafeZen (SZT)</h3>
+                          <p>Native Platform Token</p>
                         </div>
-                        <div className="stake_input">
-                          <input
-                            type="text"
-                            placeholder="Amount"
-                            onChange={(event) => {
-                              setAmount(event.target.value);
-                            }}
-                          />
-                          <span>SZT</span>
+                        <div className="eth">
+                          <img src={Ethrum} alt="" />
                         </div>
                       </div>
-                      <div className="buy-button">
-                        <button onClick={ApprovetoBuy}>
-                          Approve {needtoApprove} DAI
-                        </button>
-                        <button onClick={Buy}>
-                          {loading ? <Loader /> : "Buy"}
-                        </button>
-                      </div>
-                      <div className="time">
-                        <div className="time1">1</div>
-                        <div className="time2">2</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="stake-box">
-                    Coming Soon
-                    {/* <div className="transaction-Details">
-                      <h4>Transaction History </h4>
-                      <Transaction />
-                    </div> */}
-                  </div>
-                </div>
-                <div className="sell-tit">
-                  <h3>Sell SZT Token</h3>
-                </div>
-
-                <div className="stake-bot">
-                  <div className="stake-box">
-                    <div className="sell">
-                      <h3>Sell SZT Token</h3>
-                      <div className="selectStake">
-                        <input
-                          type="text"
-                          placeholder="Enter no of tokens"
-                          onChange={(event) => {
-                            setSellamount(event.target.value);
-                          }}
-                        />
-                        <span>SZT</span>
-                      </div>
-                      <div className="sell-button">
-                        <button onClick={ApprovetoSell}>Approve</button>
-                        <button id="sellbtn" onClick={SellToken}>
-                          Sell
-                        </button>
-                      </div>
-                      <div className="time-sell">
+                      <div className="stake-bott">
+                        <div className="stake-input">
+                          <div className="stake-input-lim">
+                            <h4>Amount</h4>
+                            <h4>Max</h4>
+                          </div>
+                          <div className="stake_input">
+                            <input
+                              type="text"
+                              placeholder="Amount"
+                              onChange={(event) => {
+                                setAmount(event.target.value);
+                              }}
+                            />
+                            <span>SZT</span>
+                          </div>
+                        </div>
+                        <div className="buy-button">
+                          <button onClick={ApprovetoBuy}>
+                            Approve {needtoApprove} DAI
+                          </button>
+                          <button onClick={Buy}>
+                            {loading ? <Loader /> : "Buy"}
+                          </button>
+                        </div>
                         <div className="time">
                           <div className="time1">1</div>
                           <div className="time2">2</div>
                         </div>
                       </div>
                     </div>
+                    <div className="stake-box">
+                      Coming Soon
+                      {/* <div className="transaction-Details">
+                      <h4>Transaction History </h4>
+                      <Transaction />
+                    </div> */}
+                    </div>
                   </div>
-                  <div className="stake-box">
-                    Coming Soon
-                    {/* <div className="approve-szt" onClick={SellToken}>
+                  <div className="sell-tit">
+                    <h3>Sell SZT Token</h3>
+                  </div>
+
+                  <div className="stake-bot">
+                    <div className="stake-box">
+                      <div className="sell">
+                        <h3>Sell SZT Token</h3>
+                        <div className="selectStake">
+                          <input
+                            type="text"
+                            placeholder="Enter no of tokens"
+                            onChange={(event) => {
+                              setSellamount(event.target.value);
+                            }}
+                          />
+                          <span>SZT</span>
+                        </div>
+                        <div className="sell-button">
+                          <button onClick={ApprovetoSell}>Approve</button>
+                          <button id="sellbtn" onClick={SellToken}>
+                            Sell
+                          </button>
+                        </div>
+                        <div className="time-sell">
+                          <div className="time">
+                            <div className="time1">1</div>
+                            <div className="time2">2</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="stake-box">
+                      Coming Soon
+                      {/* <div className="approve-szt" onClick={SellToken}>
                       <span>Approve SZT</span>
                     </div>
                     <div className="timeline">
@@ -490,10 +493,10 @@ export default function Sell_Stake() {
                     <div className="transfer-szt">
                       <span>Transfer SZT</span>
                     </div> */}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
         </div>

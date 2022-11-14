@@ -49,11 +49,8 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
 
     const ActivateInsurance=async()=>{
       var Activate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
-      // const protID = new ethers.Contract(ProtocolRegistry, ProtocolRegistryABI, provider);
-      // var n = await protID.protocolID()
-      // console.log(n.toString())
-      // var s= n.toString()
-      const trans = Activate.activateInsurance(`${ActivateInsuranceAmount*1e18}`,key)
+      const oneEther = ethers.utils.parseUnits(`${ActivateInsuranceAmount}`, "ether");
+      const trans = Activate.activateInsurance(oneEther,key)
     }
 
 (    async()=>{
@@ -66,11 +63,13 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
 
     const AddInsured=async()=>{
       var Activate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
-      const trans = await Activate.addInsuranceAmount(`${Addinsured*1e18}`, key)
+      const oneEther = ethers.utils.parseUnits(`${Addinsured}`, "ether");
+      const trans = await Activate.addInsuranceAmount(oneEther, key)
     }
     const SubtractInsured=async()=>{
       var Activate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
-      const trans = await Activate.minusInsuranceAmount(`${Subinsured * 1e18}`, key)
+      const oneEther = ethers.utils.parseUnits(`${Subinsured}`, "ether");
+      const trans = await Activate.minusInsuranceAmount(oneEther, key)
     }
     const Deactivate=async()=>{
       var deactivate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);

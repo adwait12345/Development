@@ -1,162 +1,160 @@
-.Community{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  color: #fff;
-}
-
-.top-community{
-  display: flex;
-  width: 80%;
-  height: 400px;
-}
-
-.top-community-left{
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  justify-content: center;
-}
-
-
-
-.top-community-left-top{
-  display: flex;
-    width: 315px;
-    justify-content: space-between;}
-
-.top-community-left-top-left img{
-width: 90px;
-height: 90px;
-object-fit: contain;
-border-radius: 100%;
-}
-
-.top-community-left-top-right{
- display: flex;
- flex-direction: column;
-text-align: left;
-
-}
-.top-community-left-top-right h1{
-  font-size: 50px;
-  font-family: "Poppins";
-  font-weight: 300;
-  margin: 0;
-  line-height: 65px;
-}
-
-.top-community-left-top-right h2 {
-  font-size: 30px;
-  font-family: "Poppins";
-  font-weight: 500;
-  margin: 0;
-  line-height: 10px;
-}
-
-.top-community-content{
-  max-width: 615px;
-}
-.top-community-content p{
+.Community {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     font-family: "Poppins";
-    font-size: 15px;
-    font-weight: 200;
+    height: 100vh;
 }
 
-.top-community-right {
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.perks{
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  border-radius: 10px;
-  background-color: #1e1e1e;
- padding-left: 10px;
- padding-right: 10px;
+.top-community {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    align-items: center;
+    height: 500px;
 }
 
-.risk-rating{
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
+.left-community {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.risk-rating button{
-  border: none;
-  border-radius: 5px;
-  font-family: "Poppins";
-  color: #fff;
-  background-color: var(--Green-buttons);
+.statics-container {
+    display: flex;
+    flex-direction: column;
+    width: 275px;
+    box-shadow: rgb(0 0 0 / 9%) 0px 3px 12px;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.protocol-code-quality,.maturity,.protocol-design{
+.top-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-stats button {
+    font-family: "Poppins";
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid #cecece;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bet-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bet-stats {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #363636;
 }
 
-.protocol-code-quality button,
-.maturity button,
-.protocol-design button {
-  border: none;
-  border-radius: 2px;
-  font-family: "Poppins";
-  color: #fff;
-  background-color: var(--Green-buttons);
-  padding: 4px;
+.end-bet-stats {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.bet-community {
-  display: flex;
-  width: 80%;
-  align-items: center;
-  justify-content: space-between;
+.right-community {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-.bet-community-left{
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-align-items: flex-start;  
+.bot-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-.bet-community-left-top h1{
-font-weight: 300;
-}
-.bet-community-left-top{
-  width: 615px;
-}
-.bet-community-left-end{
-    width: 815px;
-}
-.bet-community-left-end h2{
-  font-size: 16px;
-  font-weight: 500;
-}
-.bet-community-left-end p{
-    font-family: "Poppins";
-      font-size: 14px;
-      font-weight: 200;
-      color: #757575;
+.bet-stats img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 
-.bet-community-right {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
+.top-bet-stats-right {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    height: 60px;
+    color: var(--Green-buttons);
 }
 
-.bot-community{
-  display: flex;
-  flex-direction: column;
+.top-bet-stats-right span {
+    display: flex;
+    align-items: center;
+
+}
+
+.end-bet-stats-right {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    height: 60px;
+    color: var(--Green-buttons);
+}
+
+.end-bet-stats-right span {
+    display: flex;
+    align-items: center;
+
+}
+
+.data-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.data-container-top{
+    width: 85%;
+    background: linear-gradient(77deg, rgb(0, 100, 236) 0%, rgb(51, 170, 255) 100%);       flex: 1;
+    border-radius: 10px;
+    padding: 20px;
+        box-shadow: rgb(0 0 0 / 9%) 0px 3px 12px;
+        margin: 10px;
+        
+}
+.data-container-end{
+    width: 85%;
+    flex: 1;
+    margin: 10px;
+        box-shadow: rgb(0 0 0 / 9%) 0px 3px 12px;
+            border-radius: 10px;
+                padding: 20px;
+}
+
+.data-container-top-t{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: #fff;
+    
+}
+
+.data-container-top-t img{
+   /* filter: invert(); */
+   width: 80px;
+   height: 80px;
+}
+.data-container-end-e{
+    color: #fff;
 }

@@ -77,22 +77,26 @@ const dispatch=useDispatch()
   const ApproveDaI= async()=>{
 
     var DAIPOST = new ethers.Contract(DAI, ERC20ABI, signer);
-    var trans = await DAIPOST.approve(SwapDAI,`${ swapDAIamount*1e18}`)
+    const oneEther = ethers.utils.parseUnits(`${swapDAIamount}`, "ether");
+    var trans = await DAIPOST.approve(SwapDAI,oneEther)
   
   } 
  const Swap_DAI=async()=>{
    var DAIPOST = new ethers.Contract(SwapDAI, Swap_DaiABI, signer);
-   var trans = await DAIPOST.swapDAI( `${swapDAIamount * 1e18}`)
+   const oneEther = ethers.utils.parseUnits(`${swapDAIamount}`, "ether");
+   var trans = await DAIPOST.swapDAI(oneEther)
    console.log(trans)
  }
 
  const ApproveSZTDAI=async()=>{
    var sztDAIPOST = new ethers.Contract(SwapsztDAI, ERC20ABI, signer);
-   var trans = await sztDAIPOST.approve(SwapDAI, `${swapsztDAIamount * 1e18}`)
+   const oneEther = ethers.utils.parseUnits(`${swapsztDAIamount}`, "ether");
+   var trans = await sztDAIPOST.approve(SwapDAI, oneEther)
  }
  const SwapSztDAI=async()=>{
    var sztDAIPOST = new ethers.Contract(SwapDAI, Swap_DaiABI, signer);
-   var trans = await sztDAIPOST.swapsztDAI( `${swapsztDAIamount * 1e18}`)
+   const oneEther = ethers.utils.parseUnits(`${swapsztDAIamount}`, "ether");
+   var trans = await sztDAIPOST.swapsztDAI(oneEther)
  }
 
 

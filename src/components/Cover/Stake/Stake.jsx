@@ -62,7 +62,8 @@ const signer = provider.getSigner();
     const ApproveStakingSZT = async()=>{
         const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
         var SZTPOST = new ethers.Contract(SZT_Token, ERC20ABI, signer);
-        var trans = await SZTPOST.approve(SZTStakingContract, `${SupplyAmount*1e18}`)
+        const oneEther = ethers.utils.parseUnits(`${SupplyAmount}`, "ether");
+        var trans = await SZTPOST.approve(SZTStakingContract, oneEther)
     }
 
     const StakeSZT = async () => {
@@ -70,10 +71,8 @@ const signer = provider.getSigner();
 
         const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
         var SZTPOST = new ethers.Contract(SZTStakingContract, SZTStakingABI, signer);
-        const gen1 = await SZTPOST.stakeSZT(`${SupplyAmount * 1e18}`
-
-           
-        )
+        const oneEther = ethers.utils.parseUnits(`${SupplyAmount}`, "ether");
+        const gen1 = await SZTPOST.stakeSZT(oneEther)
 
 
     }
@@ -82,7 +81,8 @@ const signer = provider.getSigner();
 
         const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
         var SZTPOST = new ethers.Contract(SZTStakingContract, SZTStakingABI, signer);
-        const gen1 = await SZTPOST.withdrawSZT(`${WithdrawAmount*1e18}` )
+        const oneEther = ethers.utils.parseUnits(`${WithdrawAmount}`, "ether");
+        const gen1 = await SZTPOST.withdrawSZT(oneEther)
 
 
     }

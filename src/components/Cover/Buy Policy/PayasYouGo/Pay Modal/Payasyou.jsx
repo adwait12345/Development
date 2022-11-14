@@ -43,9 +43,11 @@ export default function Payasyou({ setZeroOpen }) {
     const ApproveUnderwrite= async()=>{
         const SZT_SIGNER = new ethers.Contract(SZT_Token, ERC20ABI, signer);
         const GSZT_SIGNER = new ethers.Contract(GSZTToken, ERC20ABI, signer);
+        const oneEther = ethers.utils.parseUnits(`${UnderAmt}`, "ether");
+
         var approveSZT = await SZT_SIGNER.approve(
             CoveragePool,
-            `${UnderAmt * 1000000000000000000}`
+            oneEther
         );
         //Approving GSZT
         // const GSZT = async () => {
@@ -61,7 +63,8 @@ export default function Payasyou({ setZeroOpen }) {
    )
     const Underwrite= async()=>{
         var SZTPOST = new ethers.Contract(CoveragePool, CoveragePoolABI, signer);
-        var trans = await SZTPOST.underwrite(`${UnderAmt * 1e18}`, `${keys.keys}`)
+        const oneEther = ethers.utils.parseUnits(`${UnderAmt}`, "ether");
+        var trans = await SZTPOST.underwrite(oneEther, `${keys.keys}`)
     }
 
     const provider = new ethers.providers.Web3Provider(window.ethereum)
