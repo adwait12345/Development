@@ -64,7 +64,7 @@ export default function ComingSoon() {
             the world's first zero premium  and pay-as-you-go insurance  products based on risk-based coverage pools.
           </h4>
           <form className="input-CS" onSubmit={(e) => submit(e)} >
-            <input type="email" placeholder='Please enter your email address' onChange={(e) => handle(e)} value={data.email} id="email" required disabled={verefied} />
+            <input type="email" placeholder='Please enter your email address'  onChange={(e) => handle(e)} value={data.email} id="email" required disabled={verefied} />
             <button disabled={verefied}>Notify Me</button>
 
           </form>         

@@ -327,6 +327,7 @@
     align-self: start;
     flex-direction: column;
     text-align: left;
+    height: 100%;
 }
 
 .sell h3 {
@@ -361,18 +362,19 @@
 }
 
 .sell-button button {
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    color: #fff;
-    background-color: #10BB35;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 25px 0 0 0;
-    font-weight: bolder;
-    font-size: medium;
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+        border: none;
+        color: #fff;
+        background-color: #10BB35;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bolder;
+        font-size: medium;
 }
 
 /* background: linear-gradient(45deg, black, transparent); */

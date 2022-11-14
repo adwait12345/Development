@@ -113,14 +113,19 @@
 
 }
 .stake_title  button{
-    width: 150px;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    background-color: var(--Green-buttons);
-    color :white;
     font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
+        width: 165px;
+        height: 50px;
+        border-radius: 10px;
+        border: none;
+        color: #fff;
+        background-color: #10BB35;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bolder;
+        font-size: medium;
 }
 
 /* Mobile  */

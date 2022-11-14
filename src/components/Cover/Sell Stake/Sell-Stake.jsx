@@ -81,12 +81,16 @@ export default function Sell_Stake() {
   const [sellamount, setSellamount] = useState("");
   const [issuedTokens, setIssuedTokens] = useState("");
   const [confirmations, setConfirmations] = useState(false);
-  const [loading, setloading] = useState(false);
   const [issued, setIssued] = useState("");
   const [issued1, setIssued1] = useState("");
   const [currentSZT_Price, setCurrentSZT_Price] = useState("");
   const [needtoApprove, setNeedtoApprove] = useState("");
   const [request, setRequest] = useState("Request Sell");
+  const [loadingBuy, setloadingBuy] = useState(false);
+  const [loadingMint,setloadingMint] =useState(false)
+  const [loadingDAI,setloadingDAI] =useState(false)
+  const [loadingSZT, setloadingSZT] = useState(false)
+  const [loadingSell,setloadingSell]= useState(false)
 
   // Moralis Hooks.
   var {
@@ -177,14 +181,32 @@ export default function Sell_Stake() {
 
   // Approve DAI Before Buying SZT.
   const ApprovetoBuy = async () => {
-    // const test1 = ethers.utils.parseUnits(`${needtoApprove}`, decimals);
-    const oneEther = ethers.utils.parseUnits(`${needtoApprove}`, "ether");
+    try {
+      setloadingDAI(true)
+          const oneEther = ethers.utils.parseUnits(`${needtoApprove}`, "ether");
 
     var approveDAI = await DAI_SIGNER.approve(BuySell, oneEther);
+      // Waiting for Confirmation Recipt
+      var receipt = await approveDAI.wait();
+
+      console.log(receipt.confirmations);
+      if (receipt.confirmations > 0) {
+        setConfirmations(true);
+        setloadingDAI(false);
+
+    } }
+    catch (error) {
+      console.log(error)
+      setloadingDAI(false);
+
+    }
+
   };
 
   // Approve SZT & GSZT Before selling it.
   const ApprovetoSell = async () => {
+    try {
+      setloadingSZT(true)
     const oneEther = ethers.utils.parseUnits(`${sellamount}`, "ether");
 
     var approveSZT = await SZT_SIGNER.approve(
@@ -192,19 +214,32 @@ export default function Sell_Stake() {
      oneEther
     );
     //Approving GSZT
-    const GSZT = async () => {
-      var approveGSZT = await GSZT_SIGNER.approve(
+    var approveGSZT = await GSZT_SIGNER.approve(
         BuySell,
-        oneEther
-      );
-    };
-    GSZT();
+        oneEther)
+     
+      
+
+      // Waiting for Confirmation Recipt
+      var receipt = await approveSZT.wait();
+      var reciept2 = await approveGSZT.wait();
+      console.log(receipt.confirmations);
+      if (receipt.confirmations > 0 && reciept2.confirmations>0) {
+        setConfirmations(true);
+        setloadingSZT(false)
+      }
+    } catch (error) {
+      console.log(error)
+      setloadingSZT(false)
+
+    }
+
   };
 
   // Function to BuySZT
   const Buy = async () => {
     try {
-      setloading(true);
+      setloadingBuy(true);
       const oneEther = ethers.utils.parseUnits(`${amount}`, "ether");
       // console.log(oneEther.toString())
       var trans = await BUY_SELL_SIGNER.buySZTToken(oneEther);
@@ -215,10 +250,10 @@ export default function Sell_Stake() {
       console.log(receipt.confirmations);
       if (receipt.confirmations > 0) {
         setConfirmations(true);
-        setloading(false);
+        setloadingBuy(false);
       }
     } catch (error) {
-      setloading(false);
+      setloadingBuy(false);
       console.log(error);
     }
   };
@@ -226,6 +261,7 @@ export default function Sell_Stake() {
   // Function to SellSZT
   const SellToken = async () => {
     try {
+      setloadingSell(true)
       const oneEther = ethers.utils.parseUnits(`${sellamount}`, "ether");
 
       var sell = await BUY_SELL_SIGNER.sellSZTToken(oneEther);
@@ -237,10 +273,12 @@ export default function Sell_Stake() {
       console.log(receipt.confirmations);
       if (receipt.confirmations > 0) {
         setConfirmations(true);
+        setloadingSell(false)
         // Request();
       }
     } catch (error) {
       console.log(error);
+      setloadingSell(false)
     }
   };
 
@@ -262,11 +300,27 @@ export default function Sell_Stake() {
   // console.log(oneEther)
 
   const MintDAI = async () => {
+    try {
+      setloadingMint(true);
     const oneEther = ethers.utils.parseUnits(`${100000}`, "ether");
 
     const DAIGET = new ethers.Contract(DAI, FakeCoinABI, provider);
     var DAIPOST = new ethers.Contract(DAI, FakeCoinABI, signer);
     const gen = await DAIPOST.mint(account, oneEther)
+      // Waiting for Confirmation Recipt
+      var receipt = await gen.wait();
+
+      console.log(receipt.confirmations);
+      if (receipt.confirmations > 0) {
+        setConfirmations(true);
+        setloadingMint(false);
+    } }
+    catch (error) {
+      console.log(error);
+      setloadingMint(false);
+
+    }
+
   }
   // // Testing Function
   // const RequestSell = async () => {
@@ -391,7 +445,7 @@ export default function Sell_Stake() {
                     Contract Address: <h5>{account}</h5>{" "}
                   </span> */}
                     <button onClick={MintDAI}>
-                      Mint 100000 DAI
+                      {loadingMint ? <Loader /> :"Mint 100000 DAI"} 
                     </button>
                   </div>
 
@@ -426,10 +480,10 @@ export default function Sell_Stake() {
                         </div>
                         <div className="buy-button">
                           <button onClick={ApprovetoBuy}>
-                            Approve {needtoApprove} DAI
+                            {loadingDAI ? <Loader /> : `Approve ${needtoApprove} DAI`}    
                           </button>
                           <button onClick={Buy}>
-                            {loading ? <Loader /> : "Buy"}
+                            {loadingBuy ? <Loader /> : "Buy"}
                           </button>
                         </div>
                         <div className="time">
@@ -465,9 +519,9 @@ export default function Sell_Stake() {
                           <span>SZT</span>
                         </div>
                         <div className="sell-button">
-                          <button onClick={ApprovetoSell}>Approve</button>
+                          <button onClick={ApprovetoSell}> {loadingSZT ? <Loader/> :"Approve"}</button>
                           <button id="sellbtn" onClick={SellToken}>
-                            Sell
+                            {loadingSell?<Loader/>:"Sell"}
                           </button>
                         </div>
                         <div className="time-sell">
