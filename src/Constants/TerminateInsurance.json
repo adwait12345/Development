@@ -12,6 +12,16 @@
     },
     {
       "inputs": [],
+      "name": "CFATokenStreamTransactionFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "StopCFAFlowCallFailedError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
       "name": "TransactionFailedError",
       "type": "error"
     },
@@ -74,41 +84,20 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "_CFA",
-      "outputs": [
-        {
-          "internalType": "contract ICFA",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
           "internalType": "address",
-          "name": "_userAddress",
-          "type": "address"
-        }
-      ],
-      "name": "cancelGelatoTask",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_userAddress",
+          "name": "userAddress",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
@@ -118,34 +107,26 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "counter",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
           "internalType": "address",
-          "name": "_userAddress",
+          "name": "userAddress",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
       "name": "createGelatoProtocolSpecificTask",
       "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "payable",
       "type": "function"
     },
     {
@@ -162,58 +143,66 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "gelatoResolver",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "canExec",
-          "type": "bool"
-        },
-        {
-          "internalType": "bytes",
-          "name": "execPayload",
-          "type": "bytes"
-        }
-      ],
-      "stateMutability": "pure",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
           "internalType": "address",
-          "name": "_userAddress",
+          "name": "userAddress",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
-      "name": "gelatoSpecificProtocolStopFlow",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "name": "gelatoResolver",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
         {
           "internalType": "address",
-          "name": "",
+          "name": "userAddress",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
+          "type": "uint256"
         }
       ],
-      "name": "majorTaskID",
+      "name": "gelatoSpecificProtocolStopFlow",
       "outputs": [
         {
-          "internalType": "bytes32",
+          "internalType": "bool",
           "name": "",
-          "type": "bytes32"
+          "type": "bool"
         }
       ],
-      "stateMutability": "view",
+      "stateMutability": "payable",
       "type": "function"
     },
     {
@@ -284,37 +273,13 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_CFAAddress",
+          "name": "constantFlowContractAddress",
           "type": "address"
         }
       ],
       "name": "setCFAAddress",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "taskID",
-      "outputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     },
     {

@@ -1,4 +1,4 @@
-[
+ [
     {
       "inputs": [],
       "name": "ActiveInsuranceExistError",
@@ -93,7 +93,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
@@ -111,7 +116,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
@@ -126,6 +136,11 @@
           "internalType": "address",
           "name": "userAddress",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "categoryID",
+          "type": "uint256"
         }
       ],
       "name": "calculateTotalFlowMade",
@@ -145,6 +160,11 @@
           "internalType": "address",
           "name": "userAddress",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "categoryID",
+          "type": "uint256"
         }
       ],
       "name": "closeAllStream",
@@ -167,7 +187,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
@@ -191,7 +216,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolCount",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "insuranceCount",
           "type": "uint256"
         }
       ],
@@ -239,7 +269,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
@@ -293,7 +328,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
@@ -317,7 +357,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
@@ -341,7 +386,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "categoryID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subCategoryID",
           "type": "uint256"
         }
       ],
@@ -445,6 +495,11 @@
         {
           "internalType": "uint256",
           "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "categoryID",
           "type": "uint256"
         }
       ],

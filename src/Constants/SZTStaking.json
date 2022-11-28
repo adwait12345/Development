@@ -8,7 +8,7 @@
         },
         {
           "internalType": "address",
-          "name": "_SZTTokenAddress",
+          "name": "_tokenAddressSZT",
           "type": "address"
         }
       ],
@@ -45,36 +45,74 @@
       "type": "event"
     },
     {
-      "inputs": [],
-      "name": "GSZTToken",
-      "outputs": [
+      "anonymous": false,
+      "inputs": [
         {
-          "internalType": "contract IERC20",
-          "name": "",
+          "indexed": true,
+          "internalType": "address",
+          "name": "userAddress",
           "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
         }
       ],
-      "stateMutability": "view",
-      "type": "function"
+      "name": "StakedSZT",
+      "type": "event"
     },
     {
-      "inputs": [],
-      "name": "SZTToken",
-      "outputs": [
+      "anonymous": false,
+      "inputs": [
         {
-          "internalType": "contract IERC20",
-          "name": "",
+          "indexed": true,
+          "internalType": "address",
+          "name": "userAddress",
           "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
         }
       ],
-      "stateMutability": "view",
-      "type": "function"
+      "name": "UnstakedSZT",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "UpdatedMinStakingAmount",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "timeInMinutes",
+          "type": "uint256"
+        }
+      ],
+      "name": "UpdatedWithdrawTimer",
+      "type": "event"
     },
     {
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_value",
+          "name": "value",
           "type": "uint256"
         }
       ],
@@ -90,46 +128,8 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_value",
-          "type": "uint256"
-        }
-      ],
-      "name": "buyAndStakeSZT",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "inputs": [],
-      "name": "buySellContract",
-      "outputs": [
-        {
-          "internalType": "contract IBuySellSZT",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "userAddress",
-          "type": "address"
-        }
-      ],
-      "name": "getUserBalance",
+      "name": "getStakerRewardInfo",
       "outputs": [
         {
           "internalType": "uint256",
@@ -142,7 +142,7 @@
     },
     {
       "inputs": [],
-      "name": "minStakeValue",
+      "name": "getUserStakedSZTBalance",
       "outputs": [
         {
           "internalType": "uint256",
@@ -177,7 +177,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_time",
+          "name": "timeInMinutes",
           "type": "uint256"
         }
       ],
@@ -190,7 +190,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_value",
+          "name": "value",
           "type": "uint256"
         }
       ],
@@ -235,7 +235,20 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_value",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateMinimumStakeAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "value",
           "type": "uint256"
         }
       ],

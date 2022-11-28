@@ -1,203 +1,199 @@
+.addprotocol {
+  display: flex;
+  justify-self: flex-end;
 
-.addprotocol{
-    display: flex;
-    justify-self: flex-end;
-  
-    width: 95%;
+  width: 95%;
 }
-.addprotocol input{
-    width: 100%;
-    margin-right: 10px;
-    border-radius: 10px;
-     font-family: 'Montserrat', sans-serif;
-     border: none;
-     color: var(--tertiary-text);
-     padding-left: 10px;
-     background-color: var(--placeholder-color);
+.addprotocol input {
+  width: 100%;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  color: var(--tertiary-text);
+  padding-left: 10px;
+  background-color: var(--placeholder-color);
 }
-.addprotocol button{
-    width: 160px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  
-     font-family: 'Montserrat', sans-serif;
-     color: var(--primary-text);
-     background-color: var(--Green-buttons);
-     cursor: pointer;
+.addprotocol button {
+  width: 160px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-text);
+  background-color: var(--Green-buttons);
+  cursor: pointer;
 }
 .Payasyou {
-    width: 95%;
-    color: var(--primary-text);
-    background-color: var(--buy-policy-background);
-    /* padding: 25px; */
-    border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
-    margin-top: 30px;
-     box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-     /* height: 100vh; */
+  width: 95%;
+  color: var(--primary-text);
+  background-color: var(--buy-policy-background);
+  /* padding: 25px; */
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 30px;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  /* height: 100vh; */
 }
 
 .selectPlatform-top {
-    display: grid;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1E1E1E;
-    border-radius: 10px;
-        grid-template-columns: auto auto auto auto auto;
-    /* padding: 0px 10px 0 10px; */
+  display: grid;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  grid-template-columns: auto auto auto auto auto;
+  /* padding: 0px 10px 0 10px; */
 }
 
-.selectPlatform-top p{
-    font-size: 12px;
+.selectPlatform-top p {
+  font-size: 12px;
   flex: 1;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-    padding-left: 5px;
-        margin: 10px;
-        
-   
+  padding-left: 5px;
+  margin: 10px;
 }
 
 .selectPlatform-top svg {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .Underwrite-contract {
-    display: flex;
+  display: flex;
 }
 
 .selectPlatform-bot {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .UnCo {
-    display: grid;
-    justify-content:space-between;
-    align-items: center;
-    margin: 5px;
-    padding: 0px 10px 0 10px;
-        cursor: pointer;
-    border-radius: 10px;
-    width: 100%;
-    background-color: var(--placeholder-color);
-        grid-template-columns: auto auto auto auto auto;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  padding: 0px 10px 0 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  background-color: var(--placeholder-color);
+  grid-template-columns: auto auto auto auto auto;
 }
 
 .UnCo p {
-    display: grid;
-    flex-direction: column;
-    flex: 1;
-    justify-content: center;
-    align-items:flex-start;
+  display: grid;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .UnCo p span {
-    font-size: 12px;
-    margin-top: 3px;
-
+  font-size: 12px;
+  margin-top: 3px;
 }
 
 .UnCo:hover {
-    background-color: green;
+  background-color: green;
 }
 
 .UnCo img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin-right: 20px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 20px;
 }
-.css-11xur9t-MuiPaper-root-MuiTableContainer-root{
-    background-color: #1E1E1E !important;
-    
+.css-11xur9t-MuiPaper-root-MuiTableContainer-root {
+  background-color: #1e1e1e !important;
 }
 /* development */
-.css-13xy2my{
-        background-color: #1E1E1E !important;
+.css-13xy2my {
+  background-color: #1e1e1e !important;
 }
 
-.css-1bigob2{
-    font-family: 'Montserrat', sans-serif !important;
-        color: #fff !important;
-        border-bottom: 1px solid #363636 !important;
+.css-1bigob2 {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff !important;
+  border-bottom: 1px solid #363636 !important;
 }
 
-.css-1sgp6db{
-    font-family: 'Montserrat', sans-serif !important;
-        color: #fff !important;
-        border-bottom: 1px solid #363636 !important;
+.css-1sgp6db {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff !important;
+  border-bottom: 1px solid #363636 !important;
 }
-.css-q34dxg{
-        font-family: 'Montserrat', sans-serif !important;
-            color: #fff !important;
-            border-bottom: 1px solid #363636 !important;
+.css-q34dxg {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff !important;
+  border-bottom: 1px solid #363636 !important;
 }
-.css-1i36psw{
-            font-family: 'Montserrat', sans-serif !important;
-                color: #fff !important;
-                border-bottom: 1px solid #363636 !important;
+.css-1i36psw {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff !important;
+  border-bottom: 1px solid #363636 !important;
 }
 /*  */
 
-
-.css-1ygcj2i-MuiTableCell-root{
-    font-family: 'Montserrat', sans-serif !important;
-    color: #fff !important;
-    border-bottom:1px solid #363636 !important;
-}.css-1azl6jz-MuiTableCell-root{
-    font-family: 'Montserrat', sans-serif !important;
-    color: #fff !important;
-        border-bottom: 1px solid #363636 !important;
-}.css-1ex1afd-MuiTableCell-root{
-    font-family: 'Montserrat', sans-serif !important;
-    color: #fff !important;
-        border-bottom: 1px solid #363636 !important;
-}.css-177gid-MuiTableCell-root{
-    font-family: 'Montserrat', sans-serif !important;
-    color: #fff !important;
-        border-bottom: 1px solid #363636 !important;
+.css-1ygcj2i-MuiTableCell-root {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff !important;
+  border-bottom: 1px solid #363636 !important;
+}
+.css-1azl6jz-MuiTableCell-root {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff !important;
+  border-bottom: 1px solid #363636 !important;
+}
+.css-1ex1afd-MuiTableCell-root {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff !important;
+  border-bottom: 1px solid #363636 !important;
+}
+.css-177gid-MuiTableCell-root {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff !important;
+  border-bottom: 1px solid #363636 !important;
 }
 
-.TableRow:hover{
-    background-color: #262833;
+.TableRow:hover {
+  background-color: #262833;
 }
-.Tablecell svg{
-   color: #9c9c9c !important;
-   padding-top: 5px;
-   cursor: pointer;
+.Tablecell svg {
+  color: #9c9c9c !important;
+  padding-top: 5px;
+  cursor: pointer;
 }
 /* Mobile  */
-@media only screen and (max-width:799px) {
-    .selectPlatform-top h1 {
-        font-size: 25px;
-    }
-    .UnCo{
-        width: 260px;
-    }
-    .addprotocol button{
-        margin-right: 0;
-        font-size: 9px;
-    }
-    .addprotocol{
-        justify-self: center;
-        align-self: center;
-    }
-    .css-0{
-        width: 15px;
-
-    }
-    .selectPlatform-top{
-        justify-content: center;
-    }
-    .selectPlatform-bot{
-        justify-content: center;
-    }
+@media only screen and (max-width: 799px) {
+  .selectPlatform-top h1 {
+    font-size: 25px;
+  }
+  .UnCo {
+    width: 260px;
+  }
+  .addprotocol button {
+    margin-right: 0;
+    font-size: 9px;
+  }
+  .addprotocol {
+    justify-self: center;
+    align-self: center;
+  }
+  .css-0 {
+    width: 15px;
+  }
+  .selectPlatform-top {
+    justify-content: center;
+  }
+  .selectPlatform-bot {
+    justify-content: center;
+  }
 }

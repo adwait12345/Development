@@ -1,5 +1,7 @@
+// Import Libraries
 import React from 'react'
 
+// Main Function Start
 export default function Chart_Inactive_Policy() {
   return (
     <>

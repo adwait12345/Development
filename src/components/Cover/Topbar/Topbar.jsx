@@ -1,26 +1,37 @@
+// Import Libraries
 import React, { useState, useEffect } from "react";
 import "./Topbar.css";
-// import { NavLink } from 'react-router-dom'
-import Modal from "react-modal";
-import { useMoralis } from "react-moralis";
-import LoginModal from "../../Metamask Login Modal '/LoginModal";
-// import Connect_to_Wallet from '../Connect to Wallet/Connect_to_Wallet'
-import Logout from "../logout.svg";
-import Ethrum from "../Ethrum.svg";
-import polygon from "../polygon.svg";
 import { Link } from "react-router-dom";
-import Optimisms from '../Optimism.png'
-import Cronoss from '../Cronos.png'
-import Avalanchs from '../Avalanch.png'
+
+// Import Web3 Libraries
+import { useMoralis } from "react-moralis";
+
+// Import Redux
 import { useDispatch, useSelector } from "react-redux";
-import { setContract, selectedContract } from "../../../redux/action/actions";
-import { MdOutlineKeyboardArrowDown, MdOutlineArrowForwardIos } from "react-icons/md";
-import ethsvg from './svg/eth.svg'
-import optimismsvg from './svg/optimism.svg'
-import polygonsvg from './svg/polygon.svg'
+import {
+  setContract,
+  selectedContract,
+  setCurrentNetwork,
+} from "../../../redux/action/actions";
+
+// Import React Icons & Assets
+import Logout from "../logout.svg";
+import Cronoss from "../Cronos.png";
+import Avalanchs from "../Avalanch.png";
+import ethsvg from "./svg/eth.svg";
+import optimismsvg from "./svg/optimism.svg";
+import polygonsvg from "./svg/polygon.svg";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineArrowForwardIos,
+} from "react-icons/md";
+
+
 export default function Topbar(props) {
+  // Redux States Import and use
   const dispatch = useDispatch();
-  // const [open , setOpen] = useState(false)
+
+  // Moralis Hook
   const {
     enableWeb3,
     isWeb3Enabled,
@@ -31,12 +42,16 @@ export default function Topbar(props) {
     chainId,
   } = useMoralis();
 
+  ////////////////////////////////////////////////////////////////////////
+  // NETWORK CHANGING MECHANISM
+  ///////////////////////////////////////////////////////////////////////
   useEffect(() => {
-    console.log(chainId);
+    // console.log(chainId);
     if (chainId == "0x5") {
       dispatch(
         setContract({
-          ConstantFlowAgreement: process.env.REACT_APP_GOERLI_ConstantFlowAgreement,
+          ConstantFlowAgreement:
+            process.env.REACT_APP_GOERLI_ConstantFlowAgreement,
           SZT_Token: process.env.REACT_APP_GOERLI_SZT_Token,
           BuySell: process.env.REACT_APP_GOERLI_BuySell,
           GSZTToken: process.env.REACT_APP_GOERLI_GSZTToken,
@@ -71,7 +86,7 @@ export default function Topbar(props) {
         })
       );
     } else if (chainId == "0x13881") {
-      console.log("Polygon");
+      // console.log("Polygon");
 
       dispatch(
         setContract({
@@ -79,7 +94,8 @@ export default function Topbar(props) {
           BuySell: process.env.REACT_APP_POLYGON_BuySell,
           GSZTToken: process.env.REACT_APP_POLYGON_GSZTToken,
           SZT_Token: process.env.REACT_APP_POLYGON_SZT_Token,
-          ConstantFlowAgreement: process.env.REACT_APP_POLYGON_ConstantFlowAgreement,
+          ConstantFlowAgreement:
+            process.env.REACT_APP_POLYGON_ConstantFlowAgreement,
           SwapsztDAI: process.env.REACT_APP_POLYGON_SwapsztDAI,
           CoveragePool: process.env.REACT_APP_POLYGON_CoveragePool,
           ProtocolRegistry: process.env.REACT_APP_POLYGON_ProtocolRegistry,
@@ -100,16 +116,16 @@ export default function Topbar(props) {
           Aave_cWBTC: process.env.REACT_APP_POLYGON_Aave_cWBTC, // AAVE Specific
         })
       );
-    }
-    else if (chainId == "0xa869") {
-      console.log("Avalanch");
+    } else if (chainId == "0xa869") {
+      // console.log("Avalanch");
       dispatch(
         setContract({
           DAI: process.env.REACT_APP_Avalanch_DAI,
           BuySell: process.env.REACT_APP_Avalanch_BuySell,
           GSZTToken: process.env.REACT_APP_Avalanch_GSZTToken,
           SZT_Token: process.env.REACT_APP_Avalanch_SZT_Token,
-          ConstantFlowAgreement: process.env.REACT_APP_Avalanch_ConstantFlowAgreement,
+          ConstantFlowAgreement:
+            process.env.REACT_APP_Avalanch_ConstantFlowAgreement,
           SwapsztDAI: process.env.REACT_APP_Avalanch_SwapsztDAI,
           CoveragePool: process.env.REACT_APP_Avalanch_CoveragePool,
           ProtocolRegistry: process.env.REACT_APP_Avalanch_ProtocolRegistry,
@@ -130,16 +146,47 @@ export default function Topbar(props) {
           Aave_cWBTC: process.env.REACT_APP_Avalanch_Aave_cWBTC, // AAVE Specific
         })
       );
-    }
-    else if (chainId == "0x1a4") {
-      console.log("Optimism");
+    } else if (chainId == "0x1a4") {
+      // console.log("Optimism");
       dispatch(
         setContract({
           DAI: process.env.REACT_APP_COMMON_DAI,
           BuySell: process.env.REACT_APP_COMMON_BuySell,
           GSZTToken: process.env.REACT_APP_COMMON_GSZTToken,
           SZT_Token: process.env.REACT_APP_COMMON_SZT_Token,
-          ConstantFlowAgreement: process.env.REACT_APP_COMMON_ConstantFlowAgreement,
+          ConstantFlowAgreement:
+            process.env.REACT_APP_COMMON_ConstantFlowAgreement,
+          SwapsztDAI: process.env.REACT_APP_COMMON_SwapsztDAI,
+          CoveragePool: process.env.REACT_APP_COMMON_CoveragePool,
+          ProtocolRegistry: process.env.REACT_APP_COMMON_ProtocolRegistry,
+          SZTStakingContract: process.env.REACT_APP_COMMON_SZTStakingContract,
+          SwapDAI: process.env.REACT_APP_COMMON_SwapDAI,
+          ZPController: process.env.REACT_APP_COMMON_ZPController,
+          AAVE_Contract: process.env.REACT_APP_COMMON_AAVE_Contract,
+          // CompoundPool: "0x698F7212844d61180077D7620DcF25dF81300bc2",
+
+          // AAVE_Token: "0xCcbBaf8D40a5C34bf1c836e8dD33c7B7646706C5", // AAVE Specific
+          // aAAVE_Token: "0xE9C1731e1186362E2ba233BC16614b2a53ecb3F2",//, AAVE Specific
+          // Aave_DAI: "0xFc7215C9498Fc12b22Bc0ed335871Db4315f03d3", // AAVE Specific
+          // Aave_cDAI: "0xC42f40B7E22bcca66B3EE22F3ACb86d24C997CC2", // AAVE Specific
+          // Aave_USDC: "0x3E937B4881CBd500d05EeDAB7BA203f2b7B3f74f", // AAVE Specific
+          // Aave_cUSDC: "0xA79570641bC9cbc6522aA80E2de03bF9F7fd123a", // AAVE Specific
+          // Aave_ChainLink: "0x73b4C0C45bfB90FC44D9013FA213eF2C2d908D0A", // AAVE Specific
+          // Aave_cChainLink: "0x210a3f864812eAF7f89eE7337EAA1FeA1830C57e", // AAVE Specific
+          // Aave_WBTC: "0x09C85Ef96e93f0ae892561052B48AE9DB29F2458", // AAVE Specific
+          // Aave_cWBTC: "0x07B2C0b69c70e89C94A20A555Ab376E5a6181eE6", // AAVE Specific
+        })
+      );
+    } else if (chainId == "0x152") {
+      // console.log("Cronos");
+      dispatch(
+        setContract({
+          DAI: process.env.REACT_APP_COMMON_DAI,
+          BuySell: process.env.REACT_APP_COMMON_BuySell,
+          GSZTToken: process.env.REACT_APP_COMMON_GSZTToken,
+          SZT_Token: process.env.REACT_APP_COMMON_SZT_Token,
+          ConstantFlowAgreement:
+            process.env.REACT_APP_COMMON_ConstantFlowAgreement,
           SwapsztDAI: process.env.REACT_APP_COMMON_SwapsztDAI,
           CoveragePool: process.env.REACT_APP_COMMON_CoveragePool,
           ProtocolRegistry: process.env.REACT_APP_COMMON_ProtocolRegistry,
@@ -162,46 +209,16 @@ export default function Topbar(props) {
         })
       );
     }
-    else if (chainId == "0x152") {
-      console.log("Cronos");
-      dispatch(
-        setContract({
-          DAI: process.env.REACT_APP_COMMON_DAI,
-          BuySell: process.env.REACT_APP_COMMON_BuySell,
-          GSZTToken: process.env.REACT_APP_COMMON_GSZTToken,
-          SZT_Token: process.env.REACT_APP_COMMON_SZT_Token,
-          ConstantFlowAgreement: process.env.REACT_APP_COMMON_ConstantFlowAgreement,
-          SwapsztDAI: process.env.REACT_APP_COMMON_SwapsztDAI,
-          CoveragePool: process.env.REACT_APP_COMMON_CoveragePool,
-          ProtocolRegistry: process.env.REACT_APP_COMMON_ProtocolRegistry,
-          SZTStakingContract: process.env.REACT_APP_COMMON_SZTStakingContract,
-          SwapDAI: process.env.REACT_APP_COMMON_SwapDAI,
-          ZPController: process.env.REACT_APP_COMMON_ZPController,
-          AAVE_Contract: process.env.REACT_APP_COMMON_AAVE_Contract,
-          // CompoundPool: "0x698F7212844d61180077D7620DcF25dF81300bc2",
-
-          // AAVE_Token: "0xCcbBaf8D40a5C34bf1c836e8dD33c7B7646706C5", // AAVE Specific
-          // aAAVE_Token: "0xE9C1731e1186362E2ba233BC16614b2a53ecb3F2",//, AAVE Specific
-          // Aave_DAI: "0xFc7215C9498Fc12b22Bc0ed335871Db4315f03d3", // AAVE Specific
-          // Aave_cDAI: "0xC42f40B7E22bcca66B3EE22F3ACb86d24C997CC2", // AAVE Specific
-          // Aave_USDC: "0x3E937B4881CBd500d05EeDAB7BA203f2b7B3f74f", // AAVE Specific
-          // Aave_cUSDC: "0xA79570641bC9cbc6522aA80E2de03bF9F7fd123a", // AAVE Specific
-          // Aave_ChainLink: "0x73b4C0C45bfB90FC44D9013FA213eF2C2d908D0A", // AAVE Specific
-          // Aave_cChainLink: "0x210a3f864812eAF7f89eE7337EAA1FeA1830C57e", // AAVE Specific
-          // Aave_WBTC: "0x09C85Ef96e93f0ae892561052B48AE9DB29F2458", // AAVE Specific
-          // Aave_cWBTC: "0x07B2C0b69c70e89C94A20A555Ab376E5a6181eE6", // AAVE Specific
-        })
-      );
-    }
-
-
-
   }, [chainId]);
 
+  /////////////////////////////////////////////////////////////////////////
   const Handler = () => {
     props.setOpen(true);
   };
 
+  /////////////////////////////////////////////////////////////////////////
+  //CONNECT TO WALLET & LOGGING OUT
+  ////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     const connectWalletOnPageLoad = async () => {
       if (localStorage?.getItem("isWalletConnected") === "true") {
@@ -221,7 +238,9 @@ export default function Topbar(props) {
     logout();
     localStorage.setItem("isWalletConnected", false);
   };
+  ////////////////////////////////////////////////////////////////////////////
 
+  // Toggle button
   let togglestatus = true;
   const clicked = () => {
     if (togglestatus === false) {
@@ -247,6 +266,9 @@ export default function Topbar(props) {
     }
   };
 
+  //////////////////////////////////////////////////////////////////////////
+  // LISTED NETWORKS FOR SWITCHING
+  /////////////////////////////////////////////////////////////////////////
   const SwitchMainNet = async () => {
     try {
       await web3.currentProvider.request({
@@ -264,6 +286,7 @@ export default function Topbar(props) {
         method: "wallet_switchEthereumChain",
         params: [{ chainId: "0x5" }],
       });
+      dispatch(setCurrentNetwork("Eth-Goerli"));
     } catch (error) {
       alert(error.message);
     }
@@ -287,33 +310,34 @@ export default function Topbar(props) {
           },
         ],
       });
+      dispatch(setCurrentNetwork("Polygon"));
     } catch (error) {
       alert(error.message);
     }
   };
 
-   const AVALANCHE_TESTNET_PARAMS = {
-     chainId: "0xA869",
-      chainName: "Avalanche Testnet C-Chain",
-      nativeCurrency: {
-        name: "Avalanche",
-        symbol: "AVAX",
-        decimals: 18,
-      },
-      rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
-      blockExplorerUrls: ["https://testnet.snowtrace.io/"],
-    }
-    const addAvalancheNetwork=async()=> {
-
-      await web3.currentProvider.request({
-            method: "wallet_addEthereumChain",
-            params: [AVALANCHE_TESTNET_PARAMS],
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-
-    }
+  const AVALANCHE_TESTNET_PARAMS = {
+    chainId: "0xA869",
+    chainName: "Avalanche Testnet C-Chain",
+    nativeCurrency: {
+      name: "Avalanche",
+      symbol: "AVAX",
+      decimals: 18,
+    },
+    rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
+    blockExplorerUrls: ["https://testnet.snowtrace.io/"],
+  };
+  const addAvalancheNetwork = async () => {
+    await web3.currentProvider
+      .request({
+        method: "wallet_addEthereumChain",
+        params: [AVALANCHE_TESTNET_PARAMS],
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    dispatch(setCurrentNetwork("Avalanch"));
+  };
   const Optimism = {
     chainId: "0x1A4",
     chainName: "Optimism Goerli",
@@ -334,8 +358,8 @@ export default function Topbar(props) {
       .catch((error) => {
         console.log(error);
       });
+    dispatch(setCurrentNetwork("Optimism"));
   };
-
 
   const Cronos = {
     chainId: "0x152",
@@ -357,7 +381,10 @@ export default function Topbar(props) {
       .catch((error) => {
         console.log(error);
       });
+    dispatch(setCurrentNetwork("Cronos"));
   };
+
+  /////////////////////////////////////////////////////////////////////////
   return (
     <>
       <div className="outer-topbar">
@@ -372,38 +399,34 @@ export default function Topbar(props) {
                   <img src={polygonsvg} alt="" />
                   <span>+2</span>
                 </div>
-                All Networks <MdOutlineKeyboardArrowDown/>
+                All Networks <MdOutlineKeyboardArrowDown />
               </button>
               {isWeb3Enabled && (
                 <div class="dropdown-content1">
                   <a onClick={SwitchGoerli}>
                     <img width={20} src={ethsvg} alt="" />
                     Ethereum Goerli
-                    <MdOutlineArrowForwardIos color='#fff' />
+                    <MdOutlineArrowForwardIos color="#fff" />
                   </a>
                   <a onClick={SwitchPolygon}>
                     <img width={20} src={polygonsvg} alt="" />
                     Polygon Mumbai
-                    <MdOutlineArrowForwardIos color='#fff' />
-
+                    <MdOutlineArrowForwardIos color="#fff" />
                   </a>
                   <a onClick={addOptimismNetwork}>
                     <img width={20} src={optimismsvg} alt="" />
-                      Optimism Goerli
-                    <MdOutlineArrowForwardIos color='#fff' />
-
+                    Optimism Goerli
+                    <MdOutlineArrowForwardIos color="#fff" />
                   </a>
                   <a onClick={addCronosNetwork}>
                     <img width={20} src={Cronoss} alt="" />
                     Cronos Testnet
-                    <MdOutlineArrowForwardIos color='#fff' />
-
-                  </a>             
-                       <a onClick={addAvalancheNetwork}>
+                    <MdOutlineArrowForwardIos color="#fff" />
+                  </a>
+                  <a onClick={addAvalancheNetwork}>
                     <img width={20} src={Avalanchs} alt="" />
-                   Avalanch Fuji
-                    <MdOutlineArrowForwardIos color='#fff' />
-
+                    Avalanch Fuji
+                    <MdOutlineArrowForwardIos color="#fff" />
                   </a>
                 </div>
               )}

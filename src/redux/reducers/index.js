@@ -27,7 +27,9 @@ import {
   InsuranceMethodReducer,
   selectedInsuranceMethodReducer,
   selectedTransactionAddressReducer,
-  TransactionAddressReducer
+  TransactionAddressReducer,
+  selectedCurrentNetworkReducer,
+  CurrentNetworkReducer
 } from "./Reducer";
 
 const reducer = combineReducers({
@@ -59,5 +61,7 @@ const reducer = combineReducers({
   allInsuranceMethod:InsuranceMethodReducer,
   TransactionAddress:selectedTransactionAddressReducer,
   allTransactionAddress:TransactionAddressReducer,
+  CurrentNetwork:selectedCurrentNetworkReducer,
+  allCurrentNetwork:CurrentNetworkReducer,
 });
 export default reducer;

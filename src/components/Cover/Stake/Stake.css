@@ -1,260 +1,251 @@
 .outer-stake {
-    display: flex;
-    width: 100%;
-    margin-top: 40px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-
+  display: flex;
+  width: 100%;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
 }
 
 .Stake {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 
-    border-radius: 10px;
-    flex-direction: column;
-    background: var(--buy-policy-background);
-   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  flex-direction: column;
+  background: var(--buy-policy-background);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
 .stake-bot {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .stake-box {
-    width: 45%;
-    border-radius: 10px;
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 340px;
-    overflow: hidden;
-    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-    background: linear-gradient(45deg, var(--main-grad-color1), var(--main-grad-color2));
+  width: 45%;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 340px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  background: linear-gradient(
+    45deg,
+    var(--main-grad-color1),
+    var(--main-grad-color2)
+  );
 }
 
 .stake-top {
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid #757575;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #757575;
+  width: 100%;
 }
 
 .stake_title {
-    display: flex;
-    padding: 45px;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  padding: 45px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .stake_title h3 {
-    font-size: 35px;
-    margin: 0;
-    color: var(--primary-text);
+  font-size: 35px;
+  margin: 0;
+  color: var(--primary-text);
 }
 
 .stake_title span {
-    margin-left: 40px;
-    font-size: 18px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    color: var(--tertiary-text);
+  margin-left: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: var(--tertiary-text);
 }
 
 .stake_title span h5 {
-    margin-left: 10px;
-    font-weight: 200 !important;
-    color: #444444;
+  margin-left: 10px;
+  font-weight: 200 !important;
+  color: #444444;
 }
 
 .stake-top img {
-    width: 20px;
-    height: 20px;
-    margin: 20px;
-
+  width: 20px;
+  height: 20px;
+  margin: 20px;
 }
 
 .stake-top h3 {
-    margin: 0;
-    color: var(--primary-text);
+  margin: 0;
+  color: var(--primary-text);
 }
 
 .stake-top p {
-    margin: 0;
-    font-size: 13px;
-    font-style: italic;
-    color: #757575;
+  margin: 0;
+  font-size: 13px;
+  font-style: italic;
+  color: #757575;
 }
 
 .stake-top-title {
-    width: 70%;
+  width: 70%;
 }
 
 .eth img {
-    width: 20px !important;
-    justify-self: flex-end;
-    align-self: flex-end;
-    padding: 3px;
-    border-radius: 9px;
-    background-color: #fff;
-    box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
+  width: 20px !important;
+  justify-self: flex-end;
+  align-self: flex-end;
+  padding: 3px;
+  border-radius: 9px;
+  background-color: #fff;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
 }
 
 .stake-input {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .stake-input button {
-    background-color: var(--Green-buttons);
+  background-color: var(--Green-buttons);
 }
 
 .stake-input-lim {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #757575;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #757575;
 }
 
 .stake_input {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: var(--placeholder-color);
-    height: 40px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--placeholder-color);
+  height: 40px;
 }
 
 .stake-input span {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-text);
-
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-text);
 }
 
 .stake_input input {
-    border: none;
-    background-color: transparent;
-    font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    color: #757575;
+  border: none;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  color: #757575;
 }
 
 .stake-bott {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 240px;
-    justify-content: space-around;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 240px;
+  justify-content: space-around;
 }
 
-
-
-
 .approve-szt {
-    width: 80%;
-    border: 2px solid #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px 0 0px 0;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--primary-text); 
-       box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-
+  font-family: "Montserrat", sans-serif;
+  width: 85%;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  background-color: #10bb35;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: medium;
+  height: 65px;
 }
 
 .transfer-szt {
-    width: 80%;
-    border: 2px solid #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0 50px 0;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--primary-text);
-    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-
+  width: 80%;
+  border: 2px solid #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0 50px 0;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--primary-text);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
 .approve-szt:hover {
-    background-color: #10BB35;
-    color: #fff;
-    border: 2px solid #10BB35;
+  background-color: #10bb35;
+  color: #fff;
+  border: 2px solid #10bb35;
 }
 
 .transfer-szt:hover {
-    background-color: #10BB35;
-    color: #fff;
-    border: 2px solid #10BB35;
-
+  background-color: #10bb35;
+  color: #fff;
+  border: 2px solid #10bb35;
 }
 
 .timeline {
-    width: 80%;
+  width: 80%;
 }
 
 .timeline-line {
-    width: 3px;
-    height: 40px;
-    background-color: var(--timeline);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 3px;
+  height: 40px;
+  background-color: var(--timeline);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .blob {
+  border-radius: 100%;
 
-    border-radius: 100%;
-
-    position: absolute;
-
-
+  position: absolute;
 }
 
 .blob img {
-    width: 18px;
-    height: 18px;
-
+  width: 18px;
+  height: 18px;
 }
 
 .stake-bott button {
-    font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  background-color: #10bb35;
 
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    color: #fff;
-    background-color: #10BB35;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-weight: bolder;
-    font-size: medium;
+  font-weight: bolder;
+  font-size: medium;
 }
 
 /* .approve-transfer{
@@ -264,117 +255,117 @@
     justify-content: center;
 } */
 /* Mobile  */
-@media only screen and (max-width:799px) {
-    .Stake{
-        width: 100%;
-    }
-        .stake_title h3{
-            margin: 15px;
-        }
-    .stake-bot {
-        flex-direction: column;
-    }
+@media only screen and (max-width: 799px) {
+  .Stake {
+    width: 100%;
+  }
 
-    .stake-box {
-        width: 90%;
-        height: 350px;
-    }
+  .stake_title h3 {
+    margin: 15px;
+  }
 
-    .stake-bot {
-        justify-content: center;
-        align-items: center;
-    }
+  .stake-bot {
+    flex-direction: column;
+  }
 
-    .stake-bott button {
-        width: 140px;
-    }
+  .stake-box {
+    width: 90%;
+    height: 350px;
+  }
 
-    .stake_title {
-        /* flex-direction: column;
+  .stake-bot {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stake-bott button {
+    width: 140px;
+  }
+
+  .stake_title {
+    /* flex-direction: column;
         align-items: flex-start; */
-        align-items: center;
-        padding: 15px;
-    }
-    .stake_title h3{
-        font-size: 25px;
-    }
-    
+    align-items: center;
+    padding: 15px;
+  }
 
-    .stake_title span {
-        margin-left: 0;
+  .stake_title h3 {
+    font-size: 25px;
+  }
 
-        display: inline-block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 28ch;
-        display: flex;
-    }
+  .stake_title span {
+    margin-left: 0;
+
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 28ch;
+    display: flex;
+  }
 }
 
-
-
 .sell {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    /* padding: 20px; */
-    /* margin: 45px; */
-    /* border: 0.5px solid rgb(225, 223, 223); */
-    border-radius: 10px;
-    justify-self: start;
-    align-self: start;
-    flex-direction: column;
-    text-align: left;
-    height: 100%;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  /* padding: 20px; */
+  /* margin: 45px; */
+  /* border: 0.5px solid rgb(225, 223, 223); */
+  border-radius: 10px;
+  justify-self: start;
+  align-self: start;
+  flex-direction: column;
+  text-align: left;
+  height: 100%;
 }
 
 .sell h3 {
-    margin-left: 45px;
-    font-size: 20px;
-    color: var(--primary-text);
+  margin-left: 45px;
+  font-size: 20px;
+  color: var(--primary-text);
 }
 
 .selectStake {
-    width: 80%;
-    height: 40px;
-    border-radius: 10px;
-    background-color: var(--placeholder-color);
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    padding: 10px;
-    justify-self: center;
-    align-self: center;
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--placeholder-color);
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 10px;
+  justify-self: center;
+  align-self: center;
 }
 
 .selectStake span {
-    color: var(--primary-text);
+  color: var(--primary-text);
 }
 
 .selectStake input {
-    border: none;
-    background-color: transparent;
-    font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    color: #757575;
+  border: none;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  color: #757575;
 }
 
 .sell-button button {
-    font-family: 'Montserrat', sans-serif;
-        width: 200px;
-        height: 50px;
-        border-radius: 10px;
-        border: none;
-        color: #fff;
-        background-color: #10BB35;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bolder;
-        font-size: medium;
+  font-family: "Montserrat", sans-serif;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  background-color: #10bb35;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: medium;
 }
 
 /* background: linear-gradient(45deg, black, transparent); */

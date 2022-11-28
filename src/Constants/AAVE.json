@@ -43,27 +43,27 @@
       "inputs": [
         {
           "internalType": "string",
-          "name": "_protocolName",
+          "name": "protocolName",
           "type": "string"
         },
         {
           "internalType": "address",
-          "name": "_deployedAddress",
+          "name": "deployedAddress",
           "type": "address"
         },
         {
           "internalType": "bool",
-          "name": "_isCommunityGoverned",
+          "name": "isCommunityGoverned",
           "type": "bool"
         },
         {
           "internalType": "uint256",
-          "name": "_riskFactor",
+          "name": "riskFactor",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_riskPoolCategory",
+          "name": "riskPoolCategory",
           "type": "uint256"
         }
       ],
@@ -76,7 +76,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_rewardTokenAddress",
+          "name": "rewardTokenAddress",
           "type": "address"
         }
       ],
@@ -133,17 +133,17 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_tokenAddress",
+          "name": "tokenAddress",
           "type": "address"
         },
         {
           "internalType": "address",
-          "name": "_rewardTokenAddress",
+          "name": "rewardTokenAddress",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_amount",
+          "name": "amount",
           "type": "uint256"
         }
       ],
@@ -169,17 +169,17 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_tokenAddress",
+          "name": "tokenAddress",
           "type": "address"
         },
         {
           "internalType": "address",
-          "name": "_rewardTokenAddress",
+          "name": "rewardTokenAddress",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_amount",
+          "name": "amount",
           "type": "uint256"
         }
       ],

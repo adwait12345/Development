@@ -73,30 +73,51 @@ const dispatch=useDispatch()
   const [Protocol,setProtocol]=useState([])
   const [Protocolid,setProtocolid]=useState([])
   const [loading, setloading]=useState(true)
+
   // Functions
   const ApproveDaI= async()=>{
+    try {
+      var DAIPOST = new ethers.Contract(DAI, ERC20ABI, signer);
+      const oneEther = ethers.utils.parseUnits(`${swapDAIamount}`, "ether");
+      var trans = await DAIPOST.approve(SwapDAI, oneEther)
+    } catch (error) {
+      console.log(error)
+    }
 
-    var DAIPOST = new ethers.Contract(DAI, ERC20ABI, signer);
-    const oneEther = ethers.utils.parseUnits(`${swapDAIamount}`, "ether");
-    var trans = await DAIPOST.approve(SwapDAI,oneEther)
   
   } 
+
  const Swap_DAI=async()=>{
-   var DAIPOST = new ethers.Contract(SwapDAI, Swap_DaiABI, signer);
+  try {
+  var DAIPOST = new ethers.Contract(SwapDAI, Swap_DaiABI, signer);
    const oneEther = ethers.utils.parseUnits(`${swapDAIamount}`, "ether");
    var trans = await DAIPOST.swapDAI(oneEther)
    console.log(trans)
+  } catch (error) {
+    console.log(error)
+  }
+
  }
 
  const ApproveSZTDAI=async()=>{
+  try {
    var sztDAIPOST = new ethers.Contract(SwapsztDAI, ERC20ABI, signer);
    const oneEther = ethers.utils.parseUnits(`${swapsztDAIamount}`, "ether");
    var trans = await sztDAIPOST.approve(SwapDAI, oneEther)
+  } catch (error) {
+    console.log(error)
+  }
+
  }
  const SwapSztDAI=async()=>{
+  try {
    var sztDAIPOST = new ethers.Contract(SwapDAI, Swap_DaiABI, signer);
    const oneEther = ethers.utils.parseUnits(`${swapsztDAIamount}`, "ether");
    var trans = await sztDAIPOST.swapsztDAI(oneEther)
+  } catch (error) {
+    console.log(error)
+  }
+
  }
 
 

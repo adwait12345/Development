@@ -11,26 +11,24 @@
   height: 90px;
   justify-content: space-between;
   width: 100%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: var(--primary-text);
 }
 
 .top_content h1 {
   margin-left: 45px;
-
-
 }
 
-.dropbtn1  {
+.dropbtn1 {
   margin: 0px 25px 0 25px;
   height: 40px;
   width: 240px;
   border-radius: 30px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   cursor: pointer;
   background-color: transparent;
-  color:var(--primary-text);
+  color: var(--primary-text);
   /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
 }
 .dropbtn2 {
@@ -38,16 +36,18 @@
   height: 40px;
   width: 180px;
   border-radius: 30px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   cursor: pointer;
   background-color: transparent;
-  color: var(--primary-text);  /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
+  color: var(
+    --primary-text
+  ); /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
 }
-#logout {}
+#logout {
+}
 
 #connect span {
-
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
@@ -83,10 +83,10 @@
   width: 6px;
   height: 6px;
   background-color: rgb(8, 194, 8);
-  ;
 }
 
-.ReactModal__Body--open {}
+.ReactModal__Body--open {
+}
 
 .mobile-topbar {
   display: none;
@@ -95,7 +95,7 @@
 .outer-mobile-topbar {
   display: none;
 }
-.connect_wallet{
+.connect_wallet {
   display: flex;
 }
 /* Dropdown Button */
@@ -104,45 +104,45 @@
   /* padding: 16px; */
   font-size: 16px;
   border: 1px solid #757575;
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 14px;
 }
 .dropbtn2 {
   /* color: #000; */
   /* padding: 16px; */
   font-size: 16px;
   border: 1px solid #757575;
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 14px;
 }
 .network-buttons {
   display: flex;
 }
-.network-buttons img{
+.network-buttons img {
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 100%;
   margin-left: -10px;
-box-shadow: 3px 3px 3px 3px var(--background);
-            border: 3px solid var(--background);
+  box-shadow: 3px 3px 3px 3px var(--background);
+  border: 3px solid var(--background);
 }
-.network-buttons span{
-    width: 1.25rem;
-      height: 1.25rem;
-        border-radius: 100%;
-          margin-left: -10px;
-          background-color: dodgerblue;
-            border: 3px solid var(--background);
-            box-shadow: 3px 3px 3px 3px var(--background);
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
+.network-buttons span {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 100%;
+  margin-left: -10px;
+  background-color: dodgerblue;
+  border: 3px solid var(--background);
+  box-shadow: 3px 3px 3px 3px var(--background);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
@@ -153,7 +153,7 @@ box-shadow: 3px 3px 3px 3px var(--background);
 .dropdown-content1 {
   display: none;
   position: absolute;
-  background-color: #1E1F25;
+  background-color: #1e1f25;
   min-width: 240px;
   box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
   z-index: 1;
@@ -167,11 +167,11 @@ box-shadow: 3px 3px 3px 3px var(--background);
   padding: 16px 10px;
   text-decoration: none;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   font-size: 14px;
   border-radius: 10px;
 }
-.dropdown-content1 a{
+.dropdown-content1 a {
   display: flex;
   align-items: center;
 }
@@ -187,14 +187,13 @@ box-shadow: 3px 3px 3px 3px var(--background);
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content1 {
   display: block;
-
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content2 {
   display: none;
   position: absolute;
-  background-color: #1E1F25;
+  background-color: #1e1f25;
   min-width: 175px;
   box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
   z-index: 1;
@@ -222,23 +221,15 @@ box-shadow: 3px 3px 3px 3px var(--background);
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content2 {
   display: block;
-
 }
-
 
 #logout {
   color: red !important;
   font-weight: 500;
 }
 
-
-
-
-
-
-
 /* Mobile  */
-@media only screen and (max-width:799px) {
+@media only screen and (max-width: 799px) {
   .top_content {
     display: none;
   }
@@ -273,7 +264,7 @@ box-shadow: 3px 3px 3px 3px var(--background);
   .mobile-topbar h1 {
     font-weight: 400;
   }
-  .mobile-topbar a{
+  .mobile-topbar a {
     text-decoration: none;
     color: var(--primary-text);
   }
@@ -290,14 +281,13 @@ box-shadow: 3px 3px 3px 3px var(--background);
   }
 
   .hamburger2 span {
-
     margin: 4px;
     display: block;
     width: 30px;
     height: 2px;
     background-color: var(--primary-text);
     border-radius: 1px;
-    transition: all .2s cubic-bezier(.1, .82, .76, .965);
+    transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
   }
 
   .Headings-mobile {
@@ -306,24 +296,20 @@ box-shadow: 3px 3px 3px 3px var(--background);
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
-
   }
 
   .Headings-mobile button {
-
     height: 40px;
     width: 160px;
     border-radius: 10px;
     border: 2px solid #000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: transparent;
     font-weight: 500;
     cursor: pointer;
   }
 
   .bet-contract p {
-
     width: 100% !important;
-
   }
 }

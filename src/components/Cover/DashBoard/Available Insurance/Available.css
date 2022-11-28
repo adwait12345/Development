@@ -1,39 +1,45 @@
-.Insurance_Available{
+.Insurance_Available {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-.top_Insurance h2{
+
+.top_Insurance h2 {
     color: var(--primary-text);
-        margin: 30px 0 30px 25px;
+    margin: 30px 0 30px 25px;
 
 }
-.top_Insurance{
-display: flex;
-width: 100%;
-align-items: center;
-justify-content: space-between;
+
+.top_Insurance {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
 }
-.top_Insurance p{
+
+.top_Insurance p {
     color: var(--primary-text);
     display: flex;
     align-items: center;
-    font-size:13px;
+    font-size: 13px;
     cursor: pointer;
 
 }
-.Insurance-Cards{
+
+.Insurance-Cards {
     display: flex;
 }
-.Insurance-Cards a{
+
+.Insurance-Cards a {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-   justify-content: flex-start;
-        font-family: 'Montserrat', sans-serif;
-        text-decoration: none;
+    justify-content: flex-start;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }
-.card_insu{
+
+.card_insu {
     flex: 1;
 
     height: 250px;
@@ -45,33 +51,39 @@ justify-content: space-between;
     margin-right: 5px;
     margin-left: 5px;
     cursor: pointer;
-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
-.card_insu:hover{
+
+.card_insu:hover {
     background-color: var(--box-hover);
 }
-.top_card_insu{
+
+.top_card_insu {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-around;
     color: var(--primary-text);
 }
-.top_Insu_start{
+
+.top_Insu_start {
     display: flex;
-   width: 190px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+    width: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.top_card_insu p{
+
+.top_card_insu p {
     margin: 0;
 }
-.top_card_insu span{
+
+.top_card_insu span {
     font-size: 10px;
 }
-.top_card_insu button{
-    border: 1px solid rgb(255, 255, 255) ;
+
+.top_card_insu button {
+    border: 1px solid rgb(255, 255, 255);
     border-style: dashed;
     background-color: #000;
     border-radius: 10px;
@@ -80,69 +92,83 @@ box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
     justify-content: center;
     padding: 3px;
 }
-.top_Insu_end{
+
+.top_Insu_end {
     width: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.mid_card_insu{
+
+.mid_card_insu {
     color: var(--primary-text);
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-around;
 }
-.mid_card_insu_start{
+
+.mid_card_insu_start {
     width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.mid_card_insu_start h2{
+
+.mid_card_insu_start h2 {
     font-size: 30px;
 }
-.mid_card_insu_start p{
-    color:#55C2FA ;
+
+.mid_card_insu_start p {
+    color: #55C2FA;
 }
-.mid_card_insu_end{
-width: 40%;
+
+.mid_card_insu_end {
+    width: 40%;
 }
-.bot_card-insu p{
+
+.bot_card-insu p {
     display: flex;
     align-items: center;
     color: var(--primary-text);
     font-size: 15px;
 }
-.bot_card-insu p span{
+
+.bot_card-insu p span {
     color: #757575;
 }
-.bot_card-insu{
+
+.bot_card-insu {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-around;
 }
-.Main_Available_insurance{
+
+.Main_Available_insurance {
     padding: 50px;
 }
-.back-dashboard p{
+
+.back-dashboard p {
     color: var(--primary-text);
     font-family: 'Montserrat', sans-serif;
     display: flex;
     align-items: center;
 }
-.back-dashboard a{
+
+.back-dashboard a {
     text-decoration: none;
 }
-.back-dashboard{
+
+.back-dashboard {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
 }
-.back-dashboard input{
+
+.back-dashboard input {
     width: 300px;
     padding: 15px;
     border-radius: 10px;
@@ -152,12 +178,14 @@ width: 40%;
     color: #757575;
     margin-right: 5px;
 }
+
 /* Mobile  */
 @media only screen and (max-width:799px) {
-    .Insurance-Cards{
+    .Insurance-Cards {
         flex-direction: column;
     }
-    .card_insu{
+
+    .card_insu {
         margin-bottom: 20px;
     }
 }

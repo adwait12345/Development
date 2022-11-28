@@ -199,3 +199,17 @@ export const selectedTransactionAddress = (sTransaction) => {
     payload: sTransaction
   };
 };
+
+export const setCurrentNetwork = (Network) => {
+  return {
+    type: ActionTypes.SET_CURRENT_NETWORK,
+    payload: Network,
+  };
+};
+
+export const selectedCurrentNetwork = (sNetwork) => {
+  return {
+    type: ActionTypes.SELECTED_CURRENT_NETWORK,
+    payload: sNetwork
+  };
+};

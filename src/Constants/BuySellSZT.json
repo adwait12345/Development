@@ -1,19 +1,34 @@
- [
+[
     {
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "value",
+          "name": "_value",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "decimals",
+          "name": "_decimals",
           "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "__tokenDAIaddress",
+          "type": "address"
         }
       ],
       "stateMutability": "nonpayable",
       "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "GSZTBurnFailedError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "GSZTMintFailedError",
+      "type": "error"
     },
     {
       "inputs": [],
@@ -23,11 +38,6 @@
     {
       "inputs": [],
       "name": "LowSZTBalanceError",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "TransactionFailed",
       "type": "error"
     },
     {
@@ -46,7 +56,7 @@
         {
           "indexed": true,
           "internalType": "address",
-          "name": "to",
+          "name": "userAddress",
           "type": "address"
         },
         {
@@ -57,6 +67,69 @@
         }
       ],
       "name": "BoughtSZT",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "GSZTBurn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "GSZTMint",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "investorAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newInvestorAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "GSZTOwnershipTransferred",
       "type": "event"
     },
     {
@@ -82,9 +155,22 @@
       "anonymous": false,
       "inputs": [
         {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
           "indexed": true,
           "internalType": "address",
-          "name": "from",
+          "name": "userAddress",
           "type": "address"
         },
         {
@@ -123,94 +209,23 @@
       "type": "event"
     },
     {
-      "inputs": [],
-      "name": "CoveragePool",
-      "outputs": [
+      "anonymous": false,
+      "inputs": [
         {
-          "internalType": "contract ICoveragePool",
-          "name": "",
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
           "type": "address"
         }
       ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "DAI",
-      "outputs": [
-        {
-          "internalType": "contract IERC20",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "SZTBasePrice",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "SZTBasePriceWithDecimals",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "SZTStaking",
-      "outputs": [
-        {
-          "internalType": "contract ISZTStaking",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      "name": "Unpaused",
+      "type": "event"
     },
     {
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_value",
-          "type": "uint256"
-        }
-      ],
-      "name": "activateSellTimer",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_value",
+          "name": "value",
           "type": "uint256"
         }
       ],
@@ -255,19 +270,6 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "penaltyValue",
-          "type": "uint256"
-        }
-      ],
-      "name": "demoAddPenalty",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "inputs": [],
       "name": "getCommonRatio",
       "outputs": [
@@ -278,6 +280,19 @@
         }
       ],
       "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getSZTBasePrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
       "type": "function"
     },
     {
@@ -294,20 +309,39 @@
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "getTokenCounter",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
-          "name": "_investorAddress",
+          "name": "investorAddress",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_equivalentSZTTokens",
+          "name": "equivalentSZTTokens",
           "type": "uint256"
         }
       ],
       "name": "mintGSZTForInvestors",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -326,6 +360,19 @@
     },
     {
       "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "renounceOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -335,7 +382,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_value",
+          "name": "value",
           "type": "uint256"
         }
       ],
@@ -354,7 +401,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_coveragePoolCA",
+          "name": "coveragePoolAddress",
           "type": "address"
         }
       ],
@@ -367,20 +414,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_DAIaddress",
-          "type": "address"
-        }
-      ],
-      "name": "setDAIAddress",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_SZTStakingCA",
+          "name": "stakingContractAddress",
           "type": "address"
         }
       ],
@@ -393,7 +427,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_SafeZenGovernanceTokenCA",
+          "name": "safezenGovernanceTokenCA",
           "type": "address"
         }
       ],
@@ -406,7 +440,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_safeZenTokenCA",
+          "name": "safeZenTokenAddress",
           "type": "address"
         }
       ],
@@ -418,44 +452,24 @@
     {
       "inputs": [
         {
-          "internalType": "uint256",
-          "name": "_time",
-          "type": "uint256"
-        }
-      ],
-      "name": "setWithdrawTime",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "tokenCounter",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
           "internalType": "address",
-          "name": "_investorAddress",
+          "name": "investorAddress",
           "type": "address"
         },
         {
           "internalType": "address",
-          "name": "_newInvestorAddress",
+          "name": "newInvestorAddress",
           "type": "address"
         }
       ],
       "name": "transferGSZTforInvestors",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -469,35 +483,6 @@
       ],
       "name": "transferOwnership",
       "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_from",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_to",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_value",
-          "type": "uint256"
-        }
-      ],
-      "name": "transferSZT",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },

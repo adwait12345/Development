@@ -7,7 +7,7 @@ import Graph from './graph.png'
 import aave from './Aave.svg'
 import axios from "axios";
 import { useState } from "react";
-import LineChart from "./LineChart/LineChart";
+import LineChart from './LineChart/LineChart'
 
 export default function Community() {
   const [Post, setPost] = useState([]);
@@ -17,7 +17,7 @@ export default function Community() {
       setPost([response.data]);
     });
   }, []);
-  console.log(Post)
+  // console.log(Post[0].tvl)
 
   return (
     <>
@@ -76,13 +76,13 @@ export default function Community() {
                
               </div>
               <div className="data-container-end">
-                {/* <LineChart/> */}
+                <LineChart/>
+
               </div>
            </div>   })}
           </div>
         </div>  
      
-
 
 
 

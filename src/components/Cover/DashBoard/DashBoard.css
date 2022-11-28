@@ -1,7 +1,7 @@
 .Navbar_Cover {
     display: flex;
     font-family: "Poppins", sans-serif;
-background: var(--background);
+    background: var(--background);
 }
 
 .ri_content {
@@ -30,7 +30,7 @@ background: var(--background);
 
 }
 
-.bottom_Dashboard_after{
+.bottom_Dashboard_after {
     height: 100vh;
 }
 
@@ -45,8 +45,9 @@ background: var(--background);
         display: flex;
         flex-direction: column;
     }
-    .bottom_Dashboard_after{
+
+    .bottom_Dashboard_after {
         width: 95%;
     }
-    
+
 }
