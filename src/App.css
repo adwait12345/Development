@@ -68,3 +68,8 @@ width::-webkit-scrollbar {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+[data-rk] .ju367vbl {
+  display: none;
+  background: var(--rk-colors-profileForeground);
+}

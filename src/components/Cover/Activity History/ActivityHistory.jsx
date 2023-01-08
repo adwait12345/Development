@@ -40,13 +40,14 @@ export default function ActivityHistory() {
     //     {isWeb3Enabled && TransPrev()}
     // })
 
-
+    const acc = "0x71dd2c7a8ca592a57b07ce867d08eecdb4abbc4c";
     useEffect(()=>{
-        axios.get('http://localhost:5000/subscribers', {
+        axios.get("https://server-eight-red.vercel.app/subscribers/" + account, {
 
         })
             .then(function (response) {
-                console.log(response.data);
+                console.log(response);
+                console.log(account)
                 setData(response.data)
             })
     },[])
@@ -113,30 +114,30 @@ export default function ActivityHistory() {
                                  <div className="transactionHistory">
                                         <div className="transactionHistory-left">
                                     <p>Amount</p>
-                                    <h3>{data.amount} DAI</h3> 
+                                            <h3>{data.data[0].amount} DAI</h3> 
                                         </div>
                                         <div className="transactionHistory-mid">
                                             <div className="hash">
-                                                <p>Hash:&nbsp;&nbsp;&nbsp;{data.transactionhash}</p>
+                                                <p>Hash:&nbsp;&nbsp;&nbsp;{data.data[0].transactionhash}</p>
                                             </div>
-                                            <p> from:&nbsp;&nbsp;&nbsp;&nbsp;{data.walletaddress}</p>
+                                            <p> from:&nbsp;&nbsp;&nbsp;&nbsp;{data.uniqueId}</p>
                                             <MdOutlineArrowDownward color='#10BB35'/>
-                                            <p>to:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.transactionreciver}</p>
+                                            <p>to:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.data[0].transactionreciver}</p>
                                         </div>
                                         <div className="transactionHistory-end">
                                             <div className="transactionHistory-end-left">
 
                                             <div className="transactionHistory-end-left-top">
-                                                <p> {data.transactiontype}</p>
+                                                    <p> {data.data[0].transactiontype}</p>
                                             </div>
                                             <div className="transactionHistory-end-left-bot">
-                                                <p>{data.currentNetwork}</p>
+                                                    <p>{data.data[0].currentNetwork}</p>
                                             </div>   
                                             </div>
 
                                         </div>
                                         <div className="transactionHistory-end-right">
-                                            <p>{data.time}</p>
+                                            <p>{data.data[0].time}</p>
                                         </div>
                                  </div>
                                     

@@ -17,6 +17,7 @@ box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 .Connect_to_Wallet p {
     display: flex;
     align-items: center;
+    color: #fff;
 }
 
 .Connect_to_Wallet button {

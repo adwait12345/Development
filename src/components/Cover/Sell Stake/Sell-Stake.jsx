@@ -25,6 +25,8 @@ import { DiStreamline } from "react-icons/di";
 // Import Web3 Libraries
 import { useMoralis } from "react-moralis";
 import { ethers } from "ethers";
+import { useAddRecentTransaction } from '@rainbow-me/rainbowkit';
+
 
 // Import Redux
 import { ERC20ABI, BuySellABI, FakeCoinABI } from "../../../Constants/index";
@@ -67,6 +69,7 @@ export default function Sell_Stake() {
 
   // Moralis Hooks.
   var { account } = useMoralis();
+  
 
   // Global Variables & Constants.
   const decimals = 18;
@@ -264,14 +267,24 @@ export default function Sell_Stake() {
 
         console.log(dateTime);
         try {
-          await axios.post("http://localhost:5000/subscribers", {
-            walletaddress: account,
-            transactionhash: receipt.blockHash,
-            transactiontype: "Mint",
-            transactionreciver: receipt.to,
-            currentNetwork: Network.CurrentNetwork,
-            amount: "100000",
-            time: dateTime,
+          await axios.post("https://server-eight-red.vercel.app/subscribers/", {
+
+          
+            uniqueId: account, 
+              data: [
+                {
+                  transactionhash: receipt.blockHash,
+                  transactiontype: "Mint",
+                  transactionreciver: receipt.to,
+                  currentNetwork: Network.CurrentNetwork,
+                  amount: "100000",
+                  time: dateTime,
+
+                }
+              ]
+            
+           
+ 
           });
         } catch (error) {
           console.log(error);

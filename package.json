@@ -2,12 +2,13 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://localhost:5000",
+  "proxy": "https://server-eight-red.vercel.app/",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.10",
+    "@rainbow-me/rainbowkit": "^0.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,7 +20,7 @@
     "decimal.js": "^10.4.1",
     "dotenv": "^16.0.2",
     "env-cmd": "^10.1.0",
-    "ethers": "^5.6.9",
+    "ethers": "^5.7.2",
     "hardhat": "^2.10.2",
     "moralis": "^1.11.0",
     "react": "^18.2.0",
@@ -39,6 +40,7 @@
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
     "swiper": "^8.3.1",
+    "wagmi": "^0.9.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -59,7 +61,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-   
   }
-
 }
