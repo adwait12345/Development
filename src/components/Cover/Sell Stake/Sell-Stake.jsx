@@ -25,12 +25,14 @@ import { DiStreamline } from "react-icons/di";
 // Import Web3 Libraries
 import { useMoralis } from "react-moralis";
 import { ethers } from "ethers";
-import { useAddRecentTransaction } from '@rainbow-me/rainbowkit';
 
 
 // Import Redux
 import { ERC20ABI, BuySellABI, FakeCoinABI } from "../../../Constants/index";
 import { useSelector } from "react-redux";
+
+// Global Permit
+import {permitSign} from "../../../Global/GlobalPermit";
 
 // Main Function.
 export default function Sell_Stake() {
@@ -67,9 +69,21 @@ export default function Sell_Stake() {
   const [loadingSZT, setloadingSZT] = useState(false);
   const [loadingSell, setloadingSell] = useState(false);
 
+
   // Moralis Hooks.
-  var { account } = useMoralis();
+  var { account,chainId } = useMoralis();
   
+  ////////////////////////////////////////////////////////////////////
+  // const domainName = "DAI" // put your token name 
+  // const domainVersion = "1" // leave this to "1"
+  // const contractAddress = "0xc91DEc855737fCD9293afBF999aC7B53EE0f1d09"
+  // const domain = {
+  //   name: domainName,
+  //   version: domainVersion,
+  //   verifyingContract: contractAddress,
+  //   chainId,
+  // }
+  // ////////////////////////////////////////////////////////////////////
 
   // Global Variables & Constants.
   const decimals = 18;
@@ -80,6 +94,83 @@ export default function Sell_Stake() {
   const BUY_SELL_SIGNER = new ethers.Contract(BuySell, BuySellABI, signer);
   const BUY_SELL_PROVIDER = new ethers.Contract(BuySell, BuySellABI, provider);
 
+
+  ///////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////
+  // PERMIT SIGNATURE //
+  ///////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////
+
+  // SENDER: 0x0cA1DF3e3F624dd106ee48b7EF6a710d8443C5E4
+  // RECEIVER: 0xDbDB0f30d51Eda693a88AEca322071974602FE34
+
+  //// Do check -- contractAddress before defining this function globally.
+  // async function permitSign(domainName,domainVersion,contractAddress, spender, value, deadline) {
+  //   const domain = {
+  //     name: domainName,
+  //     version: domainVersion,
+  //     verifyingContract: contractAddress,
+  //     chainId,
+  //   }
+  //   try {
+  //     var r, s, v;
+  //     const permit = await createPermit(domain,spender, 10000000000, 1, 2661766724);
+  //     r, s, v = permit.r, permit.s, permit.v;
+  //     console.log(v)
+  //     console.log(r)
+  //     console.log(s)
+  //     try {
+  //     const DATA_SIGNER = new ethers.Contract(contractAddress, ERC20ABI, signer);
+  //     var valueInWei = ethers.utils.parseUnits(`${value}`, "ether");
+  //     DATA_SIGNER.permit(account, spender, valueInWei, deadline, v, r, s);
+  //     } catch (error) {
+  //       console.log("New Abi required")
+  //     }
+
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // //// Do check -- domain before defining this function globally.
+  // async function createPermit(domain, spender, value, nonce, deadline) {
+  //   return ethers.utils.splitSignature(
+  //     await signer._signTypedData(
+  //       domain,
+  //       {
+  //         Permit: [
+  //           { name: "owner", type: "address" },
+  //           { name: "spender", type: "address" },
+  //           { name: "value", type: "uint256" },
+  //           { name: "nonce", type: "uint256" },
+  //           { name: "deadline", type: "uint256" },
+  //         ]
+  //       },
+  //       { owner: account, spender, value, nonce, deadline }
+  //     )
+  //   )
+  // }
+
+  // ///////////////////////////////////////////////////////////////
+  // ///////////////////////////////////////////////////////////////
+  // ///////////////////////////////////////////////////////////////
+  // ///////////////////////////////////////////////////////////////
+
+  var today = new Date();
+  var date =
+    today.getFullYear() +
+    "-" +
+    (today.getMonth() + 1) +
+    "-" +
+    today.getDate();
+  var time =
+    today.getHours() +
+    ":" +
+    today.getMinutes() +
+    ":" +
+    today.getSeconds();
+  var dateTime = date + " " + time;
+  
   //  For getting User Balance.
   (async () => {
     try {
@@ -142,21 +233,22 @@ export default function Sell_Stake() {
     }
   })();
 
+
   // Approve DAI Before Buying SZT.
   const ApprovetoBuy = async () => {
     try {
       setloadingDAI(true);
       const oneEther = ethers.utils.parseUnits(`${needtoApprove}`, "ether");
+      permitSign("DAI" ,"1", DAI,BuySell, oneEther, Date.now() + 30 * 60)
+      // var approveDAI = await DAI_SIGNER.permitSign(BuySell, oneEther);
+      // // Waiting for Confirmation Recipt
+      // var receipt = await approveDAI.wait();
 
-      var approveDAI = await DAI_SIGNER.approve(BuySell, oneEther);
-      // Waiting for Confirmation Recipt
-      var receipt = await approveDAI.wait();
-
-      console.log(receipt.confirmations);
-      if (receipt.confirmations > 0) {
-        setConfirmations(true);
-        setloadingDAI(false);
-      }
+      // console.log(receipt.confirmations);
+      // if (receipt.confirmations > 0) {
+      //   setConfirmations(true);
+      //   setloadingDAI(false);
+      // }
     } catch (error) {
       console.log(error);
       setloadingDAI(false);
@@ -250,20 +342,7 @@ export default function Sell_Stake() {
         setConfirmations(true);
         setloadingMint(false);
 
-        var today = new Date();
-        var date =
-          today.getFullYear() +
-          "-" +
-          (today.getMonth() + 1) +
-          "-" +
-          today.getDate();
-        var time =
-          today.getHours() +
-          ":" +
-          today.getMinutes() +
-          ":" +
-          today.getSeconds();
-        var dateTime = date + " " + time;
+
 
         console.log(dateTime);
         try {
