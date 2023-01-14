@@ -42,7 +42,7 @@ export default function ActivityHistory() {
 
     const acc = "0x71dd2c7a8ca592a57b07ce867d08eecdb4abbc4c";
     useEffect(()=>{
-        axios.get("https://server-eight-red.vercel.app/subscribers/" + account, {
+        axios.get("http://3.110.50.151/subscribers/" + account, {
 
         })
             .then(function (response) {

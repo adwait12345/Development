@@ -237,9 +237,9 @@ export default function Sell_Stake() {
   // Approve DAI Before Buying SZT.
   const ApprovetoBuy = async () => {
     try {
-      setloadingDAI(true);
+      // setloadingDAI(true);
       const oneEther = ethers.utils.parseUnits(`${needtoApprove}`, "ether");
-      permitSign("DAI" ,"1", DAI,BuySell, oneEther, Date.now() + 30 * 60)
+      permitSign("DAI", "1", DAI, BuySell, oneEther, Date.now() + 30 * 60)
       // var approveDAI = await DAI_SIGNER.permitSign(BuySell, oneEther);
       // // Waiting for Confirmation Recipt
       // var receipt = await approveDAI.wait();
@@ -261,18 +261,20 @@ export default function Sell_Stake() {
       setloadingSZT(true);
       const oneEther = ethers.utils.parseUnits(`${sellamount}`, "ether");
 
-      var approveSZT = await SZT_SIGNER.approve(BuySell, oneEther);
+      // var approveSZT = await SZT_SIGNER.approve(BuySell, oneEther);
+      permitSign("SZT", "1", SZT_Token, BuySell, oneEther, Date.now() + 30 * 60)
+
       //Approving GSZT
-      var approveGSZT = await GSZT_SIGNER.approve(BuySell, oneEther);
+      // var approveGSZT = await GSZT_SIGNER.approve(BuySell, oneEther);
 
       // Waiting for Confirmation Recipt
-      var receipt = await approveSZT.wait();
-      var reciept2 = await approveGSZT.wait();
-      console.log(receipt.confirmations);
-      if (receipt.confirmations > 0 && reciept2.confirmations > 0) {
-        setConfirmations(true);
-        setloadingSZT(false);
-      }
+      // var receipt = await approveSZT.wait();
+      // var reciept2 = await approveGSZT.wait();
+      // console.log(receipt.confirmations);
+      // if (receipt.confirmations > 0 && reciept2.confirmations > 0) {
+      //   setConfirmations(true);
+      //   setloadingSZT(false);
+      // }
     } catch (error) {
       console.log(error);
       setloadingSZT(false);
@@ -346,7 +348,7 @@ export default function Sell_Stake() {
 
         console.log(dateTime);
         try {
-          await axios.post("https://server-eight-red.vercel.app/subscribers/", {
+          await axios.post("http://3.110.50.151/subscribers/", {
 
           
             uniqueId: account, 

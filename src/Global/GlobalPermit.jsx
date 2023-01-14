@@ -37,7 +37,7 @@ var account = window.ethereum._state.accounts[0]
     }
     try {
         var r, s, v;
-        const permit = await createPermit(domain, spender, 10000000000, 1, 2661766724);
+        const permit = await createPermit(domain, spender, value, 1, 2661766724);
         r, s, v = permit.r, permit.s, permit.v;
         console.log(v)
         console.log(r)

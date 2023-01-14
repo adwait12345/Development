@@ -23,16 +23,17 @@
     display: flex;
     /* width: 350px; */
     align-items: center;
-    justify-content: space-between;
     margin-left: 20px;
 }
 .info-box svg{
     cursor: pointer;
+        margin-right: 25px;
 }
 .info-box img{
     width: 90px;
     height: 90px;
     object-fit: contain;
+        margin-right: 25px;
 }
 .info-box h3{
     font-size: 25px;
@@ -62,7 +63,7 @@
 }
 .top-community-right button{
     margin-right: 20px;
-    width: 100px;
+    width: 50px;
     height: 45px;
     font-family: "Poppins";
     border: none;
@@ -71,6 +72,9 @@
     font-weight: 500;
     color: #fff;
     cursor: pointer;
+}.top-community-right button svg{
+ scale: 1.5;
+ color: #fff;
 }
 .mid-community{
     display: flex;
@@ -129,32 +133,8 @@
     align-items: center;
     justify-content: center;
 }
-.list-of-tvl{
-display: flex;
-    align-items: center;
-    width: 95%;
-    justify-content: space-between;
-    box-shadow: rgb(0 0 0 / 9%) 0px 3px 12px;
-    padding: 25px;
-    margin-left: 20px;
-    margin-top: 20px;
-}
 
-/* table {
-    border-collapse: collapse;
-    width: 100%;
-}
 
-td,
-th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-} */
 .Community li img{
     width: 40px;
     height: 40px;
@@ -167,4 +147,8 @@ tr:nth-child(even) {
             align-items: center;
             padding: 10px;
             box-shadow: rgb(0 0 0 / 15%) 0px 2px 8px;
+}
+
+.sidemenu{
+    margin: 20px;
 }
