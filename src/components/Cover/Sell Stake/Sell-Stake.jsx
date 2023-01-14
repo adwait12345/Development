@@ -348,7 +348,7 @@ export default function Sell_Stake() {
 
         console.log(dateTime);
         try {
-          await axios.post("http://3.110.50.151/subscribers/", {
+          await axios.post("https://server-eight-red.vercel.app/subscribers/", {
 
           
             uniqueId: account, 
