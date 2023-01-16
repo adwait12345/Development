@@ -1,5 +1,4 @@
 // Import Web3 Libraries
-import { useMoralis } from "react-moralis";
 import { ethers } from "ethers";
 // Import Redux
 import { ERC20ABI } from "../Constants";
@@ -38,7 +37,9 @@ var account = window.ethereum._state.accounts[0]
     try {
         var r, s, v;
         const permit = await createPermit(domain, spender, value, 1, 2661766724);
-        r, s, v = permit.r, permit.s, permit.v;
+        r = permit.r,
+        s = permit.s,
+        v= permit.v
         console.log(v)
         console.log(r)
         console.log(s)
@@ -46,6 +47,8 @@ var account = window.ethereum._state.accounts[0]
             const DATA_SIGNER = new ethers.Contract(contractAddress, ERC20ABI, signer);
             var valueInWei = ethers.utils.parseUnits(`${value}`, "ether");
             DATA_SIGNER.permit(account, spender, valueInWei, deadline, v, r, s);
+            console.log("hi")
+
         } catch (error) {
             console.log("New Abi required")
         }

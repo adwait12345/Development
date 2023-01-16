@@ -85,3 +85,33 @@
   margin: 0;
   letter-spacing: 0.5px;
 }
+
+    #txhash {
+      display: block;
+      width: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+    #details{
+      padding: 10px;
+      border: none;
+      color: #fff;
+      font-family: "Poppins";
+      background-color: var(--Green-buttons);
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 10px;
+    }
+
+    .front-container{
+      display: flex;
+      align-items: center;
+    }
+    .front-container img{
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      margin-right: 10px;
+    }

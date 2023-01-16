@@ -70,7 +70,18 @@ export default function Sidebar() {
               Dashboard
             </li>
           </NavLink>
-
+          {isWeb3Enabled && (
+            <NavLink
+              to={{
+                pathname: `/cover/sell-stake`,
+              }}
+            >
+              <li>
+                <TbSwitch />
+                GenZ Token
+              </li>
+            </NavLink>
+          )}
           <NavLink
             to={{
               pathname: `/cover/providecoverage`,
@@ -95,18 +106,7 @@ export default function Sidebar() {
             </NavLink>
           )}
 
-          {isWeb3Enabled && (
-            <NavLink
-              to={{
-                pathname: `/cover/sell-stake`,
-              }}
-            >
-              <li>
-                <TbSwitch />
-                Buy & Sell SZT
-              </li>
-            </NavLink>
-          )}
+
 
           {isWeb3Enabled && (
             <NavLink
@@ -117,7 +117,7 @@ export default function Sidebar() {
               <li>
                 <TbBuildingBank />
                 Governance
-                <span>Coming Soon</span>
+                {/* <span>Coming Soon</span> */}
               </li>
             </NavLink>
           )}
