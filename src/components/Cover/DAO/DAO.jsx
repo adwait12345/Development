@@ -60,6 +60,7 @@ export default function DAO() {
         const trans= await ClaimID._claimID()
         const ID = trans.toString()
                 const tran2 = await ClaimID.getVotingInfo(ID)
+                console.log(tran2)
          const info= await ClaimID.claims(ID)
          setinfo(info)
        console.log(info)

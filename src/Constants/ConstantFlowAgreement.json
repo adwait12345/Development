@@ -1,42 +1,37 @@
  [
     {
       "inputs": [],
-      "name": "ActiveInsuranceExistError",
+      "name": "CFA__ActiveInsuranceExistError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "InactiveInsuranceError",
+      "name": "CFA__ImmutableChangesError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "InsuranceCoverNotAvailableError",
+      "name": "CFA__InactiveInsuranceError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "LowUserBalance",
+      "name": "CFA__InsuranceCoverNotAvailableError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "NoStreamRunningError",
+      "name": "CFA__NotEvenMinimumInsurancePeriodAmount",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "NotEvenMinimumInsurancePeriodAmount",
+      "name": "CFA__SubCategoryNotActiveError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "ProtocolNotActiveError",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "TransactionFailed",
+      "name": "CFA__TransactionFailedError",
       "type": "error"
     },
     {
@@ -60,52 +55,21 @@
     },
     {
       "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "Paused",
+      "inputs": [],
+      "name": "UpdatedMaxInsuredDays",
       "type": "event"
     },
     {
       "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "Unpaused",
+      "inputs": [],
+      "name": "UpdatedMinimumInsurancePeriod",
       "type": "event"
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "insuredAmount",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "subCategoryID",
-          "type": "uint256"
-        }
-      ],
-      "name": "activateInsurance",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      "anonymous": false,
+      "inputs": [],
+      "name": "UpdatedStartWaitingTime",
+      "type": "event"
     },
     {
       "inputs": [
@@ -126,7 +90,13 @@
         }
       ],
       "name": "addInsuranceAmount",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -160,6 +130,25 @@
           "internalType": "address",
           "name": "userAddress",
           "type": "address"
+        }
+      ],
+      "name": "calculateTotalFlowMade",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
         },
         {
           "internalType": "uint256",
@@ -167,7 +156,7 @@
           "type": "uint256"
         }
       ],
-      "name": "closeAllStream",
+      "name": "claimPremium",
       "outputs": [
         {
           "internalType": "bool",
@@ -196,7 +185,7 @@
           "type": "uint256"
         }
       ],
-      "name": "closeTokenStream",
+      "name": "claimPremium",
       "outputs": [
         {
           "internalType": "bool",
@@ -221,11 +210,11 @@
         },
         {
           "internalType": "uint256",
-          "name": "insuranceCount",
+          "name": "subCategoryCount",
           "type": "uint256"
         }
       ],
-      "name": "findActiveFlows",
+      "name": "findActivePremiumCost",
       "outputs": [
         {
           "internalType": "uint256[]",
@@ -251,6 +240,25 @@
           "name": "",
           "type": "uint256"
         },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getGlobalUserInsurancePremiumCost",
+      "outputs": [
         {
           "internalType": "uint256",
           "name": "",
@@ -304,11 +312,6 @@
           "internalType": "uint256",
           "name": "",
           "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
         },
         {
           "internalType": "bool",
@@ -380,6 +383,50 @@
     {
       "inputs": [
         {
+          "internalType": "address",
+          "name": "tokenDAIaddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "sztDAIAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "insuranceRegistryCA",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minimumInsurancePeriod_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startWaitingTime_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxInsuredDays_",
+          "type": "uint256"
+        }
+      ],
+      "name": "init",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "uint256",
           "name": "insuredAmount",
           "type": "uint256"
@@ -393,10 +440,21 @@
           "internalType": "uint256",
           "name": "subCategoryID",
           "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "closeStream",
+          "type": "bool"
         }
       ],
       "name": "minusInsuranceAmount",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -415,102 +473,8 @@
     },
     {
       "inputs": [],
-      "name": "paused",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
       "name": "renounceOwnership",
       "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "tokenDAIaddress",
-          "type": "address"
-        }
-      ],
-      "name": "setDAIAddress",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "protocolRegistryAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setProtocolRegistryAddress",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address payable",
-          "name": "contractAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setTerminateInsuranceAddress",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "sztDAIAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setsztDAIAddress",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        }
-      ],
-      "name": "transfer",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -557,37 +521,13 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "timeInMinutes",
+          "name": "timeInHours",
           "type": "uint256"
         }
       ],
       "name": "updateStartWaitingTime",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "usersGlobalInsuranceInfo",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "insuranceStreamRate",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "validTill",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     }
   ]

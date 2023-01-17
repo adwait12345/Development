@@ -1,4 +1,4 @@
-[
+ [
     {
       "inputs": [
         {
@@ -22,32 +22,42 @@
     },
     {
       "inputs": [],
-      "name": "GSZTBurnFailedError",
+      "name": "BuySellSZT__GSZTBurnFailedError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "GSZTMintFailedError",
+      "name": "BuySellSZT__GSZTMintFailedError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "LowAmountError",
+      "name": "BuySellSZT__ImmutableChangesError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "LowSZTBalanceError",
+      "name": "BuySellSZT__LowAmountError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "TransactionFailedError",
+      "name": "BuySellSZT__LowSZTBalanceError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "ZeroAddressTransactionError",
+      "name": "BuySellSZT__PausedError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "BuySellSZT__TransactionFailedError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "BuySellSZT__ZeroAddressTransactionError",
       "type": "error"
     },
     {
@@ -155,19 +165,6 @@
       "anonymous": false,
       "inputs": [
         {
-          "indexed": false,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "Paused",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
           "indexed": true,
           "internalType": "address",
           "name": "userAddress",
@@ -206,19 +203,6 @@
         }
       ],
       "name": "TransferredSZT",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "Unpaused",
       "type": "event"
     },
     {
@@ -325,23 +309,27 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "investorAddress",
+          "name": "safeZenTokenAddress",
           "type": "address"
         },
         {
-          "internalType": "uint256",
-          "name": "equivalentSZTTokens",
-          "type": "uint256"
-        }
-      ],
-      "name": "mintGSZTForInvestors",
-      "outputs": [
+          "internalType": "address",
+          "name": "coveragePoolAddress",
+          "type": "address"
+        },
         {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
+          "internalType": "address",
+          "name": "safezenGovernanceTokenCA",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "pauseOperationAddress",
+          "type": "address"
         }
       ],
+      "name": "init",
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -353,19 +341,6 @@
           "internalType": "address",
           "name": "",
           "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "paused",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
         }
       ],
       "stateMutability": "view",
@@ -387,82 +362,6 @@
         }
       ],
       "name": "sellSZTToken",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "coveragePoolAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setCoveragePoolCA",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "stakingContractAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setSZTStakingCA",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "safezenGovernanceTokenCA",
-          "type": "address"
-        }
-      ],
-      "name": "setSafeZenGovernanceTokenCA",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "safeZenTokenAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setSafeZenTokenCA",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "investorAddress",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "newInvestorAddress",
-          "type": "address"
-        }
-      ],
-      "name": "transferGSZTforInvestors",
       "outputs": [
         {
           "internalType": "bool",

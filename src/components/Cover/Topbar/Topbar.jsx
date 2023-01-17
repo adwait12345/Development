@@ -89,7 +89,9 @@ export default function Topbar(props) {
       // console.log("Polygon");
 
       dispatch(
-        setContract({
+        setContract({ 
+          GENZ:process.env.REACT_APP_POLYGON_GENZ,
+          GENZ_Token:process.env.REACT_APP_POLYGON_GENZ_Token,
           DAI: process.env.REACT_APP_POLYGON_DAI,
           BuySell: process.env.REACT_APP_POLYGON_BuySell,
           GSZTToken: process.env.REACT_APP_POLYGON_GSZTToken,

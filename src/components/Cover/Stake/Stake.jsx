@@ -193,7 +193,7 @@ export default function Stake() {
                       </div>
                     </div>
                     <div className="midB">
-                      <h3>{balance} SZT </h3>
+                      <h3>{balance} GENZ </h3>
                     </div>
                     <div className="botB">
                       <p>
@@ -216,7 +216,7 @@ export default function Stake() {
                       </div>
                     </div>
                     <div className="midB">
-                      <h3>{stakedToken} SZT </h3>
+                      <h3>{stakedToken} GENZ </h3>
                     </div>
                     <div className="botB">
                       <p>
@@ -239,7 +239,7 @@ export default function Stake() {
                       </div>
                     </div>
                     <div className="midB">
-                      <h3>{lockedToken} SZT </h3>
+                      <h3>{lockedToken} GENZ</h3>
                     </div>
                     <div className="botB">
                       <p>
@@ -262,7 +262,7 @@ export default function Stake() {
                       </div>
                     </div>
                     <div className="midB">
-                      <h3>{balance} SZT </h3>
+                      <h3>{balance} GENZ </h3>
                     </div>
                     <div className="botB">
                       <p>
@@ -277,7 +277,7 @@ export default function Stake() {
               <div className="outer-stake">
                 <div className="Stake">
                   <div className="stake_title">
-                    <h3>Stake SZT Token</h3>
+                    <h3>Stake GENZ Token</h3>
                     {/* <span>Contract Address: <h5>{account}</h5> </span> */}
                   </div>
                   <div className="stake-bot">
@@ -285,7 +285,7 @@ export default function Stake() {
                       <div className="stake-top">
                         <img src={safezen} alt="" />
                         <div className="stake-top-title">
-                          <h3>SafeZen (SZT)</h3>
+                          <h3>SafeZen (GENZ)</h3>
                           <p>Native Platform Token</p>
                         </div>
                         <div className="eth">
@@ -306,7 +306,7 @@ export default function Stake() {
                                 setSupplyAmount(event.target.value);
                               }}
                             />
-                            <span>SZT</span>
+                            <span>GENZ</span>
                           </div>
                         </div>
                         {/* <button >Stake</button> */}
@@ -314,7 +314,7 @@ export default function Stake() {
                     </div>
                     <div className="stake-box">
                       <div className="approve-szt" onClick={ApproveStakingSZT}>
-                        <span>{loadingDAI ? <Loader /> : "Approve SZT"}</span>
+                        <span>{loadingDAI ? <Loader /> : "Approve GENZ"}</span>
                       </div>
                       <div className="timeline">
                         <div className="timeline-line">
@@ -324,7 +324,7 @@ export default function Stake() {
                         </div>
                       </div>
                       <div className="transfer-szt" onClick={StakeSZT}>
-                        <span>Stake SZT</span>
+                        <span>Stake GENZ</span>
                       </div>
                     </div>
                   </div>
@@ -340,7 +340,7 @@ export default function Stake() {
                               setWithDrawAmount(event.target.value);
                             }}
                           />
-                          <span>SZT</span>
+                          <span>GENZ</span>
                         </div>
                         <div className="sell-button">
                           {/* <button onClick={WithdrawSZT}>Unstake</button> */}
@@ -359,7 +359,7 @@ export default function Stake() {
                         </div>
                       </div>
                       <div className="transfer-szt" onClick={WithdrawSZT}>
-                        <span>WithDraw SZT</span>
+                        <span>WithDraw GENZ</span>
                       </div>
                     </div>
                   </div>

@@ -112,7 +112,7 @@ export default function DashBoard_Boxes() {
 
             </div>
             <div className="midB">
-              <h3>{loading ? <SkeletonInfo /> : `${balance} SZT`} </h3>
+              <h3>{loading ? <SkeletonInfo /> : `${balance} GENZ`} </h3>
             </div>
             <div className="botB">
               <p><BsArrowUpRight /> 	&nbsp; 26% </p>
@@ -130,7 +130,7 @@ export default function DashBoard_Boxes() {
 
             </div>
             <div className="midB">
-              <h3>{stakedToken} SZT </h3>
+              <h3>{stakedToken} GENZ </h3>
             </div>
             <div className="botB">
               <p><BsArrowUpRight /> 	&nbsp; 26% </p>
@@ -148,7 +148,7 @@ export default function DashBoard_Boxes() {
 
             </div>
             <div className="midB">
-              <h3>{lockedToken} SZT </h3>
+              <h3>{lockedToken} GENZ </h3>
             </div>
             <div className="botB">
               <p><BsArrowUpRight /> 	&nbsp; 26% </p>
@@ -166,7 +166,7 @@ export default function DashBoard_Boxes() {
 
             </div>
             <div className="midB">
-              <h3>{loading ? <SkeletonInfo /> : `${balance} SZT`} </h3>
+              <h3>{loading ? <SkeletonInfo /> : `${balance} GENZ`} </h3>
             </div>
             <div className="botB">
               <p><BsArrowUpRight /> 	&nbsp; 26% </p>

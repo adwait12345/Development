@@ -1,37 +1,47 @@
-[
+ [
     {
       "inputs": [],
-      "name": "DecisionChallengedError",
+      "name": "Claim__DecisionChallengedError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "DecisionNoLongerCanBeChallengedError",
+      "name": "Claim__DecisionNoLongerCanBeChallengedError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "DecisionNotYetTakenError",
+      "name": "Claim__DecisionNotYetTakenError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "UserAlreadyVotedError",
+      "name": "Claim__ImmutableChangesError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "VotingDecisionNotYetFinalizedError",
+      "name": "Claim__PausedOperationFailedError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "VotingNotYetStartedError",
+      "name": "Claim__UserAlreadyVotedError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "VotingTimeEndedError",
+      "name": "Claim__VotingDecisionNotYetFinalizedError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Claim__VotingNotYetStartedError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Claim__VotingTimeEndedError",
       "type": "error"
     },
     {
@@ -114,7 +124,13 @@
         }
       ],
       "name": "claimDecision",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -140,7 +156,7 @@
         },
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "subcategoryID",
           "type": "uint256"
         },
         {
@@ -176,7 +192,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "protocolID",
+          "name": "subcategoryID",
           "type": "uint256"
         },
         {
@@ -191,7 +207,13 @@
         }
       ],
       "name": "createClaim",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -277,6 +299,43 @@
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "safezenGovernanceTokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "globalPauseOperationAddress",
+          "type": "address"
+        }
+      ],
+      "name": "init",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isAdvisor",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [],
       "name": "owner",
       "outputs": [
@@ -303,21 +362,27 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "renounceOwnership",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "protocolSpecificClaims",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "safezenGovernanceTokenAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setSafeZenGovernanceTokenAddress",
+      "inputs": [],
+      "name": "renounceOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -409,7 +474,13 @@
         }
       ],
       "name": "vote",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     }

@@ -78,7 +78,7 @@ export default function Sidebar() {
             >
               <li>
                 <TbSwitch />
-                GenZ Token
+                GENZ Token
               </li>
             </NavLink>
           )}
@@ -101,7 +101,7 @@ export default function Sidebar() {
             >
               <li>
                 <MdLockOutline />
-                Stake / UnStake SZT
+                Stake / UnStake GENZ
               </li>
             </NavLink>
           )}

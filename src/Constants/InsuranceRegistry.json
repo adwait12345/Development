@@ -1,12 +1,17 @@
  [
     {
       "inputs": [],
-      "name": "NotEnoughLiquidityError",
+      "name": "InsuranceRegistry__ImmutableChangesError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "TransactionFailedError",
+      "name": "InsuranceRegistry__NotEnoughLiquidityError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InsuranceRegistry__TransactionFailedError",
       "type": "error"
     },
     {
@@ -26,6 +31,12 @@
         }
       ],
       "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "UpdatedClaimStakedValue",
       "type": "event"
     },
     {
@@ -121,6 +132,13 @@
           "type": "bool"
         }
       ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "addInsuranceProduct",
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -449,6 +467,39 @@
     {
       "inputs": [
         {
+          "internalType": "address",
+          "name": "CFA",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "buySellSZTCA",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenAddressDAI",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenAddressSZT",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "coveragePoolAddress",
+          "type": "address"
+        }
+      ],
+      "name": "init",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "uint256",
           "name": "categoryID",
           "type": "uint256"
@@ -572,45 +623,6 @@
     {
       "inputs": [],
       "name": "renounceOwnership",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "buySellSZTCA",
-          "type": "address"
-        }
-      ],
-      "name": "setBuySellSZT",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "tokenAddressDAI",
-          "type": "address"
-        }
-      ],
-      "name": "setTokenDAI",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "tokenAddressSZT",
-          "type": "address"
-        }
-      ],
-      "name": "setTokenSZT",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"

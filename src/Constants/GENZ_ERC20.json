@@ -6,12 +6,12 @@
     },
     {
       "inputs": [],
-      "name": "ERC20__InsufficientBalanceError",
+      "name": "GSZT__TransactionFailedError",
       "type": "error"
     },
     {
       "inputs": [],
-      "name": "SZT_DAI__ImmutableChangesError",
+      "name": "GSZT__ZeroAddressError",
       "type": "error"
     },
     {
@@ -189,6 +189,32 @@
     },
     {
       "inputs": [],
+      "name": "buySZTCA",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "coveragePoolContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "decimals",
       "outputs": [
         {
@@ -245,24 +271,6 @@
           "type": "bool"
         }
       ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_addressSwapDAI",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_addressCFA",
-          "type": "address"
-        }
-      ],
-      "name": "init",
-      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -386,16 +394,29 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "swapContractDAI",
-      "outputs": [
+      "inputs": [
         {
           "internalType": "address",
-          "name": "",
+          "name": "addressBuySellSZT",
           "type": "address"
         }
       ],
-      "stateMutability": "view",
+      "name": "setContractAddressBuySellSZT",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "coveragePoolAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setCoveragePoolCA",
+      "outputs": [],
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {

@@ -115,7 +115,7 @@ export default function PayAsYouGo() {
 
           <div className="Bottom-Content">
             <div className="BuyPolicy">
-              <div className="addprotocol">
+              {/* <div className="addprotocol">
                 <input
                   type="text"
                   placeholder="Search Added Protocals"
@@ -126,7 +126,7 @@ export default function PayAsYouGo() {
                 <button onClick={ProtOpner}>
                   <AddIcon /> Add Protocol
                 </button>
-              </div>
+              </div> */}
 
               <div className="Payasyou">
                 <div className="selectPlatform">

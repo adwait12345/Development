@@ -1,34 +1,27 @@
  [
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_buySellAddress",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_SZTTokenAddress",
-          "type": "address"
-        }
-      ],
+      "inputs": [],
       "stateMutability": "nonpayable",
       "type": "constructor"
     },
     {
-      "inputs": [],
-      "name": "CoveragePool__ImmutableChangesError",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "CoveragePool__NotAMinimumPoolAmountError",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "CoveragePool__TransactionFailedError",
-      "type": "error"
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "stablecoinID_",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "stablecoinName",
+          "type": "string"
+        }
+      ],
+      "name": "NewStablecoinAdded",
+      "type": "event"
     },
     {
       "anonymous": false,
@@ -50,112 +43,35 @@
       "type": "event"
     },
     {
-      "anonymous": false,
       "inputs": [
         {
-          "indexed": true,
+          "internalType": "string",
+          "name": "stablecoinName",
+          "type": "string"
+        },
+        {
           "internalType": "address",
-          "name": "userAddress",
+          "name": "deployedAddress",
           "type": "address"
         },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "subCategoryID",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
-        }
-      ],
-      "name": "PoolWithdrawn",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "userAddress",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "subCategoryID",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
-        }
-      ],
-      "name": "UnderwritePool",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [],
-      "name": "UpdatedMinCoveragePoolAmount",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "uint256",
-          "name": "timeInDays",
-          "type": "uint256"
-        }
-      ],
-      "name": "UpdatedWaitingPeriod",
-      "type": "event"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "subCategoryID",
-          "type": "uint256"
-        }
-      ],
-      "name": "activateWithdrawalTimer",
-      "outputs": [
         {
           "internalType": "bool",
-          "name": "",
+          "name": "isCommunityGoverned",
           "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "riskFactor",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "riskPoolCategory",
+          "type": "uint256"
         }
       ],
+      "name": "addCoveredProtocol",
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -163,21 +79,11 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "subCategoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
           "name": "version",
           "type": "uint256"
         }
       ],
-      "name": "getUnderWriterDepositedBalance",
+      "name": "getLiquidationFactor",
       "outputs": [
         {
           "internalType": "uint256",
@@ -192,34 +98,11 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "subCategoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "version",
+          "name": "stablecoinID_",
           "type": "uint256"
         }
       ],
-      "name": "getUnderWriterWithdrawnBalance",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getUnderwriteSZTBalance",
+      "name": "getProtocolStartVersionInfo",
       "outputs": [
         {
           "internalType": "uint256",
@@ -234,35 +117,64 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "subCategoryID",
+          "name": "stablecoinID_",
           "type": "uint256"
         }
       ],
-      "name": "getUnderwriterActiveVersionID",
+      "name": "getStablecoinInfo",
       "outputs": [
         {
-          "internalType": "uint256[]",
-          "name": "",
-          "type": "uint256[]"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
+          "internalType": "string",
+          "name": "stablecoinName",
+          "type": "string"
+        },
         {
           "internalType": "address",
-          "name": "insuranceRegAddress",
+          "name": "stablecoinAddress",
           "type": "address"
         }
       ],
-      "name": "init",
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "stablecoinID_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "version",
+          "type": "uint256"
+        }
+      ],
+      "name": "getStablecoinRiskCategory",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "stablecoinID_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "version",
+          "type": "uint256"
+        }
+      ],
+      "name": "ifStablecoinUpdated",
       "outputs": [
         {
           "internalType": "bool",
@@ -270,6 +182,61 @@
           "type": "bool"
         }
       ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "version",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "riskPoolCategory",
+          "type": "uint256"
+        }
+      ],
+      "name": "isRiskPoolLiquidated",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "latestVersion",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "riskPoolCategory",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidationFactor",
+          "type": "uint256"
+        }
+      ],
+      "name": "liquidateRiskPool",
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -295,11 +262,84 @@
     },
     {
       "inputs": [],
-      "name": "totalTokensStaked",
+      "name": "stablecoinID",
       "outputs": [
         {
           "internalType": "uint256",
           "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "stablecoinsInfo",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "stablecoinName",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "deployedAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startVersionBlock",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lastUpdatedVersionBlock",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "stablecoinsRiskInfo",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isUpdated",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isCommunityGoverned",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "riskFactor",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "riskPoolCategory",
           "type": "uint256"
         }
       ],
@@ -323,40 +363,16 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "value",
+          "name": "stablecoinID_",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "subCategoryID",
+          "name": "riskFactor",
           "type": "uint256"
         }
       ],
-      "name": "underwrite",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "valueInSZT",
-          "type": "uint256"
-        }
-      ],
-      "name": "updateMinCoveragePoolAmount",
+      "name": "updateRiskFactor",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -365,11 +381,16 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "timeInDays",
+          "name": "stablecoinID_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "riskPoolCategory",
           "type": "uint256"
         }
       ],
-      "name": "updateWaitingPeriodTime",
+      "name": "updateRiskPoolCategory",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -378,29 +399,24 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "categoryID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "subCategoryID",
+          "name": "",
           "type": "uint256"
         }
       ],
-      "name": "withdraw",
+      "name": "versionLiquidationFactor",
       "outputs": [
         {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
+          "internalType": "uint256",
+          "name": "liquidation",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "riskPoolCategory",
+          "type": "uint256"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     }
   ]

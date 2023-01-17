@@ -5,16 +5,6 @@
       "type": "constructor"
     },
     {
-      "inputs": [],
-      "name": "ERC20__InsufficientBalanceError",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "SZT_DAI__ImmutableChangesError",
-      "type": "error"
-    },
-    {
       "anonymous": false,
       "inputs": [
         {
@@ -164,30 +154,6 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "burnFrom",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "inputs": [],
       "name": "decimals",
       "outputs": [
@@ -238,48 +204,6 @@
         }
       ],
       "name": "increaseAllowance",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_addressSwapDAI",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_addressCFA",
-          "type": "address"
-        }
-      ],
-      "name": "init",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "mint",
       "outputs": [
         {
           "internalType": "bool",
@@ -383,19 +307,6 @@
       "name": "renounceOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "swapContractDAI",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     },
     {

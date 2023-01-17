@@ -9,7 +9,7 @@ const SZTStakingABI=require("./SZTStaking.json")
 const Swap_DaiABI=require('./SwapDAI.json')
 const ActivateInsuranceABI=require('./ConstantFlowAgreement.json')
 const ProtocolRegistryABI=require('./ProtocolRegistry.json')
-const FakeCoinABI=require('./FakeCoin.json')
+const FakeCoinABI=require('./MockDAI.json')
 const CoveragePoolABI=require('./CoveragePool.json')
 const Claim_Governance_ABI=require('./ClaimGovernance.json')
 

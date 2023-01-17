@@ -66,7 +66,7 @@ export default function Insurance_Available() {
                   </div>
                   <div className="mid_card_insu">
                     <div className="mid_card_insu_start">
-                      <h2>{Insurance._amount} SZT</h2>
+                      <h2>{Insurance._amount} GENZ</h2>
                       <p>+{Insurance._growth_in_percent}%</p>
                     </div>
                     <div className="mid_card_insu_end"></div>
@@ -74,11 +74,11 @@ export default function Insurance_Available() {
                   <div className="bot_card-insu">
                     <p>
                       <MdArrowUpward color="#55C2FA" />
-                      &nbsp; {Insurance._growth_in_SZT} <span> &nbsp; SZT</span>{" "}
+                      &nbsp; {Insurance._growth_in_SZT} <span> &nbsp; GENZ</span>{" "}
                     </p>
                     <p>
                       <MdArrowDownward color="#CD6D5E" /> &nbsp;{" "}
-                      {Insurance._loss_in_SZT} <span> &nbsp; SZT</span>
+                      {Insurance._loss_in_SZT} <span> &nbsp; GENZ</span>
                     </p>
                     <p>
                       <BsStar color="#FBA905" />

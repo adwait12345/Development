@@ -61,6 +61,8 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
     })();
 
 
+
+
     const AddInsured=async()=>{
       var Activate = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer);
       const oneEther = ethers.utils.parseUnits(`${Addinsured}`, "ether");
@@ -80,6 +82,14 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
       var approneSztDai = new ethers.Contract(SwapsztDAI, ERC20ABI, signer);
       var trans = await approneSztDai.approve(ConstantFlowAgreement, `${999 * 1e18}`)
     }
+
+    const AddInsuranceAmount=async()=>{
+      var Add = new ethers.Contract(ConstantFlowAgreement, ActivateInsuranceABI, signer)
+      const oneEther = ethers.utils.parseUnits(`${Addinsured}`, "ether");
+      const trans = await Add.addInsuranceAmount(oneEther, key, 1)
+
+    }
+
   return (
     <>
     {InsuranceStatus?

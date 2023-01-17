@@ -40,7 +40,7 @@ export default function DashBoard(props) {
         </div>
       </div>
 
-      <Modal isOpen={open} className="Modal">
+      <Modal closeTimeoutMS={0.2} isOpen={open} className="Modal">
         <LoginModal open={open} setOpen={setOpen} />
       </Modal>
     </>

@@ -28,7 +28,7 @@ import { ethers } from "ethers";
 
 
 // Import Redux
-import { ERC20ABI, BuySellABI, FakeCoinABI } from "../../../Constants/index";
+import { ERC20ABI, BuySellABI, FakeCoinABI ,} from "../../../Constants/index";
 import { useSelector } from "react-redux";
 
 // Global Permit
@@ -44,6 +44,7 @@ export default function Sell_Stake() {
   var BuySell = token.contracts.BuySell;
   var GSZTToken = token.contracts.GSZTToken;
   var DAI = token.contracts.DAI;
+  var GENZ = token.contracts.GENZ;
 
   // Provider.
   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -92,7 +93,7 @@ export default function Sell_Stake() {
   const SZT_SIGNER = new ethers.Contract(SZT_Token, ERC20ABI, signer);
   const GSZT_SIGNER = new ethers.Contract(GSZTToken, ERC20ABI, signer);
   const BUY_SELL_SIGNER = new ethers.Contract(BuySell, BuySellABI, signer);
-  const BUY_SELL_PROVIDER = new ethers.Contract(BuySell, BuySellABI, provider);
+  const BUY_SELL_PROVIDER = new ethers.Contract(GENZ, BuyGENZ, provider);
 
 
   ///////////////////////////////////////////////////////////////////
@@ -239,7 +240,7 @@ export default function Sell_Stake() {
     try {
       // setloadingDAI(true);
       const oneEther = ethers.utils.parseUnits(`${needtoApprove}`, "ether");
-      permitSign("MockDAI", "1", DAI, BuySell, oneEther, Date.now() + 30 * 60)
+      permitSign("MockDAI", "1", DAI, GENZ, oneEther, Date.now() + 30 * 60)
       // var approveDAI = await DAI_SIGNER.permitSign(BuySell, oneEther);
       // // Waiting for Confirmation Recipt
       // var receipt = await approveDAI.wait();
@@ -400,7 +401,7 @@ export default function Sell_Stake() {
                       </div>
                     </div>
                     <div className="midB">
-                      <h3>{balance} GenZ </h3>
+                      <h3>{balance} GENZ </h3>
                     </div>
                     <div className="botB">
                       <p>
@@ -416,7 +417,7 @@ export default function Sell_Stake() {
                       <div className="border">
                         <DiStreamline width={50} height={50} color="#fff" />
                       </div>
-                      <h4>Current GenZ Price</h4>
+                      <h4>Current GENZ Price</h4>
                       <div className="info">
                         {" "}
                         <BsInfoCircle color="#fff" />
@@ -439,14 +440,14 @@ export default function Sell_Stake() {
                       <div className="border">
                         <BsPeople color="#fff" />
                       </div>
-                      <h4>Issued GenZ till Date</h4>
+                      <h4>Issued GENZ till Date</h4>
                       <div className="info">
                         {" "}
                         <BsInfoCircle color="#fff" />
                       </div>
                     </div>
                     <div className="midB">
-                      <h3>{issued} GenZ </h3>
+                      <h3>{issued} GENZ </h3>
                     </div>
                     <div className="botB">
                       <p>
@@ -469,7 +470,7 @@ export default function Sell_Stake() {
                       </div>
                     </div>
                     <div className="midB">
-                      <h3>{balance} GenZ </h3>
+                      <h3>{balance} GENZ </h3>
                     </div>
                     <div className="botB">
                       <p>
@@ -484,7 +485,7 @@ export default function Sell_Stake() {
               <div className="outer-stake">
                 <div className="Stake">
                   <div className="stake_title">
-                    <h3>Buy GenZ Token</h3>
+                    <h3>Buy GENZ Token</h3>
 
                     <button onClick={MintDAI}>
                       {loadingMint ? <Loader /> : "Mint 100000 DAI"}
@@ -496,7 +497,7 @@ export default function Sell_Stake() {
                       <div className="stake-top">
                         <img src={safezen} alt="" />
                         <div className="stake-top-title">
-                          <h3>SafeZen (GenZ)</h3>
+                          <h3>SafeZen (GENZ)</h3>
                           <p>Native Platform Token</p>
                         </div>
                         <div className="eth">
@@ -517,7 +518,7 @@ export default function Sell_Stake() {
                                 setAmount(event.target.value);
                               }}
                             />
-                            <span>GenZ</span>
+                            <span>GENZ</span>
                           </div>
                         </div>
                         <div className="buy-button">
@@ -541,13 +542,13 @@ export default function Sell_Stake() {
                     <div className="stake-box">Coming Soon</div>
                   </div>
                   <div className="sell-tit">
-                    <h3>Sell GenZ Token</h3>
+                    <h3>Sell GENZ Token</h3>
                   </div>
 
                   <div className="stake-bot">
                     <div className="stake-box">
                       <div className="sell">
-                        <h3>Sell GenZ Token</h3>
+                        <h3>Sell GENZ Token</h3>
                         <div className="selectStake">
                           <input
                             type="text"
@@ -556,7 +557,7 @@ export default function Sell_Stake() {
                               setSellamount(event.target.value);
                             }}
                           />
-                          <span>GenZ</span>
+                          <span>GENZ</span>
                         </div>
                         <div className="sell-button">
                           <button onClick={ApprovetoSell}>
