@@ -28,7 +28,8 @@ import { ethers } from "ethers";
 
 
 // Import Redux
-import { ERC20ABI, BuySellABI, FakeCoinABI ,} from "../../../Constants/index";
+
+import { ERC20ABI, BuySellABI, FakeCoinABI,BuyGENZ } from "../../../Constants/index";
 import { useSelector } from "react-redux";
 
 // Global Permit

@@ -3,6 +3,7 @@ import { useMoralis, useWeb3Contract } from "react-moralis";
 
 const ERC20ABI = require("./ERC20.json")
 const BuySellABI = require("./BuySellSZT.json")
+const BuyGENZ = require("./Buy_Genz.json")
 const CompoundABI = require('./CompoundPool.json')
 const AaveABI= require("./AAVE.json")
 const SZTStakingABI=require("./SZTStaking.json")
@@ -106,7 +107,9 @@ export  {
     FakeCoinABI,
     CoveragePoolABI,
     Claim_Governance,
-    Claim_Governance_ABI
+    Claim_Governance_ABI,
+
+    BuyGENZ,
 }
 
 
