@@ -6,7 +6,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import Components
-import HomePage from "./pages/HomePage.jsx";
+// import HomePage from "./pages/HomePage.jsx";
 import DashBoard from "./components/Cover/DashBoard/DashBoard";
 import Buypolicy from "./components/Cover/Buy Policy/BuyPolicy";
 import ProvideCoverage from "./components/Cover/ProvideCoverage/ProvideCoverage";
@@ -30,7 +30,6 @@ import { MoralisProvider } from "react-moralis";
 
 //Popup Library
 import { ToastContainer, toast } from "react-toastify";
-import Topbar from "./components/Topbox/SubComponents/Topbar1";
 import Topbox from "./components/Topbox/Topbox";
 
 // Main Function Start
