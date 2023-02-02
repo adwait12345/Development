@@ -1,0 +1,144 @@
+.stats {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-text);
+  margin-top: 210px;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.2s ease-in;
+}
+
+.inner-stats {
+  width: 75%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.inner-stats h1 {
+  margin: 0;
+  font-size: 48px;
+  color: var(--primary-text);
+}
+
+.inner-stats h5 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 27px;
+  margin-top: 12px;
+  letter-spacing: 0.2px;
+  color: var(--tertiary-text);
+}
+
+.yield {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  height: 100px;
+}
+
+.insured {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  height: 100px;
+  border-right: 0.5px solid #777187;
+  border-left: 0.5px solid #777187;
+}
+
+.insured h1 {
+
+  background: -webkit-linear-gradient(-70deg, #3bf0e4 0%, #bca1f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+}
+
+.capital {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-right: 0.5px solid #777187;
+
+  height: 100px;
+}
+
+.assets_under {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  height: 100px;
+
+}
+
+.assets_under h1 {
+  background: -webkit-linear-gradient(-70deg, #3bf0e4 0%, #bca1f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+
+  .inner-stats {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .inner-stats h1 {
+    font-size: 24px;
+
+  }
+
+  .inner-stats h5 {
+    font-size: 15px;
+  }
+
+  .yield {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .insured {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border-right: none;
+    border-left: none;
+    border-top: 0.5px solid #777187;
+    border-bottom: 0.5px solid #777187;
+    align-items: center;
+  }
+
+  .capital {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    border-right: none;
+    border-bottom: 0.5px solid #777187;
+  }
+
+  .assets_under {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .stats {
+    margin-top: 240px;
+  }
+}

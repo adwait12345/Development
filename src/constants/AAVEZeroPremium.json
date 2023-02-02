@@ -1,0 +1,413 @@
+ [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_lendingAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_controllerAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_incentiveDataProviderAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "AAVE_ZP__LowSupplyAmountError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AAVE_ZP__TransactionFailedError",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AAVE_ZP__WrongInfoEnteredError",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "rewardTokenAddress",
+          "type": "address"
+        }
+      ],
+      "name": "calculateUserBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IPoolAddressesProvider",
+          "name": "_provider",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserReservesIncentivesData",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "underlyingAsset",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "tokenAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "incentiveControllerAddress",
+                  "type": "address"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "rewardTokenSymbol",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "rewardOracleAddress",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "rewardTokenAddress",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "userUnclaimedRewards",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenIncentivesUserIndex",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "int256",
+                      "name": "rewardPriceFeed",
+                      "type": "int256"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "priceFeedDecimals",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "rewardTokenDecimals",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct IUiIncentiveDataProviderV3.UserRewardInfo[]",
+                  "name": "userRewardsInformation",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct IUiIncentiveDataProviderV3.UserIncentiveData",
+              "name": "aTokenIncentivesUserData",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "tokenAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "incentiveControllerAddress",
+                  "type": "address"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "rewardTokenSymbol",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "rewardOracleAddress",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "rewardTokenAddress",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "userUnclaimedRewards",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenIncentivesUserIndex",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "int256",
+                      "name": "rewardPriceFeed",
+                      "type": "int256"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "priceFeedDecimals",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "rewardTokenDecimals",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct IUiIncentiveDataProviderV3.UserRewardInfo[]",
+                  "name": "userRewardsInformation",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct IUiIncentiveDataProviderV3.UserIncentiveData",
+              "name": "vTokenIncentivesUserData",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "tokenAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "incentiveControllerAddress",
+                  "type": "address"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "rewardTokenSymbol",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "rewardOracleAddress",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "rewardTokenAddress",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "userUnclaimedRewards",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenIncentivesUserIndex",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "int256",
+                      "name": "rewardPriceFeed",
+                      "type": "int256"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "priceFeedDecimals",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "rewardTokenDecimals",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct IUiIncentiveDataProviderV3.UserRewardInfo[]",
+                  "name": "userRewardsInformation",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct IUiIncentiveDataProviderV3.UserIncentiveData",
+              "name": "sTokenIncentivesUserData",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct IUiIncentiveDataProviderV3.UserReserveIncentiveData[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "protocolName",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "deployedAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "protocolID",
+          "type": "uint256"
+        }
+      ],
+      "name": "init",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "rewardTokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "supplyToken",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "rewardTokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdrawToken",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]

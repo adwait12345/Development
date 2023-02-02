@@ -1,0 +1,86 @@
+.Technology {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Poppins, sans-serif;
+  color: white;
+}
+
+.Technology h2 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.technologies {
+  display: flex;
+  margin-top: 63px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.etharium {
+  display: block;
+  background-blend-mode: darken, normal;
+  margin: 0 30px;
+  width: 197px;
+  height: 49px;
+  background: url("https://unslashed.finance/logos/ethereum-default.png") no-repeat 50%;
+  background-size: contain;
+}
+
+.etharium:hover {
+  cursor: pointer;
+  background: url("https://unslashed.finance/logos/ethereum-hover.png");
+}
+
+.enzyme {
+  display: block;
+  background-blend-mode: darken, normal;
+  margin: 0 30px;
+  width: 198px;
+  height: 31px;
+  background: url("https://unslashed.finance/logos/enzyme-default.png") no-repeat 50%;
+  background-size: contain;
+}
+
+.enzyme:hover {
+  cursor: pointer;
+  background: url("https://unslashed.finance/logos/enzyme-hover.png");
+}
+
+.Kleros {
+  display: block;
+  background-blend-mode: darken, normal;
+  margin: 0 30px;
+  width: 152px;
+  height: 52px;
+  background: url("https://unslashed.finance/logos/kleros-default.png") no-repeat 50%;
+  background-size: contain;
+}
+
+.Kleros:hover {
+  cursor: pointer;
+  background: url("https://unslashed.finance/logos/kleros-hover.png");
+}
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+  .technologies {
+    flex-direction: column;
+
+  }
+
+  .etharium {
+    margin: 30px 0;
+  }
+
+  .enzyme {
+    margin: 30px 0;
+  }
+
+  .Kleros {
+    margin: 30px 0;
+  }
+}

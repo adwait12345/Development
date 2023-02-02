@@ -1,0 +1,120 @@
+.outer-news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  width: 100%;
+}
+
+.Newsletter {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1119px;
+  width: 95%;
+  background: linear-gradient(181.12deg,
+      rgba(119, 113, 135, 0.15) 0.96%,
+      rgba(119, 113, 135, 0) 139.33%);
+  border: 1px solid #4c4768;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 63px 0;
+  margin-bottom: 156px;
+  text-align: center;
+  color: #fff;
+}
+
+.News-top h5 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 1.5px;
+  color: #4d495d;
+  margin: 0;
+}
+
+.News-top h2 {
+  margin-top: 16px;
+  margin-bottom: 32px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 27px;
+
+  letter-spacing: 0.5px;
+}
+
+.News-top p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+  color: #b4b4c7;
+}
+
+.News-bottom {
+  max-width: 518px;
+  width: 100%;
+  margin-top: 74px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 57px;
+  width: 100%;
+  background: linear-gradient(182.67deg,
+      rgba(119, 113, 135, 0.15) -113.79%,
+      rgba(119, 113, 135, 0) 238.53%);
+  border: 1px solid #4c4768;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 16px 0 16px 16px;
+}
+
+.input button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #6350db;
+  border: none;
+  padding: 16.5px;
+}
+
+.input button:hover {
+  background: #4f3cc8;
+}
+
+.input input {
+  font-family: Poppins, sans-serif;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+}
+
+/* Mobile  */
+@media only screen and (max-width:799px) {
+
+  .Newsletter {
+    padding: 42px 16px;
+    margin-bottom: 40px;
+  }
+
+  .News-top h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: .5px;
+    margin: 10px 14px 20px 15px;
+  }
+}
