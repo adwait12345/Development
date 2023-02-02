@@ -1,7 +1,9 @@
 .Navbar_Cover {
     display: flex;
-    font-family: "Poppins", sans-serif;
-    background: var(--background);
+    width: 100%;
+        height: 100%;
+    font-family: var(--font-poppins);
+    background: var(--color-background);
 }
 
 .ri_content {
@@ -9,15 +11,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 280px;
-    /* background: url(https://github.githubassets.com/images/modules/site/home/repo-editor-glow.svg) no-repeat;
-    background-size: 200%;
-    
-    backdrop-filter: blur(67px); */
-    height: 170vh;
+    /* margin-left: 280px; */
 
 }
-
+.spacer{
+    width: 20%;
+}
 
 .Bottom-Content {
     width: 100%;

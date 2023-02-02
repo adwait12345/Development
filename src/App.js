@@ -6,18 +6,17 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import Components
-import HomePage from "./Pages/HomePage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 import DashBoard from "./components/Cover/DashBoard/DashBoard";
 import Buypolicy from "./components/Cover/Buy Policy/BuyPolicy";
 import ProvideCoverage from "./components/Cover/ProvideCoverage/ProvideCoverage";
-import LoginModal from "./components/Metamask Login Modal '/LoginModal";
+import LoginModal from "./components/MetamaskLoginModal/LoginModal";
 import MyPolicies from "./components/Cover/DashBoard/Dashboard_After/MyPolicies/MyPolicies";
 import Stake from "./components/Cover/Stake/Stake";
 import DAO from "./components/Cover/DAO/DAO";
-import Sell_Stake from "./components/Cover/Sell Stake/Sell-Stake";
-import NotFound from "./components/404/404";
-import Main_Available_insurance from "./components/Cover/DashBoard/Available Insurance/Main_Available_insurance";
-import ActivityHistory from "./components/Cover/Activity History/ActivityHistory";
+import Sell_Stake from "./components/Cover/SellStake/Sell-Stake";
+import Main_Available_insurance from "./components/Cover/DashBoard/AvailableInsurance/Main_Available_insurance";
+import ActivityHistory from "./components/Cover/ActivityHistory/ActivityHistory";
 import Community from "./components/Community/community";
 import Zero_Premium from "./components/Cover/Buy Policy/Zero-Premium/Zero-Premium";
 import PayAsYouGo from "./components/Cover/Buy Policy/PayasYouGo/PayAsYouGo";
@@ -60,7 +59,7 @@ function App() {
     <>
       <body data-theme={themes}>
         <MoralisProvider
-          appId={process.env.REACT_APP_MORALIS_APPID}
+          appId={process.env.REACT_APP_MORALIS_APP_ID}
           serverUrl={process.env.REACT_APP_MORALIS_SERVER_URL}
         >
           <Router>
@@ -94,7 +93,6 @@ function App() {
                 element={<ActivityHistory />}
               />
               <Route path="/cover/protocolsinfo" element={<Community />} />
-              <Route path="/notfound" element={<NotFound />} />
             </Routes>
           </Router>
         </MoralisProvider>

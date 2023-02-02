@@ -1,0 +1,89 @@
+.outer-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 100;
+}
+
+.login {
+  color: var(--color-primary-text);
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-poppins);
+  height: auto;
+  border-radius: 15px;
+  background: #1e1e1e;
+}
+
+.login img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.close img {
+  filter: invert();
+}
+
+.login h3 {
+  font-weight: 500;
+}
+
+.metamask {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid;
+  margin: 0px 25px 25px 25px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.wallet-connect {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid;
+  margin: 25px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.metamask:hover {
+  color: white;
+  background-color: black;
+}
+
+.wallet-connect:hover {
+  color: white;
+  background-color: black;
+}
+
+.close {
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin: 20px 0 20px 0;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close svg {
+  margin-right: 10px;
+}
+/* Mobile  */
+@media only screen and (max-width: 799px) {
+  .login {
+    width: 350px;
+  }
+
+  .login h3 {
+    font-size: 18px;
+  }
+}

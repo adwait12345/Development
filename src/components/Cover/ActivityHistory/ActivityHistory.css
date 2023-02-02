@@ -1,0 +1,72 @@
+.activityhistory {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.activityhistory-top {
+  display: flex;
+  width: 97%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activityhistory-top input {
+  font-family: var(--font-poppins);
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: var(--color-placeholder);
+  color: #fff;
+}
+
+.activityhistory-bet {
+  width: 95%;
+  border-radius: 30px;
+  padding: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.activityhistory-bet h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+.activityhistory-bet p {
+  font-size: 15px;
+}
+
+#txhash {
+  display: block;
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+#details {
+  padding: 10px;
+  border: none;
+  color: #fff;
+  font-family: var(--font-poppins);
+  background-color: var(--color-green-button);
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+.front-container {
+  display: flex;
+  align-items: center;
+}
+.front-container img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px;
+}

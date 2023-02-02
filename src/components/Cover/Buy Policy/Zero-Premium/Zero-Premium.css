@@ -1,177 +1,162 @@
-.Zero_premium {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    margin-top: 50px;
-    border-radius: 10px;
-   background-color: var(--buy-policy-background);
-    color: var(--primary-text);
-            box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+.zero_premium {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: var(--font-poppins);
+  margin-top: 50px;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  color: var(--color-primary-text);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
-.conversion{
-    /* width: 150px; */
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: var(--zero-premium-button);
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+.conversion {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--color-zero-premium-button);
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
-
-
-
-
-
-
-
 
 .actual-zeropremium {
-    width: 87%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    /* border: 2px solid; */
-    border-radius: 10px;
-    flex-direction: column;
+  width: 87%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 10px;
+  flex-direction: column;
 }
 
 .zeropremiun-box {
-    width: 50%;
-    border-radius: 10px;
-    background: linear-gradient(45deg, var(--main-grad-color1),var(--main-grad-color2));
-                box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  width: 50%;
+  border-radius: 10px;
+  background: #1e1e1e;
 }
 
 .supply {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
 }
 
 .supply1 {
-    width: 90%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 50px;
-    padding: 2px;
-    border-radius: 10px;
-    background-color: var(--placeholder-color);
-    padding: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  padding: 2px;
+  border-radius: 10px;
+  background-color: var(--color-placeholder);
+  padding: 10px;
 }
 
 .supply1 input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 10px;
-    background-color: var(--placeholder-color);
-    color: var(--tertiary-text);
-        font-size: 24px;
-
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-family: var(--font-poppins);
+  border-radius: 10px;
+  background-color: var(--color-placeholder);
+  color: var(--color-tertiary-text);
+  font-size: 24px;
 }
 
 .supply2 {
-    width: 90%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 50px;
-    padding: 2px;
-    border-radius: 10px;
-    background-color: var(--placeholder-color);
-    padding: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  padding: 2px;
+  border-radius: 10px;
+  background-color: var(--color-placeholder);
+  padding: 10px;
 }
 
 .supply2 input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--placeholder-color);
-    border-radius: 10px;
-    color: #757575;
-    font-size: 24px;
-
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-family: var(--font-poppins);
+  background-color: var(--color-placeholder);
+  border-radius: 10px;
+  color: #757575;
+  font-size: 24px;
 }
 
 .dir-button {
-    margin: 5px;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #10BB35;
-    /* z-index: 1; */
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #10bb35;
 }
 
 .css-0 {
-    width: 20px;
-    color: var(--primary-text);
-
+  width: 20px;
+  color: var(--color-primary-text);
 }
 
 .outerzero {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Mint {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
+.mint {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
 }
 
-.Mint button {
-    width: 300px;
-    height: 50px;
-    border: 2px solid;
-    font-family: 'Montserrat', sans-serif;
-    font-size: medium;
-    border-radius: 10px;
-    background-color: #fff;
-    cursor: pointer;
+.mint button {
+  width: 300px;
+  height: 50px;
+  border: 2px solid;
+  font-family: var(--font-poppins);
+  font-size: medium;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
 }
 
-.Mint button:hover {
-    background-color: #2EA550;
-    color: #fff;
-    border: 2px #2EA550
+.mint button:hover {
+  background-color: #2ea550;
+  color: #fff;
+  border: 2px #2ea550;
 }
 
 /* Mobile  */
-@media only screen and (max-width:799px) {
-    .zeropremiun-box {
-        width: 100%;
-    }
-    .actual-zeropremium{
-        width: 93%;
-    }
+@media only screen and (max-width: 799px) {
+  .zeropremiun-box {
+    width: 100%;
+  }
+  .actual-zeropremium {
+    width: 93%;
+  }
 }
 
 .react-tabs__tab-panel--selected::-webkit-scrollbar {
-    height: 0px;
-    /* height of horizontal scrollbar ← You're missing this */
-    width: 0px;
-    /* width of vertical scrollbar */
-    border: 1px solid #d5d5d5;
-    overflow-y: scroll;
-
+  height: 0px;
+  /* height of horizontal scrollbar ← You're missing this */
+  width: 0px;
+  /* width of vertical scrollbar */
+  border: 1px solid #d5d5d5;
+  overflow-y: scroll;
 }

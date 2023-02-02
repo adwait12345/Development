@@ -1,29 +1,30 @@
-.InsuranceMethod {
+.insurancemethod {
     width: 450px;
     display: flex;
     flex-direction: column;
     border: none;
-    background-color: #1e1e1e;
-    color: #fff;
+    background-color: #161B22;
+        color: #fff;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-poppins);
 }
 
-.top-InsuranceMethod {
+.top-insurancemethod {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 95%;
 }
 
-.top-InsuranceMethod svg {
+.top-insurancemethod svg {
     cursor: pointer;
 }
 
 
 
-.bot-InsuranceMethod {
+.bot-insurancemethod {
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -31,14 +32,14 @@
     margin-bottom: 10px;
 }
 
-.bot-InsuranceMethod p {
+.bot-insurancemethod p {
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
     margin: 0;
 }
 
-.bot-InsuranceMethod p:hover {
+.bot-insurancemethod p:hover {
     background-color: #262833;
 
 }

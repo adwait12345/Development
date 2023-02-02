@@ -1,42 +1,45 @@
-.InsuranceCategory {
+.insurancecategory {
     width: 450px;
     display: flex;
     flex-direction: column;
     border: none;
-    background-color: #1e1e1e;
+    background-color: #161B22;
     color: #fff;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-poppins);
 }
 
-.top-InsuranceCategory {
+.top-insurancecategory {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 95%;
 }
 
-.top-InsuranceCategory svg {
+.top-insurancecategory svg {
     cursor: pointer;
 }
 
-.bet-InsuranceCategory {
+.bet-insurancecategory {
     width: 95%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.bet-InsuranceCategory input {
+.bet-insurancecategory input {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-poppins);
     border: none;
+    background-color: #0D1117;
+        border: 1px solid #30363D;
 }
 
-.bot-InsuranceCategory {
+.bot-insurancecategory {
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -44,14 +47,14 @@
     margin-bottom: 10px;
 }
 
-.bot-InsuranceCategory p {
+.bot-insurancecategory p {
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
     margin: 0;
 }
 
-.bot-InsuranceCategory p:hover {
+.bot-insurancecategory p:hover {
     background-color: #262833;
 
 }

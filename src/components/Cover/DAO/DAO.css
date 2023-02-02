@@ -1,4 +1,4 @@
-.Dao-Sidebar{
+.dao-sidebar{
     position: fixed;
     width: 600px;
     background-color: #fff;
@@ -8,8 +8,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #1e1e1e;
+    font-family: var(--font-poppins);    
+            background-color: #161B22;
             transition: 0.3s;
 }
 .vote-top{
@@ -22,6 +22,7 @@
 }
 .vote-top h3{
     font-size: 25px;
+    font-weight: 500;
 }
 .vote-top svg{
     cursor: pointer;
@@ -46,9 +47,10 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #2E334A;
-    color: #757575;
+    font-family: var(--font-poppins);
+        border: 1px solid #30363D;
+        background-color: #0D1117;   
+         color: #757575;
 }
 .claim-id p{
     display: flex;
@@ -87,10 +89,11 @@
     cursor: pointer;
     padding: 15px;
     background-color: #262833;
-    border-radius: 10px;
+    border-radius: 10px;    border: 1px solid #30363D;
+
 }
 .insurance-category:hover,.insurance-method:hover,.protocol-id:hover{
-background-color: var(--Green-buttons);
+background-color: var(--color-green-button);
 }
 .claimAmount-Requested{
     display: flex;
@@ -107,11 +110,11 @@ background-color: var(--Green-buttons);
             padding: 10px;
             border: none;
             border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #2E334A;
+            font-family: var(--font-poppins);
             color: #757575;
             align-self: center;
-}
+                border: 1px solid #30363D;
+        background-color: #0D1117;}
 .claimAmount-Requested h4 svg, .stringProof h4 svg{
     margin-left: 5px;
         color: #757575;
@@ -120,6 +123,7 @@ background-color: var(--Green-buttons);
 .claimAmount-Requested h4, .stringProof h4{
     display: flex;
         align-items: center;
+        font-weight: 500;
 }
 .stringProof{
         display: flex;
@@ -136,10 +140,11 @@ background-color: var(--Green-buttons);
             padding: 10px;
             border: none;
             border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #2E334A;
-            color: #757575;
+            font-family: var(--font-poppins);
+        background-color: #0D1117;         
+           color: #757575;
             align-self: center;
+                border: 1px solid #30363D;
 }
 
 .vote-bot{
@@ -152,17 +157,18 @@ width: 95%;
 }
 .vote-bot button{
 width: 40%;
-padding: 20px;
- font-family: 'Montserrat', sans-serif;
+padding: 15px;
+ font-family: var(--font-poppins);
  border-radius: 10px;
  color: #fff;
  font-size: 17px;
-background-color: var(--Green-buttons);
+background-color: var(--color-green-button);
 cursor: pointer;
 border: none;
+margin-bottom: 10px;
 }
 
-.DAO_Content{
+.dao_content{
     display: flex;
     width: 100%;
     align-items: center;
@@ -183,10 +189,11 @@ border: none;
     padding: 10px;
     border: none;
     border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-poppins);
     cursor: pointer;
     color: #fff;
-    background-color: var(--Green-buttons);
+    background-color: var(--color-green-button);
+    margin-bottom: 10px;
 }
 
 .dao-bottom{
@@ -195,7 +202,7 @@ border: none;
 }
 
 .dao-bottom-top{
-    display: flex;
+    display: none;
     width: 100%;
     justify-content: space-between;
     margin: 20px 0 20px 0;

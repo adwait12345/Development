@@ -101,6 +101,21 @@ export const selectedkey = (skey) => {
   };
 };
 
+export const setSubcategorykey = (key) => {
+  // console.log(Platform)
+  return {
+    type: ActionTypes.SET_SUBCATEGORY_KEY,
+    payload: key,
+  };
+};
+
+export const selectedSubcategorykey = (skey) => {
+  return {
+    type: ActionTypes.SELECTED_SUBCATEGORY_KEY,
+    payload: skey,
+  };
+};
+
 export const setContract = (Contract) => {
   // console.log(Platform)
   return {

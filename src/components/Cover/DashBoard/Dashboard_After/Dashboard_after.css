@@ -1,7 +1,7 @@
 .Dashboard_after {
-    margin-left: 25px;
+    /* margin-left: 25px; */
     margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-poppins);
 
 }
 
@@ -14,11 +14,11 @@
     padding: 10px;
     cursor: pointer;
     margin-left: 10px;
-    color: var(--primary-text);
+    color: var(--color-primary-text);
 }
 
 .react-tabs__tab--selected {
-    border-bottom: 4px solid var(--primary-text) !important;
+    border-bottom: 4px solid #30363D !important;
     transition: 0.1s ease-in-out;
 
 }

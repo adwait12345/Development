@@ -23,18 +23,17 @@ import { setThemeDark, setDropDown } from "../../../redux/action/actions";
 // Main Function Start
 export default function Sidebar() {
   // Redux States Import and use
-  const Theme = useSelector((state) => state.alltheme);
-  const Dropdown = useSelector((state) => state.allDropdown);
-  const dispatch = useDispatch();
+  const THEME = useSelector((state) => state.alltheme);
+  const DISPATCH = useDispatch();
 
-  // Theme
+  // THEME
   const ThemeDark = () => {
-    console.log(Theme);
-    dispatch(setThemeDark(true));
+    console.log(THEME);
+    DISPATCH(setThemeDark(true));
   };
   const ThemeLight = () => {
-    console.log(Theme);
-    dispatch(setThemeDark(false));
+    console.log(THEME);
+    DISPATCH(setThemeDark(false));
   };
 
   // Moralis Hook
@@ -105,8 +104,6 @@ export default function Sidebar() {
               </li>
             </NavLink>
           )}
-
-
 
           {isWeb3Enabled && (
             <NavLink

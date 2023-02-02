@@ -6,7 +6,7 @@ import { useEffect } from "react";
 // Import components
 import Sidebar from "../SideBar/Sidebar";
 import Topbar from "../Topbar/Topbar";
-import LoginModal from "../../Metamask Login Modal '/LoginModal";
+import LoginModal from "../../MetamaskLoginModal/LoginModal";
 import Modal from "react-modal";
 import Loader from "../../Loader/Loader";
 
@@ -23,21 +23,21 @@ import {
 } from "react-icons/bs";
 import { MdAccountBalanceWallet } from "react-icons/md";
 import { DiStreamline } from "react-icons/di";
-import Ethrum from "../Ethrum.svg";
-import safezen from "./safezen.png";
-import check from "../check.svg";
+import Ethrum from "../../../assets/svg/Ethrum.svg";
+import safezen from "../../../assets/png/safezen.png";
+import check from "../../../assets/svg/check.svg";
 
 // Import Redux
 import { useSelector } from "react-redux";
-import { ERC20ABI, SZTStakingABI } from "../../../Constants/index";
+import { ERC20_ABI, SZT_STAKING_ABI } from "../../../constants/index";
 
 // Main Function Start
 export default function Stake() {
   //Provider
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const PROVIDER = new ethers.providers.Web3Provider(window.ethereum);
 
   //Signer
-  const signer = provider.getSigner();
+  const SIGNER = PROVIDER.getSigner();
 
   // Redux States Import and use
   var token = useSelector((state) => state.allContracts);
@@ -61,11 +61,11 @@ export default function Stake() {
   // Approve SZT Staking
   const ApproveStakingSZT = async () => {
 
-    
+
     try {
       setloadingDAI(true);
-      const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
-      var SZTPOST = new ethers.Contract(SZT_Token, ERC20ABI, signer);
+      const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, PROVIDER);
+      var SZTPOST = new ethers.Contract(SZT_Token, ERC20_ABI, SIGNER);
       const oneEther = ethers.utils.parseUnits(`${SupplyAmount}`, "ether");
       var trans = await SZTPOST.approve(SZTStakingContract, oneEther);
       // Waiting for Confirmation Recipt
@@ -83,22 +83,22 @@ export default function Stake() {
   };
   // Stake SZT
   const StakeSZT = async () => {
-    const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
+    const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, PROVIDER);
     var SZTPOST = new ethers.Contract(
       SZTStakingContract,
       SZTStakingABI,
-      signer
+      SIGNER
     );
     const oneEther = ethers.utils.parseUnits(`${SupplyAmount}`, "ether");
     const gen1 = await SZTPOST.stakeSZT(oneEther);
   };
   //WithDraw SZT
   const WithdrawSZT = async () => {
-    const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, provider);
+    const SZTGET = new ethers.Contract(SZT_Token, SZTStakingABI, PROVIDER);
     var SZTPOST = new ethers.Contract(
       SZTStakingContract,
       SZTStakingABI,
-      signer
+      SIGNER
     );
     const oneEther = ethers.utils.parseUnits(`${WithdrawAmount}`, "ether");
     const gen1 = await SZTPOST.withdrawSZT(oneEther);
@@ -107,7 +107,7 @@ export default function Stake() {
     var SZTPOST = new ethers.Contract(
       SZTStakingContract,
       SZTStakingABI,
-      signer
+      SIGNER
     );
     const gen1 = await SZTPOST.activateWithdrawalTimer(
       `${WithdrawAmount * 1e18}`
@@ -124,7 +124,7 @@ export default function Stake() {
         const BUY_SELL_PROVIDER = new ethers.Contract(
           SZTStakingContract,
           SZTStakingABI,
-          provider
+          PROVIDER
         );
 
         var Raw_IssuedTokens = await BUY_SELL_PROVIDER.totalTokensStaked();
@@ -142,7 +142,7 @@ export default function Stake() {
         const BUY_SELL_PROVIDER = new ethers.Contract(
           SZTStakingContract,
           SZTStakingABI,
-          provider
+          PROVIDER
         );
 
         var Raw_IssuedTokens = await BUY_SELL_PROVIDER.getUserStakedSZTBalance(
@@ -159,12 +159,12 @@ export default function Stake() {
     //  For getting User Balance.
     (async () => {
       try {
-        const GET_SZT = new ethers.Contract(SZT_Token, ERC20ABI, provider);
+        const GET_SZT = new ethers.Contract(SZT_Token, ERC20_ABI, PROVIDER);
 
         const Raw_Balance = await GET_SZT.balanceOf(account);
         var User_Balance = BigInt(Raw_Balance).toString();
         setBalance(User_Balance / 1e18);
-        
+
       } catch (error) {
         console.log(error);
       }
@@ -175,6 +175,8 @@ export default function Stake() {
     <>
       <div className="Navbar_Cover">
         <Sidebar setOpen={setOpen} />
+        <div className="spacer"></div>
+
         <div className="ri_content">
           <Topbar setOpen={setOpen} name="Stake /UnStake SZT" />
 

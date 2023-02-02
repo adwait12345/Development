@@ -5,16 +5,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
+  justify-content: space-between;
 }
 
 .Stake {
   display: flex;
   width: 100%;
-
+  border: 1px solid #30363D;
   border-radius: 10px;
   flex-direction: column;
-  background: var(--buy-policy-background);
+  background: var(--color-dashboard-boxes);
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
@@ -34,11 +35,8 @@
   height: 340px;
   overflow: hidden;
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-  background: linear-gradient(
-    45deg,
-    var(--main-grad-color1),
-    var(--main-grad-color2)
-  );
+  background: #010409;
+  border: 1px solid #30363D;
 }
 
 .stake-top {
@@ -58,7 +56,8 @@
 .stake_title h3 {
   font-size: 35px;
   margin: 0;
-  color: var(--primary-text);
+  color: var(--color-primary-text);
+  font-weight: 500;
 }
 
 .stake_title span {
@@ -67,7 +66,7 @@
   font-weight: 500;
   display: flex;
   align-items: center;
-  color: var(--tertiary-text);
+  color: var(--color-tertiary-text);
 }
 
 .stake_title span h5 {
@@ -84,7 +83,8 @@
 
 .stake-top h3 {
   margin: 0;
-  color: var(--primary-text);
+  color: var(--color-primary-text);
+  font-weight: 300;
 }
 
 .stake-top p {
@@ -116,7 +116,7 @@
 }
 
 .stake-input button {
-  background-color: var(--Green-buttons);
+  background-color: var(--color-green-button);
 }
 
 .stake-input-lim {
@@ -133,8 +133,9 @@
   justify-content: space-between;
   padding: 10px;
   border-radius: 10px;
-  background-color: var(--placeholder-color);
+  background-color: var(--color-placeholder);
   height: 40px;
+  border: 1px solid #30363D;
 }
 
 .stake-input span {
@@ -142,13 +143,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-text);
+  color: var(--font-poppins);
 }
 
 .stake_input input {
   border: none;
   background-color: transparent;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
   width: 100%;
   color: #757575;
 }
@@ -163,47 +164,45 @@
 }
 
 .approve-szt {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
   width: 85%;
   border-radius: 10px;
   border: none;
   color: #fff;
-  background-color: #10bb35;
-  cursor: pointer;
+border: 1px solid lime;
+  background: rgba(24, 223, 54, 0.438);  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bolder;
+  font-weight: 500;
   font-size: medium;
-  height: 65px;
+  padding: 20px;
 }
 
 .transfer-szt {
-  width: 80%;
-  border: 2px solid #fff;
+  width: 85%;
+  border: none;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 0 50px 0;
+  /* margin: 0px 0 50px 0; */
   border-radius: 10px;
   font-weight: 500;
   cursor: pointer;
-  color: var(--primary-text);
+  color: var(--color-primary-text);
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  background-color: rgba(24, 223, 54, 0.438);
+  border: 1px solid lime;
 }
 
 .approve-szt:hover {
-  background-color: #10bb35;
+  background-color: var(--color-green-button);
   color: #fff;
-  border: 2px solid #10bb35;
+  /* border: 2px solid #10bb35; */
 }
 
-.transfer-szt:hover {
-  background-color: #10bb35;
-  color: #fff;
-  border: 2px solid #10bb35;
-}
+
 
 .timeline {
   width: 80%;
@@ -212,7 +211,7 @@
 .timeline-line {
   width: 3px;
   height: 40px;
-  background-color: var(--timeline);
+  background-color: var(--color-timeline);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -230,30 +229,24 @@
 }
 
 .stake-bott button {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
 
   width: 200px;
   height: 50px;
   border-radius: 10px;
   border: none;
   color: #fff;
-  background-color: #10bb35;
+  background-color: var(--color-green-button);
 
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-weight: bolder;
+  font-weight: 500;
   font-size: medium;
 }
 
-/* .approve-transfer{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
 /* Mobile  */
 @media only screen and (max-width: 799px) {
   .Stake {
@@ -283,8 +276,6 @@
   }
 
   .stake_title {
-    /* flex-direction: column;
-        align-items: flex-start; */
     align-items: center;
     padding: 15px;
   }
@@ -310,9 +301,6 @@
   width: 100%;
   justify-content: space-evenly;
   align-items: flex-start;
-  /* padding: 20px; */
-  /* margin: 45px; */
-  /* border: 0.5px solid rgb(225, 223, 223); */
   border-radius: 10px;
   justify-self: start;
   align-self: start;
@@ -324,47 +312,49 @@
 .sell h3 {
   margin-left: 45px;
   font-size: 20px;
-  color: var(--primary-text);
+  color: var(--color-primary-text);
+  font-weight: 300;
 }
 
 .selectStake {
   width: 80%;
   height: 40px;
   border-radius: 10px;
-  background-color: var(--placeholder-color);
+  background-color: var(--color-placeholder);
   align-items: center;
   justify-content: space-between;
   display: flex;
   padding: 10px;
+  border: 1px solid #30363D;
   justify-self: center;
   align-self: center;
 }
 
 .selectStake span {
-  color: var(--primary-text);
+  color: var(--color-primary-text);
 }
 
 .selectStake input {
   border: none;
   background-color: transparent;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
   width: 100%;
   color: #757575;
 }
 
 .sell-button button {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
   width: 200px;
   height: 50px;
   border-radius: 10px;
   border: none;
   color: #fff;
-  background-color: #10bb35;
+  background-color: var(--color-green-button);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bolder;
+  font-weight: 500;
   font-size: medium;
 }
 

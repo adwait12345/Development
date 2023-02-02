@@ -29,7 +29,9 @@ import {
   selectedTransactionAddressReducer,
   TransactionAddressReducer,
   selectedCurrentNetworkReducer,
-  CurrentNetworkReducer
+  CurrentNetworkReducer,
+  selectedSubCategoryKeyReducer,
+  SubCategoryKeyReducer,
 } from "./Reducer";
 
 const reducer = combineReducers({
@@ -63,5 +65,7 @@ const reducer = combineReducers({
   allTransactionAddress:TransactionAddressReducer,
   CurrentNetwork:selectedCurrentNetworkReducer,
   allCurrentNetwork:CurrentNetworkReducer,
+  subKey: selectedSubCategoryKeyReducer,
+  allsubKey: SubCategoryKeyReducer,
 });
 export default reducer;

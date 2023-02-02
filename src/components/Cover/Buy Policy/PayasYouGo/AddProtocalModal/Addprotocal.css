@@ -1,0 +1,46 @@
+.addprotocal{
+    display: flex;
+    width: 450px;
+    height: 450px;
+    background-color:#1e1e1e;
+    color: var(--color-primary-text);
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: var(--font-poppins);
+}
+.addprotocal h2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.addprotocal h2 svg{
+    cursor: pointer;
+}
+.addprotocal input{
+    height: 40px;
+    margin: 10px;
+    font-family: var(--font-poppins);
+    border: none;
+    border-radius: 10px;
+    color: var(--color-tertiary-text);
+    padding: 10px;
+    background-color: var(--color-placeholder);
+}
+.addprotocal button{
+        height: 50px;
+            margin: 20px 10px 10px 10px;
+            font-family: var(--font-poppins);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            padding: 10px;
+         background-color: var(--color-green-button);
+         cursor: pointer;
+}
+/* Mobile  */
+@media only screen and (max-width:799px) {
+    .addprotocal{
+        width: 330px;
+    }
+}

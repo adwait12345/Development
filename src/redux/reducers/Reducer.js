@@ -11,6 +11,7 @@ const initialState = {
   underwrite:["Click to Select"],
   protocols:[],
   keys:[],
+  subKey:[],
   insurance:[],
   InsuranceTypes:[],
   InsuranceCategory:[],
@@ -344,6 +345,25 @@ export const CurrentNetworkReducer = (state = initialState, action) => {
 export const selectedCurrentNetworkReducer = (state = {}, action) => {
   switch (action.type) {
     case ActionTypes.SELECTED_CURRENT_NETWORK:
+      return { ...state, ...action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const SubCategoryKeyReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ActionTypes.SET_SUBCATEGORY_KEY:
+      return { ...state, subKey: action.payload };
+
+    default:
+      return state;
+  }
+}
+export const selectedSubCategoryKeyReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ActionTypes.SELECTED_SUBCATEGORY_KEY:
       return { ...state, ...action.payload };
 
     default:

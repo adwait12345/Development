@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux'
 // Import Web3 Libraries
 import { ethers } from "ethers";
 import { useMoralis } from 'react-moralis'
-import { ERC20ABI, SZTStakingABI } from '../../../../../Constants/index'
+import { ERC20_ABI, SZT_STAKING_ABI } from '../../../../../constants/index'
 
 // Import React Icons
 import { MdAccountBalanceWallet } from "react-icons/md";
@@ -33,14 +33,14 @@ export default function DashBoard_Boxes() {
   var { account } = useMoralis();
 
   // Provider & Signer
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
-  const signer = provider.getSigner();
+  const PROVIDER = new ethers.providers.Web3Provider(window.ethereum)
+  const SIGNER = PROVIDER.getSigner();
 
 
   // Redux States Import and use
   var token = useSelector(state => state.allContracts)
-  var SZT_Token = token.contracts.SZT_Token;
-  var SZTStakingContract = token.contracts.SZTStakingContract;
+  var SZT_Token = token.contracts.GSZT_ERC20_CA;
+  var GENZ_STAKING = token.contracts.GENZ_STAKING_CA;
 
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +52,7 @@ export default function DashBoard_Boxes() {
     // For getting No of issued Token.
     (async () => {
       try {
-        const BUY_SELL_PROVIDER = new ethers.Contract(SZTStakingContract, SZTStakingABI, provider);
+        const BUY_SELL_PROVIDER = new ethers.Contract(GENZ_STAKING, SZTStakingABI, PROVIDER);
 
         var Raw_IssuedTokens = await BUY_SELL_PROVIDER.totalTokensStaked();
         var Issued_Tokens = Number(BigInt(Raw_IssuedTokens).toString());
@@ -67,7 +67,7 @@ export default function DashBoard_Boxes() {
     // total tokens staked
     (async () => {
       try {
-        const BUY_SELL_PROVIDER = new ethers.Contract(SZTStakingContract, SZTStakingABI, provider);
+        const BUY_SELL_PROVIDER = new ethers.Contract(GENZ_STAKING, SZTStakingABI, PROVIDER);
 
         var Raw_IssuedTokens = await BUY_SELL_PROVIDER.getUserStakedSZTBalance(account);
         var Issued_Tokens = Number(BigInt(Raw_IssuedTokens).toString());
@@ -84,7 +84,7 @@ export default function DashBoard_Boxes() {
     // For getting User Balance.
     (async () => {
       try {
-        const GET_SZT = new ethers.Contract(SZT_Token, ERC20ABI, provider);
+        const GET_SZT = new ethers.Contract(SZT_Token, ERC20ABI, PROVIDER);
 
         const Raw_Balance = await GET_SZT.balanceOf(account);
         var User_Balance = BigInt(Raw_Balance).toString();
@@ -130,7 +130,7 @@ export default function DashBoard_Boxes() {
 
             </div>
             <div className="midB">
-              <h3>{stakedToken} GENZ </h3>
+              <h3>{loading ? <SkeletonInfo /> : `${stakedToken} GENZ`} </h3>
             </div>
             <div className="botB">
               <p><BsArrowUpRight /> 	&nbsp; 26% </p>
@@ -148,7 +148,7 @@ export default function DashBoard_Boxes() {
 
             </div>
             <div className="midB">
-              <h3>{lockedToken} GENZ </h3>
+              <h3>{loading ? <SkeletonInfo /> : `${lockedToken} GENZ`} </h3>
             </div>
             <div className="botB">
               <p><BsArrowUpRight /> 	&nbsp; 26% </p>

@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import "./DashBoard.css";
 
 // Import Components
-import Connect_to_Wallet from "../Connect to Wallet/Connect_to_Wallet";
+import Connect_to_Wallet from "../ConnecttoWallet/Connect_to_Wallet";
 import Sidebar from "../SideBar/Sidebar";
 import Topbar from "../Topbar/Topbar";
 import Modal from "react-modal";
-import LoginModal from "../../Metamask Login Modal '/LoginModal";
+import LoginModal from "../../MetamaskLoginModal/LoginModal";
 import Dashboard_after from "./Dashboard_After/Dashboard_after";
 
 // Import Web3 Libraries
@@ -27,6 +27,7 @@ export default function DashBoard(props) {
     <>
       <div className="Navbar_Cover">
         <Sidebar setOpen={setOpen} />
+        <div className="spacer"></div>
         <div className="ri_content">
           <Topbar setOpen={setOpen} name="Dashboard" />
 
@@ -36,6 +37,8 @@ export default function DashBoard(props) {
             ) : (
               <Connect_to_Wallet setOpen={setOpen} />
             )}
+
+
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-// Import Librariesv
+// Import Libraries
 import React from "react";
 import { useState } from "react";
 import "./Payasyougo.css";
@@ -6,19 +6,17 @@ import { useEffect } from "react";
 
 // Import Components
 import Modal from "react-modal";
-import LoginModal from "../../../Metamask Login Modal '/LoginModal";
+import LoginModal from "../../../MetamaskLoginModal/LoginModal";
 import Sidebar from "../../SideBar/Sidebar";
 import Topbar from "../../Topbar/Topbar";
-import Payasyou from "./Pay Modal/Payasyou";
+import Payasyou from "./PayModal/Payasyou";
 
 // Import Redux
-import { setUnderwrite, setkey } from "../../../../redux/action/actions";
+import { setUnderwrite, setkey, setSubcategorykey } from "../../../../redux/action/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { BigNumber, ethers } from "ethers";
 
 // Import React Icons & Assets
-import { AddIcon } from "@chakra-ui/icons";
-import AddProtocal from "./Add Protocal Modal/AddProtocal";
+import AddProtocal from "./AddProtocalModal/AddProtocal";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -29,25 +27,16 @@ import Paper from "@mui/material/Paper";
 import { BsInfoCircle } from "react-icons/bs";
 
 // Import Web3 Libraries
-import { ProtocolRegistryABI } from "../../../../Constants/index";
-import { useMoralis } from "react-moralis";
+import { INSURANCE_REGISTRY_ABI } from "../../../../constants/index";
+import { ethers } from "ethers";
 
 // Main Function Start
 export default function PayAsYouGo() {
-  // Moralis Hook
-  var {
-    enableWeb3,
-    isWeb3Enabled,
-    authenticate,
-    isAuthenticated,
-    user,
-    Moralis,
-  } = useMoralis();
 
   // Redux States Import and use
   var token = useSelector((state) => state.allContracts);
   var ProtocolRegistry = token.contracts.ProtocolRegistry;
-  const dispatch = useDispatch();
+  const DISPATCH = useDispatch();
 
   //LocalStates
   const [open, setOpen] = useState(false);
@@ -55,10 +44,12 @@ export default function PayAsYouGo() {
   const [ProtOpen, setProtOpen] = useState(false);
   const [Protocol, setProtocol] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [subCategory, setSubCategory] = useState("")
+  const [Category, setCategory] = useState("")
 
   // Provider.
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  if (provider === undefined) {
+  const PROVIDER = new ethers.providers.Web3Provider(window.ethereum);
+  if (PROVIDER === undefined) {
     return (
       <Modal className="Modal">
         <p>Install Metamask</p>
@@ -67,33 +58,37 @@ export default function PayAsYouGo() {
   }
 
   // Signer
-  const signer = provider.getSigner();
+  const SIGNER = PROVIDER.getSigner();
 
-  // Helper function
-  const ProtOpner = () => {
-    setProtOpen(true);
-  };
+  const PROTOCOLS = [{ _ProtocolIDs: [], _Protocol: [], _subCategory: [] }];
 
-  const Protcols = [
-    {
-      _ProtocolIDs: [],
-      _Protocol: [],
-    },
-  ];
-
-  Protcols.map((param) => {
+  PROTOCOLS.map((param) => {
     const random = async () => {
       try {
-        const protID = new ethers.Contract(
+        const insuranceID = new ethers.Contract(
           ProtocolRegistry,
-          ProtocolRegistryABI,
-          provider
+          INSURANCE_REGISTRY_ABI,
+          PROVIDER
         );
-        var n = await protID.protocolID();
-        for (var i = 1; i <= n; i++) {
-          const trans = await protID.viewProtocolInfo(i);
-          param._Protocol.push(trans);
-          param._ProtocolIDs.push(i);
+        var m = await insuranceID.getLatestCategoryID();
+
+        for (var i = 1; i <= m; i++) {
+          var n = await insuranceID.getLatestSubCategoryID(i);
+          for (var j = 1; j <= n; j++) {
+            const trans = await insuranceID.getInsuranceInfo(i, j);
+            console.log(trans)
+            param._Protocol.push(trans);
+            param._ProtocolIDs.push(i);
+            param._subCategory.push(j);
+
+            // console.log(PROTOCOLS[0]._ProtocolIDs)
+            // console.log(PROTOCOLS._subCategory)
+            setCategory(PROTOCOLS[0]._ProtocolIDs)
+            setSubCategory(PROTOCOLS[0]._subCategory)
+            //  console.log(i)
+            //  console.log(j)
+          }
+
         }
         setProtocol(param._Protocol);
       } catch (error) {
@@ -102,7 +97,7 @@ export default function PayAsYouGo() {
     };
     useEffect(() => {
       random();
-      console.log(Protocol);
+      // console.log(Protocol);
     }, []);
   });
 
@@ -110,6 +105,8 @@ export default function PayAsYouGo() {
     <>
       <div className="Navbar_Cover">
         <Sidebar setOpen={setOpen} />
+        <div className="spacer"></div>
+
         <div className="ri_content">
           <Topbar name="Provide Coverage" setOpen={setOpen} />
 
@@ -128,7 +125,7 @@ export default function PayAsYouGo() {
                 </button>
               </div> */}
 
-              <div className="Payasyou">
+              <div className="payasyou">
                 <div className="selectPlatform">
                   <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -150,6 +147,9 @@ export default function PayAsYouGo() {
                           <TableCell className="Tablecell" align="right">
                             Premium per min &nbsp; <BsInfoCircle color="#fff" />
                           </TableCell>
+                          <TableCell className="Tablecell" align="right">
+                            Active &nbsp; <BsInfoCircle color="#fff" />
+                          </TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -169,9 +169,10 @@ export default function PayAsYouGo() {
                             className="TableRow"
                             key={key}
                             onClick={function (event) {
-                              dispatch(setUnderwrite(Contract[0].toString()));
+                              DISPATCH(setUnderwrite(Contract[0].toString()));
                               setZeroOpen(true);
-                              dispatch(setkey(key + 1));
+                              DISPATCH(setkey(Category[key]));
+                              DISPATCH(setSubcategorykey(subCategory[key]))
                             }}
                             // key={Contract.name}
                             sx={{
@@ -180,7 +181,7 @@ export default function PayAsYouGo() {
                             }}
                           >
                             <TableCell component="th" scope="row">
-                              {Contract[0].toString()}
+                              {Contract[1].toString()}
                             </TableCell>
                             <TableCell align="right">
                               {Contract[2].toString() / 1e18} USDT
@@ -198,6 +199,9 @@ export default function PayAsYouGo() {
                             <TableCell align="right">
                               {(Contract[4].toString() / 1e18).toFixed(18) +
                                 " DAI"}
+                            </TableCell>
+                            <TableCell align="right">
+                              {Contract[0].toString()}
                             </TableCell>
                           </TableRow>
                         ))}

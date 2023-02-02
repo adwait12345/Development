@@ -11,8 +11,8 @@
   height: 90px;
   justify-content: space-between;
   width: 100%;
-  font-family: "Montserrat", sans-serif;
-  color: var(--primary-text);
+  font-family: var(--font-poppins);
+  color: var(--color-primary-text);
 }
 
 .top_content h1 {
@@ -24,11 +24,11 @@
   height: 40px;
   width: 240px;
   border-radius: 30px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
   font-weight: 500;
   cursor: pointer;
   background-color: transparent;
-  color: var(--primary-text);
+  color: var(--color-primary-text);
   /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
 }
 .dropbtn2 {
@@ -41,11 +41,11 @@
   cursor: pointer;
   background-color: transparent;
   color: var(
-    --primary-text
-  ); /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
+  --color-primary-text
+  );
+   /* background: linear-gradient(40deg, #3554dd71, rgba(255, 0, 251, 0.426)); */
 }
-#logout {
-}
+
 
 #connect span {
   display: inline-block;
@@ -85,8 +85,7 @@
   background-color: rgb(8, 194, 8);
 }
 
-.ReactModal__Body--open {
-}
+
 
 .mobile-topbar {
   display: none;
@@ -98,22 +97,20 @@
 .connect_wallet {
   display: flex;
 }
+
 /* Dropdown Button */
 .dropbtn1 {
-  /* color: #000; */
-  /* padding: 16px; */
+
   font-size: 16px;
-  border: 1px solid #757575;
+border: 1px solid #30363D;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   font-size: 14px;
 }
 .dropbtn2 {
-  /* color: #000; */
-  /* padding: 16px; */
   font-size: 16px;
-  border: 1px solid #757575;
+  border: 1px solid #30363D;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -127,8 +124,8 @@
   height: 1.25rem;
   border-radius: 100%;
   margin-left: -10px;
-  box-shadow: 3px 3px 3px 3px var(--background);
-  border: 3px solid var(--background);
+  box-shadow: 3px 3px 3px 3px var(--color-background);
+  border: 3px solid var(--color-background);
 }
 .network-buttons span {
   width: 1.25rem;
@@ -136,8 +133,8 @@
   border-radius: 100%;
   margin-left: -10px;
   background-color: dodgerblue;
-  border: 3px solid var(--background);
-  box-shadow: 3px 3px 3px 3px var(--background);
+  border: 3px solid var(--color-background);
+  box-shadow: 3px 3px 3px 3px var(--color-background);
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -153,7 +150,7 @@
 .dropdown-content1 {
   display: none;
   position: absolute;
-  background-color: #1e1f25;
+  background-color: var(--color-dashboard-boxes);
   min-width: 240px;
   box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
   z-index: 1;
@@ -193,8 +190,8 @@
 .dropdown-content2 {
   display: none;
   position: absolute;
-  background-color: #1e1f25;
-  min-width: 175px;
+  background-color: var(--color-dashboard-boxes);
+    min-width: 175px;
   box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
   z-index: 1;
   border-radius: 10px;
@@ -235,7 +232,7 @@
   }
 
   .outer-topbar {
-    color: var(--primary-text);
+    color: var(--color-primary-text);
   }
 
   .outer-mobile-topbar {
@@ -266,7 +263,7 @@
   }
   .mobile-topbar a {
     text-decoration: none;
-    color: var(--primary-text);
+    color: var(--color-primary-text);
   }
   .hamburger2 {
     display: flex;
@@ -285,7 +282,7 @@
     display: block;
     width: 30px;
     height: 2px;
-    background-color: var(--primary-text);
+    background-color: var(--color-primary-text);
     border-radius: 1px;
     transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
   }
@@ -303,7 +300,7 @@
     width: 160px;
     border-radius: 10px;
     border: 2px solid #000;
-    font-family: "Montserrat", sans-serif;
+    font-family:var(--font-poppins);
     background-color: transparent;
     font-weight: 500;
     cursor: pointer;

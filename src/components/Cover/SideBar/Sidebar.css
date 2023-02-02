@@ -1,9 +1,9 @@
 .aside_content {
   max-width: 280px;
-  width: 100%;
+  width: 20%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   background-color: #141627;
   justify-content: space-between;
@@ -46,11 +46,12 @@
   text-align: center;
   font-weight: 400;
   color: #fff;
+  font-family: var(--font-comforta);
 }
 
 .aside_content li {
-  font-family: "Montserrat", sans-serif;
-  color: var(--secondary-text);
+  font-family: var(--font-poppins);
+  color: var(--color-secondary-text);
   display: flex;
   align-items: center;
   list-style: none;
@@ -61,22 +62,19 @@
   margin: 10px;
   justify-content: flex-start;
   font-size: 15px;
+  font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .active li {
   color: #fff;
-  background-color: var(--Green-buttons);
+  background-color: var(--color-green-button);
 }
 .active #buy {
-  /* margin-bottom: 0px; */
   transition: 0.1s;
-  /* border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;   */
+
 }
 
-.active li:hover {
-  /* background-color: #000; */
-}
 
 .active button {
   color: rgb(0, 119, 255);
@@ -99,7 +97,7 @@
   border-radius: 10px;
   border: 1px solid #000;
   background-color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins);
   font-weight: 500;
   cursor: pointer;
   margin: 10px;
@@ -134,7 +132,7 @@
 }
 
 .buy-div p {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
   color: #fff;
   display: flex;
   align-items: center;
@@ -180,7 +178,7 @@ li svg {
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-poppins);
   padding: 5px;
   margin: 0;
 }
@@ -189,10 +187,11 @@ li svg {
 }
 .theme {
   display: flex;
-  background-color: #1e1e1e;
+  background-color: var(--color-dashboard-boxes);
   margin: 10px;
   border-radius: 10px;
   width: 200px;
+  scale: 0.9;
 }
 /* Mobile  */
 @media only screen and (max-width: 799px) {
@@ -210,10 +209,7 @@ li svg {
     max-width: 40ch;
     background-color: #2e334a;
     color: #fff;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-poppins);
   }
 
-  /* #connectt span{
- 
-    } */
 }

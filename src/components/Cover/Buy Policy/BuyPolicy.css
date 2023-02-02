@@ -1,313 +1,320 @@
-.BuyPolicy {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
-
+.buypolicy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  font-family: var(--font-poppins);
 }
 
 .Contracts {
-    width: 100%;
-    display: flex;
-    height: 40px;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .Contracts h5 {
-    margin-left: 80px;
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--tertiary-text);
+  margin-left: 80px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-tertiary-text);
 }
 
 .Contracts span {
-    margin-right: 65px;
-    display: flex;
-    color: var(--tertiary-text);
-
+  margin-right: 65px;
+  display: flex;
+  color: var(--color-tertiary-text);
 }
 
 .Contracts img {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .ContractsList {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 10px;
-    border-radius: 30px;
-    width: 93.5%;
-    height: 100%;
-
-    background: var(--buy-policy-background);
-        box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+  border-radius: 30px;
+  width: 93.5%;
+  height: 100%;
+    border: 1px solid #30363D;
+  background: var(--color-dashboard-boxes);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+      border: 1px solid #30363D;
 }
 
 .SearchContracts {
-    width: 95%;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-
+  width: 95%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .SearchContracts button img {
-    width: 20px;
-    height: 27.5px;
-    padding: 5px;
+  width: 20px;
+  height: 27.5px;
+  padding: 5px;
 }
 
 .SearchContracts button {
-    border-radius: 10px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background-color: var(--placeholder-color);
-
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--color-placeholder);
 }
 
 .contract-search {
-    height: 50px;
-    width: 200px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 15px;
-    background-color: var(--placeholder-color);
-
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 15px;
+  background-color: var(--color-placeholder);
 }
 
 .contract-search input {
-    background-color: transparent;
-    border: none;
-    font-size: 14px;
-    margin-left: 10px;
-    width: 130px;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--tertiary-text);
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  margin-left: 10px;
+  width: 130px;
+  font-family: var(--font-poppins);
+  color: var(--color-tertiary-text);
 }
 
 textarea:focus,
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 .contract-search img {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .Contract-All {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 /* Cards - contract */
 
 .Contract-Cards {
-    width: 40%;
-    padding: 24px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    margin: 25px;
-    background: linear-gradient(45deg, var(--main-grad-color1), var(--main-grad-color2));
-    color: var(--primary-text);
-    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  width: 40%;
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 25px;
+  background: #1e1e1e;
+  color: var(--color-primary-text);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
+
 .Contract-Card {
-    width: 40%;
-    padding: 24px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    margin: 25px;
-    background: linear-gradient(45deg, var(--main-grad-color1), var(--main-grad-color2));
-    color: var(--primary-text);
-    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  width: 40%;
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 25px;
+  background: #1e1e1e;
+  color: var(--color-primary-text);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
+
 .top-contract {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title-contract {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .top-contract img {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .title-contract img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    margin-right: 15px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 15px;
 }
 
 .top-contract button {
-    padding: 3px;
-    border-radius: 9px;
-    background-color: transparent;
-    cursor: pointer;
-    background-color: #fff;
-    border: none;
-        box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
+  padding: 3px;
+  border-radius: 9px;
+  background-color: transparent;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
 }
 
 .title-contract h3 {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .bet-contract p {
-    display: flex;
-    justify-content: space-between;
-    /* width: 18.5vw; */
-    font-size: 15px;
-    font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .bot-contract button {
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    border: 2px solid var(--tertiary-text);
-    background-color: transparent;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--tertiary-text);
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 2px solid var(--color-tertiary-text);
+  background-color: transparent;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-tertiary-text);
 }
 
 .bot-contract button:hover {
-    background-color: transparent;
-    color: var(--primary-text);
-    border: 2px solid var(--primary-text);
+  background-color: transparent;
+  color: var(--color-primary-text);
+  border: 2px solid var(--color-primary-text);
 }
 
 .Sort-section span {
-    display: none;
+  display: none;
 }
-.redirects{
-    display: flex;
-    width: 100%;
-    height: 90vh;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.redirect1{
-    width: 450px;
-    height: 300px;
-    background: linear-gradient(45deg, var(--main-grad-color1), var(--main-grad-color2));
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-            box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-}.redirect2{
-    width: 450px;
-    height: 300px;
-   background: linear-gradient(45deg, var(--main-grad-color1), var(--main-grad-color2));
-    border-radius: 10px;
-    display: flex;
-        justify-content: center;
-        align-items: center;
-                    box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-}
-.redirect1 button{
-    width: 200px;
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--Green-buttons);
-    color: white;
-    cursor: pointer;
 
-}.redirect2 button{
-    width: 200px;
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--Green-buttons);
-    color: white;
-    cursor: pointer;
-
+.redirects {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  justify-content: space-evenly;
+  align-items: center;
 }
+
+.redirect1 {
+  width: 450px;
+  height: 300px;
+  background: var(--color-dashboard-boxes);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+}
+
+.redirect2 {
+  width: 450px;
+  height: 300px;
+  background: var(--color-dashboard-boxes);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+}
+
+.redirect1 button {
+  width: 200px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-poppins);
+  background-color: var(--color-green-button);
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.redirect2 button {
+  width: 200px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-poppins);
+  background-color: var(--color-green-button);
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+}
+
 /* Mobile  */
-@media only screen and (max-width:799px) {
-    .SearchContracts {
+@media only screen and (max-width: 799px) {
+  .SearchContracts {
+    height: 140px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
 
-        height: 140px;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: flex-start;
-    }
+  .contract-search {
+    width: 100%;
+  }
 
-    .contract-search {
-        width: 100%;
-    }
+  .SearchContracts button {
+    align-self: end;
+  }
 
-    .SearchContracts button {
-        align-self: end;
-    }
+  .Contracts {
+    display: none;
+  }
 
-    .Contracts {
-        display: none;
-    }
+  .Sort-section span {
+    display: flex;
+    color: #fff;
+  }
 
-    .Sort-section span {
-        display: flex;
-        color: #fff;
-    }
+  .Sort-section {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    justify-content: space-between;
+    justify-self: center;
+    align-self: center;
+  }
 
-    .Sort-section {
-        display: flex;
-        align-items: center;
-        width: 95%;
-        justify-content: space-between;
-        justify-self: center;
-        align-self: center;
-    }
+  .ContractsList {
+    margin-top: 30px;
+  }
 
-    .ContractsList {
-        margin-top: 30px;
-    }
+  .Contract-Cards {
+    width: 100%;
+  }
 
-    .Contract-Cards {
-        width: 100%;
-        
-    }
-.Contract-Cards span{
+  .Contract-Cards span {
     font-size: 11px;
-}
-    .contract-search input {
-        width: 100%;
-    }
-    .redirects{
-        flex-direction: column;
-    }
-    .redirect1{
-        width: 350px;
-    }   
-     .redirect2{
-        width: 350px;
-    }
+  }
+
+  .contract-search input {
+    width: 100%;
+  }
+
+  .redirects {
+    flex-direction: column;
+  }
+
+  .redirect1 {
+    width: 350px;
+  }
+
+  .redirect2 {
+    width: 350px;
+  }
 }

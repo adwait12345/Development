@@ -10,17 +10,17 @@
         {
           "indexed": true,
           "internalType": "uint256",
-          "name": "_stablecoinID",
+          "name": "stablecoinID_",
           "type": "uint256"
         },
         {
           "indexed": true,
           "internalType": "string",
-          "name": "_stablecoinName",
+          "name": "stablecoinName",
           "type": "string"
         }
       ],
-      "name": "NewProtocolAdded",
+      "name": "NewStablecoinAdded",
       "type": "event"
     },
     {
@@ -46,27 +46,27 @@
       "inputs": [
         {
           "internalType": "string",
-          "name": "_stablecoinName",
+          "name": "stablecoinName",
           "type": "string"
         },
         {
           "internalType": "address",
-          "name": "_deployedAddress",
+          "name": "deployedAddress",
           "type": "address"
         },
         {
           "internalType": "bool",
-          "name": "_isCommunityGoverned",
+          "name": "isCommunityGoverned",
           "type": "bool"
         },
         {
           "internalType": "uint256",
-          "name": "_riskFactor",
+          "name": "riskFactor",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_riskPoolCategory",
+          "name": "riskPoolCategory",
           "type": "uint256"
         }
       ],
@@ -79,7 +79,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_version",
+          "name": "version",
           "type": "uint256"
         }
       ],
@@ -98,31 +98,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_protocolID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_version",
-          "type": "uint256"
-        }
-      ],
-      "name": "getProtocolRiskCategory",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "stablecoinID_",
           "type": "uint256"
         }
       ],
@@ -141,16 +117,64 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "stablecoinID_",
+          "type": "uint256"
+        }
+      ],
+      "name": "getStablecoinInfo",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "stablecoinName",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "stablecoinAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "stablecoinID_",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_version",
+          "name": "version",
           "type": "uint256"
         }
       ],
-      "name": "ifProtocolUpdated",
+      "name": "getStablecoinRiskCategory",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "stablecoinID_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "version",
+          "type": "uint256"
+        }
+      ],
+      "name": "ifStablecoinUpdated",
       "outputs": [
         {
           "internalType": "bool",
@@ -165,12 +189,12 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_version",
+          "name": "version",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_riskPoolCategory",
+          "name": "riskPoolCategory",
           "type": "uint256"
         }
       ],
@@ -202,12 +226,12 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_riskPoolCategory",
+          "name": "riskPoolCategory",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_liquidationFactor",
+          "name": "liquidationFactor",
           "type": "uint256"
         }
       ],
@@ -273,6 +297,11 @@
           "internalType": "uint256",
           "name": "startVersionBlock",
           "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lastUpdatedVersionBlock",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -333,31 +362,13 @@
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "_deployedAddress",
-          "type": "address"
-        },
-        {
           "internalType": "uint256",
-          "name": "_protocolID",
-          "type": "uint256"
-        }
-      ],
-      "name": "updateProtocolInfo",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "stablecoinID_",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_riskFactor",
+          "name": "riskFactor",
           "type": "uint256"
         }
       ],
@@ -370,12 +381,12 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_protocolID",
+          "name": "stablecoinID_",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_riskPoolCategory",
+          "name": "riskPoolCategory",
           "type": "uint256"
         }
       ],

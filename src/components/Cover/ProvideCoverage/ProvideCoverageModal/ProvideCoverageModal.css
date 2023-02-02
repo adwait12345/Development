@@ -1,0 +1,55 @@
+.providecoveragemodal{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 450px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 10px;
+    font-family: var(--font-poppins);
+}
+.providecoveragemodal h2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.providecoveragemodal h2 svg{
+    cursor: pointer;
+    color: #fff;
+}
+.providecoveragemodal input{
+    padding: 10px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+        font-family: var(--font-poppins);
+        background-color: #2E334A;
+        color: #757575;
+}
+.providecoveragemodal button{
+        padding: 10px;
+        height: 30px;
+            border: none;
+            border-radius: 10px;
+            height: 50px;
+            margin-top: 30px;
+            cursor: pointer;
+                font-family: var(--font-poppins);
+                color: #fff;
+                background-color: var(--color-green-button);
+}
+.protocol-name{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.protocol-name h2{
+    font-size: 20px;
+}
+#minus{
+    background-color: #ff0000a8;
+}
