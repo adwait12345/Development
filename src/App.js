@@ -30,6 +30,8 @@ import { MoralisProvider } from "react-moralis";
 
 //Popup Library
 import { ToastContainer, toast } from "react-toastify";
+import Topbar from "./components/Topbox/SubComponents/Topbar1";
+import Topbox from "./components/Topbox/Topbox";
 
 // Main Function Start
 function App() {
@@ -64,7 +66,7 @@ function App() {
         >
           <Router>
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/" element={<Topbox />} />
               <Route path="/cover/dashboard" element={<DashBoard />} />
               <Route path="/cover/buypolicy" element={<Buypolicy />} />
               <Route

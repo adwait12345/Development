@@ -9,7 +9,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   font-family: var(--font-poppins);
-  background: #1e1e1e;
+  background: var(--color-dashboard-boxes);
   color: var(--color-primary-text);
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
