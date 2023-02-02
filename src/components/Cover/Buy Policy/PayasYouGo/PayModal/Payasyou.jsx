@@ -56,7 +56,7 @@ export default function Payasyou({ setZeroOpen }) {
     const oneEther = ethers.utils.parseUnits(`${UnderAmt}`, "ether");
     // var trans = await SwapDAI_Contract.swapDAI(oneEther, window.Deadline, window.x.v, window.x.r, window.x.s)
     // var trans = await SZTPOST.UNDERWRITE(oneEther, `${keys.keys}`, `${subkeys.subKey}`, window.Deadline, window.x.v, window.x.r, window.x.s);
-    var trans = await SZTPOST.UNDERWRITE(oneEther, `1`, `1`, window.Deadline, window.x.v, window.x.r, window.x.s);
+    var trans = await SZTPOST.underwrite(oneEther, `1`, `1`, window.Deadline, window.x.v, window.x.r, window.x.s);
   };
 
   return (

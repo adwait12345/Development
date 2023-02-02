@@ -35,7 +35,7 @@ export default function PayAsYouGo() {
 
   // Redux States Import and use
   var token = useSelector((state) => state.allContracts);
-  var ProtocolRegistry = token.contracts.ProtocolRegistry;
+  var ProtocolRegistry = token.contracts.INSURANCE_REGISTRY_CA;
   const DISPATCH = useDispatch();
 
   //LocalStates
@@ -184,21 +184,18 @@ export default function PayAsYouGo() {
                               {Contract[1].toString()}
                             </TableCell>
                             <TableCell align="right">
-                              {Contract[2].toString() / 1e18} USDT
+                              {(Contract[4].toString() / 1e18).toFixed(3) } USDT
                             </TableCell>
                             <TableCell align="right">
-                              {(Contract[3].toString() /
-                                1e18 /
-                                (Contract[2].toString() / 1e18)) *
-                                100}{" "}
-                              %
+                            {  Contract[3].toString()/ 1e18 }%
+                               
+                              
                             </TableCell>
                             <TableCell align="right">
-                              {Contract[3].toString() / 1e18} SZT
+                              {Contract[5].toString() } SZT
                             </TableCell>
                             <TableCell align="right">
-                              {(Contract[4].toString() / 1e18).toFixed(18) +
-                                " DAI"}
+                              {(Contract[5].toString() / 1e18).toFixed(18)} DAI
                             </TableCell>
                             <TableCell align="right">
                               {Contract[0].toString()}

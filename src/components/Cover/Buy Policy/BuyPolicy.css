@@ -107,7 +107,7 @@ input:focus {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-around;
 }
 
 /* Cards - contract */
@@ -118,9 +118,10 @@ input:focus {
   box-sizing: border-box;
   border-radius: 10px;
   margin: 25px;
-  background: #1e1e1e;
+  background: var(--color-background);
   color: var(--color-primary-text);
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+      border: 1px solid #30363D;
 }
 
 .Contract-Card {
