@@ -112,11 +112,13 @@ export default function ProvideCoverage() {
   const PermitSZTDAI = async () => {
     try {
       const TO_BE_PERMIT_AMOUNT = ethers.utils.parseUnits(`${amountInSZTDAI}`, "ether");
+      window.deadline = Date.now() + 600;
+
       window.signature = await permitSign(
-        "sztDAI",
+        "SZTDAI",
         "1",
         SZT_DAI_ERC20_CA,
-        SwapDAI,
+        SWAP_DAI_CA,
         TO_BE_PERMIT_AMOUNT,
         window.deadline
       );
