@@ -318,9 +318,9 @@ export default function ProvideCoverage() {
                               </div>
                               <div className="bet-contract">
                                 <p>
-                                  <span>Liqidity:</span>
+                                  <span> Liquidity:</span>
                                   <span>
-                                    {Contracts[2].toString() / 1e18} USDT
+                                    {(Contracts[4].toString() / 1e18).toFixed(3)} USDT
                                   </span>
                                 </p>
                                 <p>
@@ -329,11 +329,9 @@ export default function ProvideCoverage() {
                                 </p>
 
                                 <p>
-                                  <span>Premium [ per min ]:</span>
+                                  <span>Premium / per min:</span>
                                   <span>
-                                    {(Contracts[4].toString() / 1e18).toFixed(
-                                      18
-                                    ) + " DAI"}
+                                    {(Contracts[5].toString() / 1e18).toFixed(18)} DAI
                                   </span>
                                 </p>
                               </div>

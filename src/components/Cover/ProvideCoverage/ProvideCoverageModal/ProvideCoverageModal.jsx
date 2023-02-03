@@ -18,7 +18,7 @@ import { ethers } from "ethers";
 export default function ProvideCoverageModal({ setActivateOpen }) {
   // Redux States Import and use
   var token = useSelector((state) => state.allContracts);
-  var ConstantFlowAgreement = token.contracts.ConstantFlowAgreement;
+  var ConstantFlowAgreement = token.contracts.CONSTANT_FLOW_AGREEMENT_CA;
   var SwapsztDAI = token.contracts.SwapsztDAI;
   const Protocals = useSelector((state) => state.allProtocol);
   const Ids = useSelector((state) => state.allKey);
@@ -70,7 +70,7 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
       signer
     );
     const oneEther = ethers.utils.parseUnits(`${Addinsured}`, "ether");
-    const trans = await Activate.minusInsuranceAmount(oneEther, key, subkey);
+    const trans = await Activate.minusInsuranceAmount(oneEther, key, subkey, true);
   };
 
   return (

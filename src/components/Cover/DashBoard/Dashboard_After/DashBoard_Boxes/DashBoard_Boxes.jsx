@@ -52,7 +52,7 @@ export default function DashBoard_Boxes() {
     // For getting No of issued Token.
     (async () => {
       try {
-        const BUY_SELL_PROVIDER = new ethers.Contract(GENZ_STAKING, SZTStakingABI, PROVIDER);
+        const BUY_SELL_PROVIDER = new ethers.Contract(GENZ_STAKING, SZT_STAKING_ABI, PROVIDER);
 
         var Raw_IssuedTokens = await BUY_SELL_PROVIDER.totalTokensStaked();
         var Issued_Tokens = Number(BigInt(Raw_IssuedTokens).toString());
@@ -67,7 +67,7 @@ export default function DashBoard_Boxes() {
     // total tokens staked
     (async () => {
       try {
-        const BUY_SELL_PROVIDER = new ethers.Contract(GENZ_STAKING, SZTStakingABI, PROVIDER);
+        const BUY_SELL_PROVIDER = new ethers.Contract(GENZ_STAKING, SZT_STAKING_ABI, PROVIDER);
 
         var Raw_IssuedTokens = await BUY_SELL_PROVIDER.getUserStakedSZTBalance(account);
         var Issued_Tokens = Number(BigInt(Raw_IssuedTokens).toString());
@@ -84,7 +84,7 @@ export default function DashBoard_Boxes() {
     // For getting User Balance.
     (async () => {
       try {
-        const GET_SZT = new ethers.Contract(SZT_Token, ERC20ABI, PROVIDER);
+        const GET_SZT = new ethers.Contract(SZT_Token, ERC20_ABI, PROVIDER);
 
         const Raw_Balance = await GET_SZT.balanceOf(account);
         var User_Balance = BigInt(Raw_Balance).toString();

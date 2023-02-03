@@ -45,7 +45,7 @@ export default function DAO() {
   // Redux States Import and use
   var key = useSelector((state) => state.allKey);
   var token = useSelector((state) => state.allContracts);
-  var Claim_Governance = token.contracts.ClaimGovernance;
+  var Claim_Governance = token.contracts.CLAIM_GOVERNANCE_CA;
   const subkeys = useSelector((state) => state.allsubKey);
 
   //LocalStates

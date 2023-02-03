@@ -126,7 +126,7 @@ export default function Sell_Stake() {
             const ISSUED_TOKENS_SZT = (await BUY_SELL_SZT_PROVIDER.getTokenCounter());
             const TOKENS_TO_BE_ISSUED_SZT = ethers.utils.parseUnits("1", DECIMAL);
             const TOKEN_COUNT_SZT = ISSUED_TOKENS_SZT.add(TOKENS_TO_BE_ISSUED_SZT);
-            let currentPriceInWei = await BUY_SELL_SZT_PROVIDER.calculatePriceSZT(
+            let currentPriceInWei = await BUY_SELL_SZT_PROVIDER.calculateSZTPrice(
                 `${ISSUED_TOKENS_SZT}`,
                 `${TOKEN_COUNT_SZT}`
             );
@@ -433,7 +433,7 @@ export default function Sell_Stake() {
                                         </div>
                                         <div className="stake-box">Coming Soon</div>
                                     </div>
-                                    <div className="sell-tit">
+                                    {/* <div className="sell-tit">
                                         <h3>Sell GENZ Token</h3>
                                     </div>
 
@@ -469,7 +469,7 @@ export default function Sell_Stake() {
                                             </div>
                                         </div>
                                         <div className="stake-box">Coming Soon</div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

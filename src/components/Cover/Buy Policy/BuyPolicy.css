@@ -170,13 +170,14 @@ input:focus {
 
 .title-contract h3 {
   font-size: 24px;
+  font-weight: 400;
 }
 
 .bet-contract p {
   display: flex;
   justify-content: space-between;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .bot-contract button {

@@ -66,7 +66,7 @@ export default function Payasyou({ setZeroOpen }) {
           UnderWrite <span>{UNDERWRITE.UNDERWRITE}</span>{" "}
           <CloseIcon onClick={Close} />
         </h2>
-        <div className="UNDERWRITE-input">
+        <div className="underwrite-input">
           <input
             type="text"
             placeholder="Enter no of Tokens"

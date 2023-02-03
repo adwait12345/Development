@@ -135,7 +135,7 @@ export default function PayAsYouGo() {
                             Vault &nbsp; <BsInfoCircle color="#fff" />
                           </TableCell>
                           <TableCell className="Tablecell" align="right">
-                            Total Liqidity &nbsp; <BsInfoCircle color="#fff" />
+                            Total  Liquidity &nbsp; <BsInfoCircle color="#fff" />
                           </TableCell>
                           <TableCell className="Tablecell" align="right">
                             Saturation &nbsp; <BsInfoCircle color="#fff" />

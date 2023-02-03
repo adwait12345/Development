@@ -4,7 +4,7 @@ import "./Available.css";
 import { Link } from "react-router-dom";
 
 // Import Components
-import { Insurance } from "./InsuranceData";
+import { Insurances } from "./InsuranceData";
 
 // Import Redux
 import { useDispatch } from "react-redux";
@@ -29,7 +29,8 @@ export default function Main_Available_insurance() {
 
   return (
     <div className="Main_Available_insurance">
-      <div className="back-dashboard">
+      <div className="outer-available-insurance">
+              <div className="back-dashboard">
         <Link to="/cover/Dashboard">
           <p>
             <MdKeyboardArrowLeft /> Back
@@ -39,7 +40,7 @@ export default function Main_Available_insurance() {
         <input type="text" placeholder="Search" />
       </div>
       <div className="Insurance-Cards">
-        {Insurance.map((Insurance) => {
+        {Insurances.map((Insurance) => {
           return (
             <Link to="/cover/BuyPolicy">
               <div
@@ -90,6 +91,8 @@ export default function Main_Available_insurance() {
           );
         })}
       </div>
+      </div>
+
     </div>
   );
 }

@@ -250,6 +250,8 @@ export default function Zero_Premium() {
     <>
       <div className="Navbar_Cover">
         <Sidebar setOpen={setOpen} />
+        <div className="spacer"></div>
+
         <div className="ri_content">
           <Topbar name="Zero Premium" setOpen={setOpen} />
 

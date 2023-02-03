@@ -23,7 +23,7 @@ import data from "../../Buy Policy/Zero-Premium/Zero-PremiumModal/data";
 import { ethers } from "ethers";
 
 // Main function
-export default function insurancetypeModal({ setTypeOpen }) {
+export default function InsuranceTypeModal({ setTypeOpen }) {
   // Data
   var Data = data();
 
@@ -31,7 +31,7 @@ export default function insurancetypeModal({ setTypeOpen }) {
   var method = useSelector((state) => state.allInsuranceMethod);
   var token = useSelector((state) => state.allContracts);
   var dispatch = useDispatch();
-  var ProtocolRegistry = token.contracts.ProtocolRegistry;
+  var ProtocolRegistry = token.contracts.INSURANCE_REGISTRY_CA;
 
   //LocalStates
   const [Protocol, setProtocol] = useState([]);
@@ -130,7 +130,7 @@ export default function insurancetypeModal({ setTypeOpen }) {
             }).map((Contract, key) => (
               <p
                 onClick={function (event) {
-                  dispatch(setinsurancetype(Contract[0].toString())),
+                  dispatch(setInsuranceType(Contract[0].toString())),
                     setTypeOpen(false),
                     dispatch(dispatch(setkey(Category[key]))),
                     dispatch(setSubcategorykey(subCategory[key]));

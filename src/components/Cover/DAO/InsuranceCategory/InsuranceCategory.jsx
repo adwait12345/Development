@@ -3,7 +3,7 @@ import React from 'react'
 import './InsuranceCategory.css'
 
 // Import Components
-import { Insurance } from '../../DashBoard/AvailableInsurance/InsuranceData'
+import { Insurances } from '../../DashBoard/AvailableInsurance/InsuranceData'
 
 // Import React Icons & Assets
 import {
@@ -32,7 +32,7 @@ export default function InsuranceCategory({ setCategoryOpen }) {
                     <input type="text" placeholder='Search' />
                 </div>
                 <div className="bot-insurancecategory">
-                    {Insurance.map((Insurance) => {
+                    {Insurances.map((Insurance) => {
                         return <p onClick={function () { dispatch(setInsuranceCategory(Insurance._type)), setCategoryOpen(false) }}>{Insurance._type}</p>
                     })}
                 </div>
