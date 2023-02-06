@@ -11,9 +11,50 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { BsInfoCircle } from "react-icons/bs";
 
+// Import Web3 Libraries
+import { CONSTANT_FLOW_AGREEMENT_ABI } from "../../../../../../constants/index";
+import { ethers } from "ethers";
+import { useMoralis } from "react-moralis";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 // Main Function Start
 export default function Chart_Active_Policy() {
+  // Moralis Hook
+  var { account } = useMoralis();
+
+  // localStates
+  const [Protocol, setProtocol] = useState([]);
+  const [subCategory, setSubCategory] = useState("")
+  const [Category, setCategory] = useState("")
+  const [UserData, setUserData] = useState([])
+  // Redux States Import and use
+  var token = useSelector((state) => state.allContracts);
+  var ConstantFlow = token.contracts.CONSTANT_FLOW_AGREEMENT_CA;
+
+  // Provider.
+  const PROVIDER = new ethers.providers.Web3Provider(window.ethereum); 
+
+    useEffect(()=>{
+     const fun = async()=>{
+       try {
+      const insuranceID = new ethers.Contract(
+        ConstantFlow,
+        CONSTANT_FLOW_AGREEMENT_ABI,
+        PROVIDER
+      );
+      const trans = await insuranceID.getUserInsuranceInfo(account, '1', '1')
+      console.log(trans[0].toString())
+      setUserData(trans)
+    } catch (error) {
+      console.log(error);
+    }
+     }
+     fun()
+    },[])
+
+
   return (
     <>
       {/* <div className="Policies-chart">
@@ -69,18 +110,21 @@ export default function Chart_Active_Policy() {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow
+            {UserData.map((data,key)=>{
+                         <TableRow key={key}
               sx={{
                 "&:last-child td, &:last-child th": { border: 0 },
                 cursor: "pointer",
               }}
             >
-              <TableCell component="th" scope="row"></TableCell>
+                           <TableCell component="th" scope="row">{data.toString()} </TableCell>
               <TableCell align="right"></TableCell>
               <TableCell align="right"></TableCell>
               <TableCell align="right"></TableCell>
               <TableCell align="right"></TableCell>
-            </TableRow>
+            </TableRow> 
+            })}
+
           </TableBody>
         </Table>
       </TableContainer>

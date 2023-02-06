@@ -55,7 +55,7 @@
 .underwrite-input {
   width: 90%;
   height: 40px;
-  background-color: var(--color-placeholder);
+  background-color: #010409;
   padding: 7px;
   border-radius: 10px;
   display: flex;

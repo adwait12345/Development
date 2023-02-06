@@ -32,8 +32,15 @@
 .skeleton-text__title {
   height: 20px;
 }
+.skeleton-text__title {
+  height: 10px;
+}
 .skeleton-text__img {
   height: 40px;
+  width: 150px;
+}
+.skeleton-text__img2 {
+  height: 10px;
   width: 150px;
 }
 .skeleton-footer {

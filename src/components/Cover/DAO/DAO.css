@@ -176,7 +176,7 @@ margin-bottom: 10px;
 }
 .DAO{
     margin-top: 30px;
-    width: 95%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -199,6 +199,7 @@ margin-bottom: 10px;
 .dao-bottom{
     display: flex;
     flex-direction: column;
+        box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
 .dao-bottom-top{

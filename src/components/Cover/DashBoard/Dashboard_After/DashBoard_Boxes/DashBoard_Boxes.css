@@ -1,7 +1,7 @@
 .DashBoard_Boxes {
     width: 95%;
     display: flex;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-poppins);
 }
 
 .box-dashboard {
@@ -53,7 +53,7 @@
     border-radius: 10px;
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
-        border: 1px solid #30363D;
+        border: 1px solid var(--color-box-border);
 }
 
 .b1,

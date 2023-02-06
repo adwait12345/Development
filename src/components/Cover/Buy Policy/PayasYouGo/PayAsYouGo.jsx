@@ -29,6 +29,7 @@ import { BsInfoCircle } from "react-icons/bs";
 // Import Web3 Libraries
 import { INSURANCE_REGISTRY_ABI } from "../../../../constants/index";
 import { ethers } from "ethers";
+import SkeletonTable from "../../../Skeleton/SkeletonTable";
 
 // Main Function Start
 export default function PayAsYouGo() {
@@ -46,6 +47,7 @@ export default function PayAsYouGo() {
   const [searchTerm, setSearchTerm] = useState("");
   const [subCategory, setSubCategory] = useState("")
   const [Category, setCategory] = useState("")
+  const [loading, setLoading] = useState(false)
 
   // Provider.
   const PROVIDER = new ethers.providers.Web3Provider(window.ethereum);
@@ -64,6 +66,7 @@ export default function PayAsYouGo() {
 
   PROTOCOLS.map((param) => {
     const random = async () => {
+      setLoading(true)
       try {
         const insuranceID = new ethers.Contract(
           ProtocolRegistry,
@@ -80,7 +83,6 @@ export default function PayAsYouGo() {
             param._Protocol.push(trans);
             param._ProtocolIDs.push(i);
             param._subCategory.push(j);
-
             // console.log(PROTOCOLS[0]._ProtocolIDs)
             // console.log(PROTOCOLS._subCategory)
             setCategory(PROTOCOLS[0]._ProtocolIDs)
@@ -88,9 +90,11 @@ export default function PayAsYouGo() {
             //  console.log(i)
             //  console.log(j)
           }
+            setLoading(false)
 
         }
         setProtocol(param._Protocol);
+        // setLoading(false)
       } catch (error) {
         console.log(error);
       }
@@ -181,27 +185,28 @@ export default function PayAsYouGo() {
                             }}
                           >
                             <TableCell component="th" scope="row">
-                              {Contract[1].toString()}
+                          {loading?<SkeletonTable/>:  Contract[1].toString()}  
                             </TableCell>
                             <TableCell align="right">
-                              {(Contract[4].toString() / 1e18).toFixed(3) } USDT
+                              {loading ? <SkeletonTable /> : (Contract[4].toString() / 1e18).toFixed(3)  }USDT
                             </TableCell>
                             <TableCell align="right">
-                            {  Contract[3].toString()/ 1e18 }%
+                              {loading ? <SkeletonTable /> : Contract[3].toString()/ 1e18 }%
                                
                               
                             </TableCell>
                             <TableCell align="right">
-                              {Contract[5].toString() } SZT
+                              {loading ? <SkeletonTable /> : Contract[5].toString() } SZT`
                             </TableCell>
                             <TableCell align="right">
-                              {(Contract[5].toString() / 1e18).toFixed(18)} DAI
+                              {loading ? <SkeletonTable /> : (Contract[5].toString() / 1e18).toFixed(18)}  DAI
                             </TableCell>
                             <TableCell align="right">
-                              {Contract[0].toString()}
+                              {loading ? <SkeletonTable /> : Contract[0].toString()}
                             </TableCell>
                           </TableRow>
                         ))}
+                        
                       </TableBody>
                     </Table>
                   </TableContainer>

@@ -110,6 +110,7 @@
 }
 .css-11xur9t-MuiPaper-root-MuiTableContainer-root {
   background-color: var(--color-dashboard-boxes) !important;
+  box-shadow: none !important;
 }
 /* development */
 .css-13xy2my {
@@ -118,46 +119,46 @@
 
 .css-1bigob2 {
   font-family:var(--font-poppins) !important;
-  color: #fff !important;
-  border-bottom: 1px solid #363636 !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 
 .css-1sgp6db {
   font-family:var(--font-poppins) !important;
-  color: #fff !important;
-  border-bottom: 1px solid #363636 !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 .css-q34dxg {
   font-family: var(--font-poppins) !important;
-  color: #fff !important;
-  border-bottom: 1px solid #363636 !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 .css-1i36psw {
   font-family: var(--font-poppins) !important;
-  color: #fff !important;
-  border-bottom: 1px solid #363636 !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 /*  */
 
 .css-1ygcj2i-MuiTableCell-root {
   font-family: var(--font-poppins) !important;
-  color: #fff !important;
-  border-bottom: 1px solid #363636 !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 .css-1azl6jz-MuiTableCell-root {
   font-family: var(--font-poppins) !important;
-  color: #fff !important;
-  border-bottom: 1px solid #363636 !important;
+  color:var(--color-primary-text)!important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 .css-1ex1afd-MuiTableCell-root {
   font-family: var(--font-poppins) !important;
-  color: #fff !important;
-  border-bottom: 1px solid #363636 !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 .css-177gid-MuiTableCell-root {
   font-family: var(--font-poppins) !important;
-  color: #fff !important;
-  border-bottom: 1px solid #363636 !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
 }
 
 .TableRow:hover {

@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // Import Web3 Libraries
 import { ethers } from "ethers";
-import { ERC20_ABI, COVERAGE_POOL_ABI } from "../../../../../constants/index";
+import { COVERAGE_POOL_ABI, BUY_SELL_SZT_ABI } from "../../../../../constants/index";
 import { permitSign } from "../../../../../global/GlobalPermit";
 
 // Main Function Start
@@ -28,7 +28,8 @@ export default function Payasyou({ setZeroOpen }) {
   var SZT_Token = token.contracts.SZT_ERC20_CA;
   var GSZTToken = token.contracts.GSZT_ERC20_CA;
   var CoveragePool = token.contracts.COVERAGE_POOL_CA;
-
+  var buySellSZT = token.contracts.BUY_SELL_SZT_CA;
+  var DAI_Token = token.contracts.DAI_ERC20_CA
   //Provider
   const PROVIDER = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -42,12 +43,29 @@ export default function Payasyou({ setZeroOpen }) {
 
   // LocalStates
   const [UnderAmt, setUnderAmt] = useState("");
+  
 
   //Permit to underWrite
   const Permit_to_Underwrite = async () => {
-    const oneEther = ethers.utils.parseUnits(`${UnderAmt}`, "ether");
-    window.Deadline = Date.now() + 30 * 60
-    window.x = await permitSign("DAI", "1", SZT_Token, CoveragePool, oneEther, window.Deadline)
+    // const oneEther = ethers.utils.parseUnits(`${UnderAmt}`, "ether");
+    // window.Deadline = Date.now() + 30 * 60
+    // window.x = await permitSign("DAI", "1", SZT_Token, CoveragePool, oneEther, window.Deadline)
+
+   const BUYSELLSZT_CONTRACT_PROVIDER = new ethers.Contract(buySellSZT, BUY_SELL_SZT_ABI, PROVIDER);
+    const issuedTokensSZT = await BUYSELLSZT_CONTRACT_PROVIDER.getTokenCounter();
+    const value = ethers.utils.parseUnits(`${ UnderAmt }`, "ether");
+    console.log(`Issued_SZT_tokens: ${ issuedTokensSZT.toString() }`);
+    const amountInSZT = issuedTokensSZT.add(value);
+    console.log(amountInSZT.toString());
+    const amountInDAI = await BUYSELLSZT_CONTRACT_PROVIDER.calculatePriceSZT(
+      issuedTokensSZT,
+      (amountInSZT)
+    );
+    console.log(`Amount to be paid in DAI: ${ amountInDAI[1].toString() }`);
+
+    window.Deadline = Date.now() + 600;
+    window.x = await permitSign("MockDAI", "1", DAI_Token, CoveragePool, amountInDAI[1], window.Deadline);
+    // domainName, domainVersion, contractAddress, spender, value, deadline
   };
 
   // Underwrite
@@ -55,8 +73,8 @@ export default function Payasyou({ setZeroOpen }) {
     var SZTPOST = new ethers.Contract(CoveragePool, COVERAGE_POOL_ABI, SIGNER);
     const oneEther = ethers.utils.parseUnits(`${UnderAmt}`, "ether");
     // var trans = await SwapDAI_Contract.swapDAI(oneEther, window.Deadline, window.x.v, window.x.r, window.x.s)
-    // var trans = await SZTPOST.UNDERWRITE(oneEther, `${keys.keys}`, `${subkeys.subKey}`, window.Deadline, window.x.v, window.x.r, window.x.s);
-    var trans = await SZTPOST.underwrite(oneEther, `1`, `1`, window.Deadline, window.x.v, window.x.r, window.x.s);
+    // var trans = await SZTPOST.UNDERWRITE(oneEther, , `${subkeys.subKey}`, window.Deadline, window.x.v, window.x.r, window.x.s);
+    var trans = await SZTPOST.underwrite(oneEther, `${KEYS.keys}`, `${SUBKEYS.subKey}`, window.Deadline, window.x.v, window.x.r, window.x.s);
   };
 
   return (

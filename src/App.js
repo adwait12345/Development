@@ -56,9 +56,17 @@ function App() {
     }
   }, [Theme]);
 
+
+  useEffect(()=>{
+  const body =  document.getElementById('body')
+    body.setAttribute("data-theme", themes)
+
+  },[themes])
+
   return (
     <>
-      <body data-theme={themes}>
+      {/* <body data-theme={themes}> */}
+        
         <MoralisProvider
           appId={process.env.REACT_APP_MORALIS_APP_ID}
           serverUrl={process.env.REACT_APP_MORALIS_SERVER_URL}
@@ -111,7 +119,7 @@ function App() {
             pauseOnHover
           />
         </div>
-      </body>
+      {/* </body> */}
     </>
   );
 }

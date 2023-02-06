@@ -13,13 +13,16 @@ import { useSelector } from "react-redux";
 import { CONSTANT_FLOW_AGREEMENT_ABI } from "../../../../constants/index";
 import { useMoralis } from "react-moralis";
 import { ethers } from "ethers";
+import { permitSign } from "../../../../global/GlobalPermit";
 
 // Main function
 export default function ProvideCoverageModal({ setActivateOpen }) {
   // Redux States Import and use
   var token = useSelector((state) => state.allContracts);
   var ConstantFlowAgreement = token.contracts.CONSTANT_FLOW_AGREEMENT_CA;
-  var SwapsztDAI = token.contracts.SwapsztDAI;
+  const DAI_ERC20_CA = token.contracts.DAI_ERC20_CA;
+
+  var SZT_DAI_ERC20_CA = token.contracts.SZT_DAI_ERC20_CA;
   const Protocals = useSelector((state) => state.allProtocol);
   const Ids = useSelector((state) => state.allKey);
   const subkeys = useSelector((state) => state.allsubKey);
@@ -61,7 +64,16 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
       signer
     );
     const oneEther = ethers.utils.parseUnits(`${Addinsured}`, "ether");
-    const trans = await Activate.addInsuranceAmount(oneEther, key, subkey);
+    window.deadline = Date.now() + 600;
+    window.signature = await permitSign(
+      "SZTDAI",
+      "1",
+      SZT_DAI_ERC20_CA,
+      ConstantFlowAgreement,
+      oneEther,
+      window.deadline
+    );
+    const trans = await Activate.addInsuranceAmount(oneEther, key, subkey  , window.signature.v,window.signature.r,window.signature.s);
   };
   const SubtractInsured = async () => {
     var Activate = new ethers.Contract(

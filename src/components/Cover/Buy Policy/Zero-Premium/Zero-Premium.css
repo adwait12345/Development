@@ -22,6 +22,17 @@
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
 }
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color-dashboard-boxes);
+  min-width: 240px;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  z-index: 1;
+  border-radius: 10px;
+  margin: 0px 0px 0 25px;
+}
+
 .actual-zeropremium {
   width: 87%;
   display: flex;
@@ -148,6 +159,7 @@
   .zeropremiun-box {
     width: 100%;
   }
+
   .actual-zeropremium {
     width: 93%;
   }

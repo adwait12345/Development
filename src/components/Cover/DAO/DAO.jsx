@@ -36,6 +36,7 @@ import Paper from "@mui/material/Paper";
 
 // Import Redux
 import { useSelector } from "react-redux";
+import { permitSign } from "../../../global/GlobalPermit";
 
 // Main function
 export default function DAO() {
@@ -45,6 +46,8 @@ export default function DAO() {
   // Redux States Import and use
   var key = useSelector((state) => state.allKey);
   var token = useSelector((state) => state.allContracts);
+  const DAI_ERC20_CA = token.contracts.DAI_ERC20_CA;
+
   var Claim_Governance = token.contracts.CLAIM_GOVERNANCE_CA;
   const subkeys = useSelector((state) => state.allsubKey);
 
@@ -64,6 +67,7 @@ export default function DAO() {
   const signer = provider.getSigner();
 
 
+
   // Function use to create claim
   const CreateClaim = async () => {
     var Create = new ethers.Contract(
@@ -71,16 +75,34 @@ export default function DAO() {
       CLAIM_GOVERNANCE_ABI,
       signer
     );
-    const oneEther = ethers.utils.parseUnits(`${ClaimAmount}`, "ether");
-
+    const oneEther = ethers.utils.parseUnits(`10`, "ether");
+    window.deadline = Date.now() + 600;
+    window.signature = await permitSign(
+      "MockDAI",
+      "1",
+      DAI_ERC20_CA,
+      Claim_Governance,
+      oneEther,
+      window.deadline
+    );
     const trans = Create.createClaim(
       key.keys,
       subkeys.subKey,
       string,
-      oneEther
-    );
+      oneEther, 
+      window.deadline,
+      window.signature.v,
+      window.signature.r,
+      window.signature.s);
   };
-  useEffect(() => {
+
+
+
+  useEffect((m) => {
+      const CLAIMS = [{ _Claims: [] }];
+CLAIMS.map((param)=>{
+
+
     (async () => {
       var ClaimID = new ethers.Contract(
         Claim_Governance,
@@ -89,14 +111,18 @@ export default function DAO() {
       );
       const trans = await ClaimID.getClaimID();
       const ID = trans.toNumber();
-      for (var i = 0; i <= ID; i++) { }
-
+      for (var i = 0; i <= ID; i++) {
+        const info = await ClaimID.claims(i);
+        param._Claims.push(info)
+       }
+       console.log(param._Claims)
       const tran2 = await ClaimID.getVotingInfo(ID);
       console.log(tran2);
-      const info = await ClaimID.claims(ID);
-      setinfo(info);
-      console.log(info);
+      setinfo(param._Claims);
+      console.log(param._Claims);
     })();
+})
+
   }, []);
 
   const DAO_bar = () => {
@@ -229,18 +255,18 @@ export default function DAO() {
                             <TableCell className="Tablecell">
                               Address &nbsp; <BsInfoCircle color="#fff" />
                             </TableCell>
-                            <TableCell className="Tablecell" align="right">
-                              Insurance Type &nbsp;{" "}
-                              <BsInfoCircle color="#fff" />
-                            </TableCell>
+       
                             <TableCell className="Tablecell" align="right">
                               Claim Amount &nbsp; <BsInfoCircle color="#fff" />
                             </TableCell>
                             <TableCell className="Tablecell" align="right">
-                              Protocol &nbsp; <BsInfoCircle color="#fff" />
+                              Proof &nbsp; <BsInfoCircle color="#fff" />
                             </TableCell>
                             <TableCell className="Tablecell" align="right">
-                              Expires &nbsp; <BsInfoCircle color="#fff" />
+                              Closed &nbsp; <BsInfoCircle color="#fff" />
+                            </TableCell>
+                            <TableCell className="Tablecell" align="right">
+                              IsChallanged &nbsp; <BsInfoCircle color="#fff" />
                             </TableCell>
                           </TableRow>
                         </TableHead>
@@ -256,12 +282,12 @@ export default function DAO() {
                                 }}
                               >
                                 <TableCell component="th" scope="row">
-                                  {info.toString()}
+                                  {info[0].toString()}
                                 </TableCell>
-                                <TableCell align="right"></TableCell>
-                                <TableCell align="right"></TableCell>
-                                <TableCell align="right"></TableCell>
-                                <TableCell align="right"></TableCell>
+                                <TableCell align="right">{info[4].toString()/1e18}</TableCell>
+                                <TableCell align="right">{info[5].toString()}</TableCell>
+                                <TableCell align="right">{info[6].toString()}</TableCell>
+                                <TableCell align="right">{info[7].toString()}</TableCell>
                               </TableRow>
                             );
                           })}

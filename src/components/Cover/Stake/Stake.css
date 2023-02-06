@@ -12,7 +12,7 @@
 .Stake {
   display: flex;
   width: 100%;
-  border: 1px solid #30363D;
+  border: 1px solid var(--color-box-border);
   border-radius: 10px;
   flex-direction: column;
   background: var(--color-dashboard-boxes);
@@ -35,7 +35,7 @@
   height: 340px;
   overflow: hidden;
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-  background: #010409;
+  background: var(--color-background);
   border: 1px solid #30363D;
 }
 
@@ -170,7 +170,7 @@
   border: none;
   color: #fff;
 border: 1px solid lime;
-  background: rgba(24, 223, 54, 0.438);  cursor: pointer;
+  background: var(--color-green-button);  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,9 +190,9 @@ border: 1px solid lime;
   border-radius: 10px;
   font-weight: 500;
   cursor: pointer;
-  color: var(--color-primary-text);
+  color: #fff;
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-  background-color: rgba(24, 223, 54, 0.438);
+  background-color: var(--color-green-button);
   border: 1px solid lime;
 }
 
