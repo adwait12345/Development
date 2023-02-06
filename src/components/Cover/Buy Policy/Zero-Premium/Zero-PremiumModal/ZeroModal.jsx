@@ -54,7 +54,7 @@ export default function ZeroModal({ setZeroOpen }) {
                     <div class="dropdown">
                       <button class="dropbtn"  id='sc' >Select Coins</button>
                      
-                        <div class="dropdown-content">
+                        <div class="dropdown-content1">
                           {Contract._Token.map((Token)=>{
                             return(
                               <a onClick={function (event) { dispatch(setToken(Token._addr));dispatch(setcToken(Token._caddr))}}>
