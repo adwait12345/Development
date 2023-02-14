@@ -9,6 +9,8 @@ const CONSTANT_FLOW_AGREEMENT_ABI = require('./ConstantFlowAgreement.json');
 const INSURANCE_REGISTRY_ABI = require('./InsuranceRegistry.json');
 const COVERAGE_POOL_ABI = require('./CoveragePool.json');
 const CLAIM_GOVERNANCE_ABI = require('./ClaimGovernance.json');
+const COMPTROLLER_ABI = require('./Comptroller.json');
+const ICERC20_ABI = require('./ICERC20.json');
 
 export {
     ERC20_ABI,
@@ -21,7 +23,9 @@ export {
     CONSTANT_FLOW_AGREEMENT_ABI,
     INSURANCE_REGISTRY_ABI,
     COVERAGE_POOL_ABI,
-    CLAIM_GOVERNANCE_ABI
+    CLAIM_GOVERNANCE_ABI,
+    COMPTROLLER_ABI,
+    ICERC20_ABI
 };
 
 

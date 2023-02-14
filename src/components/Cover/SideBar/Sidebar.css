@@ -211,5 +211,12 @@ li svg {
     color: #fff;
     font-family: var(--font-poppins);
   }
+  /* Mobile  */
+@media only screen and (max-width: 1080px) {
+  .aside_content {
+width: 18%;
+  }
 
-}
+
+
+}}

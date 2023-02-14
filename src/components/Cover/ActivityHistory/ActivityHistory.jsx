@@ -62,11 +62,16 @@ export default function ActivityHistory() {
   const baseurl = process.env.REACT_APP_TRANSACTION_API_URL;
   useEffect(() => {
     axios.get(baseurl + account, {}).then(function (response) {
-      console.log(response);
+      // console.log(response.data);
       console.log(account);
       setData(response.data);
+
+
+
+
     });
   }, [account]);
+
 
   return (
     <>
@@ -145,6 +150,17 @@ export default function ActivityHistory() {
                       </TableRow>
                     </TableHead>
                     <TableBody>
+
+
+
+
+
+
+
+
+
+
+                      
                       {data.reverse().map((data) => {
                         return (
                           <TableRow

@@ -17,6 +17,7 @@ import Avalanchs from "../../../assets/png/Avalanch.png";
 import ethsvg from "../../../assets/svg/eth.svg";
 import optimismsvg from "../../../assets/svg/optimism.svg";
 import polygonsvg from "../../../assets/svg/polygon.svg";
+import Binance from "../../../assets/png/Binance.png";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineArrowForwardIos,
@@ -49,9 +50,33 @@ export default function Topbar(props) {
           CONSTANT_FLOW_AGREEMENT_CA: process.env.REACT_APP_ETH_GOERLI_CONSTANT_FLOW_AGREEMENT_CA,
           AAVE_ZERO_PREMIUM_CA: process.env.REACT_APP_ETH_GOERLI_AAVE_ZERO_PREMIUM_CA,
           COMPOUND_ZERO_PREMIUM_CA: process.env.REACT_APP_ETH_GOERLI_COMPOUND_ZERO_PREMIUM_CA,
+          COMPTROLLER_CA: process.env.REACT_APP_ETH_GOERLI_UNITROLLER_CA,
         })
       );
-    } else if (chainId == "0x13881") {
+    } else if (chainId == "0x1") {
+      // console.log("Mainnet");
+
+      DISPATCH(
+        setContract({
+          DAI_ERC20_CA: process.env.REACT_APP_ETH_GOERLI_DAI_ERC20_CA,
+          SZT_ERC20_CA: process.env.REACT_APP_ETH_GOERLI_SZT_ERC20_CA,
+          GSZT_ERC20_CA: process.env.REACT_APP_ETH_GOERLI_GSZT_ERC20_CA,
+          SZT_DAI_ERC20_CA: process.env.REACT_APP_ETH_GOERLI_SZT_DAI_ERC20_CA,
+          SWAP_DAI_CA: process.env.REACT_APP_ETH_GOERLI_SWAP_DAI_CA,
+          BUY_SELL_SZT_CA: process.env.REACT_APP_ETH_GOERLI_BUY_SELL_SZT_CA,
+          GENZ_STAKING_CA: process.env.REACT_APP_ETH_GOERLI_GENZ_STAKING_CA,
+          COVERAGE_POOL_CA: process.env.REACT_APP_ETH_GOERLI_COVERAGE_POOL_CA,
+          INSURANCE_REGISTRY_CA: process.env.REACT_APP_ETH_GOERLI_INSURANCE_REGISTRY_CA,
+          CONSTANT_FLOW_AGREEMENT_CA: process.env.REACT_APP_ETH_GOERLI_CONSTANT_FLOW_AGREEMENT_CA,
+          AAVE_ZERO_PREMIUM_CA: process.env.REACT_APP_ETH_GOERLI_AAVE_ZERO_PREMIUM_CA,
+          COMPOUND_ZERO_PREMIUM_CA: process.env.REACT_APP_ETH_GOERLI_COMPOUND_ZERO_PREMIUM_CA,
+          COMPTROLLER_CA: process.env.REACT_APP_ETH_GOERLI_UNITROLLER_CA,
+        })
+      );
+    }
+    
+    
+    else if (chainId == "0x13881") {
       // console.log("Polygon");
 
       DISPATCH(
@@ -132,6 +157,39 @@ export default function Topbar(props) {
         })
       );
     } else if (chainId == "0x152") {
+      // console.log("Cronos");
+      DISPATCH(
+        setContract({
+          DAI_ERC20_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_DAI_ERC20_CA,
+          SZT_ERC20_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_SZT_ERC20_CA,
+          GSZT_ERC20_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_GSZT_ERC20_CA,
+          SZT_DAI_ERC20_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_SZT_DAI_ERC20_CA,
+          SWAP_DAI_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_SWAP_DAI_CA,
+          BUY_SELL_SZT_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_BUY_SELL_SZT_CA,
+          GENZ_STAKING_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_GENZ_STAKING_CA,
+          COVERAGE_POOL_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_COVERAGE_POOL_CA,
+          INSURANCE_REGISTRY_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_INSURANCE_REGISTRY_CA,
+          CONSTANT_FLOW_AGREEMENT_CA:
+            process.env
+              .REACT_APP_OPTIMISM_CRONOS_TESTNET_CONSTANT_FLOW_AGREEMENT_CA,
+          AAVE_ZERO_PREMIUM_CA:
+            process.env.REACT_APP_OPTIMISM_CRONOS_TESTNET_AAVE_ZERO_PREMIUM_CA,
+          COMPOUND_ZERO_PREMIUM_CA:
+            process.env
+              .REACT_APP_OPTIMISM_CRONOS_TESTNET_COMPOUND_ZERO_PREMIUM_CA,
+        })
+      );
+    }
+    else if (chainId == "0x56") {
       // console.log("Cronos");
       DISPATCH(
         setContract({
@@ -271,6 +329,31 @@ export default function Topbar(props) {
     }
   };
 
+  const BNB_TESTNET_PARAMS = {
+    chainId: "0x38",
+    chainName: "BSC",
+    nativeCurrency: {
+      name: "BSC Mainnet",
+      symbol: "BNB", // 2-6 characters long
+      decimals: 18,
+    },
+    rpcUrls: ["https://bsc-dataseed1.binance.org"],
+    blockExplorerUrls: ["https://bscscan.com"],
+  };
+
+  const addBNBNetwork = async () => {
+    await web3.currentProvider
+      .request({
+        method: "wallet_addEthereumChain",
+        params: [BNB_TESTNET_PARAMS],
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    DISPATCH(setCurrentNetwork("BNB"));
+  };
+
+
   const AVALANCHE_TESTNET_PARAMS = {
     chainId: "0xA869",
     chainName: "Avalanche Testnet C-Chain",
@@ -358,6 +441,11 @@ export default function Topbar(props) {
               </button>
               {isWeb3Enabled && (
                 <div class="dropdown-content1">
+                  <a onClick={SwitchMainNet}>
+                    <img width={20} src={ethsvg} alt="" />
+                    Ethereum Mainnet
+                    <MdOutlineArrowForwardIos color="#fff" />
+                  </a>
                   <a onClick={SwitchGoerli}>
                     <img width={20} src={ethsvg} alt="" />
                     Ethereum Goerli
@@ -381,6 +469,11 @@ export default function Topbar(props) {
                   <a onClick={addAvalancheNetwork}>
                     <img width={20} src={Avalanchs} alt="" />
                     Avalanch Fuji
+                    <MdOutlineArrowForwardIos color="#fff" />
+                  </a>        
+                  <a onClick={addBNBNetwork}>
+                    <img width={20} src={Binance} alt="" />
+                    Binance (BSC)
                     <MdOutlineArrowForwardIos color="#fff" />
                   </a>
                 </div>

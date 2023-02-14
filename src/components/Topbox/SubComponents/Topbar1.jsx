@@ -7,6 +7,7 @@ import Aave from "../../../assets/svg/Aave.svg";
 import Alchemy from "../../../assets/svg/Alchemy.svg";
 import Pdf from "../../../assets/pdf/SafeZenWhitepaper.pdf";
 import Blob from "../../../assets/mp4/Blob.mp4";
+import Background from "../../../assets/png/Background.png";
 
 // Main function
 export default function Topbar() {
@@ -14,10 +15,12 @@ export default function Topbar() {
     <>
       <div className="topbar">
         <div className="topbar-left">
-          <img
+          {/* <img
             src="https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp"
             alt=""
-          />
+          /> */}
+          <img src={Background} alt="" />
+
         </div>
         <div className="topbar-right">
           <div className="left-side">
@@ -96,9 +99,10 @@ export default function Topbar() {
           </div>
 
           <div className="video">
-            <video type="video/mp4" loop="true" autoplay="autoplay" muted>
+            {/* <img src={Background} alt="" /> */}
+            {/* <video type="video/mp4" loop="true" autoplay="autoplay" muted>
               <source src={Blob} />
-            </video>
+            </video> */}
           </div>
         </div>
       </div>

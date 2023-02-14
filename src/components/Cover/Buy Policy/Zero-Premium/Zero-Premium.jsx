@@ -18,10 +18,11 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 // Import Web3 Libraries
 import { useMoralis } from "react-moralis";
 import { ethers } from "ethers";
-import { COMPOUND_ZERO_PREMIUM_ABI, ERC20_ABI, AAVE_ZERO_PREMIUM_ABI } from "../../../../constants/index";
+import { COMPOUND_ZERO_PREMIUM_ABI, ERC20_ABI, AAVE_ZERO_PREMIUM_ABI, COMPTROLLER_ABI, ICERC20_ABI } from "../../../../constants/index";
 
 // Import Redux
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 // Main function
 export default function Zero_Premium() {
@@ -32,6 +33,7 @@ export default function Zero_Premium() {
   const [open, setOpen] = useState(false);
   const [zeroOpen, setZeroOpen] = useState(false);
   const [SupplyAmount, setSupplyAmount] = useState("");
+  // const [Contracts, setContracts] = useState("")
 
   // Provider.
   const PROVIDER = new ethers.providers.Web3Provider(window.ethereum);
@@ -55,10 +57,43 @@ export default function Zero_Premium() {
   var token = useSelector((state) => state.allContracts);
   var ConstantFlowAgreement = token.contracts.ConstantFlowAgreement;
 
-  var CompoundPool = token.contracts.CompoundPool;
+  var CompoundPool = token.contracts.COMPOUND_ZERO_PREMIUM_CA;
   var AAVE_Contract = token.contracts.AAVE_Contract;
-
+  var COMPTROLLER_CA = token.contracts.COMPTROLLER_CA
   // Approve Bat Function
+
+  // useEffect(() => {
+  //   const Markets = []
+  //   try {
+  //         const Market = async () => {
+  //     const GetMarket = new ethers.Contract(COMPTROLLER_CA, COMPTROLLER_ABI, PROVIDER);
+  //     var trans = await GetMarket.getAllMarkets()
+  //     // Markets.push(trans)
+  //     console.log(trans.length)
+
+  //   for(var i = 0;i<trans.length;i++){
+  //   //  setContracts(Markets[i])
+  //    var Contracts = trans[i]
+
+  //    const Underlying=async()=>{
+  //      const GetUnderlying = new ethers.Contract(Contracts, ICERC20_ABI, PROVIDER);
+  //      var trans = await GetUnderlying.name();
+  //      var trans2 = await GetUnderlying.underlying();
+  //      console.log(trans)
+  //      console.log(trans2)
+  //    }
+  //    Underlying()
+  //     console.log(Contracts)
+  //   }
+
+
+  //   }
+  //   Market()
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+
+  // }, [])
 
   const ApproveBat = async () => {
     const BATGET = new ethers.Contract(GlobalToken, COMPOUND_ZERO_PREMIUM_ABI, PROVIDER);
@@ -68,6 +103,7 @@ export default function Zero_Premium() {
 
   // Mint Bat
   const MintBat = async () => {
+    console.log(GlobalToken.tokenSymbol)
     const BATGET = new ethers.Contract(GlobalToken, COMPOUND_ZERO_PREMIUM_ABI, PROVIDER);
     var BATPOST = new ethers.Contract(CompoundPool, COMPOUND_ZERO_PREMIUM_ABI, SIGNER);
     const gen = await BATPOST.mintERC20Tokens(
@@ -278,7 +314,7 @@ export default function Zero_Premium() {
                                 }}
                               />
                               <div onClick={OpenModal} className="conversion">
-                                {platform}
+                                 <span>{GlobalToken.tokenSymbol}</span>
                                 <ChevronDownIcon />
                               </div>
                             </div>
@@ -291,7 +327,7 @@ export default function Zero_Premium() {
                                 placeholder="0.0"
                                 value={SupplyAmount}
                               />
-                              <div className="conversion">{platform}x</div>
+                              <div className="conversion"> <span>{GlobalToken.cTokenSymbol}</span></div>
                             </div>
                             <div
                               className="approve-szt"

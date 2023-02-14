@@ -1,5 +1,5 @@
 // Import Libraries
-import React from "react";
+import React, { useEffect } from "react";
 import "./ProvideCoverageModal.css";
 import { useState } from "react";
 
@@ -39,6 +39,8 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
   const [Addinsured, setAddinsured] = useState("");
   const [Subinsured, setSubinsured] = useState("");
   const [InsuranceStatus, setInsuranceStatus] = useState(Boolean);
+  const [Deadline, setDeadline]=useState('')
+  const [amount, setamount]=useState('')
   const Close = () => {
     setActivateOpen(false);
   };
@@ -57,21 +59,40 @@ export default function ProvideCoverageModal({ setActivateOpen }) {
     console.log(InsuranceStatus);
   })();
 
+  useEffect(()=>{
+    const Deadline=async()=>{
+      // const oneEther = ethers.utils.parseUnits(`${Addinsured}`, "ether");
+
+    var Activate = new ethers.Contract(
+      ConstantFlowAgreement,
+      CONSTANT_FLOW_AGREEMENT_ABI,
+      signer
+    );
+      const trans = await Activate.getExpectedInsuranceCostAndDeadline(`${Addinsured}`, key, subkey);
+      // console.log(trans.toString())
+      setamount(trans[0])
+      setDeadline(trans[1])
+    }
+Deadline()
+
+
+  }, [Addinsured])
+
   const AddInsured = async () => {
     var Activate = new ethers.Contract(
       ConstantFlowAgreement,
       CONSTANT_FLOW_AGREEMENT_ABI,
       signer
     );
-    const oneEther = ethers.utils.parseUnits(`${Addinsured}`, "ether");
+    // const oneEther = ethers.utils.parseUnits(`${Addinsured}`, "ether");
     window.deadline = Date.now() + 600;
     window.signature = await permitSign(
       "SZTDAI",
       "1",
       SZT_DAI_ERC20_CA,
       ConstantFlowAgreement,
-      oneEther,
-      window.deadline
+      amount,
+     Deadline+600
     );
     const trans = await Activate.addInsuranceAmount(oneEther, key, subkey  , window.signature.v,window.signature.r,window.signature.s);
   };

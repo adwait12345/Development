@@ -1,5 +1,5 @@
 .alltopbar {
-  background-color: #000;
+  background-color: #0C0B08;
     font-family: var(--font-poppins);
 }
 
@@ -8,15 +8,22 @@
   display: flex;
   overflow: hidden;
 }
-
-.topbar-left {
-  width: 10%;
+.left-side{
+  margin-left: 5%;
+}
+.topbar-left img {
+    position: absolute;
+      width: 100%;
+      height: 100%;
+      right: 0;
+      top: 0;
 }
 
 .topbar-right {
   width: 90%;
   display: flex;
   color: #fff;
+  z-index: 1;
 }
 
 .video {
@@ -26,7 +33,7 @@
 }
 
 .topbar-left img {
-  width: 395%;
+  /* width: 395%; */
   object-fit: cover;
   height: 100%;
 }
@@ -48,7 +55,7 @@
 
 .nav-topbar h1 {
   font-size: 32px;
-  font-weight: 300;
+  font-weight: 100;
   font-family: var(--font-comforta);
 }
 
@@ -56,6 +63,7 @@
   display: flex;
   width: 400px;
   justify-content: space-evenly;
+  font-weight: 100;
 }
 
 .menu a {
@@ -76,7 +84,7 @@
 
 .titlr h2 {
   color: #757575;
-  font-weight: 500;
+  font-weight: 100;
   letter-spacing: 2px;
   margin: 0;
 }
@@ -86,13 +94,14 @@
   font-size: 70px;
   width: 750px;
   line-height: 90px;
+  font-weight: 100;
 }
 
 .launch-app {
   margin-top: 50px;
 }
 
-.launch-app button {
+/* .launch-app button {
   width: 200px;
   height: 60px;
   font-family: var(--font-poppins);
@@ -101,9 +110,60 @@
   font-size: large;
   color: #fff;
   background-color: var(--color-green-button);
-  font-weight: 500;
+  font-weight: 100;
   cursor: pointer;
+} */
+.launch-app button {
+  color: #FFF;
+  transition: all 0.5s;
+  position: relative;
+    line-height: 50px;
+      height: 60px;
+      text-align: center;
+      width: 350px;
+      cursor: pointer;
+      background-color: transparent;
+        font-family: var(--font-poppins);
+        
 }
+
+.launch-app button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.launch-app button:hover::before {
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+}
+
+.launch-app button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transform: scale(1.2, 1.2);
+}
+
+.launch-app button:hover::after {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+
 
 .topbar2 {
   display: flex;
@@ -121,13 +181,13 @@
 }
 
 .topbar2-left h1 {
-  font-weight: 700;
+  font-weight: 100;
   font-size: 50px;
   margin-bottom: 0;
 }
 
 .topbar2-left p {
-  font-weight: 300;
+  font-weight: 100;
   font-size: 20px;
   color: #757575;
   width: 424px;
@@ -205,7 +265,8 @@
 }
 
 .trust h2 {
-  font-weight: 400;
+  font-weight: 100;
+      color: rgb(255 255 255 / 56%);
 }
 
 .topbar3 {
