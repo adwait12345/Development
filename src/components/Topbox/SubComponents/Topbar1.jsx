@@ -83,7 +83,7 @@ export default function Topbar() {
             <div className="titlr">
               <h2>World's first </h2>
               <h1>
-                Innovative <br /> peer-to-peer insurance coverages
+                Innovative peer-to-peer insurance coverages
               </h1>
             </div>
             <div className="launch-app">

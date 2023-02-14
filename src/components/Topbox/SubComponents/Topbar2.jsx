@@ -2,7 +2,7 @@
 import React from "react";
 
 // Import React Icons & Assets
-import img from "../../../assets/png/Dashboard.png";
+import img from "../../../assets/jpg/earth.jpg";
 import Plain from "../../../assets/svg/Plain.svg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 

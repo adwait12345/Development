@@ -2,7 +2,7 @@
 import React from "react";
 
 // Import React Icons & Assets
-import ZP from "../../../assets/png/zeroPremium.png";
+import ZP from "../../../assets/png/fox.png";
 import Plain from "../../../assets/svg/Plain.svg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 

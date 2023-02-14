@@ -1,6 +1,6 @@
 .alltopbar {
   background-color: #0C0B08;
-    font-family: var(--font-poppins);
+    font-family: var(--font-kanit);
 }
 
 .topbar {
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   color: #fff;
-  font-family: var(--font-poppins);
+  font-family: var(--font-kanit);
 }
 
 .nav-topbar h1 {
@@ -79,7 +79,7 @@
 }
 
 .titlr {
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .titlr h2 {
@@ -87,13 +87,14 @@
   font-weight: 100;
   letter-spacing: 2px;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .titlr h1 {
   margin: 0;
-  font-size: 70px;
+  font-size: 55px;
   width: 750px;
-  line-height: 90px;
+  line-height: 55px;
   font-weight: 100;
 }
 
@@ -123,7 +124,10 @@
       width: 350px;
       cursor: pointer;
       background-color: transparent;
-        font-family: var(--font-poppins);
+        font-family: var(--font-kanit);
+            font-size: 20px;
+              font-weight: 100;
+            
         
 }
 
@@ -168,7 +172,7 @@
 .topbar2 {
   display: flex;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 130px;
 }
 
 .topbar2-left {
@@ -184,6 +188,7 @@
   font-weight: 100;
   font-size: 50px;
   margin-bottom: 0;
+  line-height: 55px;
 }
 
 .topbar2-left p {
@@ -206,12 +211,12 @@
 }
 
 .imh1 img {
-  width: 530px;
-  height: 275px;
+  width: 630px;
+  /* height: 275px; */
   object-fit: contain;
   transform: translate(5%, 0px) rotateY(2deg);
   border-radius: 10px;
-  box-shadow: rgba(3, 102, 214, 0.5) 0px 0px 0px 3px;
+  /* box-shadow: rgba(3, 102, 214, 0.5) 0px 0px 0px 3px; */
 }
 
 .image-canvas {
@@ -222,7 +227,7 @@
 }
 
 .topbar2-left button {
-  font-family: var(--font-poppins);
+  font-family: var(--font-kanit);
   border: none;
   font-size: large;
   color: #fff;
@@ -237,6 +242,7 @@
   position: relative;
   color: #fff;
   align-items: center;
+  font-weight: 100;
 }
 
 .topbar2-left button:after {
@@ -293,8 +299,8 @@
 }
 
 .imh2 {
-  width: 301px;
-  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  /* width: 301px; */
+  /* box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -303,14 +309,15 @@
 }
 
 .imh2 img {
-  width: 310px;
+  /* width: 310px; */
   object-fit: contain;
 }
 
 .topbar3-left h1 {
   font-size: 50px;
-  font-weight: 700;
+  font-weight: 100;
   margin-bottom: 0;
+  line-height: 55px;
 }
 
 .topbar3-left p {
@@ -322,10 +329,11 @@
   word-spacing: 1px;
   letter-spacing: 0.5px;
   margin-bottom: 5px;
+  font-weight: 100;
 }
 
 .topbar3-left button {
-  font-family:var(--font-poppins);
+  font-family:var(--font-kanit);
   border: none;
   font-size: large;
   color: #fff;
@@ -337,6 +345,7 @@
   position: relative;
   color: #fff;
   align-items: center;
+  font-weight: 100;
 }
 
 .topbar3-left button:after {
@@ -404,7 +413,7 @@ details {
   box-shadow: 0 0.1rem 1rem -0.5rem rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   overflow: hidden;
-  font-family: var(--font-poppins);
+  font-family: var(--font-kanit);
 }
 
 summary {
@@ -466,7 +475,7 @@ pre {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family:var(--font-poppins);
+  font-family:var(--font-kanit);
   margin-top: 50px;
 }
 
@@ -543,7 +552,7 @@ pre {
   width: 350px;
   padding: 16px;
   margin: 10px 10px 10px 0px;
-  font-family: var(--font-poppins);
+  font-family: var(--font-kanit);
   background-color: var(--color-placeholder);
   border: none;
   border-radius: 10px;
