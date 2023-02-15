@@ -1,6 +1,6 @@
 .alltopbar {
   background-color: #0C0B08;
-    font-family: var(--font-kanit);
+  font-family: var(--font-kanit);
 }
 
 .topbar {
@@ -8,15 +8,17 @@
   display: flex;
   overflow: hidden;
 }
-.left-side{
+
+.left-side {
   margin-left: 5%;
 }
+
 .topbar-left img {
-    position: absolute;
-      width: 100%;
-      height: 100%;
-      right: 0;
-      top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
 }
 
 .topbar-right {
@@ -33,8 +35,8 @@
 }
 
 .topbar-left img {
-  /* width: 395%; */
-  object-fit: cover;
+  width: auto;
+  object-fit: contain;
   height: 100%;
 }
 
@@ -118,17 +120,17 @@
   color: #FFF;
   transition: all 0.5s;
   position: relative;
-    line-height: 50px;
-      height: 60px;
-      text-align: center;
-      width: 350px;
-      cursor: pointer;
-      background-color: transparent;
-        font-family: var(--font-kanit);
-            font-size: 20px;
-              font-weight: 100;
-            
-        
+  line-height: 50px;
+  height: 60px;
+  text-align: center;
+  width: 350px;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: var(--font-kanit);
+  font-size: 20px;
+  font-weight: 100;
+
+
 }
 
 .launch-app button::before {
@@ -272,7 +274,7 @@
 
 .trust h2 {
   font-weight: 100;
-      color: rgb(255 255 255 / 56%);
+  color: rgb(255 255 255 / 56%);
 }
 
 .topbar3 {
@@ -333,7 +335,7 @@
 }
 
 .topbar3-left button {
-  font-family:var(--font-kanit);
+  font-family: var(--font-kanit);
   border: none;
   font-size: large;
   color: #fff;
@@ -417,8 +419,7 @@
   height: 90vh;
 }
 
-.d-details
- {
+.d-details {
   height: 400px;
   width: 100%;
   display: flex;
@@ -475,6 +476,7 @@ details p {
 details[open] summary:after {
   transform: rotate(-90deg);
 }
+
 .faq {
   width: 65%;
 }
@@ -491,7 +493,7 @@ details[open] summary:after {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family:var(--font-kanit);
+  font-family: var(--font-kanit);
   margin-top: 50px;
 }
 
