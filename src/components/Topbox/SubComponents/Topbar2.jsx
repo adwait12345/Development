@@ -23,7 +23,7 @@ export default function Topbar2() {
         <div className="topbar2-left">
           <div className="topbar-2-content">
             <h1>
-              All your Insurance <br /> at one place
+              All your insurances <br /> at one place
             </h1>
             <p>
               We provide security and comfort

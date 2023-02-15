@@ -196,8 +196,8 @@
   font-size: 20px;
   color: #757575;
   width: 424px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   word-spacing: 1px;
   letter-spacing: 0.5px;
 }
@@ -316,7 +316,7 @@
 .topbar3-left h1 {
   font-size: 50px;
   font-weight: 100;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   line-height: 55px;
 }
 
@@ -346,6 +346,7 @@
   color: #fff;
   align-items: center;
   font-weight: 100;
+  margin-top: 15px;
 }
 
 .topbar3-left button:after {
@@ -406,67 +407,82 @@
   cursor: pointer;
 }
 
-details {
-  margin: 0 auto;
-  background: #1e1e1e;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 0.1rem 1rem -0.5rem rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-  overflow: hidden;
-  font-family: var(--font-kanit);
+/* structure */
+.d-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  height: 90vh;
 }
 
-summary {
-  padding: 1rem;
+.d-details
+ {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+  height: 10vh;
+}
+
+details[open],
+details summary,
+.d-imgs {
   display: block;
-  background: #1e1e1e;
-  padding-left: 2.2rem;
-  position: relative;
+  /* width: 500px !important; */
+}
+
+details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
   cursor: pointer;
+  font-weight: 300;
+  font-size: 1.5rem;
 }
 
-summary:before {
-  content: "";
-  border-width: 0.4rem;
-  border-style: solid;
-  border-color: transparent transparent transparent #fff;
-  position: absolute;
-  top: 1.3rem;
-  left: 1rem;
-  transform: rotate(0);
-  transform-origin: 0.2rem 50%;
-  transition: 0.25s transform ease;
-}
-
-/* THE MAGIC 🧙‍♀️ */
-details[open] > summary:before {
+details summary:after {
+  content: "+";
+  font-size: 2rem;
+  transition: 0.3s;
   transform: rotate(90deg);
 }
 
-details summary::-webkit-details-marker {
-  display: none;
+/* transitions */
+details {
+  margin-bottom: 1rem;
+  height: 4rem;
+  transition: height 0.3s ease;
 }
 
-details > ul {
-  padding-bottom: 1rem;
-  margin-bottom: 0;
+details[open] {
+  height: 100%;
 }
 
-.details-expanded {
-  padding: 0 2rem;
+details p {
+  height: fit-content;
+  padding: 1rem;
+  font-weight: 100;
 }
 
-pre {
-  white-space: pre-wrap;
-  word-break: break-all;
+details[open] summary:after {
+  transform: rotate(-90deg);
 }
-
 .faq {
   width: 65%;
 }
 
 .faq h1 {
   margin-top: 0;
+  font-weight: 100;
+  font-size: 45px;
 }
 
 .outer-footer {
@@ -485,14 +501,13 @@ pre {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 320px;
   color: #fff;
 }
 
 .footer-top {
   width: 100%;
   display: flex;
-  border-bottom: 1px solid rgb(156, 156, 156);
+  border-bottom: 1px solid rgb(156 156 156 / 16%);
 }
 
 .div1 {
@@ -509,7 +524,7 @@ pre {
 
 .div1 p {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 100;
 }
 
 .div2 {
@@ -528,6 +543,7 @@ pre {
   font-size: 14px;
   line-height: 40px;
   color: var(--color-tertiary-text);
+  font-weight: 100;
 }
 
 .div3 {
@@ -587,13 +603,13 @@ pre {
 
 .foot-bot-left p {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 100;
   margin: 24px 24px 24px 0;
 }
 
 .foot-bot-left li {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 100;
   list-style: none;
   margin: 24px;
 }

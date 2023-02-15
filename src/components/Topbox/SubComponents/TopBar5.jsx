@@ -15,7 +15,7 @@ export default function Footer() {
                 products based on risk-based coverage pools
               </p>
             </div>
-            {/* <div className="div2">
+            <div className="div2">
                             <div className="column-1">
                                 <h3>Column 1</h3>
                                 <li>Link one</li>
@@ -40,8 +40,8 @@ export default function Footer() {
                                 <li>Link Fourteen</li>
                                 <li>Link Fifteen</li>
                             </div>
-                        </div> */}
-            {/* <div className="div3">
+                        </div>
+            <div className="div3">
                             <h3>Subscribe</h3>
                             <li>Join our newsletter to stay up to date on features and releases.</li>
                             <div className="subscribe-us">
@@ -51,14 +51,14 @@ export default function Footer() {
                             <p>
                                 By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
                             </p>
-                        </div> */}
+                        </div>
           </div>
           <div className="footer-bottom">
             <div className="foot-bot-left">
               <p>© 2022 SafeZen. All right reserved.</p>
-              {/* <li>Privacy Policy</li>
+              <li>Privacy Policy</li>
                             <li>Terms and Conditions</li>
-                            <li>Cookies Settings</li> */}
+                            <li>Cookies Settings</li>
             </div>
             <div className="foot-bot-right">
               <div className="discord">
