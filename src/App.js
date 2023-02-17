@@ -20,6 +20,7 @@ import ActivityHistory from "./components/Cover/ActivityHistory/ActivityHistory"
 import Community from "./components/Community/community";
 import Zero_Premium from "./components/Cover/Buy Policy/Zero-Premium/Zero-Premium";
 import PayAsYouGo from "./components/Cover/Buy Policy/PayasYouGo/PayAsYouGo";
+import GetToken from "./components/GetToken/GetToken";
 
 // Import Redux
 import { useSelector } from "react-redux";
@@ -74,6 +75,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Topbox />} />
+              <Route path="/gettoken" element={<GetToken/>} />
               <Route path="/cover/dashboard" element={<DashBoard />} />
               <Route path="/cover/buypolicy" element={<Buypolicy />} />
               <Route

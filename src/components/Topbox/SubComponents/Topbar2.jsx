@@ -28,7 +28,7 @@ export default function Topbar2() {
             <p>
               We provide security and comfort
               <br /> to institutions, DeFi users,
-              <br /> and developers{" "}
+              and developers{" "}
             </p>
             <button>
               Go to dashboard <MdKeyboardArrowRight />

@@ -1,0 +1,54 @@
+.getToken{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: var(--font-poppins);
+    color: #fff;
+}
+.getoken-card h1{
+    font-weight: 300;
+}
+.getoken-card{
+    width: 450px;
+    height: 400px;
+    padding: 20px ;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+ background-color: #0D1117;
+    border: 1px solid #30363D;
+}
+
+.getoken-card input{
+    width: 95%;
+    padding: 10px 10px;
+        font-family: var(--font-poppins);
+        border: none;
+        border-radius: 5px;
+background-color: #010409;
+    border: 1px solid #30363D;
+    color: #fff;
+
+}
+.getoken-card select{
+        width: 100%;
+            padding: 10px 10px;
+            font-family: var(--font-poppins);
+            border: none;
+            border-radius: 5px;
+            background-color: #010409;
+            border: 1px solid #30363D;
+            color: var(--color-tertiary-text);
+}
+
+.getoken-card button{
+ font-family: var(--font-poppins);
+padding: 10px 15px;
+color: #fff;
+background-color: var(--color-green-button);
+border: none;
+border-radius: 7px;
+}

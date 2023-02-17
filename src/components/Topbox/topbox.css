@@ -298,6 +298,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  height: 65vh;
 }
 
 .imh2 {
@@ -320,6 +321,7 @@
   font-weight: 100;
   margin-bottom: 20px;
   line-height: 55px;
+  margin-top: 0;
 }
 
 .topbar3-left p {
@@ -348,7 +350,7 @@
   color: #fff;
   align-items: center;
   font-weight: 100;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .topbar3-left button:after {
@@ -495,6 +497,7 @@ details[open] summary:after {
   align-items: center;
   font-family: var(--font-kanit);
   margin-top: 50px;
+  background: var(--color-placeholder);
 }
 
 .footer {
@@ -504,12 +507,14 @@ details[open] summary:after {
   justify-content: center;
   align-items: center;
   color: #fff;
+  margin-top: 50px;
 }
 
 .footer-top {
   width: 100%;
   display: flex;
   border-bottom: 1px solid rgb(156 156 156 / 16%);
+  margin-bottom: 10px;
 }
 
 .div1 {
@@ -525,7 +530,7 @@ details[open] summary:after {
 }
 
 .div1 p {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 100;
 }
 
@@ -545,7 +550,7 @@ details[open] summary:after {
   font-size: 14px;
   line-height: 40px;
   color: var(--color-tertiary-text);
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .div3 {
@@ -554,11 +559,14 @@ details[open] summary:after {
 
 .div3 h3 {
   font-weight: 400;
+  margin-top: 0;
+  font-weight: 200;
 }
 
 .div3 li {
   font-size: 14px;
   list-style: none;
+  font-weight: 100;
 }
 
 .div3 p {
@@ -571,7 +579,7 @@ details[open] summary:after {
   padding: 16px;
   margin: 10px 10px 10px 0px;
   font-family: var(--font-kanit);
-  background-color: var(--color-placeholder);
+  background-color: #0C0B08;
   border: none;
   border-radius: 10px;
   color: var(--color-tertiary-text);
@@ -579,7 +587,7 @@ details[open] summary:after {
 
 .div3 button {
   border: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-kanit);
   background: var(--color-green-button);
   cursor: pointer;
   color: #fff;

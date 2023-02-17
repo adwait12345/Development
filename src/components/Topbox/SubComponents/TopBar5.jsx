@@ -11,34 +11,27 @@ export default function Footer() {
             <div className="div1">
               <h2>SafeZen</h2>
               <p>
-                the world's first zero premium and pay-as-you-go insurance
+                the world's first zero premium & pay-as-you-go insurance
                 products based on risk-based coverage pools
               </p>
             </div>
             <div className="div2">
                             <div className="column-1">
-                                <h3>Column 1</h3>
-                                <li>Link one</li>
-                                <li>Link two</li>
-                                <li>Link three</li>
-                                <li>Link four</li>
-                                <li>Link five</li>
+                                {/* <h3>Column 1</h3> */}
+                                <li>Github</li>
+                                <li>Whitepaper</li>
+                                <li>Docs</li>
+                                <li>About</li>
+                                {/* <li>Link five</li> */}
                             </div>
-                            <div className="column-2">
-                                <h3>Column 2</h3>
-                                <li>Link six</li>
-                                <li>Link seven</li>
-                                <li>Link eight</li>
-                                <li>Link nine</li>
-                                <li>Link ten</li>
-                            </div>
+       
                             <div className="column-3">
-                                <h3>Column 3</h3>
-                                <li>Link eleven</li>
-                                <li>Link twelve</li>
-                                <li>Link thirteen</li>
-                                <li>Link Fourteen</li>
-                                <li>Link Fifteen</li>
+                                {/* <h3>Column 3</h3> */}
+                                <li>AirDrop</li>
+                                <li>Dashboard</li>
+                                <li>Provide Coverage</li>
+                                {/* <li>Link Fourteen</li> */}
+                                {/* <li>Link Fifteen</li> */}
                             </div>
                         </div>
             <div className="div3">
@@ -55,7 +48,7 @@ export default function Footer() {
           </div>
           <div className="footer-bottom">
             <div className="foot-bot-left">
-              <p>© 2022 SafeZen. All right reserved.</p>
+              <p>© 2023 SafeZen. All right reserved.</p>
               <li>Privacy Policy</li>
                             <li>Terms and Conditions</li>
                             <li>Cookies Settings</li>
