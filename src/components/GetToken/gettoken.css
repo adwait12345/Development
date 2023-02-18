@@ -46,9 +46,18 @@ background-color: #010409;
 
 .getoken-card button{
  font-family: var(--font-poppins);
-padding: 10px 15px;
 color: #fff;
 background-color: var(--color-green-button);
 border: none;
 border-radius: 7px;
+display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.getoken-card button img{
+    width: 30px;
 }

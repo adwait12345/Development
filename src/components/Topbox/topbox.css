@@ -63,7 +63,7 @@
 
 .menu {
   display: flex;
-  width: 400px;
+  width: 500px;
   justify-content: space-evenly;
   font-weight: 100;
 }

@@ -13,6 +13,7 @@ import Background from "../../../assets/png/Background.png";
 export default function Topbar() {
   return (
     <>
+
       <div className="topbar">
         <div className="topbar-left">
           {/* <img
@@ -78,6 +79,7 @@ export default function Topbar() {
                   </svg>
                 </a>
                 <a>About</a>
+                <Link to='/gettoken'>AirDrop GENZ</Link>
               </div>
             </div>
             <div className="titlr">
