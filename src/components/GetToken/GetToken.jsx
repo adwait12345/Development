@@ -17,21 +17,20 @@ export default function GetToken(props) {
     const [Data, setData] = useState([ ])
     const [loading, setloading] = useState(false)
     
-const Submit = (e) =>{
+const Submit = async(e) =>{
   setloading(true)
     e.preventDefault();
 
     console.log(Data)
   const baseurl = "https://registration-sepia.vercel.app/data";
-  axios.post(baseurl, {
-    uniqueId: account,
+  await axios.post(baseurl, {
+    uniqueId: Data.Wallet,
     data: [
       {
         discordId: Data.DiscordID,
         twitterId: Data.TwitterID,
         network: Data.Network,
         url: Data.URL,
-        wallet: account,
 
 
       }]
