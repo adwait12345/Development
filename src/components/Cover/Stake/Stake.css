@@ -136,16 +136,29 @@
   background-color: var(--color-placeholder);
   height: 40px;
   border: 1px solid #30363D;
+  align-items: center;
 }
 
 .stake-input span {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--font-poppins);
+      padding: 0px 5px;
+        background: #343434;
+        color: #fff;
+        border-radius: 5px;
+        height: 25px;
+        cursor: pointer;
 }
-
+.stake-input span img{
+  width: 20px;
+    margin-right: 5px;
+  
+}
+.stake-input span p{
+  margin: 0;
+}
 .stake_input input {
   border: none;
   background-color: transparent;

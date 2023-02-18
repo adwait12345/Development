@@ -32,6 +32,8 @@ import {
   CurrentNetworkReducer,
   selectedSubCategoryKeyReducer,
   SubCategoryKeyReducer,
+  GenzTokenReducer,
+  selectedGenzTokenReducer
 } from "./Reducer";
 
 const reducer = combineReducers({
@@ -67,5 +69,7 @@ const reducer = combineReducers({
   allCurrentNetwork:CurrentNetworkReducer,
   subKey: selectedSubCategoryKeyReducer,
   allsubKey: SubCategoryKeyReducer,
+  GenzToken:selectedGenzTokenReducer,
+  allGenzToken:GenzTokenReducer,
 });
 export default reducer;

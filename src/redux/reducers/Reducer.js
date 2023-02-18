@@ -18,6 +18,7 @@ const initialState = {
   InsuranceMethod:[],
   TransactionAddress:[],
   CurrentNetwork:[],
+  GenzToken:[],
   contracts: 
     {
     // ConstantFlowAgreement: process.env.REACT_APP_GOERLI_ConstantFlowAgreement,
@@ -364,6 +365,24 @@ export const SubCategoryKeyReducer = (state = initialState, action) => {
 export const selectedSubCategoryKeyReducer = (state = {}, action) => {
   switch (action.type) {
     case ActionTypes.SELECTED_SUBCATEGORY_KEY:
+      return { ...state, ...action.payload };
+
+    default:
+      return state;
+  }
+};
+export const GenzTokenReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ActionTypes.SET_GENZ_TOKEN:
+      return { ...state, GenzToken: action.payload };
+
+    default:
+      return state;
+  }
+}
+export const selectedGenzTokenReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ActionTypes.SELECTED_GENZ_TOKEN:
       return { ...state, ...action.payload };
 
     default:

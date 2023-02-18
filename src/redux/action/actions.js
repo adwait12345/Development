@@ -228,3 +228,17 @@ export const selectedCurrentNetwork = (sNetwork) => {
     payload: sNetwork
   };
 };
+
+export const setGenzToken = (GENZ) => {
+  return {
+    type: ActionTypes.SET_GENZ_TOKEN,
+    payload: GENZ,
+  };
+};
+
+export const selectedGenzToken = (sGENZ) => {
+  return {
+    type: ActionTypes.SELECTED_GENZ_TOKEN,
+    payload: sGENZ
+  };
+};

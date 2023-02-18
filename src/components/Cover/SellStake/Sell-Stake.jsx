@@ -35,13 +35,15 @@ import { useSelector } from "react-redux";
 // Global Permit
 import { permitSign } from "../../../global/GlobalPermit";
 import SkeletonInfo from "../../Skeleton/SkeletonInfo";
+import TokenSelector from "./TokenSelector/TokenSelector";
 
 // Main Function.
 export default function Sell_Stake() {
     // Redux States Import and use
     var token = useSelector((state) => state.allContracts);
     var Network = useSelector((state) => state.allCurrentNetwork);
-
+    var GenzToken = useSelector((state)=>state.allGenzToken)
+    
     const DAI_ERC20_CA = token.contracts.DAI_ERC20_CA;
     const SZT_ERC20_CA = token.contracts.SZT_ERC20_CA;
     const GSZT_ERC20_CA = token.contracts.GSZT_ERC20_CA;
@@ -53,6 +55,7 @@ export default function Sell_Stake() {
 
     // Localstates
     const [open, setOpen] = useState(false);
+    const [tokenselectoropen, settokenselectoropen] = useState(false)
     const [amount, setAmount] = useState("");
     const [balance, setBalance] = useState("");
     const [sellamount, setSellamount] = useState("");
@@ -410,7 +413,10 @@ export default function Sell_Stake() {
                                                                 setAmount(event.target.value);
                                                             }}
                                                         />
-                                                        <span>GENZ</span>
+                                                        <span onClick={() => { settokenselectoropen(true) }}>
+                                                            <img src={GenzToken.GenzToken.url} alt="" />
+                                                            {GenzToken.GenzToken.name}
+                                                            </span>
                                                     </div>
                                                 </div>
                                                 <div className="buy-button">
@@ -476,6 +482,9 @@ export default function Sell_Stake() {
                     </div>
                 </div>
             </div>
+            <Modal isOpen={tokenselectoropen} className="Modal">
+                <TokenSelector settokenselectoropen={settokenselectoropen} />
+            </Modal>
             <Modal isOpen={open} className="Modal">
                 <LoginModal open={open} setOpen={setOpen} />
             </Modal>
