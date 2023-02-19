@@ -1,5 +1,9 @@
 // Import Libraries
 import React from "react";
+import { Link } from "react-router-dom";
+
+import Pdf from "../../../assets/pdf/SafeZenWhitepaper.pdf";
+
 
 //Main function
 export default function Footer() {
@@ -18,18 +22,18 @@ export default function Footer() {
             <div className="div2">
                             <div className="column-1">
                                 {/* <h3>Column 1</h3> */}
-                                <li>Github</li>
-                                <li>Whitepaper</li>
-                                <li>Docs</li>
-                                <li>About</li>
+                <a href="https://github.com/SafeZenInsured/"><li>Github</li></a>  
+                              <a href={Pdf}><li>Whitepaper</li></a>  
+                <a href="https://safezeninsured.gitbook.io/safezen-documentation/"><li>Documention</li></a>  
+                                {/* <li>About</li> */}
                                 {/* <li>Link five</li> */}
                             </div>
        
                             <div className="column-3">
                                 {/* <h3>Column 3</h3> */}
-                                <li>AirDrop</li>
-                                <li>Dashboard</li>
-                                <li>Provide Coverage</li>
+                               <Link to='/gettoken'> <li >AirDrop</li></Link>
+                               <Link to='/cover/dashboard'><li>Dashboard</li></Link> 
+                               <Link to='/cover/providecoverage'><li>Provide Coverage</li></Link> 
                                 {/* <li>Link Fourteen</li> */}
                                 {/* <li>Link Fifteen</li> */}
                             </div>
@@ -50,8 +54,7 @@ export default function Footer() {
             <div className="foot-bot-left">
               <p>© 2023 SafeZen. All right reserved.</p>
               <li>Privacy Policy</li>
-                            <li>Terms and Conditions</li>
-                            <li>Cookies Settings</li>
+              <li>Terms and Conditions</li>
             </div>
             <div className="foot-bot-right">
               <div className="discord">
@@ -94,6 +97,14 @@ export default function Footer() {
                       d="M2 0H16C17.1046 0 18 0.89543 18 2V16C18 17.1046 17.1046 18 16 18H2C0.89543 18 0 17.1046 0 16V2C0 0.89543 0.89543 0 2 0ZM5 15C5.27614 15 5.5 14.7761 5.5 14.5V7.5C5.5 7.2239 5.27614 7 5 7H3.5C3.22386 7 3 7.2239 3 7.5V14.5C3 14.7761 3.22386 15 3.5 15H5ZM4.25 6C3.42157 6 2.75 5.32843 2.75 4.5C2.75 3.67157 3.42157 3 4.25 3C5.07843 3 5.75 3.67157 5.75 4.5C5.75 5.32843 5.07843 6 4.25 6ZM14.5 15C14.7761 15 15 14.7761 15 14.5V9.9C15.0325 8.3108 13.8576 6.95452 12.28 6.76C11.177 6.65925 10.1083 7.1744 9.5 8.1V7.5C9.5 7.2239 9.2761 7 9 7H7.5C7.2239 7 7 7.2239 7 7.5V14.5C7 14.7761 7.2239 15 7.5 15H9C9.2761 15 9.5 14.7761 9.5 14.5V10.75C9.5 9.9216 10.1716 9.25 11 9.25C11.8284 9.25 12.5 9.9216 12.5 10.75V14.5C12.5 14.7761 12.7239 15 13 15H14.5Z"
                     />
                   </svg>
+                </a>
+              </div>
+              <div className="github">
+                <a href="https://github.com/SafeZenInsured/">
+
+                <svg height="20" aria-hidden="true" viewBox="0 0 18 18" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
+                  <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
                 </a>
               </div>
             </div>

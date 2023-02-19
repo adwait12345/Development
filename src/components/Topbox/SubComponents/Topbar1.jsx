@@ -53,8 +53,8 @@ export default function Topbar() {
                     ></path>
                   </svg>
                 </a>
-                <a>
-                  Docs
+                <a target='_blank' href="https://safezeninsured.gitbook.io/safezen-documentation/"> 
+                  Documention
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -78,8 +78,8 @@ export default function Topbar() {
                     ></path>
                   </svg>
                 </a>
-                <a>About</a>
-                <Link to='/gettoken'>AirDrop GENZ</Link>
+                {/* <a>About</a> */}
+                <Link to='/gettoken'>GENZ AirDrop</Link>
               </div>
             </div>
             <div className="titlr">

@@ -57,7 +57,7 @@ const Submit = async(e) =>{
     <>
       <div className="getToken">
         <form className="getoken-card" onSubmit={Submit} >
-          <h1 >Get AirDrop GENZ</h1>
+          <h1 >Get GENZ AirDrop </h1>
                   <input type="text" maxLength={50} required placeholder="Discord ID" onChange={(e) => { setData({...Data, DiscordID: e.target.value })}}/>
                   <input type="text" maxLength={50} required placeholder="Twitter ID" onChange={(e) => { setData({ ...Data, TwitterID: e.target.value }) }} />
                   <input type="url" maxLength={150} required placeholder="Post URL" onChange={(e) => { setData({ ...Data, URL: e.target.value }) }} />

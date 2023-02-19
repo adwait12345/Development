@@ -24,7 +24,7 @@ export default function TokenSelector({ settokenselectoropen }) {
         <div className="botselector">
          {Tokens.map((e)=>{
             return(
-                <p onClick={() => { dispatch(setGenzToken({ name: e._name, url: e._url ,id:e._id})), settokenselectoropen(false)}}>
+                <p onClick={() => { dispatch(setGenzToken({ name: e._name, url: e._url ,id:e._id, tokenName:e._tokenName})), settokenselectoropen(false)}}>
             <img src={e._url}  />
             {e._name}
           </p>

@@ -63,9 +63,30 @@
 
 .menu {
   display: flex;
-  width: 500px;
+  width: 600px;
   justify-content: space-evenly;
   font-weight: 100;
+}
+.menu a{
+    position: relative;
+
+}
+.menu a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.menu a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .menu a {
@@ -517,6 +538,10 @@ details[open] summary:after {
   margin-bottom: 10px;
 }
 
+.footer-top a{
+  text-decoration: none;
+}
+
 .div1 {
   flex: 2;
   align-items: flex-start;
@@ -549,7 +574,7 @@ details[open] summary:after {
   list-style: none;
   font-size: 14px;
   line-height: 40px;
-  color: var(--color-tertiary-text);
+  color: #bfbfbf;
   font-weight: 300;
 }
 

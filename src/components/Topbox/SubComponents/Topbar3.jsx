@@ -48,7 +48,7 @@ export default function Topbar3() {
               <img src={ZP} alt="" />
             </div>
           </div>
-          <img className="plain" src={Plain} alt="" />
+          {/* <img className="plain" src={Plain} alt="" /> */}
         </div>
       </div>
     </>

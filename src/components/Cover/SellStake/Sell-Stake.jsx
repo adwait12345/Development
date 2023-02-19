@@ -272,6 +272,44 @@ export default function Sell_Stake() {
         }
     };
 
+    const PermitTokens = async()=>{
+        try {
+            // setloadingDAI(true);
+            const TO_BE_PERMIT_AMOUNT = ethers.utils.parseUnits(`${needtoApprove}`, "ether");
+            window.deadline = Date.now() + 600;
+            window.x = await permitSign(
+                GenzToken.GenzToken.tokenName,
+                "1",
+                DAI_ERC20_CA,
+                BUY_SELL_SZT_CA,
+                TO_BE_PERMIT_AMOUNT,
+                window.deadline
+            );
+        } catch (error) {
+            console.log(error);
+            setloadingDAI(false);
+        }
+    }
+
+
+    const Buy_GenzToken = async() =>{
+        try {
+            setloadingBuy(true);
+
+            const BUY_AMOUNT = ethers.utils.parseUnits(`${amount}`, "ether");
+          await  DAI_SIGNER.buyGENZToken(GenzToken.GenzToken.id, BUY_AMOUNT, window.deadline, window.x.v, window.x.r, window.x.s);
+
+
+        } catch (error) {
+            setloadingBuy(false);
+            console.log(error);
+        }
+    }
+
+    const WithDraw_GenzToken = async() =>{
+       await BUY_SELL_SZT_PROVIDER.withdrawTokens()
+    }
+
     return (
         <>
             <div className="Navbar_Cover">
@@ -420,14 +458,14 @@ export default function Sell_Stake() {
                                                     </div>
                                                 </div>
                                                 <div className="buy-button">
-                                                    <button onClick={BuyPermit}>
+                                                    <button onClick={PermitTokens}>
                                                         {loadingDAI ? (
                                                             <Loader />
                                                         ) : (
-                                                            `Approve ${needtoApprove} DAI`
+                                                            `Permit ${needtoApprove} DAI`
                                                         )}
                                                     </button>
-                                                    <button onClick={Buy}>
+                                                    <button onClick={Buy_GenzToken}>
                                                         {loadingBuy ? <Loader /> : "Buy"}
                                                     </button>
                                                 </div>
@@ -437,7 +475,12 @@ export default function Sell_Stake() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="stake-box">Coming Soon</div>
+                                        <div className="stake-box">
+                                            <div className="stake-bott">
+                                                <button onClick={WithDraw_GenzToken}>WithDraw GENZ</button>
+
+                                            </div>
+                                        </div>
                                     </div>
                                     {/* <div className="sell-tit">
                                         <h3>Sell GENZ Token</h3>
