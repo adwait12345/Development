@@ -7,8 +7,8 @@ import Aave from "../../../assets/svg/Aave.svg";
 import Alchemy from "../../../assets/svg/Alchemy.svg";
 import Pdf from "../../../assets/pdf/SafeZenWhitepaper.pdf";
 import Blob from "../../../assets/mp4/Blob.mp4";
-import Background from "../../../assets/png/Background.png";
-
+import Background from "../../../assets/jpg/stars.jpg";
+import flower from '../../../assets/jpg/flower.jpg'
 // Main function
 export default function Topbar() {
   return (
@@ -20,7 +20,7 @@ export default function Topbar() {
             src="https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp"
             alt=""
           /> */}
-          <img src={Background} alt="" />
+          {/* <iframe src='https://my.spline.design/forestlightscopy-3d24d2973ddfce8dc3bb5a79316157de/' frameborder='0' width='100%' height='100%'></iframe> */}
 
         </div>
         <div className="topbar-right">
@@ -94,7 +94,7 @@ export default function Topbar() {
               </Link>
             </div>
             <div className="trust">
-              <h2>Granted by</h2>
+              <h2>Grant recipent</h2>
               <img width={100} src={Aave} alt="" />
               <img width={200} src={Alchemy} alt="" />
             </div>
@@ -105,6 +105,11 @@ export default function Topbar() {
             {/* <video type="video/mp4" loop="true" autoplay="autoplay" muted>
               <source src={Blob} />
             </video> */}
+            <div className="img1">
+            </div>
+            <img src="https://images.pexels.com/photos/1230739/pexels-photo-1230739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+
+
           </div>
         </div>
       </div>
