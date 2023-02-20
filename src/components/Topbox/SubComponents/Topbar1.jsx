@@ -9,6 +9,7 @@ import Pdf from "../../../assets/pdf/SafeZenWhitepaper.pdf";
 import Blob from "../../../assets/mp4/Blob.mp4";
 import Background from "../../../assets/jpg/stars.jpg";
 import flower from '../../../assets/jpg/flower.jpg'
+import forest from '../../../assets/png/earth.png'
 // Main function
 export default function Topbar() {
   return (
@@ -20,7 +21,9 @@ export default function Topbar() {
             src="https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp"
             alt=""
           /> */}
-          <iframe src='https://my.spline.design/forestlightscopy-3d24d2973ddfce8dc3bb5a79316157de/' frameborder='0' width='100%' height='100%'></iframe>
+          {/* <img src={forest} alt="" /> */}
+          {/* <iframe src='https://my.spline.design/forestlightscopy-3d24d2973ddfce8dc3bb5a79316157de/' frameborder='0' width='100%' height='100%'></iframe> */}
+          {/* <img src="https://cdn.discordapp.com/attachments/1060142986417147917/1074304922587242496/anshik1998_stunning_3d_solar_system_with_stars_water_planet_com_b5fe7a3b-b62d-4a7c-b8de-6918d32c8cce.png" alt="" /> */}
 
         </div>
         <div className="topbar-right">
@@ -107,9 +110,9 @@ export default function Topbar() {
             </video> */}
             <div className="img1">
             </div>
-            {/* <img src="https://images.pexels.com/photos/1230739/pexels-photo-1230739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /> */}
+            <img src="https://cdn.discordapp.com/attachments/998538291106300007/1077238448282411028/wwwww.png" alt="" />
 
-
+            {/* <img src="https://cdn.discordapp.com/attachments/1060142986417147917/1074304922587242496/anshik1998_stunning_3d_solar_system_with_stars_water_planet_com_b5fe7a3b-b62d-4a7c-b8de-6918d32c8cce.png" alt="" /> */}
           </div>
         </div>
       </div>
