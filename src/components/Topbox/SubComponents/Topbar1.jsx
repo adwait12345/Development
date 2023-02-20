@@ -20,7 +20,7 @@ export default function Topbar() {
             src="https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp"
             alt=""
           /> */}
-          {/* <iframe src='https://my.spline.design/forestlightscopy-3d24d2973ddfce8dc3bb5a79316157de/' frameborder='0' width='100%' height='100%'></iframe> */}
+          <iframe src='https://my.spline.design/forestlightscopy-3d24d2973ddfce8dc3bb5a79316157de/' frameborder='0' width='100%' height='100%'></iframe>
 
         </div>
         <div className="topbar-right">
@@ -107,7 +107,7 @@ export default function Topbar() {
             </video> */}
             <div className="img1">
             </div>
-            <img src="https://images.pexels.com/photos/1230739/pexels-photo-1230739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+            {/* <img src="https://images.pexels.com/photos/1230739/pexels-photo-1230739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /> */}
 
 
           </div>
