@@ -37,6 +37,8 @@ import Paper from "@mui/material/Paper";
 // Import Redux
 import { useSelector } from "react-redux";
 import { permitSign } from "../../../global/GlobalPermit";
+import TokenSelector from "../SellStake/TokenSelector/TokenSelector";
+
 
 // Main function
 export default function DAO() {
@@ -46,6 +48,8 @@ export default function DAO() {
   // Redux States Import and use
   var key = useSelector((state) => state.allKey);
   var token = useSelector((state) => state.allContracts);
+  var GenzToken = useSelector((state) => state.allGenzToken);
+
   const DAI_ERC20_CA = token.contracts.DAI_ERC20_CA;
 
   var Claim_Governance = token.contracts.CLAIM_GOVERNANCE_CA;
@@ -60,6 +64,7 @@ export default function DAO() {
   const [string, setString] = useState("");
   const [ClaimAmount, setClaimAmount] = useState("");
   const [Info, setinfo] = useState([]);
+  const [tokenselectoropen, settokenselectoropen] = useState(false)
 
   // Provider.
   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -86,6 +91,7 @@ export default function DAO() {
       window.deadline
     );
     const trans = Create.createClaim(
+      GenzToken.GenzToken.id,
       key.keys,
       subkeys.subKey,
       string,
@@ -216,6 +222,10 @@ CLAIMS.map((param)=>{
                     <div className="stringProof">
                       <h4>
                         Link of Proof <BsInfoCircle />
+                        <span onClick={() => { settokenselectoropen(true) }}>
+                          <img src={GenzToken.GenzToken.url} alt="" />
+                          {GenzToken.GenzToken.name}
+                        </span>
                       </h4>
                       <textarea
                         name=""
@@ -227,6 +237,7 @@ CLAIMS.map((param)=>{
                           setString(event.target.value);
                         }}
                       ></textarea>
+          
                     </div>
                   </form>
                 </div>
@@ -302,6 +313,9 @@ CLAIMS.map((param)=>{
           </div>
         </div>
       </div>
+      <Modal isOpen={tokenselectoropen} className="Modal">
+        <TokenSelector settokenselectoropen={settokenselectoropen} />
+      </Modal>
       <Modal isOpen={open} className="Modal">
         <LoginModal open={open} setOpen={setOpen} />
       </Modal>

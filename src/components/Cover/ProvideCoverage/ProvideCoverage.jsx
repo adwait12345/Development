@@ -41,11 +41,15 @@ import {
 
 // Import of global function
 import { permitSign } from "../../../global/GlobalPermit";
+import TokenSelector from "../SellStake/TokenSelector/TokenSelector";
 
 // Main function
 export default function ProvideCoverage() {
   // Redux States Import and use
   var token = useSelector((state) => state.allContracts);
+  var GenzToken = useSelector((state) => state.allGenzToken);
+  var StableSZT = useSelector((state) => state.allStableSZT);
+
   const DAI_ERC20_CA = token.contracts.DAI_ERC20_CA;
   const INSURANCE_REGISTRY_CA = token.contracts.INSURANCE_REGISTRY_CA;
   const SWAP_DAI_CA = token.contracts.SWAP_DAI_CA;
@@ -73,6 +77,7 @@ export default function ProvideCoverage() {
   const [loading, setloading] = useState(true);
   const [subCategory, setSubCategory] = useState("");
   const [Category, setCategory] = useState("");
+  const [tokenselectoropen, settokenselectoropen] = useState(false)
 
   // Functions
 
@@ -94,10 +99,11 @@ export default function ProvideCoverage() {
     }
   };
 
-  const SwapDAI = async () => {
+  const SwapStablecoin = async () => {
     try {
       const SWAP_AMOUNT = ethers.utils.parseUnits(`${amountInDAI}`, "ether");
       const TRANSACION = await SWAP_DAI_SIGNER.swapDAI(
+        GenzToken.GenzToken.id,
         SWAP_AMOUNT,
         window.deadline,
         window.signature.v,
@@ -126,11 +132,12 @@ export default function ProvideCoverage() {
       console.log(error);
     }
   };
-  const SwapSztDAI = async () => {
+  const SwapStableSZT = async () => {
     try {
 
       const SWAP_AMOUNT = ethers.utils.parseUnits(`${amountInSZTDAI}`, "ether");
-      var trans = await SWAP_DAI_SIGNER.swapsztDAI(
+      var trans = await SWAP_DAI_SIGNER.swapStablecoin(
+        GenzToken.GenzToken.id,
         SWAP_AMOUNT,
         window.deadline,
         window.signature.v,
@@ -209,11 +216,14 @@ export default function ProvideCoverage() {
                           setSwapDAIamount(event.target.value);
                         }}
                       />
-                      <span>DAI</span>
+                      <span onClick={() => { settokenselectoropen(true) }}>
+                        <img src={GenzToken.GenzToken.url} alt="" />
+                        {GenzToken.GenzToken.name}
+                      </span>
                     </div>
                     <div className="sell-button">
                       <button onClick={PermitDAI}>Permit DAI</button>
-                      <button id="sellbtn" onClick={SwapDAI}>
+                      <button id="sellbtn" onClick={SwapStablecoin}>
                         Swap DAI
                       </button>
                     </div>
@@ -237,11 +247,14 @@ export default function ProvideCoverage() {
                           setSwapsztDAIamount(event.target.value);
                         }}
                       />
-                      <span>sztDAI</span>
+                      <span onClick={() => { settokenselectoropen(true) }}>
+                        <img src={GenzToken.GenzToken.url} alt="" />
+                        {GenzToken.GenzToken.name}
+                      </span>
                     </div>
                     <div className="sell-button">
                       <button onClick={PermitSZTDAI}>Permit sztDAI</button>
-                      <button id="sellbtn" onClick={SwapSztDAI}>
+                      <button id="sellbtn" onClick={SwapStableSZT}>
                         Swap sztDAI
                       </button>
                     </div>
@@ -363,6 +376,9 @@ export default function ProvideCoverage() {
           </div>
         </div>
       </div>
+      <Modal isOpen={tokenselectoropen} className="Modal">
+        <TokenSelector settokenselectoropen={settokenselectoropen} />
+      </Modal>
       <Modal isOpen={activateOpen} className="Modal">
         <ProvideCoverageModal setActivateOpen={setActivateOpen} />
       </Modal>

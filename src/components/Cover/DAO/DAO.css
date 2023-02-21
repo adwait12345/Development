@@ -132,6 +132,19 @@ background-color: var(--color-green-button);
             align-items: center;
             justify-content: center;
 }
+.stringProof span img{
+    width: 20px;
+    margin-right: 5px;
+}
+.stringProof span{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    cursor: pointer;
+    background-color: #343434;
+    border-radius: 5px;
+}
 .stringProof h4{
         align-self: flex-start
 }

@@ -33,7 +33,9 @@ import {
   selectedSubCategoryKeyReducer,
   SubCategoryKeyReducer,
   GenzTokenReducer,
-  selectedGenzTokenReducer
+  selectedGenzTokenReducer,
+  StableSZTnReducer,
+  selectedStableSZTReducer,
 } from "./Reducer";
 
 const reducer = combineReducers({
@@ -71,5 +73,7 @@ const reducer = combineReducers({
   allsubKey: SubCategoryKeyReducer,
   GenzToken:selectedGenzTokenReducer,
   allGenzToken:GenzTokenReducer,
+  StableSZT:selectedStableSZTReducer,
+  allStableSZT:StableSZTnReducer
 });
 export default reducer;

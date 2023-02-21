@@ -345,6 +345,23 @@ border: 1px solid lime;
 
 .selectStake span {
   color: var(--color-primary-text);
+      display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--font-poppins);
+        padding: 0px 5px;
+        background: #343434;
+        color: #fff;
+        border-radius: 5px;
+        height: 25px;
+        cursor: pointer;
+      
+}
+.selectStake span img{
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-right: 10px;
 }
 
 .selectStake input {

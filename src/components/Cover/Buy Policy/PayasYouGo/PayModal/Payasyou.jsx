@@ -1,6 +1,8 @@
 // Import Libraries
 import React, { useState } from "react";
 import "./Payasyou.css";
+import Modal from "react-modal";
+
 
 // Import React Icons & Assets
 import { CloseIcon } from "@chakra-ui/icons";
@@ -14,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ethers } from "ethers";
 import { COVERAGE_POOL_ABI, BUY_SELL_SZT_ABI } from "../../../../../constants/index";
 import { permitSign } from "../../../../../global/GlobalPermit";
+import TokenSelector from "../../../SellStake/TokenSelector/TokenSelector";
 
 // Main Function Start
 export default function Payasyou({ setZeroOpen }) {
@@ -24,6 +27,8 @@ export default function Payasyou({ setZeroOpen }) {
   const UNDERWRITE = useSelector((state) => state.allUnderwrite);
   const KEYS = useSelector((state) => state.allKey);
   const SUBKEYS = useSelector((state) => state.allsubKey);
+  var GenzToken = useSelector((state) => state.allGenzToken);
+
   const DISPATCH = useDispatch();
   var SZT_Token = token.contracts.SZT_ERC20_CA;
   var GSZTToken = token.contracts.GSZT_ERC20_CA;
@@ -43,7 +48,8 @@ export default function Payasyou({ setZeroOpen }) {
 
   // LocalStates
   const [UnderAmt, setUnderAmt] = useState("");
-  
+  const [tokenselectoropen, settokenselectoropen] = useState(false)
+
 
   //Permit to underWrite
   const Permit_to_Underwrite = async () => {
@@ -54,14 +60,14 @@ export default function Payasyou({ setZeroOpen }) {
    const BUYSELLSZT_CONTRACT_PROVIDER = new ethers.Contract(buySellSZT, BUY_SELL_SZT_ABI, PROVIDER);
     const issuedTokensSZT = await BUYSELLSZT_CONTRACT_PROVIDER.getTokenCounter();
     const value = ethers.utils.parseUnits(`${ UnderAmt }`, "ether");
-    console.log(`Issued_SZT_tokens: ${ issuedTokensSZT.toString() }`);
+    // console.log(`Issued_SZT_tokens: ${ issuedTokensSZT.toString() }`);
     const amountInSZT = issuedTokensSZT.add(value);
-    console.log(amountInSZT.toString());
+    // console.log(amountInSZT.toString());
     const amountInDAI = await BUYSELLSZT_CONTRACT_PROVIDER.calculatePriceSZT(
       issuedTokensSZT,
       (amountInSZT)
     );
-    console.log(`Amount to be paid in DAI: ${ amountInDAI[1].toString() }`);
+    // console.log(`Amount to be paid in DAI: ${ amountInDAI[1].toString() }`);
 
     window.Deadline = Date.now() + 600;
     window.x = await permitSign("MockDAI", "1", DAI_Token, CoveragePool, amountInDAI[1], window.Deadline);
@@ -74,14 +80,18 @@ export default function Payasyou({ setZeroOpen }) {
     const oneEther = ethers.utils.parseUnits(`${UnderAmt}`, "ether");
     // var trans = await SwapDAI_Contract.swapDAI(oneEther, window.Deadline, window.x.v, window.x.r, window.x.s)
     // var trans = await SZTPOST.UNDERWRITE(oneEther, , `${subkeys.subKey}`, window.Deadline, window.x.v, window.x.r, window.x.s);
-    var trans = await SZTPOST.underwrite(oneEther, `${KEYS.keys}`, `${SUBKEYS.subKey}`, window.Deadline, window.x.v, window.x.r, window.x.s);
+    var trans = await SZTPOST.underwrite(GenzToken.GenzToken.id, oneEther, `${KEYS.keys}`, `${SUBKEYS.subKey}`, window.Deadline, window.x.v, window.x.r, window.x.s);
   };
 
   return (
     <>
       <div className="pay-as" data-theme="white">
         <h2>
-          UnderWrite <span>{UNDERWRITE.UNDERWRITE}</span>{" "}
+          UnderWrite 
+          <span onClick={() => { settokenselectoropen(true) }}>
+            <img src={GenzToken.GenzToken.url} alt="" />
+            {GenzToken.GenzToken.name}
+          </span>
           <CloseIcon onClick={Close} />
         </h2>
         <div className="underwrite-input">
@@ -113,6 +123,9 @@ export default function Payasyou({ setZeroOpen }) {
         </div>
 
       </div>
+      <Modal isOpen={tokenselectoropen} className="Modal">
+        <TokenSelector settokenselectoropen={settokenselectoropen} />
+      </Modal>
     </>
   );
 }

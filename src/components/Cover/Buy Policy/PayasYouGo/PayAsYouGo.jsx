@@ -30,6 +30,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { INSURANCE_REGISTRY_ABI } from "../../../../constants/index";
 import { ethers } from "ethers";
 import SkeletonTable from "../../../Skeleton/SkeletonTable";
+import Withdraw from "./Withdraw/Withdraw";
 
 // Main Function Start
 export default function PayAsYouGo() {
@@ -42,6 +43,7 @@ export default function PayAsYouGo() {
   //LocalStates
   const [open, setOpen] = useState(false);
   const [zeroOpen, setZeroOpen] = useState(false);
+  const [withdrawOpen, setWithdraw] = useState(false);
   const [ProtOpen, setProtOpen] = useState(false);
   const [Protocol, setProtocol] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -151,8 +153,9 @@ export default function PayAsYouGo() {
                           <TableCell className="Tablecell" align="right">
                             Premium per min &nbsp; <BsInfoCircle color="#fff" />
                           </TableCell>
+                      
                           <TableCell className="Tablecell" align="right">
-                            Active &nbsp; <BsInfoCircle color="#fff" />
+                            Actions &nbsp; <BsInfoCircle color="#fff" />
                           </TableCell>
                         </TableRow>
                       </TableHead>
@@ -201,8 +204,9 @@ export default function PayAsYouGo() {
                             <TableCell align="right">
                               {loading ? <SkeletonTable /> : (Contract[5].toString() / 1e18).toFixed(18)}  DAI
                             </TableCell>
+                        
                             <TableCell align="right">
-                              {loading ? <SkeletonTable /> : Contract[0].toString()}
+                              {loading ? <SkeletonTable /> :<> <button onClick={()=>{setWithdraw(true)}}>Withdraw</button> </>}
                             </TableCell>
                           </TableRow>
                         ))}
@@ -216,7 +220,9 @@ export default function PayAsYouGo() {
           </div>
         </div>
       </div>
-
+      <Modal isOpen={withdrawOpen} className="Modal">
+        <Withdraw setWithdraw={setWithdraw} />
+      </Modal>
       <Modal isOpen={zeroOpen} className="Modal">
         <Payasyou zeroOpen={zeroOpen} setZeroOpen={setZeroOpen} />
       </Modal>

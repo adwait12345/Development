@@ -109,6 +109,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  font-weight: 200;
 }
 
 .nav-topbar {
@@ -121,7 +122,7 @@
 
 .titlr h2 {
   color: #757575;
-  font-weight: 100;
+  font-weight: 200;
   letter-spacing: 2px;
   margin: 0;
   text-transform: uppercase;
@@ -132,7 +133,7 @@
   font-size: 55px;
   width: 750px;
   line-height: 55px;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .launch-app {
@@ -222,14 +223,14 @@
 }
 
 .topbar2-left h1 {
-  font-weight: 100;
+  font-weight: 200;
   font-size: 50px;
   margin-bottom: 0;
   line-height: 55px;
 }
 
 .topbar2-left p {
-  font-weight: 100;
+  font-weight: 200;
   font-size: 20px;
   color: #757575;
   width: 424px;
@@ -279,7 +280,7 @@
   position: relative;
   color: #fff;
   align-items: center;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .topbar2-left button:after {
@@ -353,14 +354,13 @@
 
 .topbar3-left h1 {
   font-size: 50px;
-  font-weight: 100;
+  font-weight: 200;
   margin-bottom: 20px;
   line-height: 55px;
   margin-top: 0;
 }
 
 .topbar3-left p {
-  font-weight: 300;
   font-size: 20px;
   color: #757575;
   width: 424px;
@@ -368,7 +368,7 @@
   word-spacing: 1px;
   letter-spacing: 0.5px;
   margin-bottom: 5px;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .topbar3-left button {
@@ -384,7 +384,7 @@
   position: relative;
   color: #fff;
   align-items: center;
-  font-weight: 100;
+  font-weight: 200;
   margin-top: 25px;
 }
 
@@ -520,7 +520,7 @@ details[open] summary:after {
 
 .faq h1 {
   margin-top: 0;
-  font-weight: 100;
+  font-weight: 200;
   font-size: 45px;
 }
 

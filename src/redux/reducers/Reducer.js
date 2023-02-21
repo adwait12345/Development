@@ -19,6 +19,7 @@ const initialState = {
   TransactionAddress:[],
   CurrentNetwork:[],
   GenzToken:[],
+  StableSzt:[],
   contracts: 
     {
     // ConstantFlowAgreement: process.env.REACT_APP_GOERLI_ConstantFlowAgreement,
@@ -383,6 +384,25 @@ export const GenzTokenReducer = (state = initialState, action) => {
 export const selectedGenzTokenReducer = (state = {}, action) => {
   switch (action.type) {
     case ActionTypes.SELECTED_GENZ_TOKEN:
+      return { ...state, ...action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const StableSZTnReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ActionTypes.SET_STABLE_SZT_TOKEN:
+      return { ...state, StableSzt: action.payload };
+
+    default:
+      return state;
+  }
+}
+export const selectedStableSZTReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ActionTypes.SELECTED_STABLE_SZT_TOKEN:
       return { ...state, ...action.payload };
 
     default:

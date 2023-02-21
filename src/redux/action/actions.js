@@ -242,3 +242,17 @@ export const selectedGenzToken = (sGENZ) => {
     payload: sGENZ
   };
 };
+
+export const setStableSZTToken = (STABLE_SZT) => {
+  return {
+    type: ActionTypes.SET_STABLE_SZT_TOKEN,
+    payload: STABLE_SZT,
+  };
+};
+
+export const selectedStableSZTToken = (sSTABLE_SZT) => {
+  return {
+    type: ActionTypes.SELECTED_STABLE_SZT_TOKEN,
+    payload: sSTABLE_SZT
+  };
+};

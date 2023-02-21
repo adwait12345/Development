@@ -9,7 +9,6 @@ import Pdf from "../../../assets/pdf/SafeZenWhitepaper.pdf";
 import Blob from "../../../assets/mp4/Blob.mp4";
 import Background from "../../../assets/jpg/stars.jpg";
 import flower from '../../../assets/jpg/flower.jpg'
-import forest from '../../../assets/png/earth.png'
 // Main function
 export default function Topbar() {
   return (

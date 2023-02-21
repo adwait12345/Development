@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './tokenselector.css'
 import {Tokens} from '../../../../data/Tokens'
 // Import React Icons & Assets
 import { MdOutlineClose } from "react-icons/md";
+import { useLocation } from 'react-router-dom'
 
 
 // Import Redux
@@ -13,6 +14,10 @@ import {
 
 export default function TokenSelector({ settokenselectoropen }) {
     const dispatch = useDispatch()
+
+
+
+
   return (
     <>
     <div className="tokenSelector">
@@ -24,7 +29,16 @@ export default function TokenSelector({ settokenselectoropen }) {
         <div className="botselector">
          {Tokens.map((e)=>{
             return(
-                <p onClick={() => { dispatch(setGenzToken({ name: e._name, url: e._url ,id:e._id, tokenName:e._tokenName})), settokenselectoropen(false)}}>
+                <p onClick={() => {
+               
+                     dispatch(setGenzToken({ name: e._name, url: e._url, id: e._id, tokenName: e._tokenName }))
+
+          
+               
+                  
+                  
+                  
+                  ;  settokenselectoropen(false)}}>
             <img src={e._url}  />
             {e._name}
           </p>

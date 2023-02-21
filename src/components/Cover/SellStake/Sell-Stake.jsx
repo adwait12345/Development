@@ -29,7 +29,7 @@ import { ethers } from "ethers";
 
 // Import Redux
 
-import { ERC20_ABI, BUY_SELL_SZT_ABI } from "../../../constants/index";
+import { ERC20_ABI, BUY_SELL_SZT_ABI, BUY_GENZ_ABI} from "../../../constants/index";
 import { useSelector } from "react-redux";
 
 // Global Permit
@@ -47,8 +47,8 @@ export default function Sell_Stake() {
     const DAI_ERC20_CA = token.contracts.DAI_ERC20_CA;
     const SZT_ERC20_CA = token.contracts.SZT_ERC20_CA;
     const GSZT_ERC20_CA = token.contracts.GSZT_ERC20_CA;
-    const BUY_SELL_SZT_CA = token.contracts.BUY_SELL_SZT_CA;
-
+    const BUY_SELL_GENZ_CA = token.contracts.BUY_SELL_GENZ_CA;
+    const GENZ_ERC20_CA = token.contracts.GENZ_ERC20_CA
     // Provider & Signer
     const PROVIDER = new ethers.providers.Web3Provider(window.ethereum);
     const SIGNER = PROVIDER.getSigner();
@@ -80,10 +80,11 @@ export default function Sell_Stake() {
     // Global Variables & Constants.
     const DECIMAL = 18;
     const SZT_PROVIDER = new ethers.Contract(SZT_ERC20_CA, ERC20_ABI, PROVIDER);
-    const BUY_SELL_SZT_PROVIDER = new ethers.Contract(BUY_SELL_SZT_CA, BUY_SELL_SZT_ABI, PROVIDER);
+    // const BUY_SELL_SZT_PROVIDER = new ethers.Contract(BUY_SELL_SZT_CA, BUY_SELL_SZT_ABI, PROVIDER);
     const DAI_PROVIDER = new ethers.Contract(DAI_ERC20_CA, ERC20_ABI, PROVIDER);
     const DAI_SIGNER = new ethers.Contract(DAI_ERC20_CA, ERC20_ABI, SIGNER);
-    const BUY_SELL_SZT_SIGNER = new ethers.Contract(BUY_SELL_SZT_CA, BUY_SELL_SZT_ABI, SIGNER);
+    const GENZ_SIGNER = new ethers.Contract(GENZ_ERC20_CA, BUY_GENZ_ABI, SIGNER);
+    // const BUY_SELL_SZT_SIGNER = new ethers.Contract(BUY_SELL_SZT_CA, BUY_SELL_SZT_ABI, SIGNER);
 
     var today = new Date();
     var date =
@@ -275,13 +276,13 @@ export default function Sell_Stake() {
     const PermitTokens = async()=>{
         try {
             // setloadingDAI(true);
-            const TO_BE_PERMIT_AMOUNT = ethers.utils.parseUnits(`${needtoApprove}`, "ether");
+            const TO_BE_PERMIT_AMOUNT = ethers.utils.parseUnits(`2000`, "ether");
             window.deadline = Date.now() + 600;
             window.x = await permitSign(
                 GenzToken.GenzToken.tokenName,
                 "1",
                 DAI_ERC20_CA,
-                BUY_SELL_SZT_CA,
+                BUY_SELL_GENZ_CA,
                 TO_BE_PERMIT_AMOUNT,
                 window.deadline
             );
@@ -295,9 +296,9 @@ export default function Sell_Stake() {
     const Buy_GenzToken = async() =>{
         try {
             setloadingBuy(true);
-
-            const BUY_AMOUNT = ethers.utils.parseUnits(`${amount}`, "ether");
-          await  DAI_SIGNER.buyGENZToken(GenzToken.GenzToken.id, BUY_AMOUNT, window.deadline, window.x.v, window.x.r, window.x.s);
+            
+            const BUY_AMOUNT = ethers.utils.parseUnits(`2000`, "ether");
+            await GENZ_SIGNER.buyTokenGENZ('0', BUY_AMOUNT, window.deadline, window.x.v, window.x.r, window.x.s);
 
 
         } catch (error) {
