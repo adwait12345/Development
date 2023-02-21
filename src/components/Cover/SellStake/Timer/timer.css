@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Comfortaa:wght@500&family=Libre+Baskerville&family=Montserrat:wght@700&family=Poppins:ital,wght@0,400;0,500;0,800;1,400&family=Unbounded:wght@500&display=swap');
+
+.timer-wrapper {
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    /* padding: 1rem;
+    border: solid 2px white;
+    border-radius: 5px;
+    z-index: 2; */
+
+}
+
+.timer-inner {
+    color: #333;
+    display: flex;
+    border: solid 2px #fff;
+    padding: 1rem;
+    background-color: rgba(256, 256, 256, 0.8);
+    border-radius: 5px;
+}
+
+.timer-segment {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.divider,
+.timeRequired {
+    font-size: 25px;
+}
+
+.diver {
+    padding: 0 2px;
+}
+
+.label {
+    font-size: 10px;
+}
+
+.ender p {
+    color: rgb(199, 81, 3);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+.ender p span {
+    margin-left: 10px;
+    transform: rotate(5deg);
+}

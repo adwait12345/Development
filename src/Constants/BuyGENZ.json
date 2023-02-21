@@ -893,7 +893,7 @@
     },
     {
       "inputs": [],
-      "name": "withdrawTokens",
+      "name": "withdrawGENZ",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"

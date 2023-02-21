@@ -36,6 +36,7 @@ import { useSelector } from "react-redux";
 import { permitSign } from "../../../global/GlobalPermit";
 import SkeletonInfo from "../../Skeleton/SkeletonInfo";
 import TokenSelector from "./TokenSelector/TokenSelector";
+import Timer from "./Timer/Timer";
 
 // Main Function.
 export default function Sell_Stake() {
@@ -72,6 +73,7 @@ export default function Sell_Stake() {
     const [loadingSZT, setloadingSZT] = useState(false);
     const [loadingSell, setloadingSell] = useState(false);
     const [loading, setloading] = useState(true)
+    const [Time,settime] = useState("")
 
     // Moralis Hooks.
     var { account } = useMoralis();
@@ -83,7 +85,7 @@ export default function Sell_Stake() {
     // const BUY_SELL_SZT_PROVIDER = new ethers.Contract(BUY_SELL_SZT_CA, BUY_SELL_SZT_ABI, PROVIDER);
     const DAI_PROVIDER = new ethers.Contract(DAI_ERC20_CA, ERC20_ABI, PROVIDER);
     const DAI_SIGNER = new ethers.Contract(DAI_ERC20_CA, ERC20_ABI, SIGNER);
-    const GENZ_SIGNER = new ethers.Contract(GENZ_ERC20_CA, BUY_GENZ_ABI, SIGNER);
+    const BUY_GENZ_SIGNER = new ethers.Contract(BUY_SELL_GENZ_CA, BUY_GENZ_ABI, SIGNER);
     // const BUY_SELL_SZT_SIGNER = new ethers.Contract(BUY_SELL_SZT_CA, BUY_SELL_SZT_ABI, SIGNER);
 
     var today = new Date();
@@ -153,6 +155,31 @@ export default function Sell_Stake() {
             );
             const AMOUNT_TO_BE_PAID = ethers.utils.formatEther(amountToBePaidInWei[1]);
             setNeedtoApprove(`${AMOUNT_TO_BE_PAID}`);
+        } catch (error) {
+            console.log(error);
+        }
+    })(); 
+       (async () => {
+        try {
+          const Info = await BUY_GENZ_SIGNER.usersInformation(account);
+          console.log(Info[2].toString())
+            let unix_timestamp = Info[2].toString()
+            // Create a new JavaScript Date object based on the timestamp
+            // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+            var date = new Date(unix_timestamp * 1000);
+            // Hours part from the timestamp
+            var hours = date.getHours();
+            // Minutes part from the timestamp
+            var minutes = "0" + date.getMinutes();
+            // Seconds part from the timestamp
+            var seconds = "0" + date.getSeconds();
+
+            // Will display time in 10:30:23 format
+            var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+            console.log(date);
+            settime(date)
+
         } catch (error) {
             console.log(error);
         }
@@ -276,10 +303,10 @@ export default function Sell_Stake() {
     const PermitTokens = async()=>{
         try {
             // setloadingDAI(true);
-            const TO_BE_PERMIT_AMOUNT = ethers.utils.parseUnits(`2000`, "ether");
+            const TO_BE_PERMIT_AMOUNT = ethers.utils.parseUnits(`200`, "ether");
             window.deadline = Date.now() + 600;
             window.x = await permitSign(
-                GenzToken.GenzToken.tokenName,
+                "MockDAI",
                 "1",
                 DAI_ERC20_CA,
                 BUY_SELL_GENZ_CA,
@@ -298,7 +325,7 @@ export default function Sell_Stake() {
             setloadingBuy(true);
             
             const BUY_AMOUNT = ethers.utils.parseUnits(`2000`, "ether");
-            await GENZ_SIGNER.buyTokenGENZ('0', BUY_AMOUNT, window.deadline, window.x.v, window.x.r, window.x.s);
+            await BUY_GENZ_SIGNER.buyTokenGENZ(1, BUY_AMOUNT, window.deadline, window.x.v, window.x.r, window.x.s);
 
 
         } catch (error) {
@@ -308,7 +335,7 @@ export default function Sell_Stake() {
     }
 
     const WithDraw_GenzToken = async() =>{
-       await BUY_SELL_SZT_PROVIDER.withdrawTokens()
+        await BUY_GENZ_SIGNER.withdrawGENZ()
     }
 
     return (
@@ -478,6 +505,8 @@ export default function Sell_Stake() {
                                         </div>
                                         <div className="stake-box">
                                             <div className="stake-bott">
+                                                {/* <p>Time : {Time}</p> */}
+                                                <Timer  Time={Time} />
                                                 <button onClick={WithDraw_GenzToken}>WithDraw GENZ</button>
 
                                             </div>
