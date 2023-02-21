@@ -37,6 +37,7 @@ import { permitSign } from "../../../global/GlobalPermit";
 import SkeletonInfo from "../../Skeleton/SkeletonInfo";
 import TokenSelector from "./TokenSelector/TokenSelector";
 import Timer from "./Timer/Timer";
+import { useEffect } from "react";
 
 // Main Function.
 export default function Sell_Stake() {
@@ -159,7 +160,8 @@ export default function Sell_Stake() {
             console.log(error);
         }
     })(); 
-       (async () => {
+    useEffect(()=>{
+               (async () => {
         try {
           const Info = await BUY_GENZ_SIGNER.usersInformation(account);
           console.log(Info[2].toString())
@@ -184,6 +186,8 @@ export default function Sell_Stake() {
             console.log(error);
         }
     })();
+    },[Time])
+
 
     // Approve DAI Before Buying SZT.
     const BuyPermit = async () => {
