@@ -154,6 +154,7 @@ transition: 0.2s;
 
 .mid_card_insu_start h2 {
     font-size: 30px;
+    font-weight: 200;
 }
 
 .mid_card_insu_start p {
@@ -216,7 +217,7 @@ transition: 0.2s;
     padding: 10px;
     border-radius: 10px;
     border: none;
-    background-color: var(--color-placeholder);
+    background-color: var(--color-placeholder-color);
     font-family: var(--font-poppins);
     color: #757575;
     margin-right: 10px;

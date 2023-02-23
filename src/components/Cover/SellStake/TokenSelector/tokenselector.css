@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    color: #fff;
+    color: var(--color-primary-text);
     font-family: var(--font-poppins);
     padding: 15px;
 }
@@ -45,7 +45,7 @@
 
 }
 .botselector p:hover{
-    background-color: #414141;
+    background-color: var(--color-placeholder-color);
 }
 .botselector p img{
     width: 30px;

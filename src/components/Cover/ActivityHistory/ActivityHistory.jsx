@@ -84,7 +84,7 @@ export default function ActivityHistory() {
 
           <div className="Bottom-Content">
             <div className="activityhistory">
-              <div className="activityhistory-top">
+              {/* <div className="activityhistory-top">
                 <div class="dropdown">
                   <button class="dropbtn1" id="sc">
                     <div className="network-buttons"></div>
@@ -125,7 +125,7 @@ export default function ActivityHistory() {
                   name="Date"
                   id="Date"
                 />
-              </div>
+              </div> */}
               <div className="activityhistory-bet">
                 <TableContainer component={Paper}>
                   <Table sx={{ minWidth: 650 }} aria-label="simple table">

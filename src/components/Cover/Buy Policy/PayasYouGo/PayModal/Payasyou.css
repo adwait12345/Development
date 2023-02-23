@@ -1,12 +1,12 @@
 .pay-as {
   width: 450px;
   height:450px;
-  background:#0D1117;
+  background:var(--color-dashboard-boxes);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   font-family: var(--font-poppins);
-  color: #fff;
+  color: var(--color-primary-text);
   padding: 20px;
     justify-content: space-between;
 }
@@ -18,10 +18,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: 200;
 }
 
 .pay-as h2 span {
-padding: 3px;
+padding: 5px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -30,6 +31,7 @@ font-weight: 400;
 background-color: #343434;
 border-radius: 5px;
 cursor: pointer;
+color: #fff;
 }
 .pay-as h2 span img{
   width: 20px;
@@ -38,7 +40,7 @@ cursor: pointer;
 }
 .pay-as h2 svg {
   cursor: pointer;
-  color: #fff;
+  
 }
 .pay-as button {
   padding: 20px;
@@ -56,7 +58,7 @@ cursor: pointer;
 .underwrite-input {
   width: 90%;
   height: 40px;
-  background-color: #010409;
+  background-color: var(--color-placeholder-color);
   padding: 7px;
   border-radius: 10px;
   display: flex;

@@ -4,8 +4,8 @@
     width: 450px;
     height: 450px;
     padding: 20px;
-    background-color: #1e1e1e;
-    color: #fff;
+background: var(--color-dashboard-boxes);
+    color: var(--color-primary-text);
     border-radius: 10px;
     font-family: var(--font-poppins);
 }
@@ -13,11 +13,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+        font-weight: 100;
     
 }
 .providecoveragemodal h2 svg{
     cursor: pointer;
-    color: #fff;
 }
 .providecoveragemodal input{
     padding: 10px;
@@ -25,7 +25,7 @@
     border: none;
     border-radius: 10px;
         font-family: var(--font-poppins);
-        background-color: #2E334A;
+background-color: var(--color-placeholder-color);
         color: #757575;
 }
 .providecoveragemodal button{
@@ -47,9 +47,11 @@
     align-items: center;
     margin-bottom: 40px;
 }
-.protocol-name h2{
-    font-size: 20px;
+.protocol-name h3, .protocol-name h4{
+    font-size: 18px;
+            font-weight: 100;
 }
+
 #minus{
     background-color: #ff0000a8;
 }

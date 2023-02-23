@@ -17,7 +17,6 @@
 .connect_to_wallet p {
   display: flex;
   align-items: center;
-  color: #fff;
 }
 
 .connect_to_wallet button {

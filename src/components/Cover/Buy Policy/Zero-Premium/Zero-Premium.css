@@ -54,6 +54,9 @@
   width: 50%;
   border-radius: 10px;
   background: var(--color-dashboard-boxes);
+  border: 1px solid var(--color-box-border);
+      padding-bottom: 30px;
+          box-shadow: rgb(0 0 0 / 9%) 0px 3px 12px;
 }
 
 .supply {
@@ -73,7 +76,7 @@
   height: 50px;
   padding: 2px;
   border-radius: 10px;
-  background-color: var(--color-background);
+  background-color: var(--color-placeholder-color);
   padding: 10px;
 }
 
@@ -83,7 +86,7 @@
   border: none;
   font-family: var(--font-poppins);
   border-radius: 10px;
-  background-color: var(--color-background);
+  background-color: var(--color-placeholder-color);
   color: var(--color-tertiary-text);
   font-size: 24px;
 }
@@ -96,7 +99,7 @@
   height: 50px;
   padding: 2px;
   border-radius: 10px;
-  background-color: var(--color-background);
+  background-color: var(--color-placeholder-color);
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -106,7 +109,7 @@
   height: 100%;
   border: none;
   font-family: var(--font-poppins);
-  background-color: var(--color-background);
+  background-color: var(--color-placeholder-color);
   border-radius: 10px;
   color: #757575;
   font-size: 24px;

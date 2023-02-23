@@ -17,6 +17,7 @@
 
 .top_content h1 {
   margin-left: 45px;
+  font-weight: 200;
 }
 
 .dropbtn1 {
@@ -36,8 +37,8 @@
   height: 40px;
   width: 180px;
   border-radius: 30px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
+  font-family: var(--font-poppins);
+    font-weight: 500;
   cursor: pointer;
   background-color: transparent;
   color: var(
@@ -57,8 +58,8 @@
 
 #connect {
   /* background-color: #000; */
-  color: #fff;
-  border: none;
+  color: var(--color-primary-text);
+    border: none;
 }
 
 .Green {
@@ -102,16 +103,17 @@
 .dropbtn1 {
 
   font-size: 16px;
-border: 1px solid #30363D;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   font-size: 14px;
+      box-shadow: rgb(0 0 0 / 9%) 0px 3px 12px;
+      border: 1px solid var(--color-box-border);
 }
 .dropbtn2 {
   font-size: 16px;
-  border: 1px solid #30363D;
-  display: flex;
+    box-shadow: rgb(0 0 0 / 9%) 0px 3px 12px;
+      border: 1px solid var(--color-box-border);  display: flex;
   align-items: center;
   justify-content: space-evenly;
   font-size: 14px;
@@ -160,7 +162,7 @@ border: 1px solid #30363D;
 
 /* Links inside the dropdown */
 .dropdown-content1 a {
-  color: #fff;
+  color: var(--color-primary-text);
   padding: 16px 10px;
   text-decoration: none;
   display: flex;
@@ -177,7 +179,7 @@ border: 1px solid #30363D;
 }
 /* Change color of dropdown links on hover */
 .dropdown-content1 a:hover {
-  background-color: #262833;
+  background-color: var(--color-placeholder-color);
   cursor: pointer;
 }
 
@@ -200,7 +202,6 @@ border: 1px solid #30363D;
 
 /* Links inside the dropdown */
 .dropdown-content2 a {
-  color: #fff;
   padding: 16px 10px;
   text-decoration: none;
   display: flex;
@@ -211,7 +212,7 @@ border: 1px solid #30363D;
 
 /* Change color of dropdown links on hover */
 .dropdown-content2 a:hover {
-  background-color: #262833;
+  background-color: var(--color-placeholder-color);;
   cursor: pointer;
 }
 

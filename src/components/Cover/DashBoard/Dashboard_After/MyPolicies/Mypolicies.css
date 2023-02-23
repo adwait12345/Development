@@ -41,6 +41,7 @@
     margin-left: 20px;
     font-size: 40px;
     color: var(--color-primary-text);
+    font-weight: 200;
 }
 
 .Policy-btns {

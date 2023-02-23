@@ -206,7 +206,7 @@ export default function PayAsYouGo() {
                             </TableCell>
                         
                             <TableCell align="right">
-                              {loading ? <SkeletonTable /> :<> <button onClick={()=>{setWithdraw(true)}}>Withdraw</button> </>}
+                              {loading ? <SkeletonTable /> : <> <button id="withdraw" onClick={()=>{setWithdraw(true)}}>Withdraw</button> </>}
                             </TableCell>
                           </TableRow>
                         ))}

@@ -349,7 +349,7 @@ export default function Sell_Stake() {
                 <div className="spacer"></div>
 
                 <div className="ri_content">
-                    <Topbar setOpen={setOpen} name="Buy & Sell" />
+                    <Topbar setOpen={setOpen} name="Buy GENZ" />
 
                     <div className="Bottom-Content">
                         <div className="Dashboard_after">

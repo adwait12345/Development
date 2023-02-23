@@ -36,7 +36,7 @@
   overflow: hidden;
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
   background: var(--color-background);
-  border: 1px solid #30363D;
+border: 1px solid var(--color-box-border);
 }
 
 .stake-top {
@@ -57,7 +57,7 @@
   font-size: 35px;
   margin: 0;
   color: var(--color-primary-text);
-  font-weight: 500;
+  font-weight: 200;
 }
 
 .stake_title span {
@@ -133,9 +133,9 @@
   justify-content: space-between;
   padding: 10px;
   border-radius: 10px;
-  background-color: var(--color-placeholder);
+  background-color: var(--color-placeholder-color);
   height: 40px;
-  border: 1px solid #30363D;
+border: 1px solid var(--color-box-border);
   align-items: center;
 }
 
@@ -335,7 +335,7 @@ border: 1px solid lime;
   width: 80%;
   height: 40px;
   border-radius: 10px;
-  background-color: var(--color-placeholder);
+  background-color: var(--color-placeholder-color);
   align-items: center;
   justify-content: space-between;
   display: flex;
@@ -343,6 +343,7 @@ border: 1px solid lime;
   border: 1px solid #30363D;
   justify-self: center;
   align-self: center;
+  border: 1px solid var(--color-box-border);
 }
 
 .selectStake span {

@@ -56,6 +56,7 @@ export default function Community() {
   return (
     <>
       <div className="Navbar_Cover">
+        <div className="spacer"></div>
         <Sidebar setOpen={setOpen} />
         <div className="ri_content">
           <div className="Bottom-Content">

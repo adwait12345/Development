@@ -5,12 +5,12 @@
     align-items: center;
  justify-content: flex-start;
  align-items: center;
- color: #fff;
- background: linear-gradient(45deg, black, transparent);
+ color: var(--color-primary-text);
+ background: var(--color-dashboard-boxes);
      border: none;
     padding: 15px;
     border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-poppins);
     overflow: hidden;
     transition: 0.3s;
 }
@@ -39,6 +39,7 @@
 }
 .ZeroModal-top h2 {
     display: flex;
+    font-weight: 200;
 }
 .ZeroModal-top h2 svg{
 margin-right: 5px;
@@ -58,9 +59,9 @@ cursor: pointer;
     height: 30px;
     padding: 10px;
     border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-poppins);
     border: none;
-    background-color: #2E334A;
+    background-color: var(--color-placeholder-color);
     color: #757575;
 }
 .ZeroModal-Bot{
@@ -93,11 +94,11 @@ cursor: pointer;
     align-items: center;
     padding: 15px;
    
-    color: #fff;
-   cursor: pointer;
+    color: var(--color-primary-text);
+       cursor: pointer;
 }
 .Cont:hover{
-    background-color: rgb(66, 65, 65);
+    background-color: var(--color-placeholder-color);
 }
 .ZeroModal-top span{
 

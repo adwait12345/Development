@@ -349,7 +349,7 @@ export default function ProvideCoverage() {
                                 </p>
                               </div>
                               <div className="bot-contract">
-                                <button
+                                <button 
                                   onClick={function (event) {
                                     dispatch(
                                       setProtocal(Contracts[0].toString())
